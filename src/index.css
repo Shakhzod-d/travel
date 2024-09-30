@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    margin: 0;
+    padding: 0;
+    all: unset;
+}
+@media (min-width: 1367px) {
+    .app{
+        width: 100%;
+    }
+}
+
+.padding{
+    padding: 0 50px;
+}
+
+.navItem{
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

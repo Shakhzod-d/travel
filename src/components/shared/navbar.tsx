@@ -1,0 +1,19 @@
+import { navItems } from "../../utils"
+import { Link } from "react-router-dom"
+import { NavItems } from "../../types"
+
+const Navbar = () => {
+  return (
+    <ul className="flex">
+        {
+            navItems.map((item:NavItems) => (
+                <li className="navItem">
+                    <Link to={item.path} className="capitalize mr-4">{item.name}</Link>
+                </li>
+            ))
+        }
+    </ul>
+  )
+}
+
+export default Navbar

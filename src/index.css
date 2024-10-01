@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  all: unset;
+}
+@media (min-width: 1367px) {
+  .app {
+    width: 100%;
+  }
+}
+
+.padding {
+  padding: 0 50px;
+}
+
+.navItem {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(364px, 360px));
+  gap: 10px;
+  justify-content: center;
+}
+.card {
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+  width: 384px;
+  height: 100%;
+  padding: 0;
+}
+.card-content {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 20, 29, 0.03) 14.09%,
+    rgba(12, 20, 29, 0.1) 66.22%,
+    rgba(12, 20, 29, 0.7) 100%
+  );
+  position: absolute;
+  width: 384px !important;
+  height: 384px !important;
+  bottom: -100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card:hover {
+  .card-content {
+    bottom: 0px;
+  }
+}

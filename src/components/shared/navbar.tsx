@@ -4,11 +4,11 @@ import { NavItems } from "../../types"
 
 const Navbar = () => {
   return (
-    <ul className="flex">
+    <ul className="flex mr-5">
         {
             navItems.map((item:NavItems) => (
                 <li className="navItem">
-                    <Link to={item.path} className="capitalize mr-4">{item.name}</Link>
+                  <Link to={item.path} className="capitalize mr-4">{item.name}</Link>
                 </li>
             ))
         }

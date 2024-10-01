@@ -1,8 +1,13 @@
 import { ButtonProps } from "../../types"
 
-const Button = ({ text, background, onclick }: ButtonProps) => {
+const Button = ({ type, text, background, onclick, color, weight }: ButtonProps) => {
     return (
-        <button className={`bg-${background} px-3 py-2`} onClick={onclick}>{text}</button>
+        <button 
+            type={type}
+            className={`bg-[${background}] px-3 py-2 rounded-[200px] ${color} ${weight}`} 
+            onClick={onclick}>
+                {text}
+        </button>
     )
 }
 

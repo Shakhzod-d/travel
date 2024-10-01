@@ -7,7 +7,7 @@ const Navbar = () => {
     <ul className="flex mr-5">
         {
             navItems.map((item:NavItems) => (
-                <li className="navItem">
+                <li className="navItem" key={item.id}>
                   <Link to={item.path} className="capitalize mr-4">{item.name}</Link>
                 </li>
             ))

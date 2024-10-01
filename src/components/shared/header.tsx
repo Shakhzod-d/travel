@@ -1,6 +1,5 @@
 import travelIcon from '../../assets/images/experts.svg'
 import { Navbar } from './index'
-import { Button } from '../ui'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
@@ -10,7 +9,7 @@ const Header = () => {
             <div className='flex items-center'>
                 <Navbar/>
                 <Link to={'/sign-in'}>
-                    <Button type="button" text={"Sign in"} background='#F56960' color='text-white' weight='font-semibold'/>
+                    <button type='button' className='bg-[#F56960] round px-4 py-2 text-white font-semibold text-[16px]'>Sign in</button>
                 </Link>
             </div>
         </div>

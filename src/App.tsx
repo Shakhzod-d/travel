@@ -1,24 +1,22 @@
 import { Suspense } from "react";
 import { Preloading, Layout, Header } from "./components/shared";
-import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
-import About from "./pages/about";
-import Contact from "./pages/contact";
-import Footer from "./components/ui/footer";
-import Travel from "./pages/travel";
 
 function App() {
+  const location = useLocation();
+  const isLoginPage =
+    location.pathname == "/login" || location.pathname == "/sign-in";
+
   return (
     <Suspense fallback={<Preloading />}>
-      {/* <Header /> */}
+      {!isLoginPage && <Header />}
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="travel" element={<Travel />} />
+          <Route path="/" element={<Home />}></Route>
         </Route>
       </Routes>
-      <Footer />
     </Suspense>
   );
 }

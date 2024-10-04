@@ -24,7 +24,7 @@ const Travel = () => {
       <TravelPictures />
       <TravelMenu />
       <Container>
-        <div className="flex  justify-between gap-7 py-10 max-[1000px]:flex-col">
+        <div className="flex  justify-between gap-7 py-10 lg:flex-col">
           <div>
             <TravelOverview />
             <TravelRating />

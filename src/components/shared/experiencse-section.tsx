@@ -6,22 +6,22 @@ const ExperienceSection = () => {
       <Container>
         <div className="flex items-center flex-col gap-5 mb-12">
           <div className="h-11 px-5 py-2.5 bg-[#eaecf9] rounded  items-center gap-2.5 inline-flex">
-            <p className="text-[#635aff] text-xl font-semibold  uppercase leading-normal tracking-widest max-[740px]:text-sm">
+            <p className="text-[#635aff] text-xl font-semibold  uppercase leading-normal tracking-widest md:text-sm">
               THIS IS US
             </p>
           </div>
-          <h2 className="max-w-[736px] text-center text-black text-5xl font-bold  uppercase max-[740px]:text-3xl">
+          <h2 className="max-w-[736px] text-center text-black text-5xl font-bold  uppercase md:text-3xl">
             Provide the best travel experience for you
           </h2>
-          <p className="max-w-[998px] text-center text-[#666666] text-2xl font-normal max-[740px]:text-lg ">
+          <p className="max-w-[998px] text-center text-[#666666] text-2xl font-normal md:text-lg ">
             We are a team of professionals with a deep passion for travel. We
             believe that travel is a window to adventure, cultural discovery and
             personal growth.
           </p>
         </div>
 
-        <div className="flex flex-wrap max-[740px]:flex-col max-[740px]:items-center ">
-          <div className="max-w-[574px] h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 max-[540px]:p-0">
+        <div className="flex flex-wrap md:flex-col md:items-center ">
+          <div className="max-w-[574px] h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 sm:p-0">
             <div className=" gap-7 inline-flex items-start">
               <img
                 src="/icons/vision.svg"
@@ -40,7 +40,7 @@ const ExperienceSection = () => {
             </div>
           </div>
 
-          <div className="max-w-[574px] h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 max-[540px]:p-0">
+          <div className="max-w-[574px] h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 sm:p-0">
             <div className=" gap-7 inline-flex items-start">
               <img
                 src="/icons/mission.svg"

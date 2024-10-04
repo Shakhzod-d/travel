@@ -101,7 +101,7 @@ export const travelOverviewData = [
   { id: 5, text: "Swimming pool" },
   { id: 6, text: "Top rated in area" },
 ];
-import { v4 as uuidv4 } from "uuid";
+
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -115,45 +115,6 @@ import img7 from "../assets/images/seasons/summer3.png";
 import img8 from "../assets/images/seasons/winter1.png";
 import img9 from "../assets/images/seasons/winter2.png";
 import img10 from "../assets/images/seasons/winter3.png";
-
-export const navItems = [
-  {
-    id: uuidv4(),
-    name: "home",
-    path: "/",
-    active: true,
-  },
-  {
-    id: uuidv4(),
-    name: "tours",
-    path: "/tours",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "destinations",
-    path: "/destinations",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "manage booking",
-    path: "/booking",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "contact us",
-    path: "/contact",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "about us",
-    path: "/about",
-    active: false,
-  },
-];
 
 export const socialMedias = [
   {

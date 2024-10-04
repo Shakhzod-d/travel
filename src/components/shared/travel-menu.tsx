@@ -9,15 +9,15 @@ const TravelMenu: FC<TravelMenuProps> = () => {
   const [active, setActive] = useState(1);
   return (
     <section className="bg-white pb-10">
-      <Container className="max-[550px]:w-full">
-        <div className="justify-start items-start flex flex-wrap max-[550px]:flex-col max-[550px]:items-center">
+      <Container className="sm:w-full">
+        <div className="justify-start items-start flex flex-wrap sm:flex-col sm:items-center">
           {travelMenuData.map((item) => (
             <div
               className={`px-5 py-2 bg-white rounded-tl-sm rounded-tr-sm border-b ${
                 active == item.id
                   ? "border-[#2f80ed] border-b"
                   : "border-[#98a1b2]"
-              } items-center gap-2.5 flex max-[550px]:w-full`}
+              } items-center gap-2.5 flex sm:w-full`}
               key={item.id}
               onClick={() => setActive(item.id)}
             >

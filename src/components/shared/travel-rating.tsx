@@ -6,10 +6,10 @@ interface TravelRatingProps {}
 
 const TravelRating: FC<TravelRatingProps> = () => {
   return (
-    <div className="bg-white mb-4 py-4 px-10 max-[550px]:px-2">
+    <div className="bg-white mb-4 py-4 px-10 sm:px-2">
       <div className=" bg-white rounded-lg " />
-      <div className="flex w-full justify-between items-center max-[550px]:flex-col max-[550px]:gap-5">
-        <div className=" flex-col justify-start items-start gap-4 flex  max-[550px]:items-center">
+      <div className="flex w-full justify-between items-center sm:flex-col sm:gap-5">
+        <div className=" flex-col justify-start items-start gap-4 flex  sm:items-center">
           <h3 className="text-[#0d0c22] text-sm font-medium">
             Employee Reviews
           </h3>

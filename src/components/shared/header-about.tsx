@@ -32,7 +32,7 @@ const HeaderAbout = ({ route, title, desc, className }: Props) => {
           / {route}
         </div>
 
-        <h2 className="text-white text-[76px] font-extrabold  leading-[88.16px] mb-5 max-[540px]:text-3xl">
+        <h2 className="text-white text-[76px] font-extrabold  leading-[88.16px] mb-5 sm:text-3xl">
           {title}
         </h2>
         <p className="text-white/70 text-lg font-semibold leading-[27px]">

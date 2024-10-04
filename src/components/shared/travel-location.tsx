@@ -6,7 +6,7 @@ interface TravelLocationProps {}
 const TravelLocation: FC<TravelLocationProps> = () => {
   return (
     <div
-      className=" bg-white rounded-md mt-10 py-6 px-8 max-[550px]:px-2 max-[550px]:py-2"
+      className=" bg-white rounded-md mt-10 py-6 px-8 sm:px-2 sm:py-2"
       id="location"
     >
       <div className=" bg-white rounded-md" />

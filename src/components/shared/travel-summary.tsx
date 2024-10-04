@@ -5,7 +5,7 @@ interface TravelSummaryProps {}
 
 const TravelSummary: FC<TravelSummaryProps> = () => {
   return (
-    <div className="max-w-[443px] w-full max-h-[432px] px-4 pt-4 pb-5 bg-white rounded border flex-col justify-start items-start gap-[38px] inline-flex max-[1000px]:max-w-full max-[550px]:max-h-full">
+    <div className="max-w-[443px] w-full max-h-[432px] px-4 pt-4 pb-5 bg-white rounded border flex-col justify-start items-start gap-[38px] inline-flex lg:max-w-full sm:max-h-full">
       <div className=" border border-[#eaeaea] w-full px-5 py-7">
         <h2 className=" text-[#112211] text-xl font-bold mb-2">
           Total Summary
@@ -26,7 +26,7 @@ const TravelSummary: FC<TravelSummaryProps> = () => {
             <p className="text-black text-sm font-medium">4.69</p>
           </div>
         </div>
-        <div className="flex gap-9 pb-5 border-b border-[#D9D9D9] mb-5 max-[550px]:flex-wrap max-[550px]:justify-center">
+        <div className="flex gap-9 pb-5 border-b border-[#D9D9D9] mb-5 sm:flex-wrap sm:justify-center">
           <div className="">
             <div className=" text-[#949494] text-xs font-bold mb-2">
               CHECK IN

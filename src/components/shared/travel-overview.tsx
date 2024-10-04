@@ -8,7 +8,7 @@ interface TravelOverviewProps {}
 const TravelOverview: FC<TravelOverviewProps> = () => {
   return (
     <section
-      className="bg-white mb-[75px] px-8 py-5 rounded-sm max-[550px]:px-0"
+      className="bg-white mb-[75px] px-8 py-5 rounded-sm sm:px-0"
       id="overview"
     >
       <Container className="border-b w-full max-w-full mb-7 pb-7 rounded-md">
@@ -42,7 +42,7 @@ const TravelOverview: FC<TravelOverviewProps> = () => {
         <h2 className="text-[#112211] text-xl font-bold mb-5">
           Top facilities
         </h2>
-        <ul className="grid grid-cols-2 max-w-[600px] max-[550px]:grid-cols-1">
+        <ul className="grid grid-cols-2 max-w-[600px] sm:grid-cols-1">
           {travelOverviewData.map((item) => (
             <li key={item.id} className="flex mb-3 gap-3">
               <img src={`/icons/facilits/${item.id}.svg`} alt="" />

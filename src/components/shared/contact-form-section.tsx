@@ -2,11 +2,11 @@ import { Container } from "../ui";
 
 const ContactFormSection = () => {
   return (
-    <section className="mb-[90px] max-[670px]:mb-10">
-      <Container className="flex gap-[127px] items-center flex-wrap max-[1045px]:flex-col">
+    <section className="mb-[90px] sm:mb-10">
+      <Container className="flex gap-[127px] items-center flex-wrap lg:flex-col overflow-hidden">
         <div className="flex-1 flex-col gap-11 inline-flex min-w-[350px]">
           <div className="flex-col gap-5 flex">
-            <h2 className="text-[#0c141d] text-6xl font-semibold  leading-[78px] max-[670px]:text-3xl">
+            <h2 className="text-[#0c141d] text-6xl font-semibold  leading-[78px] sm:text-2xl">
               Let's connect and talk about your travel dreams
             </h2>
             <p className="max-w-[497px] text-[#98a1b2] text-lg font-semibold  leading-[27px]">
@@ -14,7 +14,7 @@ const ContactFormSection = () => {
               will help you to make your dreams come true
             </p>
           </div>
-          <div className="gap-8 inline-flex max-[540px]:flex-col">
+          <div className="gap-8 inline-flex sm:flex-col">
             <div className="flex-col gap-6 inline-flex">
               <h2 className="text-[#0c141d] text-lg font-semibold  leading-[27px]">
                 Main branch
@@ -72,7 +72,7 @@ const ContactFormSection = () => {
           </div>
         </div>
 
-        <form className="flex flex-col max-w-[540px] flex-1 gap-6 min-w-[350px]">
+        <form className="flex flex-col max-w-[540px] flex-1 gap-6 min-w-[320px]">
           <label>
             <p className="text-[#0c141d] text-lg font-semibold  leading-[27px] mb-2">
               Name

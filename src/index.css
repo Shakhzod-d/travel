@@ -32,6 +32,16 @@
 body {
   overflow-x: hidden;
 }
+body > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
 
 .cards {
   display: grid;

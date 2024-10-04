@@ -84,3 +84,20 @@ export const faqsData = [
     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
   },
 ];
+
+export const travelMenuData = [
+  { id: 1, text: "Summary", to: "#summary" },
+  { id: 2, text: "Review", to: "#review" },
+  { id: 3, text: "Package", to: "#package" },
+  { id: 4, text: "Location", to: "#location" },
+  { id: 5, text: "Other", to: "#other" },
+];
+
+export const travelOverviewData = [
+  { id: 1, text: "Free wifi" },
+  { id: 2, text: "Air Conditioning" },
+  { id: 3, text: "Parking available" },
+  { id: 4, text: "Business Services" },
+  { id: 5, text: "Swimming pool" },
+  { id: 6, text: "Top rated in area" },
+];

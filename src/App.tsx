@@ -5,6 +5,7 @@ import "./App.css";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Footer from "./components/ui/footer";
+import Travel from "./pages/travel";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="travel" element={<Travel />} />
         </Route>
       </Routes>
       <Footer />

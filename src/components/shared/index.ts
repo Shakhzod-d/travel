@@ -1,8 +1,26 @@
-export { default as Layout } from './layout' 
-export { default as Preloading } from './preloading' 
-export { default as Header } from './header' 
-export { default as Navbar } from './navbar' 
-export { default as Hero } from './hero'
-export { default as Travelstyle } from './travel-style'
-export { default as Tour } from './tour'
-export { default as Discount } from './discount'
+export { default as Layout } from "./layout";
+export { default as Preloading } from "./preloading";
+export { default as Header } from "./header";
+export { default as Navbar } from "./navbar";
+export * from "./experiencse-section";
+export * from "./team-section";
+export * from "./contact-section";
+export * from "./contact-form-section";
+export * from "./faqs-section";
+export * from "./travel-title";
+export * from "./travel-pictures";
+export * from "./travel-menu";
+export * from "./travel-overview";
+export * from "./travel-reviews";
+export * from "./travel-location";
+export * from "./travel-summary";
+export * from "./travel-rating";
+export * from "./travel-others";
+export * from "./layout";
+export * from "./preloading";
+export * from "./header";
+export * from "./navbar";
+export { default as Hero } from "./hero";
+export { default as Travelstyle } from "./travel-style";
+export { default as Tour } from "./tour";
+export { default as Discount } from "./discount";

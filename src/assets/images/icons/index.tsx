@@ -1,4 +1,8 @@
-export const Experts = ({ fill }) => {
+interface Props {
+  fill: string;
+}
+
+export const Experts = ({ fill }: Props) => {
   return (
     <>
       <svg

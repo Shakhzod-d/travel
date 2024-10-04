@@ -9,7 +9,7 @@ const TravelRating: FC<TravelRatingProps> = () => {
     <div className="bg-white mb-4 py-4 px-10 max-[550px]:px-2">
       <div className=" bg-white rounded-lg " />
       <div className="flex w-full justify-between items-center max-[550px]:flex-col max-[550px]:gap-5">
-        <div className=" flex-col justify-start items-start gap-4 inline-flex">
+        <div className=" flex-col justify-start items-start gap-4 flex  max-[550px]:items-center">
           <h3 className="text-[#0d0c22] text-sm font-medium">
             Employee Reviews
           </h3>
@@ -17,7 +17,7 @@ const TravelRating: FC<TravelRatingProps> = () => {
             4.7
           </h2>
           <div className="">
-            <Rating rating={4.7} />
+            <Rating rating={2.3} />
           </div>
           <div className="text-[#858585] text-xs font-medium">
             (578 Reviews)

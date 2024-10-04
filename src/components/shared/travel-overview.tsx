@@ -7,7 +7,10 @@ interface TravelOverviewProps {}
 
 const TravelOverview: FC<TravelOverviewProps> = () => {
   return (
-    <section className="bg-white mb-[75px] px-8 py-5 rounded-sm max-[550px]:px-0">
+    <section
+      className="bg-white mb-[75px] px-8 py-5 rounded-sm max-[550px]:px-0"
+      id="overview"
+    >
       <Container className="border-b w-full max-w-full mb-7 pb-7 rounded-md">
         <div>
           <div className="text-[#112211] text-xl font-bold ">

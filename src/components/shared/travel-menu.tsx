@@ -10,7 +10,7 @@ const TravelMenu: FC<TravelMenuProps> = () => {
   return (
     <section className="bg-white pb-10">
       <Container className="max-[550px]:w-full">
-        <div className="justify-start items-start inline-flex flex-wrap max-[550px]:flex-col max-[550px]:items-center">
+        <div className="justify-start items-start flex flex-wrap max-[550px]:flex-col max-[550px]:items-center">
           {travelMenuData.map((item) => (
             <div
               className={`px-5 py-2 bg-white rounded-tl-sm rounded-tr-sm border-b ${
@@ -24,7 +24,7 @@ const TravelMenu: FC<TravelMenuProps> = () => {
               <a
                 className={`text-center ${
                   active == item.id ? "text-[#2f80ed]" : "text-[#667084]"
-                } text-xl font-semibold leading-[30px]`}
+                } text-xl font-semibold leading-[30px] w-full`}
                 href={item.to}
               >
                 {item.text}

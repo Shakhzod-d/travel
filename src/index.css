@@ -43,6 +43,10 @@ main {
   flex: 1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(364px, 360px));

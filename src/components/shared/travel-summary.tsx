@@ -26,7 +26,7 @@ const TravelSummary: FC<TravelSummaryProps> = () => {
             <p className="text-black text-sm font-medium">4.69</p>
           </div>
         </div>
-        <div className="flex gap-9 pb-5 border-b border-[#D9D9D9] mb-5">
+        <div className="flex gap-9 pb-5 border-b border-[#D9D9D9] mb-5 max-[550px]:flex-wrap max-[550px]:justify-center">
           <div className="">
             <div className=" text-[#949494] text-xs font-bold mb-2">
               CHECK IN

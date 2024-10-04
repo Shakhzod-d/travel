@@ -7,7 +7,10 @@ interface TravelOthersProps {}
 const TravelOthers: FC<TravelOthersProps> = () => {
   const [active, setActive] = useState(1);
   return (
-    <section className="bg-white py-20 max-[550px]:px-2 max-[550px]:py-2">
+    <section
+      className="bg-white py-20 max-[550px]:px-2 max-[550px]:py-2"
+      id="other"
+    >
       <Container>
         <div className="flex-col gap-1 flex">
           <h2 className="text-[#112211] text-xl font-bold mb-1">Other</h2>
@@ -24,10 +27,13 @@ const TravelOthers: FC<TravelOthersProps> = () => {
             className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between mb-3 "
             onClick={() => setActive(1)}
           >
-            <p className=" text-[#0f1728] text-2xl font-semibold leading-9 ">
+            <p className=" text-[#0f1728] text-2xl font-semibold leading-9 max-[550px]:text-xl">
               Ticket exchange
             </p>
-            <img src="/icons/arrow-chevron.svg" />
+            <img
+              src="/icons/arrow-chevron.svg"
+              className={`${active == 1 ? "rotate-180" : ""}`}
+            />
           </div>
           <ul className="text-[#98a1b2] text-2xl font-extralight leading-9 pl-3">
             <li className="before:bg-[#0000005e] before:w-1 before:h-1 before:absolute before:top-5 relative pl-5 before:-left-0 before:rounded-full">
@@ -51,10 +57,13 @@ const TravelOthers: FC<TravelOthersProps> = () => {
             className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between"
             onClick={() => setActive(2)}
           >
-            <p className=" text-[#0f1728] text-2xl font-semibold leading-9">
+            <p className=" text-[#0f1728] text-2xl font-semibold leading-9  max-[550px]:text-xl ">
               Terms and Conditions
             </p>
-            <img src="/icons/arrow-chevron.svg" />
+            <img
+              src="/icons/arrow-chevron.svg"
+              className={`${active == 2 ? "rotate-180" : ""}`}
+            />
           </div>
           <div className="flex-col gap-3 flex">
             <div className="px-5 gap-2.5 flex">

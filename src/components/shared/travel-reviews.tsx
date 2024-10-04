@@ -7,7 +7,10 @@ interface TravelReviewsProps {}
 
 const TravelReviews: FC<TravelReviewsProps> = () => {
   return (
-    <section className=" bg-white rounded-lg py-6 px-7 max-[550px]:px-2 max-[550px]:py-2">
+    <section
+      className=" bg-white rounded-lg py-6 px-7 max-[550px]:px-2 max-[550px]:py-2"
+      id="review"
+    >
       <Container className="p-0">
         <h2 className=" text-[#112211] text-xl font-bold mb-7">Review</h2>
         <div className="flex-col justify-start items-start gap-8 inline-flex px-8 max-[550px]:px-2 max-[550px]:py-2">

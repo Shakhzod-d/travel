@@ -5,7 +5,10 @@ interface TravelLocationProps {}
 
 const TravelLocation: FC<TravelLocationProps> = () => {
   return (
-    <div className=" bg-white rounded-md mt-10 py-6 px-8 max-[550px]:px-2 max-[550px]:py-2">
+    <div
+      className=" bg-white rounded-md mt-10 py-6 px-8 max-[550px]:px-2 max-[550px]:py-2"
+      id="location"
+    >
       <div className=" bg-white rounded-md" />
       <h2 className=" text-[#112211] text-xl font-bold mb-4">Location</h2>
       <div className=" items-center gap-3 flex mb-5">

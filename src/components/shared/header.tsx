@@ -4,6 +4,7 @@ import { SigninBtn } from '../ui';
 import MenuIcon from '@mui/icons-material/Menu';
 import { openMenu } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
+import React from 'react';
 
 
 const Header = () => {

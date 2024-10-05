@@ -4,7 +4,7 @@ import { State } from "../types";
 
 
 const initialState: State = {
-  menu: false,
+  menu: false
 };
 
 export const mainSlice = createSlice({

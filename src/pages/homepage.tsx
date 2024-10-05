@@ -1,3 +1,4 @@
+
 import { 
     Hero, 
     Destinations,
@@ -9,11 +10,49 @@ import {
     Booking
 } from "../components/shared"
 
+import { v4 as uuidv4 } from "uuid";
+import { CartItems } from "../types";
+import uz from "../assets/images/uzb.png";
+import kaz from "../assets/images/kaz.png";
+import kry from "../assets/images/kry.png";
+import tad from "../assets/images/tad.png";
+import tur from "../assets/images/tur.png";
+
 
 const Home = () => {
-
-    
-
+  const cartItems = [
+    {
+      id: uuidv4(),
+      country: "Uzbekistan",
+      city: "Samarkand",
+      img: uz,
+    },
+    {
+      id: uuidv4(),
+      country: "Kazakhstan",
+      city: "Almaty",
+      img: kaz,
+    },
+    {
+      id: uuidv4(),
+      country: "Kyrgzstan",
+      city: "Bishkek",
+      img: kry,
+    },
+    {
+      id: uuidv4(),
+      country: "Tadjikistan",
+      city: "Dushanbe",
+      img: tad,
+    },
+    {
+      id: uuidv4(),
+      country: "Turkmenistan",
+      city: "Ashgabat",
+      img: tur,
+    },
+  ];
+ 
     return (
         <div>
             <Hero/>
@@ -35,8 +74,12 @@ const Home = () => {
             <div className="w-full padding flex justify-center">
                 <Booking/>
             </div>
-        </div>
-    )
-}
 
-export default Home
+        </div>
+        <Discount />
+      </div>
+    </>
+  );
+};
+
+export default Home;

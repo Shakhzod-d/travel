@@ -1,9 +1,10 @@
-// import React, { useState } from "react"
+
 import { navItems } from "../../utils"
 import { Link, useLocation } from "react-router-dom"
 import { NavItems } from "../../types"
 import { closeMenu } from "../../store/main-slice"
 import { useDispatch } from "react-redux"
+
 
 const Navbar = () => {
 
@@ -15,6 +16,7 @@ const Navbar = () => {
   
 
   return (
+
     <ul className="flex mr-5 lg:flex-col lg:mr-0 items-center lg:items-start">
         {
           navItems.map((item:NavItems) => (
@@ -24,7 +26,7 @@ const Navbar = () => {
           ))
         }
     </ul>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

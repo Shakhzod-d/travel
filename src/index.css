@@ -1,25 +1,58 @@
-*{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  all: unset;
+}
+@media (min-width: 1367px) {
+  .app {
+    width: 100%;
+  }
+}
+
+.padding {
+  padding: 0 50px;
+}
+
+.navItem {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     user-select: none;
+
     font-family: "Manrope", sans-serif;
+  }
 }
 
-#root{
-    margin: 0;
-    padding: 0;
-    all: unset;
+#root {
+  margin: 0;
+  padding: 0;
+  all: unset;
 }
 @media (min-width: 1367px) {
-    .app{
-        width: 100%;
-    }
+  .app {
+    width: 100%;
+  }
 }
 
-.padding{
-    padding: 0 50px;
+.padding {
+  padding: 0 50px;
 }
+
 @media (max-width: 639px) {
     .padding{
         padding: 0 20px;
@@ -27,14 +60,16 @@
 }
 .template{
     grid-template-rows: auto;
+
 }
 
-.h2{
-    text-transform: uppercase;
-    font-size: 48px;
-    font-weight: 700;
-    text-align: center;
+.h2 {
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
 }
+
 @media (max-width: 639px) {
     .h2{
         font-size: 32px;
@@ -45,15 +80,16 @@
     font-size: 24px;
     color: white;
 }
-.h4{
-    font-weight: 600;
-    color: white;
-    font-size: 16px;
 }
-.navItem{
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: 600;
+.h4 {
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+}
+.navItem {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
 }
 
 .error{
@@ -88,3 +124,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.round {
+  border-radius: 200px;
+}
+
+body {
+  overflow-x: hidden;
+}
+body > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(364px, 360px));
+  gap: 10px;
+  justify-content: center;
+}
+.card {
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+  width: 384px;
+  height: 100%;
+  padding: 0;
+}
+.card-content {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 20, 29, 0.03) 14.09%,
+    rgba(12, 20, 29, 0.1) 66.22%,
+    rgba(12, 20, 29, 0.7) 100%
+  );
+  position: absolute;
+  width: 384px !important;
+  height: 384px !important;
+  bottom: -100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card:hover {
+  .card-content {
+    bottom: 0px;
+  }
+}

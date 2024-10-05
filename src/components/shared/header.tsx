@@ -1,3 +1,4 @@
+
 import travelIcon from '../../assets/images/experts.svg'
 import { Navbar } from './index'
 import { SigninBtn } from '../ui';
@@ -30,4 +31,3 @@ const Header = () => {
     )
 }
 
-export default Header

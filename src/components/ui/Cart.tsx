@@ -6,18 +6,18 @@ import yellowstar from '../../assets/icons/yellow-star.png'
 import star from '../../assets/icons/star.png'
 
 const Cart = ({ 
-        id,
-        price,
-        time,
-        size,
-        location,
-        special,
-        reviews,
-        def,
-        img
+    id,
+    price,
+    time,
+    size,
+    location,
+    special,
+    reviews,
+    def,
+    img
  }: SeasonCart) => {
     return (
-        <div key={id} className="flex flex-col items-start justify-between w-[350px] xl:w-[300px] md:w-[250px] sm:w-[200px] xm:w-[190px] rounded-3xl shadow-2xl">
+        <div key={id} className="flex flex-col items-start justify-between w-[350px] xl:w-[300px] md:w-full rounded-3xl shadow-2xl">
             <div className="relative">
                 <div className="relative min-h-[272px] flex flex-col items-center">
                     <div style={{ backgroundImage: `url(${img})` }} className="bg-cover bg-no-repeat w-full h-[272px] rounded-3xl"></div>
@@ -29,7 +29,7 @@ const Cart = ({
                             </div>
                         </div>
                     </div>
-                    <div className="absolute rounded-3xl -bottom-5 z-30 p-3 flex sm:flex-wrap sm:justify-center bg-white shadow-lg">
+                    <div className="absolute rounded-3xl -bottom-5 z-30 p-3 sm:p-2 xm:p-1 flex sm:flex-wrap sm:justify-center bg-white shadow-lg">
                         <div className="mr-1 border-r-[1px] border-[#3F3F3F] flex items-center pr-1">
                             <img src={clock} alt="clock-icon" className="w-[19.5px] h-[19.5px] sm:w-[13px] sm:h-[13px] mr-2 sm:mr-[5px]"/>
                             <h4 className="h4 text-black sm:text-[13px]">{time}</h4>
@@ -47,9 +47,11 @@ const Cart = ({
                 <div className="p-4 pt-6">
                     <h3 className="h3 text-start text-[#444444]">{special}</h3>
                     <div className="flex">
-                        <h5 className="text-sm text-[#6C6C6C] mr-4">{`${reviews} reviews`}</h5>
-                        <img src={yellowstar} alt="star" className="mr-2"/>
-                        <img src={star} alt="star" />
+                        <div className="my-3 flex">
+                            <h5 className="text-sm text-[#6C6C6C] mr-4">{`${reviews} reviews`}</h5>
+                            <img src={yellowstar} alt="star" className="mr-2"/>
+                            <img src={star} alt="star" />
+                        </div>
                     </div>
                     <h4 className="h4 text-[#6C6C6C]">{def}</h4>
                 </div>

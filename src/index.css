@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     user-select: none;
+    font-family: "Manrope", sans-serif;
 }
 
 #root{
@@ -19,6 +20,11 @@
 .padding{
     padding: 0 50px;
 }
+@media (max-width: 639px) {
+    .padding{
+        padding: 0 20px;
+    }
+}
 .template{
     grid-template-rows: auto;
 }
@@ -28,6 +34,11 @@
     font-size: 48px;
     font-weight: 700;
     text-align: center;
+}
+@media (max-width: 639px) {
+    .h2{
+        font-size: 32px;
+    }
 }
 .h3{
     font-weight: 700;
@@ -45,9 +56,15 @@
     font-weight: 600;
 }
 
+.error{
+    font-size: small;
+    padding-left: 12px;
+    margin-bottom: 4px;
+}
 .round{
     border-radius: 200px;
 }
+
 
 @tailwind base;
 @tailwind components;

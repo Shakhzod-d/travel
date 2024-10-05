@@ -12,6 +12,10 @@ import img7 from '../assets/images/seasons/summer3.png'
 import img8 from '../assets/images/seasons/winter1.png'
 import img9 from '../assets/images/seasons/winter2.png'
 import img10 from '../assets/images/seasons/winter3.png'
+import img11 from '../assets/images/clients/client.png'
+import img12 from '../assets/images/reasons/reason1.png'
+import img13 from '../assets/images/reasons/reason3.png'
+import img14 from '../assets/images/reasons/reason3.png'
 
 export const navItems = [
     {
@@ -181,3 +185,69 @@ export const winterFeature = [
         img: img10
     }
 ]
+
+export const clientOpinions = [
+    {
+        id: uuidv4(),
+        phrase: '“BRIX Templates is the #1”',
+        opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+        img: img11,
+        name: 'Adam',
+        job: 'webflow developer'
+    },
+    {
+        id: uuidv4(),
+        phrase: '“BRIX Templates is the #1”',
+        opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+        img: img11,
+        name: 'Adam',
+        job: 'webflow developer'
+    },
+    {
+        id: uuidv4(),
+        phrase: '“BRIX Templates is the #1”',
+        opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+        img: img11,
+        name: 'Adam',
+        job: 'webflow developer'
+    }
+]
+
+export const reasonsArray = [
+    {
+        id: uuidv4(),
+        img: img12,
+        reason: 'Best guide',
+        def: 'Our expert tour guide knows the best about traveling they will guide you all time'
+    },
+    {
+        id: uuidv4(),
+        img: img13,
+        reason: 'Support 24/7',
+        def: 'Our customer experience team is available around clock to answer your questions'
+    },
+    {
+        id: uuidv4(),
+        img: img14,
+        reason: 'Luxury hotels',
+        def: 'We realise ideas from simple to complex, everything becomes easy to use'
+    }
+]
+
+export const steps = [
+    {
+        id: 1,
+        step: 'Find your destination',
+        def: 'Find your travel destination, because we have covered all regions in the world.'
+    },
+    {
+        id: 2,
+        step: 'Book a ticket',
+        def: 'After you find the trip you want to go to. you can directly order ticket.'
+    },
+    {
+        id: 3,
+        step: 'Pay and go to destination',
+        def: 'After you pay, you can immediatly enjoy the trip to the destination'
+    }
+] 

@@ -1,35 +1,26 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { State } from "../types";
 
 
-interface Bool {
-  dashboardProgress: boolean;
-  sidebarActive: boolean;
-  MCompanyPages: string;
-}
 
-const initialState: Bool = {
-  dashboardProgress: false,
-  sidebarActive: true,
-  MCompanyPages: "company",
+const initialState: State = {
+  menu: false,
 };
 
 export const mainSlice = createSlice({
   name: "main",
   initialState,
   reducers: {
-    dashboardProgressActive: (state) => {
-      state.dashboardProgress = !state.dashboardProgress;
+    openMenu: (state) => {
+      state.menu = true;
     },
-    sidebarToggle: (state, action: PayloadAction<boolean>) => {
-      state.sidebarActive = action.payload;
-    },
-    setTabPages: (state, action: PayloadAction<string>) => {
-      state.MCompanyPages = action.payload;
-    },
+    closeMenu: (state) => {
+      state.menu = false;
+    }
   },
 });
 
-export const { dashboardProgressActive, sidebarToggle, setTabPages } =
+export const { openMenu, closeMenu } =
 mainSlice.actions;
 
 

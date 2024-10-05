@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import booleanReducer from "./main-slice";
+import mainReducer from "./main-slice";
 
 export const store = configureStore({
   reducer: {
-    booleans: booleanReducer
+    main: mainReducer
   },
 });
 

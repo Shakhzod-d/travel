@@ -16,7 +16,7 @@ const Hero = () => {
                 <button className='text-white  bg-white bg-opacity-15 text-[20px] md:text-[12px] round px-11 md:px-7 sm:px-4 sm:py-1 py-2 border-[2px] border-white'>FIND YOUR TOUR</button>
             </div>
             <div className='w-full flex justify-end'>
-                <div className='flex w-1/2 justify-between items-center'>
+                <div className='flex w-1/2 sm:w-full sm:justify-center justify-between items-center'>
                     <div className='p-3 md:p-1 flex justify-center items-center rounded-full bg-white bg-opacity-25 border-[1px] border-white'>
                         <ExpandMoreIcon className='text-white text-3xl' />
                     </div>

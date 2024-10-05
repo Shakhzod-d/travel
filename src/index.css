@@ -93,32 +93,14 @@
 }
 
 .error{
-    font-size: small;
-    padding-left: 12px;
-    margin-bottom: 4px;
+  font-size: small;
+  padding-left: 12px;
+  margin-bottom: 4px;
 }
 .round{
     border-radius: 200px;
 }
 
-.animation{
-    text-decoration: none;
-    display: inline-block;
-  }
-.animation::after{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    transform: scale(0);
-    transition: .4s all ease-out;
-    background: black;
-}
-.animation:hover::after{
-    transform: scale(1);
-}
 
 
 @tailwind base;

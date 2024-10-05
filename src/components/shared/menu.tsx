@@ -15,12 +15,12 @@ const Menu = () => {
     const { menu } = state
 
     return (
-        <div className={`w-[50%] sm:w-[80%] min-h-screen overflow-hidden bg-white fixed right-0 z-50 ${menu ? 'animate__animated animate__fadeInRight' : 'hidden animate__animated animate__fadeOutRight'}`}>
+        <div className={`w-[50%] sm:w-[80%] min-h-screen overflow-hidden bg-gray-50 fixed right-0 z-50 ${menu ? 'animate__animated animate__fadeInRight' : 'hidden animate__animated animate__fadeOutRight'}`}>
             <div onClick={closeHandler} className="w-full pt-5 pr-5 flex justify-end">
                 <CloseIcon style={{ fontSize:32 }}/>
             </div>
             <div className="p-5">
-                <Navbar/>
+                <Navbar borderColor='black'/>
             </div>
             <div className="p-5 border-t-[1px] border-[#666666]">
                 <SigninBtn/>

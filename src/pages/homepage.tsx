@@ -1,5 +1,4 @@
 import {
-  Hero,
   Destinations,
   Travelstyle,
   Tour,
@@ -7,7 +6,7 @@ import {
   Opinions,
   Reasons,
   Booking,
-  Header,
+  HeaderMain
 } from "../components/shared";
 
 // import { v4 as uuidv4 } from "uuid";
@@ -54,9 +53,11 @@ const Home = () => {
 
   return (
     <div>
-      <Header/>
+      <div className="w-full">
+        <HeaderMain/>
+      </div>
       <div>
-        <Hero />
+        {/* <Hero /> */}
         <div className="padding">
           <Destinations />
         </div>

@@ -17,10 +17,10 @@ const HeaderAbout = ({ route, title, desc, className }: Props) => {
     <header
       className={(cn(`bg-no-repeat bg-cover pb-28 mb-[90px]`), className)}
     >
-      <div className="border-b-[1px] border-[#E6E6E6] *:text-white mb-10">
+      <div className="border-b-[1px] border-[#E6E6E6] *:text-white *:border-white mb-10">
         <Container className="padding flex justify-between items-center py-4 ">
           <Experts fill="#fff" />
-          <Navbar />
+          <Navbar borderColor='white'/>
         </Container>
       </div>
 

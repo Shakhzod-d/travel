@@ -20,7 +20,9 @@ const Header = () => {
             <img src={travelIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[150px] fill-blue-500'/>
             <div className='flex items-center'>
                 <div className='flex lg:hidden'>
-                    <Navbar/>
+                    <div className='flex items-center'>
+                        <Navbar borderColor='white'/>
+                    </div>
                     <SigninBtn/>
                 </div>
                 <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>

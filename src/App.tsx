@@ -1,25 +1,18 @@
-
-import { Suspense } from 'react'
-import { Preloading, Layout, Header, Menu } from './components/shared'
-import { Home } from './pages';
-import { Route, Routes, useLocation  } from "react-router-dom";
-import { Overlay } from './components/ui';
-import './App.css'
+import { Suspense } from "react";
+import { Preloading, Layout,  Menu } from "./components/shared";
+import { Home, Travel } from "./pages";
+import { Route, Routes } from "react-router-dom";
+import { Overlay } from "./components/ui";
+import "./App.css";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import Footer from "./components/ui/footer";
 
 function App() {
   return (
     <Suspense fallback={<Preloading />}>
-
-      <Overlay/>
-      <Menu/>
-      {!isLoginPage && <Header/>}
-      <Routes>
-        <Route
-          path='/'
-          element={<Layout/>}
-        >
-          <Route path='/' element={<Home/>}>
-          </Route>
+      <Overlay />
+      <Menu />
 
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -27,7 +20,6 @@ function App() {
           <Route path="/travel" element={<Travel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-
         </Route>
       </Routes>
       <Footer />

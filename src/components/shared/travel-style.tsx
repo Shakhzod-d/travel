@@ -13,7 +13,7 @@ const Travelstyle = () => {
                         <div 
                             key={item.id} 
                             style={{ backgroundImage: `url(${item.img})` }} 
-                            className="flex flex-col mr-5 mb-5 lg:mr-0 even:mr-0 justify-between p-4 rounded-3xl h-[280px] w-[585px] xl:w-[450px] lg:w-[500px] md:w-[400px] sm:w-[280px] xm:w-[180px]">
+                            className="bg-cover bg-center bg-no-repeat flex flex-col mr-5 mb-5 lg:mr-0 even:mr-0 justify-between p-4 rounded-3xl h-[280px] w-[585px] xl:w-[450px] lg:w-[500px] md:w-full">
                             <div>
                                 <h3 className="h3 uppercase">{item.type}</h3>
                                 <h4 className="h4">{item.def}</h4>

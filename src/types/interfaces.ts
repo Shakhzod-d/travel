@@ -1,3 +1,6 @@
+export interface State {
+    menu: boolean;
+}
 export interface NavItems {
   id: string;
   name: string;
@@ -48,3 +51,31 @@ export interface SeasonCart {
 export interface TourProps {
   type: string;
 }
+
+export interface BookingType{
+    name: string,
+    phone: string
+}
+
+export interface OpinionType{
+    id: string,
+    phrase: string,
+    opinion: string,
+    img: string,
+    name: string,
+    job: string
+}
+
+export interface ReasonType{
+    id: string,
+    img: string,
+    reason: string,
+    def: string
+}
+
+export interface StepType{
+    id: number,
+    step: string,
+    def: string
+}
+

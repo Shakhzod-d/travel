@@ -14,7 +14,7 @@ const FAQsSection = () => {
         <div className="h-[370px] flex-col  gap-8 flex md:h-full">
           {faqsData.map((item) => (
             <div
-              className={`gap-7 flex  `}
+              className={`gap-7 flex cursor-pointer`}
               onClick={() => setActive(item.id)}
               key={item.id}
             >

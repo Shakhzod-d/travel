@@ -7,7 +7,7 @@ const Contact = () => {
     <main>
       <HeaderAbout
         className={
-          "bg-[url('/contact-header-bg.jpg')] pb-[100px] bg-center bg-cover bg-no-repeat mb-24"
+          "bg-[url('/contact-header-bg.jpg')] pb-[100px] bg-center bg-cover bg-no-repeat mb-24 sm:mb-11"
         }
         route={"Contact us"}
         title={"Contact us"}

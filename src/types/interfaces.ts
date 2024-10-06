@@ -52,9 +52,10 @@ export interface TourProps {
   type: string;
 }
 
-export interface BookingType{
-    name: string,
-    phone: string
+export interface Data{
+  name: string,
+  phone: string,
+  dream?: string
 }
 
 export interface OpinionType{

@@ -1,10 +1,12 @@
 // import travelIcon from "../../assets/images/experts.svg";
 import { Link } from "react-router-dom";
-import { Experts } from "../../assets/images/icons";
-import { Container } from "../ui";
+import whiteIcon from '../../assets/images/icons/white-icon.png'
+import { Container, SigninBtn } from "../ui";
 import Navbar from "./navbar";
 import { cn } from "../../utils/constants";
-
+import MenuIcon from '@mui/icons-material/Menu';
+import { openMenu } from "../../store/main-slice";
+import { useDispatch } from "react-redux";
 interface Props {
   route: string;
   title: string;
@@ -13,14 +15,27 @@ interface Props {
 }
 
 const HeaderAbout = ({ route, title, desc, className }: Props) => {
+
+  let dispatch = useDispatch()
+
+  const openHandler: React.MouseEventHandler<HTMLDivElement> = () => {
+    dispatch(openMenu())
+  }
+
   return (
     <header
       className={(cn(`bg-no-repeat bg-cover pb-28 mb-[90px]`), className)}
     >
       <div className="border-b-[1px] border-[#E6E6E6] *:text-white *:border-white mb-10">
         <Container className="padding flex justify-between items-center py-4 ">
-          <Experts fill="#fff" />
-          <Navbar borderColor='white'/>
+          <img src={whiteIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[180px]'/>
+          <div className="lg:hidden flex">
+            <Navbar borderColor='white'/>
+            <SigninBtn/>
+          </div>
+          <div className="hidden lg:block cursor-pointer" onClick={openHandler}>
+            <MenuIcon style={{ fontSize:32, color:'white' }}/>
+          </div>
         </Container>
       </div>
 

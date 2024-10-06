@@ -1,5 +1,5 @@
 interface Props {
-  fill: string;
+  fill: string
 }
 
 export const Experts = ({ fill }: Props) => {

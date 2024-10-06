@@ -8,8 +8,8 @@ const Booking = () => {
             <div className="w-full pt-8 flex justify-between">
                 <div className="w-full flex justify-between items-start lg:flex-col lg:items-center">
                     <div className="flex flex-col justify-between pr-5 lg:pr-0 w-[50%] lg:w-full lg:mb-4">
-                        <div className="bg-[#EBEDFA] p-3 rounded-sm w-max">
-                                <h3 className="uppercase text-[20px] text-[#635AFF]">how we work</h3>
+                        <div className="bg-[#EBEDFA] py-2 px-4 rounded-sm w-max">
+                            <h3 className="uppercase text-[20px] text-[#635AFF]">how we work</h3>
                         </div>
                         <div className="my-5">
                             <h2 className="text-[48px] font-semibold leading-[65.57px] lg:leading-[50px]">

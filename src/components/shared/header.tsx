@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <div className='padding flex justify-between items-center py-4 border-b-[1px] border-[#E6E6E6]'>
-            <img src={travelIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[150px] fill-blue-500'/>
+            <img src={travelIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[150px]'/>
             <div className='flex items-center'>
                 <div className='flex lg:hidden'>
                     <div className='flex items-center'>

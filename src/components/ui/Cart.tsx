@@ -23,13 +23,13 @@ const Cart = ({
                     <div style={{ backgroundImage: `url(${img})` }} className="bg-cover bg-no-repeat w-full h-[272px] rounded-3xl"></div>
                     <div className="w-full flex justify-end">
                         <div className="absolute top-8 rounded-tl-[200px] rounded-bl-[200px] bg-[#F56960] z-20 pl-1 py-[1px]">
-                            <div className="flex items-center">
+                            <div className="flex items-center p-1">
                                 <h3 className="h3 text-xl">{`$${price}`}</h3>
                                 <h4 className="h4">/per person</h4>
                             </div>
                         </div>
                     </div>
-                    <div className="absolute rounded-3xl -bottom-5 z-30 p-3 sm:p-2 xm:p-1 flex sm:flex-wrap sm:justify-center bg-white shadow-lg">
+                    <div className="absolute rounded-3xl -bottom-5 xm:-bottom-3 z-30 p-3 sm:p-3 sm:px-8 xm:p-1 flex sm:flex-wrap sm:justify-center bg-white shadow-lg">
                         <div className="mr-1 border-r-[1px] border-[#3F3F3F] flex items-center pr-1">
                             <img src={clock} alt="clock-icon" className="w-[19.5px] h-[19.5px] sm:w-[13px] sm:h-[13px] mr-2 sm:mr-[5px]"/>
                             <h4 className="h4 text-black sm:text-[13px]">{time}</h4>

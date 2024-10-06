@@ -1,5 +1,17 @@
-
 import { v4 as uuidv4 } from 'uuid' 
+import TelegramIcon from "@mui/icons-material/Telegram";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import img1 from "../assets/images/styles/Rectangle 3.png";
+import img2 from "../assets/images/styles/Rectangle 1.png";
+import img3 from "../assets/images/styles/Rectangle 2.png";
+import img4 from "../assets/images/styles/Rectangle 33.png";
+import img5 from "../assets/images/seasons/summer1.png";
+import img6 from "../assets/images/seasons/summer2.png";
+import img7 from "../assets/images/seasons/summer3.png";
+import img8 from "../assets/images/seasons/winter1.png";
+import img9 from "../assets/images/seasons/winter2.png";
+import img10 from "../assets/images/seasons/winter3.png";
 import img11 from '../assets/images/clients/client.png'
 import img12 from '../assets/images/reasons/reason1.png'
 import img13 from '../assets/images/reasons/reason3.png'
@@ -108,19 +120,7 @@ export const travelOverviewData = [
   { id: 6, text: "Top rated in area" },
 ];
 
-import TelegramIcon from "@mui/icons-material/Telegram";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import img1 from "../assets/images/styles/Rectangle 3.png";
-import img2 from "../assets/images/styles/Rectangle 1.png";
-import img3 from "../assets/images/styles/Rectangle 2.png";
-import img4 from "../assets/images/styles/Rectangle 33.png";
-import img5 from "../assets/images/seasons/summer1.png";
-import img6 from "../assets/images/seasons/summer2.png";
-import img7 from "../assets/images/seasons/summer3.png";
-import img8 from "../assets/images/seasons/winter1.png";
-import img9 from "../assets/images/seasons/winter2.png";
-import img10 from "../assets/images/seasons/winter3.png";
+
 
 export const socialMedias = [
   {
@@ -276,7 +276,23 @@ export const clientOpinions = [
         img: img11,
         name: 'Adam',
         job: 'webflow developer'
-    }
+    },
+    {
+      id: uuidv4(),
+      phrase: '“BRIX Templates is the #1”',
+      opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+      img: img11,
+      name: 'Adam',
+      job: 'webflow developer'
+  },
+  {
+    id: uuidv4(),
+    phrase: '“BRIX Templates is the #1”',
+    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+    img: img11,
+    name: 'Adam',
+    job: 'webflow developer'
+}
 ]
 
 export const reasonsArray = [

@@ -24,13 +24,13 @@ const TeamSection = () => {
           </div>
         </div>
 
-        <div className="cards">
+        <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
           {teamData?.map((item) => (
             <div key={item.id} className="card w-[100%] max-w-[100%]">
               <img
                 src={`/${item.id}.png`}
                 alt="professionals img"
-                className=""
+                className="w-full"
               />
 
               <div className="card-content">

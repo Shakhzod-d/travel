@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { BookingType } from '../../types'
+import { Data } from '../../types'
 import { InputMask } from 'primereact/inputmask'
 
 
@@ -9,11 +9,11 @@ const Discount = () => {
         handleSubmit,
         formState: { errors },
         reset
-    } = useForm<BookingType>({
+    } = useForm<Data>({
         mode: "onBlur"
     })
 
-    const onSubmit = (data: BookingType) => {
+    const onSubmit = (data: Data) => {
         console.log(data)
         reset()
     }
@@ -22,11 +22,11 @@ const Discount = () => {
         <div className="padding w-full pt-8 pb-[100px] flex justify-center items-center bg-[#030626]">
             <div className="w-[80%] lg:w-full md:w-full flex items-end md:flex-col md:items-center">
                 <div className="flex flex-col w-[60%] md:w-[90%] md:mb-4 sm:w-full">
-                    <div className="bg-gray-800 rounded-sm p-1 w-max">
-                        <h3 className="text-[18px] text-white font-[600]">#1 Best travel agent</h3>
+                    <div className="bg-gray-700 rounded-sm p-1 w-max">
+                        <h3 className="text-[18px] text-white font-[600] px-5 xm:px-1">#1 Best travel agent</h3>
                     </div>
                     <div className="my-5">
-                        <h2 className="text-4xl font-semibold leading-[65.57px] lg:leading-10 text-white">
+                        <h2 className="text-4xl font-semibold leading-[65.57px] lg:leading-10 text-white break-words">
                             Get a guaranteed discount <br /> - 20% for the entire tour
                         </h2>
                     </div>

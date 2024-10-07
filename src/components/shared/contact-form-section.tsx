@@ -146,44 +146,6 @@ const ContactFormSection = () => {
               <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">Send</button>
           </form>
         </div>
-        {/* <form className="flex flex-col max-w-[540px] flex-1 gap-6 min-w-[320px]">
-          <label>
-            <p className="text-[#0c141d] text-lg font-semibold  leading-[27px] mb-2">
-              Name
-            </p>
-
-            <input
-              type="text"
-              placeholder="Your name"
-              className="text-[#050505] text-lg font-semibold  leading-[27px]  px-4 py-3 rounded border border-[#cfd4dc] outline-none w-full"
-            />
-          </label>
-          <label>
-            <p className="text-[#0c141d] text-lg font-semibold  leading-[27px] mb-2">
-              Email
-            </p>
-
-            <input
-              type="email"
-              placeholder="Your email"
-              className="text-[#070707] text-lg font-semibold  leading-[27px]  px-4 py-3 rounded border border-[#cfd4dc] outline-none w-full"
-            />
-          </label>
-          <label>
-            <p className="text-[#0c141d] text-lg font-semibold  leading-[27px] mb-2">
-              How can we help?
-            </p>
-
-            <textarea
-              placeholder="Tell us a little about your destination dream"
-              className="text-[#030303] text-lg font-semibold  leading-[27px]  px-4 py-3 rounded border border-[#cfd4dc] outline-none w-full resize-y h-[166px]"
-            />
-          </label>
-
-          <button className=" px-5 py-2 bg-[#635aff] rounded-sm text-white text-lg font-semibold leading-[27px]">
-            Send
-          </button>
-        </form> */}
       </Container>
     </section>
   );

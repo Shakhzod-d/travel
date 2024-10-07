@@ -1,5 +1,4 @@
-import { Experts } from "../assets/images/icons";
-import { Navbar } from "../components/shared";
+import { Header } from "../components/shared";
 import TravelLocation from "../components/shared/travel-location";
 import TravelMenu from "../components/shared/travel-menu";
 import TravelOthers from "../components/shared/travel-others";
@@ -14,12 +13,7 @@ import { Container } from "../components/ui";
 const Travel = () => {
   return (
     <main className="bg-[#F4F4F4]">
-      <header className="pb-16 pt-6 bg-white">
-        <Container className="flex justify-between items-center">
-          <Experts fill={"#000"} />
-          <Navbar />
-        </Container>
-      </header>
+      <Header navBorder="black"/>
       <TravelTitle />
       <TravelPictures />
       <TravelMenu />

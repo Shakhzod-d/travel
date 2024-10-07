@@ -50,14 +50,9 @@
 }
 
 .padding {
-  padding: 0 50px;
+  padding: 0 20px;
 }
 
-@media (max-width: 639px) {
-    .padding{
-      padding: 0 20px;
-    }
-}
 .template{
     grid-template-rows: auto;
 
@@ -106,6 +101,13 @@
 .carousel{
   overflow: hidden;
   outline: none
+}
+
+.in{
+  transform: translateX(0)
+}
+.out{
+  transform: translateX(100%)
 }
 
 

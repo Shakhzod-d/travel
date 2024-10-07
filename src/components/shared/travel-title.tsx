@@ -6,7 +6,7 @@ interface TravelTitleProps {}
 
 const TravelTitle: FC<TravelTitleProps> = () => {
   return (
-    <section className="bg-white ">
+    <section className="bg-white pt-7">
       <Container className="flex items-end justify-between pb-10">
         <div className="flex-col  gap-3 inline-flex ">
           <h2 className=" text-[#0c141d] text-[32px] font-semibold  leading-[48px]">

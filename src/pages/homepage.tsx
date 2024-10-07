@@ -6,15 +6,12 @@ import {
   Opinions,
   Reasons,
   Booking,
-  HeaderMain,
-  Menu
+  HeaderMain
 } from "../components/shared";
 
 const Home = () => {
-
   return (
     <div>
-      <Menu/>
       <div className="w-full">
         <HeaderMain/>
       </div>

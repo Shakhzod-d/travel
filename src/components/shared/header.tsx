@@ -7,8 +7,11 @@ import { openMenu } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 
+interface Prop{
+    navBorder: string 
+}
 
-const Header = () => {
+const Header = ({ navBorder }: Prop) => {
 
     const dispatch = useDispatch()
     const openHandler: React.MouseEventHandler<HTMLDivElement> = () => {
@@ -16,12 +19,12 @@ const Header = () => {
     }
 
     return (
-        <div className='padding flex justify-between items-center py-4 border-b-[1px] border-[#E6E6E6]'>
+        <div className='padding flex justify-between items-center py-4 border-b-[1px] border-[#E6E6E6] bg-white'>
             <img src={travelIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[150px]'/>
             <div className='flex items-center'>
                 <div className='flex lg:hidden'>
                     <div className='flex items-center'>
-                        <Navbar borderColor='white'/>
+                        <Navbar borderColor={navBorder}/>
                     </div>
                     <SigninBtn/>
                 </div>

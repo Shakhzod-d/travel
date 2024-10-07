@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Preloading, Layout } from "./components/shared";
+import { Preloading, Layout, Menu } from "./components/shared";
 import { Home, Travel } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { Overlay } from "./components/ui";
@@ -13,10 +13,11 @@ function App() {
   return (
     <Suspense fallback={<Preloading />}>
       <Overlay />
+      <Menu/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
-          <Route path="/travel" element={<Travel />} />
+          <Route path="/tours" element={<Travel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Route>

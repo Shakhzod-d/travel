@@ -6,13 +6,13 @@ interface TravelSummaryProps {}
 const TravelSummary: FC<TravelSummaryProps> = () => {
   return (
     <div className="max-w-[443px] w-full max-h-[432px] px-4 pt-4 pb-5 bg-white rounded border flex-col justify-start items-start gap-[38px] inline-flex lg:max-w-full sm:max-h-full">
-      <div className=" border border-[#eaeaea] w-full px-5 py-7">
+      <div className=" border border-[#eaeaea] w-full px-5 py-7 xm:text-center">
         <h2 className=" text-[#112211] text-xl font-bold mb-2">
           Total Summary
         </h2>
-        <div className="flex mb-5">
-          <div className="flex-1 flex gap-4">
-            <p className=" text-neutral-700 text-sm font-bold">Urungach lake</p>
+        <div className="flex xm:flex-col sm:items-center mb-5">
+          <div className="flex-1 flex flex-wrap gap-4 xm:w-full xm:justify-center xm:mb-3">
+            <p className=" text-neutral-700 text-sm font-bold ">Urungach lake</p>
             <p className=" text-neutral-700 text-sm font-bold flex items-center g-1">
               <span className="w-1 h-1 bg-neutral-700 rounded-full inline-block" />
               <span className="  inline-block pl-2"> Group Tour (Guided) </span>

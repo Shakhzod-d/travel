@@ -7,17 +7,13 @@ interface TravelPicturesProps {}
 const TravelPictures: FC<TravelPicturesProps> = () => {
   return (
     <section className="pb-10 bg-white">
-      <Container className="flex max-h-[400px] gap-4 2xl:flex-col 2xl:max-h-full 2xl:max-w-[750px]">
-        <img src="/travel/1.jpg" alt="" />
-        <div className="flex gap-4 flex-col 2xl:items-center flex-wrap">
-          <div className="flex gap-4 flex-wrap *:flex-1">
-            <img src="/travel/2.jpg" alt="" />
-            <img src="/travel/3.jpg" alt="" />
-          </div>
-          <div className="flex gap-4 flex-wrap *:flex-1">
-            <img src="/travel/4.jpg" alt="" />
-            <img src="/travel/5.jpg" alt="" />
-          </div>
+      <Container className="flex xl:flex-col justify-between xl:items-center w-full">
+          <img src="/travel/1.jpg" alt="" />
+        <div className="grid grid-cols-2 md:grid-cols-1 gap-3 xl:mt-3">
+          <img src="/travel/2.jpg" alt="" />
+          <img src="/travel/4.jpg" alt="" />
+          <img src="/travel/3.jpg" alt="" />
+          <img src="/travel/5.jpg" alt="" />
         </div>
       </Container>
     </section>

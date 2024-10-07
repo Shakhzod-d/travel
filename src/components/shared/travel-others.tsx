@@ -5,7 +5,16 @@ import { Container } from "../ui";
 interface TravelOthersProps {}
 
 const TravelOthers: FC<TravelOthersProps> = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
+
+  const changeActive = (num: number) => {
+    if(active !== num){
+      setActive(num)
+    }else{
+      setActive(0)
+    }
+  }
+
   return (
     <section className="bg-white py-20 sm:px-2 sm:py-2" id="other">
       <Container>
@@ -16,20 +25,20 @@ const TravelOthers: FC<TravelOthersProps> = () => {
           </p>
         </div>
         <div
-          className={`flex-col gap-3 flex mb-9 transition duration-300 ${
-            active == 1 ? "max-h-max" : "max-h-16 overflow-hidden"
+          className={`flex-col gap-3 flex mb-9 transition-all ease-in-out duration-500 ${
+            active == 1 ? "max-h-[1000px]" : "max-h-[70px] overflow-hidden"
           }`}
         >
           <div
-            className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between mb-3 "
-            onClick={() => setActive(1)}
+            className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between mb-3 cursor-pointer"
+            onClick={() => changeActive(1)}
           >
             <p className=" text-[#0f1728] text-2xl font-semibold leading-9 sm:text-xl">
               Ticket exchange
             </p>
             <img
               src="/icons/arrow-chevron.svg"
-              className={`${active == 1 ? "rotate-180" : ""}`}
+              className={`transition-all ease-in-out duration-500 delay-75 ${active == 1 ? "rotate-180" : ""}`}
             />
           </div>
           <ul className="text-[#98a1b2] text-2xl font-extralight leading-9 pl-3">
@@ -44,22 +53,22 @@ const TravelOthers: FC<TravelOthersProps> = () => {
           </ul>
         </div>
         <div
-          className={`flex-col gap-3 flex  transition duration-300 ${
+          className={`flex-col gap-3 flex transition-all ease-in-out duration-500 ${
             active == 2
-              ? "max-h-[full] overflow-auto"
+              ? "max-h-[1000px] overflow-y-hidden xm:overflow-y-scroll"
               : "max-h-16 overflow-hidden"
           }`}
         >
           <div
-            className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between"
-            onClick={() => setActive(2)}
+            className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between cursor-pointer"
+            onClick={() => changeActive(2)}
           >
             <p className=" text-[#0f1728] text-2xl font-semibold leading-9  sm:text-xl ">
               Terms and Conditions
             </p>
             <img
               src="/icons/arrow-chevron.svg"
-              className={`${active == 2 ? "rotate-180" : ""}`}
+              className={`transition-all ease-in-out duration-500 delay-75 ${active == 2 ? "rotate-180" : ""}`}
             />
           </div>
           <div className="flex-col gap-3 flex">

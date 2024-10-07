@@ -6,11 +6,10 @@ import { OpinionType } from '../../types'
 import { Carousel } from 'nuka-carousel';
 
 const Opinions = () => {
-
     return (
         <div className="padding">
             <h2 className="h2 md:text-3xl sm:text-2xl mb-8">What Our Clients Say About Us</h2>
-            <Carousel showDots showArrows>
+            <Carousel showDots showArrows wrapMode="wrap">
             {
                 clientOpinions.map((item: OpinionType) => (
                     <div key={item.id} className='mr-2'>

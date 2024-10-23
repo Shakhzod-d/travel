@@ -15,6 +15,7 @@ const Contact = () => {
       />
       <ContactFormSection />
       <FAQsSection />
+      {/* Something to deploy */}
     </main>
   );
 };

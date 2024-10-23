@@ -4,6 +4,8 @@ export default {
   theme: {
     extend: {},
     screens: {
+      "3xl": { max: "1920px" },
+
       "2xl": { max: "1535px" },
       // => @media (max-width: 1535px) { ... }
 

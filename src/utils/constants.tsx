@@ -292,7 +292,31 @@ export const clientOpinions = [
     img: img11,
     name: 'Adam',
     job: 'webflow developer'
-}
+  },
+  {
+    id: uuidv4(),
+    phrase: '“BRIX Templates is the #1”',
+    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+    img: img11,
+    name: 'Adam',
+    job: 'webflow developer'
+  },
+  {
+    id: uuidv4(),
+    phrase: '“BRIX Templates is the #1”',
+    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+    img: img11,
+    name: 'Adam',
+    job: 'webflow developer'
+  },
+  {
+    id: uuidv4(),
+    phrase: '“BRIX Templates is the #1”',
+    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+    img: img11,
+    name: 'Adam',
+    job: 'webflow developer'
+  }
 ]
 
 export const reasonsArray = [

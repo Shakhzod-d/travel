@@ -22,7 +22,39 @@
 .padding {
   padding: 0 50px;
 }
-
+/* #nuka-wrapper{
+  width: 100px;
+} */
+@media (max-width: 1367px) {
+   .nuka-wrapper{
+    width: 1000px;
+  }
+}
+@media (max-width: 1023px) {
+  .nuka-wrapper{
+    width: 900px;
+  }
+}
+@media (max-width: 920px) {
+  .nuka-wrapper{
+    width: 700px;
+  }
+}
+@media (max-width: 767px) {
+  .nuka-wrapper{
+    width: 600px;
+  }
+}
+@media (max-width: 639px) {
+  .nuka-wrapper{
+    width: 300px;
+  }
+}
+@media (max-width: 364px) {
+  .nuka-wrapper{
+    width: 100px;
+  }
+}
 .navItem {
   font-size: 15px;
   line-height: 22px;
@@ -51,6 +83,15 @@
 
 .padding {
   padding: 0 20px;
+}
+
+@media (min-width: 1256px) {
+  .padding{
+    padding: 0 80px;
+  }
+}
+.box{
+  max-width: 1535px;
 }
 
 .template{
@@ -109,6 +150,26 @@
 .out{
   transform: translateX(100%)
 }
+.unscrollable{
+  overflow-y: hidden
+}
+
+.form-input{
+  width: 400px;
+}
+
+@media (max-width: 639px) {
+  .form-input{
+    width: 330px;
+  }
+}
+
+@media (max-width: 364px) {
+  .form-input{
+    width: max-content;
+  }
+}
+
 
 
 @tailwind base;

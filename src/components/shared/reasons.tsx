@@ -8,7 +8,7 @@ const Reasons = () => {
             <h2 className='h2 md:text-3xl sm:text-2xl uppercase'>
                 why choose us
             </h2>
-            <h3 className='h3 text-[#666666] text-xl my-8'>Our beliefs aren't just words; they are the foundation of every adventure we offer. With high commitment to sustainability, authenticity, and customer-centricity, we ensure that every trip you take with us is valuable.</h3>
+            <h3 className='h3 text-[#666666] my-8'>Our beliefs aren't just words; they are the foundation of every adventure we offer. With high commitment to sustainability, authenticity, and customer-centricity, we ensure that every trip you take with us is valuable.</h3>
             <ul className='grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-3'>
                 {
                     reasonsArray.map((item: ReasonType) => (

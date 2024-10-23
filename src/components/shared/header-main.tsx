@@ -1,5 +1,4 @@
 import { Experts } from "../../assets/images/icons";
-import hero from '../../assets/images/hero.png'
 import Navbar from "./navbar";
 import { SigninBtn } from '../ui';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -18,15 +17,17 @@ const HeaderMain = () => {
     }
 
     return (
-        <div className="flex flex-col items-center  w-full justify-between pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${hero})` }}>
-            <div className="padding w-full flex justify-between items-center py-4 border-b-[1px] border-[#E6E6E6]">
-                <Experts fill="#fff"/>
-                <div className="flex *:text-white lg:hidden">
-                    <Navbar borderColor='white'/>
-                    <SigninBtn/>
-                </div>
-                <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>
-                    <MenuIcon style={{ fontSize:32, color:'white' }}/>
+        <div className="flex flex-col items-center w-full justify-between pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
+            <div className="padding w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
+                <div className="box w-full flex justify-between items-center py-4">
+                    <Experts fill="#fff"/>
+                    <div className="flex *:text-white lg:hidden">
+                        <Navbar borderColor='white'/>
+                        <SigninBtn/>
+                    </div>
+                    <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>
+                        <MenuIcon style={{ fontSize:32, color:'white' }}/>
+                    </div>
                 </div>
             </div>    
             <div className="w-full padding mt-[200px] lg:mt-[80px] sm:mt-[30px]">

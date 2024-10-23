@@ -19,7 +19,7 @@ const Discount = () => {
     }
 
     return (
-        <div className="padding w-full pt-8 pb-[100px] flex justify-center items-center bg-[#030626]">
+        <div className="padding box w-full pt-8 pb-[100px] flex justify-center items-center">
             <div className="w-[80%] lg:w-full md:w-full flex items-end md:flex-col md:items-center">
                 <div className="flex flex-col w-[60%] md:w-[90%] md:mb-4 sm:w-full">
                     <div className="bg-gray-700 rounded-sm p-1 w-max">

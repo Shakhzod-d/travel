@@ -13,7 +13,7 @@ const Contact = () => {
         title={"Contact us"}
         desc={"Explore the various interesting content that we present"}
       />
-      <ContactFormSection />
+      <ContactFormSection/>
       <FAQsSection />
       {/* Something to deploy */}
     </main>

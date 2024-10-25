@@ -8,7 +8,7 @@ import { Carousel } from 'nuka-carousel';
 const Opinions = () => {
 
     return (
-        <div className="padding flex flex-col items-center w-full">
+        <div className="flex flex-col items-center w-full">
             <h2 className="h2 md:text-3xl sm:text-2xl mb-8">What Our Clients Say About Us</h2>
             <div className='w-full'>
                 <Carousel showDots scrollDistance="slide" showArrows={true} wrapMode="wrap" swiping={true}>

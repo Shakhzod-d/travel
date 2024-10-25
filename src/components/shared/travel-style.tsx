@@ -1,12 +1,13 @@
 import { travelStyles } from "../../utils"
 import { TravelStyles } from "../../types"
 import { Link } from "react-router-dom"
+import { Container } from "../ui"
 // grid grid-cols-2 lg:grid-cols-1 gap-x-1 gap-y-2 sm:gap-1 template w-full
 
 const Travelstyle = () => {
     return (
         <div className="w-full flex justify-center">
-            <div className="flex flex-col items-center padding py-3 box">
+            <Container className="flex flex-col items-center py-3 box">
                 <h2 className="h2 md:text-3xl sm:text-2xl mb-8">STYLES TO TRAVEL IN CENTRAL  ASIA</h2>
                 <div className="flex flex-wrap justify-center">
                     {
@@ -24,7 +25,7 @@ const Travelstyle = () => {
                         ))
                     }
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }

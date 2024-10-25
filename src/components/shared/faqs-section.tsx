@@ -3,7 +3,15 @@ import { faqsData } from "../../utils/constants";
 import { Container } from "../ui";
 
 const FAQsSection = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
+  const changeActive = (e: React.MouseEvent<HTMLDivElement>) => {
+    const targetId = e.currentTarget.id;
+    if(Number(targetId) == active){
+      setActive(0)
+    }else{
+      setActive(Number(targetId))
+    }
+  }
 
   return (
     <section className="py-[90px] bg-[#f5f9fa] sm:py-10">
@@ -15,10 +23,11 @@ const FAQsSection = () => {
           {faqsData.map((item) => (
             <div
               className={`gap-7 flex cursor-pointer`}
-              onClick={() => setActive(item.id)}
+              onClick={changeActive}
               key={item.id}
+              id={item.id.toString()}
             >
-              <p className="text-[#0c141d] text-[32px] font-semibold leading-[48px] sm:text-sm">
+              <p className="text-[#0c141d] text-[32px] font-semibold leading-[48px] sm:text-sm sm:pt-1 pointer-events-none">
                 {item.ind}
               </p>
               <div
@@ -26,9 +35,9 @@ const FAQsSection = () => {
                   active == item.id
                     ? "max-h-full md:max-h-[100%] overflow-auto"
                     : "max-h-[48px] sm:max-h-[60px]"
-                } overflow-hidden transition-all  duration-500`}
+                } overflow-hidden transition-all ease-in-out duration-500 pointer-events-none`}
               >
-                <div className=" items-center flex ">
+                <div className=" items-center flex">
                   <h2 className="text-[#0c141d] text-2xl font-semibold leading-9 flex-1 sm:text-lg">
                     {item.title}
                   </h2>
@@ -38,7 +47,7 @@ const FAQsSection = () => {
                     }  `}
                   />
                 </div>
-                <div className="pr-3  gap-2.5 flex">
+                <div className="pr-3  gap-2.5 flex pointer-events-none">
                   <p className="text-[#667084] text-lg font-semibold leading-[27px] text-[12px]">
                     {item.desc}
                   </p>

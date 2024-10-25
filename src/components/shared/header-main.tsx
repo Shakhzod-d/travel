@@ -1,6 +1,5 @@
-import { Experts } from "../../assets/images/icons";
+import whiteIcon from '../../assets/images/icons/white-icon.png'
 import Navbar from "./navbar";
-import { SigninBtn } from '../ui';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MenuIcon from '@mui/icons-material/Menu';
 import { SocialMedias } from '../../types';
@@ -8,6 +7,7 @@ import { socialMedias } from '../../utils';
 import { Link } from 'react-router-dom';
 import { openMenu } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
+import { Container, SigninBtn } from "../ui";
 
 const HeaderMain = () => {
     let dispatch = useDispatch()
@@ -18,9 +18,9 @@ const HeaderMain = () => {
 
     return (
         <div className="flex flex-col items-center w-full justify-between pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
-            <div className="padding w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
-                <div className="box w-full flex justify-between items-center py-4">
-                    <Experts fill="#fff"/>
+            <div className="w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
+                <Container className="box w-full flex justify-between items-center py-4">
+                <img src={whiteIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[180px]'/>
                     <div className="flex *:text-white lg:hidden">
                         <Navbar borderColor='white'/>
                         <SigninBtn/>
@@ -28,7 +28,7 @@ const HeaderMain = () => {
                     <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>
                         <MenuIcon style={{ fontSize:32, color:'white' }}/>
                     </div>
-                </div>
+                </Container>
             </div>    
             <div className="w-full padding mt-[200px] lg:mt-[80px] sm:mt-[30px]">
                 <div className='w-full flex flex-col items-center'>

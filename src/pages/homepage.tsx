@@ -8,6 +8,7 @@ import {
   Booking,
   HeaderMain
 } from "../components/shared";
+import { Container } from "../components/ui"
 import hero from '../../src/assets/images/hero.png'
 
 
@@ -19,29 +20,29 @@ const Home = () => {
         <HeaderMain/>
       </div>
       <div>
-        <div className="padding">
+        <Container>
           <Destinations />
-        </div>
+        </Container>
         <Travelstyle />
-        <div className="padding bg-gray-100 w-full flex flex-col items-center">
+        <div className="bg-gray-100 w-full flex flex-col items-center">
           <Tour type="summer" />
           <Tour type="winter" />
         </div>
         <div className="w-full flex justify-center bg-[#030626]">
           <Discount />
         </div>
-        <div className="padding pt-11 flex flex-col items-center pb-[80px] sm:pb-[50px] bg-gray-100 w-full">
-          <div className="mb-9 box">
+        <div className="pt-11 flex flex-col items-center pb-[80px] sm:pb-[50px] bg-gray-100 w-full">
+          <Container className="mb-9 box">
             <Opinions />
-          </div>
-          <div className="box">
+          </Container>
+          <Container>
             <Reasons />
-          </div>
+          </Container>
         </div>
         <div className="w-full padding flex justify-center">
-          <div className="box">
+          <Container>
             <Booking />
-          </div>
+          </Container>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import { Data } from '../../types'
 import { InputMask } from 'primereact/inputmask'
+import { Container } from "../ui"
 
 
 const Discount = () => {
@@ -19,7 +20,7 @@ const Discount = () => {
     }
 
     return (
-        <div className="padding box w-full pt-8 pb-[100px] flex justify-center items-center">
+        <Container className="w-full pt-8 pb-[100px] flex justify-center items-center">
             <div className="w-[80%] lg:w-full md:w-full flex items-end md:flex-col md:items-center">
                 <div className="flex flex-col w-[60%] md:w-[90%] md:mb-4 sm:w-full">
                     <div className="bg-gray-700 rounded-sm p-1 w-max">
@@ -64,7 +65,7 @@ const Discount = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </Container>
     )
 }
 

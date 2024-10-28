@@ -19,9 +19,6 @@
   }
 }
 
-.padding {
-  padding: 0 50px;
-}
 @media (max-width: 1367px) {
    .nuka-wrapper{
     width: 1000px;
@@ -97,13 +94,9 @@
     padding: 0 80px;
   }
 }
-.box{
-  max-width: 1535px;
-}
 
 .template{
-    grid-template-rows: auto;
-
+  grid-template-rows: auto;
 }
 
 .h2 {

@@ -357,3 +357,89 @@ export const steps = [
         def: 'After you pay, you can immediatly enjoy the trip to the destination'
     }
 ] 
+
+export const footerData1 = [
+  {
+    id: uuidv4(),
+    data: 'About programs',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Press Relaases',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Environment',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Jobs',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Privacy Policy',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Contact us',
+    path: '/'
+  }
+]
+
+export const footerData2 = [
+  {
+    id: uuidv4(),
+    data: 'Tickets',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Season Passes',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    data: 'Vacation Packages',
+    path: '/'
+  }
+]
+
+export const footerData3 = [
+  {
+    id: uuidv4(),
+    icon: '/icons/facebook.svg',
+    alt: 'facebook',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/instagram.svg',
+    alt: 'instagram',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/x.svg',
+    alt: 'x',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/youtube.svg',
+    alt: 'youtube',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/wordpress.png',
+    alt: 'wordpress',
+    path: '/'
+  }
+]
+
+

@@ -50,7 +50,7 @@ const Destinations = () => {
                     cartItems.map((item: CartItems) => (
                         <div 
                             key={item.id} 
-                            style={{ backgroundImage: `url(${item.img})` }} 
+                            style={{ backgroundImage: `url(${item.img})` }}
                             className="flex flex-col justify-between items-start p-4 rounded-xl w-[350px] xl:w-[300px] lg:w-[210px] sm:w-full h-[460px] xl:h-[410px] sm:h-[460px] bg-center bg-cover bg-no-repeat ">
                                 <div className="round bg-gray-500 text-white p-3">{item.country}</div>
                                 <div>

@@ -17,7 +17,7 @@ const HeaderMain = () => {
     }
 
     return (
-        <div className="flex flex-col absolute top-0 left-0 items-center w-full justify-between pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
+        <div className="overlay min-h-[800px] md:min-h-[500px] flex flex-col absolute top-0 left-0 items-center w-full justify-between pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
             <div className="w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
                 <Container className="box w-full flex justify-between items-center py-4">
                 <img src={whiteIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[180px]'/>

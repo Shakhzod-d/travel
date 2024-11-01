@@ -1,5 +1,8 @@
 import { Experts } from "../../assets/images/icons";
 import { Container } from "./container";
+import { footerData1, footerData2, footerData3 } from "../../utils";
+import { FooterDataType, FooterIconsType } from "../../types";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,39 +13,26 @@ const Footer = () => {
 
           <ul>
             <h2 className="mb-4 text-white text-lg font-medium">Learn More </h2>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              About programs
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Press Relaases
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Environment
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Jobs
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Privacy Policy
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Contact Us
-            </li>
+            {
+              footerData1.map((item : FooterDataType) => (
+                <li key={item.id} className="opacity-80 text-white text-sm font-bold leading-[30px]">
+                  <Link to={item.path}>{item.data}</Link>
+                </li>
+              ))
+            }
           </ul>
 
           <ul>
             <h2 className="mb-4 text-white text-lg font-medium">
               Tickets & Booking{" "}
             </h2>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Tickets{" "}
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Season Passes
-            </li>
-            <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Vacation Packages
-            </li>
+            {
+              footerData2.map((item: FooterDataType) => (
+                <li key={item.id} className="opacity-80 text-white text-sm font-bold leading-[30px]">
+                  <Link to={item.path}>{item.data}</Link>
+                </li>
+              ))
+            }
           </ul>
 
           <ul>
@@ -55,27 +45,20 @@ const Footer = () => {
             </li>
           </ul>
 
-          <ul>
+          <div>
             <h2 className="mb-4 text-white text-lg font-medium">Social</h2>
-
-            <div className="flex gap-7">
-              <a href="#">
-                <img src="/icons/facebook.svg" alt="" />
-              </a>
-              <a href="#">
-                <img src="/icons/instagram.svg" alt="" />
-              </a>
-              <a href="#">
-                <img src="/icons/x.svg" alt="" />
-              </a>
-              <a href="#">
-                <img src="/icons/youtube.svg" alt="" />
-              </a>
-              <a href="#">
-                <img src="/icons/wordpress.png" alt="" />
-              </a>
-            </div>
-          </ul>
+            <ul className="gap-7 flex">
+              {
+                footerData3.map((item: FooterIconsType) => (
+                  <li key={item.id}>
+                    <Link to={item.path}>
+                      <img src={item.icon} alt={item.alt} />
+                    </Link>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
         </div>
 
         <div className="pt-8 border-t border-[#ffffff28]">

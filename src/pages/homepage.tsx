@@ -9,15 +9,17 @@ import {
   HeaderMain
 } from "../components/shared";
 import { Container } from "../components/ui"
-import hero from '../../src/assets/images/hero.png'
+// import hero from '../../src/assets/images/hero.png'
+import video from '../../src/assets/video/sea.mp4'
 
 
 const Home = () => {
   
   return (
     <div>
-      <div className="w-full bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${hero})`}}>
-        <HeaderMain/>
+      <div className="w-full min-h-[800px] md:min-h-[500px] relative bg-cover bg-no-repeat bg-center">
+        <video src={video} className="object-cover absolute w-full h-full" autoPlay loop muted></video>
+          <HeaderMain/>
       </div>
       <div>
         <Container>

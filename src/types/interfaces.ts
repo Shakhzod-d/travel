@@ -1,5 +1,7 @@
 export interface State {
-    menu: boolean;
+  menu: boolean;
+  modal: boolean;
+  userRate: number
 }
 export interface NavItems {
   id: string;
@@ -91,5 +93,12 @@ export interface FooterIconsType{
   icon: string,
   alt: string,
   path: string
+}
+
+export interface ModalDataType{
+  name: string,
+  job: string,
+  rank: number,
+  review: string
 }
 

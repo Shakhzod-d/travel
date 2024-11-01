@@ -2,16 +2,20 @@ import { Suspense } from "react";
 import { Preloading, Layout, Menu } from "./components/shared";
 import { Home, Travel, Login, Register } from "./pages";
 import { Route, Routes } from "react-router-dom";
-import { Overlay } from "./components/ui";
+import { Overlay, Modal } from "./components/ui";
 import "./App.css";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Footer from "./components/ui/footer";
+import { useSelector } from "react-redux";
+import { RootState } from "./store/store";
 
 function App() {
-
+  const state = useSelector((state: RootState) => state.main)
+  const {modal} = state
   return (
     <Suspense fallback={<Preloading />}>
+      {modal && <Modal/>}
       <Overlay />
       <Menu/>
       <Routes>

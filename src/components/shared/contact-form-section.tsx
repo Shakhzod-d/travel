@@ -97,8 +97,8 @@ const ContactFormSection = () => {
                   className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
                   {...register("name", {
                       required: {
-                          value: true,
-                          message: "please, enter your name"
+                        value: true,
+                        message: "please, enter your name"
                       }
                   })}
                   id="name" 

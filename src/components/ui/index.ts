@@ -6,6 +6,7 @@ export { default as Step } from './Step'
 export { default as Overlay } from './Overlay'
 export { default as SigninBtn } from './Sign-in.button'
 export { default as Modal } from './modal'
+export { default as Map } from './Map'
 
 export { Container } from "./container";
 export * from "./button";

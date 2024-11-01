@@ -1,12 +1,18 @@
 import { useForm } from "react-hook-form"
 import { ModalDataType } from "../../types"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "../../store/store"
+import { closeModal } from "../../store/main-slice"
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Rating from "./rating"
 import 'animate.css';
 
 const Modal = () => {
     const state = useSelector((state: RootState) => state.main)
+    const dispatch = useDispatch()
+    const closeHandler = () => {
+        dispatch(closeModal())
+    }
     const { modal, userRate } = state
     const {
         register,
@@ -21,11 +27,17 @@ const Modal = () => {
         data.rank = userRate
         console.log(data)
         reset()
+        closeHandler()
     }
     return (
         <div className={`w-full animate__animated animate__zoomIn h-screen fixed justify-center items-center z-50 pointer-events-none break-words ${modal ? 'flex' : 'animate__animated animate__zoomOut'}`}>
             <div className="flex justify-center items-center w-full h-screen pointer-events-none">
                 <div className="pointer-events-auto rounded-2xl shadow-lg bg-white h-max p-5 max-w-[400px] w-full">
+                <div className="w-full flex justify-end">
+                    <div onClick={closeHandler}>
+                        <HighlightOffIcon style={{ fontSize: 30 }} className="cursor-pointer"/>
+                    </div>
+                </div>
                     <div className="w-full flex justify-end"></div>
                     <form onSubmit={handleSubmit(onSubmit)} className="max-w-[540px] w-full">
                         <div>

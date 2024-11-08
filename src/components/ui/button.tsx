@@ -6,4 +6,4 @@ const Button = ({ text, background, onclick }: ButtonProps) => {
     )
 }
 
-export default Button
+export default Button   

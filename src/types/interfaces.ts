@@ -1,7 +1,8 @@
 export interface State {
   menu: boolean;
   modal: boolean;
-  userRate: number
+  userRate: number;
+  activeCountry: string
 }
 export interface NavItems {
   id: string;
@@ -26,6 +27,8 @@ export interface CartItems {
   id: string;
   country: string;
   city: string;
+  location: string,
+  price: number,
   img: string;
 }
 
@@ -102,3 +105,14 @@ export interface ModalDataType{
   review: string
 }
 
+export interface CountriesType{
+  id: string,
+  country: string,
+  active: boolean
+}
+
+export interface ServiceCartType{
+  img: any,
+  service: string,
+  definition: string
+}

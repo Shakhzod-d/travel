@@ -14,7 +14,7 @@ interface Props {
   className: string;
 }
 
-const HeaderAbout = ({ route, title, desc, className }: Props) => {
+const   HeaderAbout = ({ route, title, desc, className }: Props) => {
 
   let dispatch = useDispatch()
 

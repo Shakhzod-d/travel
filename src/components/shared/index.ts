@@ -12,6 +12,9 @@ export { default as Opinions } from './opinions'
 export { default as Reasons } from './reasons'
 export { default as Booking } from './booking'
 export { default as Menu } from './menu'
+export { default as Services } from './services'
+export { default as CountryList } from './countryList'
+export { default as Pagination } from './pagination'
 
 export * from "./experiencse-section";
 export * from "./team-section";

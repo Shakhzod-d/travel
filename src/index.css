@@ -102,6 +102,9 @@
 .template{
   grid-template-rows: auto;
 }
+.btn{
+  border-radius: 28px;
+}
 
 .h2 {
   text-transform: uppercase;
@@ -126,6 +129,40 @@
   color: white;
   font-size: 16px;
 }
+.pagination{
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  size: 14px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 50px;
+}
+.active{
+  background-color: #0A142F;
+  height: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+.page a{
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(194, 188, 188);
+  color: #313131;
+  cursor: pointer;
+} 
+.next a, .previous a{
+  width: 76px;
+  height: 36px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(194, 188, 188);
+}
+.active a{
+  color: white;
+} 
 .navItem {
   font-size: 15px;
   line-height: 22px;

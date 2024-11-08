@@ -1,14 +1,15 @@
 
-export { default as Cart } from './Cart'
-export { default as OpinionCart } from './OpinionCart'
-export { default as ReasonCart } from './ReasonCart'
-export { default as Step } from './Step'
-export { default as Overlay } from './Overlay'
-export { default as SigninBtn } from './Sign-in.button'
+export { default as Cart } from './cart'
+export { default as OpinionCart } from './opinionCart'
+export { default as ReasonCart } from './reasonCart'
+export { default as Steps } from './steps'
+export { default as Overlay } from './overlay'
+export { default as SigninBtn } from './sign-in.button'
 export { default as Modal } from './modal'
-export { default as Map } from './Map'
+export { default as Map } from './map'
+export { default as ServiceCart } from './serviceCart'
 
-export { Container } from "./container";
+export { Container } from "./container";    
 export * from "./button";
 export * from "./footer";
 export * from "./rating";

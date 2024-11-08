@@ -6,10 +6,10 @@ import {
   Opinions,
   Reasons,
   Booking,
-  HeaderMain
+  HeaderMain,
+  Services
 } from "../components/shared";
 import { Container } from "../components/ui"
-// import hero from '../../src/assets/images/hero.png'
 import video from '../../src/assets/video/sea.mp4'
 
 
@@ -23,18 +23,25 @@ const Home = () => {
       </div>
       <div>
         <Container>
-          <Destinations />
+          <Destinations/>
         </Container>
+        <div className="bg-gray-100 w-full flex justify-center">
+          <Tour type="summer" />
+        </div>
         <Travelstyle />
         <div className="bg-gray-100 w-full flex flex-col items-center">
-          <Tour type="summer" />
-          <Tour type="winter" />
+          <Container>
+            <Services/>
+          </Container>
         </div>
+        <Container>
+          <Tour type="winter" />
+        </Container>
         <div className="w-full flex justify-center bg-[#030626]">
           <Discount />
         </div>
         <div className="pt-11 flex flex-col items-center pb-[80px] sm:pb-[50px] bg-gray-100 w-full">
-          <Container className="mb-9 box">
+          <Container className="mb-9">
             <Opinions />
           </Container>
           <Container>

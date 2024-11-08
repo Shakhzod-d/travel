@@ -16,6 +16,11 @@ import img11 from '../assets/images/clients/client.png'
 import img12 from '../assets/images/reasons/reason1.png'
 import img13 from '../assets/images/reasons/reason3.png'
 import img14 from '../assets/images/reasons/reason3.png'
+import img15 from '../assets/icons/service1.svg'
+import img16 from '../assets/icons/service2.svg'
+import img17 from '../assets/icons/service3.svg'
+import urg from '../assets/images/urg.svg'
+import sam from '../assets/images/sam.svg'
 
 
 export const navItems = [
@@ -439,6 +444,128 @@ export const footerData3 = [
     icon: '/icons/wordpress.png',
     alt: 'wordpress',
     path: '/'
+  }
+]
+
+export const countries = [
+  {
+    id: uuidv4(),
+    country: "Uzbekistan",
+    active: true
+  },
+  {
+    id: uuidv4(),
+    country: "Kazakhstan",
+    active: false
+  },
+  {
+    id: uuidv4(),
+    country: "Turkmenistan",
+    active: false
+  },
+  {
+    id: uuidv4(),
+    country: "Tadjikistan",
+    active: false
+  },
+  {
+    id: uuidv4(),
+    country: "Kyrgzstan",
+    active: false
+  }
+]
+export const services = [
+  {
+    id: uuidv4(),
+    img: img15,
+    service: 'Rent cars',
+    definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
+  },
+  {
+    id: uuidv4(),
+    img: img16,
+    service: 'Tour assistance',
+    definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
+  },
+  {
+    id: uuidv4(),
+    img: img17,
+    service: 'Tours',
+    definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
+  }
+]
+export const cartItems = [
+  {
+      id: uuidv4(),
+      country: "Uzbekistan",
+      city: "Samarkand old city",
+      location: "Samarkand city, Uzbekistan",
+      price: 400,
+      img: sam
+  },
+  {
+      id: uuidv4(),
+      country: "Uzbekistan",
+      city: "Urungach lake",
+      location: "Tashkent, Bostonliq district",
+      price: 400,
+      img: urg
+  },
+  {
+      id: uuidv4(),
+      country: "Uzbekistan",
+      city: "Samarkand old city",
+      location: "Samarkand city, Uzbekistan",
+      price: 400,
+      img: sam
+  },
+  {
+      id: uuidv4(),
+      country: "Uzbekistan",
+      city: "Urungach lake",
+      location: "Tashkent, Bostonliq district",
+      price: 400,
+      img: urg
+  },
+  {
+      id: uuidv4(),
+      country: "Kazakhstan",
+      city: "Kazakhstan",
+      location: "Kazakhstan",
+      price: 400,
+      img: sam
+  },
+  {
+      id: uuidv4(),
+      country: "Kazakhstan",
+      city: "Kazakhstan",
+      location: "Kazakhstan",
+      price: 400,
+      img: urg
+  },
+  {
+      id: uuidv4(),
+      country: "Tadjikistan",
+      city: "Tadjikistan",
+      location: "Tadjikistan",
+      price: 400,
+      img: sam
+  },
+  {
+      id: uuidv4(),
+      country: "Turkmenistan",
+      city: "Turkmenistan",
+      location: "Turkmenistan",
+      price: 400,
+      img: urg
+  },
+  {
+      id: uuidv4(),
+      country: "Kyrgzstan",
+      city: "Kyrgzstan",
+      location: "Kyrgzstan",
+      price: 400,
+      img: sam
   }
 ]
 

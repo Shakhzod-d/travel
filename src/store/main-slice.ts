@@ -6,7 +6,8 @@ import { State } from "../types";
 const initialState: State = {
   menu: false,
   modal: false,
-  userRate: 0
+  userRate: 0,
+  activeCountry: "Uzbekistan"
 };
 
 let body = document.getElementsByTagName('body')
@@ -33,11 +34,14 @@ export const mainSlice = createSlice({
     },
     rate: ( state, action ) => {
       state.userRate = action.payload
+    },
+    changeCountry: ( state, action ) => {
+      state.activeCountry = action.payload
     }
   },
 });
 
-export const { openMenu, closeMenu, openModal, closeModal, rate } =
+export const { openMenu, closeMenu, openModal, closeModal, rate, changeCountry } =
 mainSlice.actions;
 
 

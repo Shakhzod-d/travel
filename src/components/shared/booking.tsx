@@ -1,4 +1,4 @@
-import { Step } from "../ui"
+import { Steps } from "../ui"
 import { StepType } from "../../types"
 import { steps } from "../../utils"
 
@@ -22,7 +22,7 @@ const Booking = () => {
                     <div className="w-[48%] lg:w-full">
                         {
                             steps.map((item: StepType) => (
-                                <Step
+                                <Steps
                                     key={item.id}
                                     id={item.id}
                                     step={item.step}
@@ -34,7 +34,7 @@ const Booking = () => {
                 </div>
             </div>
             <div className="w-full flex justify-start sm:justify-center lg:mt-4">
-                <button className="py-2 px-9 bg-[#0A142F] round w-max text-white">Booking now</button>
+                <button className="py-2 px-9 bg-[#0A142F] btn w-max text-white">Booking now</button>
             </div>
         </div>
     )

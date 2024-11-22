@@ -7,7 +7,7 @@ const initialState: State = {
   menu: false,
   modal: false,
   userRate: 0,
-  activeCountry: "Uzbekistan"
+  activeCountry: ""
 };
 
 let body = document.getElementsByTagName('body')

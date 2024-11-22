@@ -1,7 +1,16 @@
-import { teamData } from "../../utils";
-import { Container } from "../ui";
+// import { teamData } from "../../utils";
+import { Container, Loading } from "../ui";
+import { TeamType } from "../../types";
+import { useQuery } from "react-query";
+import { useFetchData } from "../../hooks";
 
 const TeamSection = () => {
+  const { fetchdata } = useFetchData('/api/main/v1/teams')
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["team"],
+    queryFn: fetchdata
+  })
+
   return (
     <section>
       <Container>
@@ -23,27 +32,34 @@ const TeamSection = () => {
             </div>
           </div>
         </div>
+        {
+          isLoading ? (
+            <Loading/>
+          ) : error instanceof Error ? (
+            <div>Error: {error.message}</div>
+          )
+          :
+            data.results && <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
+              {data.results.map((item: TeamType) => (
+                <div key={item.id} className="card w-[100%] max-w-[100%]">
+                  <img
+                    src={item.image}
+                    alt="professionals img"
+                    className="w-full"
+                  />
 
-        <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
-          {teamData?.map((item) => (
-            <div key={item.id} className="card w-[100%] max-w-[100%]">
-              <img
-                src={`/${item.id}.png`}
-                alt="professionals img"
-                className="w-full"
-              />
-
-              <div className="card-content">
-                <h3 className="text-white text-[32px] font-semibold leading-[48px]">
-                  {item.name}
-                </h3>
-                <p className="text-[#98a1b2] text-xl font-semibold leading-[30px] mb-5">
-                  {item.role}
-                </p>
-              </div>
+                  <div className="card-content">
+                    <h3 className="text-white text-[32px] font-semibold leading-[48px]">
+                      {item.full_name}
+                    </h3>
+                    <p className="text-[#98a1b2] text-xl font-semibold leading-[30px] mb-5">
+                      {item.position}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+        }
       </Container>
     </section>
   );

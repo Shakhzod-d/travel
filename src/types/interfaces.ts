@@ -33,11 +33,11 @@ export interface CartItems {
 }
 
 export interface TravelStyles {
-  id: string;
-  type: string;
-  def: string;
-  link: string;
-  img: string;
+  id: number;
+  title: string;
+  image: string;
+  updated_at?: string;
+  created_at?: string;
 }
 
 export interface SeasonCart {
@@ -64,19 +64,22 @@ export interface Data{
 }
 
 export interface OpinionType{
-    id: string,
-    phrase: string,
-    opinion: string,
-    img: string,
-    name: string,
-    job: string
+  id: number,
+  full_name: string,
+  position: string,
+  image: string,
+  content: string,
+  updated_at?: string,
+  created_at?: string
 }
 
 export interface ReasonType{
   id: string,
-  img: string,
-  reason: string,
-  def: string
+  title: string,
+  image: string,
+  content: string,
+  updated_at?: string,
+  created_at?: string
 }
 
 export interface StepType{
@@ -102,17 +105,60 @@ export interface ModalDataType{
   name: string,
   job: string,
   rank: number,
-  review: string
+  review: string,
+  image: string
 }
 
+// export interface CountriesType{
+//   id: string,
+//   country: string,
+//   active: boolean
+// }
 export interface CountriesType{
-  id: string,
-  country: string,
-  active: boolean
+  id: number,
+  title: string,
+  updated_at: string,
+  created_at: string
+}
+
+export interface FaqType{
+  id: number,
+  title: string,
+  content: string,
+  updated_at: string,
+  created_at: string,
+}
+
+export interface TeamType{
+  id: number,
+  full_name: string,
+  image: string,
+  position: string,
+  updated_at: string,
+  created_at: string,
 }
 
 export interface ServiceCartType{
-  img: any,
-  service: string,
-  definition: string
+  id: number,
+  title: string,
+  image: string,
+  content: string,
+  updated_at?: string,
+  created_at?: string,
+}
+
+export interface FacilitiesType{
+  id: number,
+  title: string,
+  image: string,
+  updated_at?: string,
+  created_at?: string,
+}
+
+export interface CategoryType{
+  id: number,
+  title: string,
+  image: string,
+  updated_at?: string,
+  created_at?: string,
 }

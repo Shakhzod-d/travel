@@ -1,2 +1,2 @@
-export { navItems, teamData } from "./constants";
+export { navItems } from "./constants";
 export * from "./constants";

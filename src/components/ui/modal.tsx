@@ -61,17 +61,33 @@ const Modal = () => {
                             <h3 className="text-[18px] font-semibold mb-2">Job</h3>
                             <input 
                             className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
-                            {...register("job", {
-                                required: {
-                                    value: true,
-                                    message: "please, enter your job"
-                                }
-                            })}
+                                {...register("job", {
+                                    required: {
+                                        value: true,
+                                        message: "please, enter your job"
+                                    }
+                                })}
                             id="name" 
                             type="text" 
                             placeholder="Your job"
                             />
                             <p className="error">{errors.job?.message}</p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-[18px] font-semibold mb-2">Image</h3>
+                            <input 
+                            className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                                {...register("image", {
+                                    required: {
+                                        value: true,
+                                        message: "please, enter your image"
+                                    }
+                                })}
+                            id="image" 
+                            type="file"
+                            />
+                            { errors.image && <p className="error">{errors.image.message}</p>}
                         </div>
 
                         <div>

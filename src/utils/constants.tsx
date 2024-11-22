@@ -2,23 +2,23 @@ import { v4 as uuidv4 } from 'uuid'
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import img1 from "../assets/images/styles/Rectangle 3.png";
-import img2 from "../assets/images/styles/Rectangle 1.png";
-import img3 from "../assets/images/styles/Rectangle 2.png";
-import img4 from "../assets/images/styles/Rectangle 33.png";
+// import img1 from "../assets/images/styles/Rectangle 3.png";
+// import img2 from "../assets/images/styles/Rectangle 1.png";
+// import img3 from "../assets/images/styles/Rectangle 2.png";
+// import img4 from "../assets/images/styles/Rectangle 33.png";
 import img5 from "../assets/images/seasons/summer1.png";
 import img6 from "../assets/images/seasons/summer2.png";
 import img7 from "../assets/images/seasons/summer3.png";
 import img8 from "../assets/images/seasons/winter1.png";
 import img9 from "../assets/images/seasons/winter2.png";
 import img10 from "../assets/images/seasons/winter3.png";
-import img11 from '../assets/images/clients/client.png'
-import img12 from '../assets/images/reasons/reason1.png'
-import img13 from '../assets/images/reasons/reason3.png'
-import img14 from '../assets/images/reasons/reason3.png'
-import img15 from '../assets/icons/service1.svg'
-import img16 from '../assets/icons/service2.svg'
-import img17 from '../assets/icons/service3.svg'
+// import img11 from '../assets/images/clients/client.png'
+// import img12 from '../assets/images/reasons/reason1.png'
+// import img13 from '../assets/images/reasons/reason3.png'
+// import img14 from '../assets/images/reasons/reason3.png'
+// import img15 from '../assets/icons/service1.svg'
+// import img16 from '../assets/icons/service2.svg'
+// import img17 from '../assets/icons/service3.svg'
 import urg from '../assets/images/urg.svg'
 import sam from '../assets/images/sam.svg'
 
@@ -69,44 +69,44 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const teamData = [
-  { id: 1, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 2, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 3, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 4, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 5, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 6, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 7, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 8, name: "John Marvel", role: "Construction Expert Team" },
-  { id: 9, name: "John Marvel", role: "Construction Expert Team" },
-];
+// export const teamData = [
+//   { id: 1, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 2, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 3, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 4, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 5, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 6, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 7, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 8, name: "John Marvel", role: "Construction Expert Team" },
+//   { id: 9, name: "John Marvel", role: "Construction Expert Team" },
+// ];
 
-export const faqsData = [
-  {
-    id: 1,
-    ind: "01",
-    title: "Does this travel agency offer custom travel packages?",
-    desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-  },
-  {
-    id: 2,
-    ind: "02",
-    title: "Does this travel agency offer custom travel packages?",
-    desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-  },
-  {
-    id: 3,
-    ind: "03",
-    title: "Does this travel agency offer custom travel packages?",
-    desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-  },
-  {
-    id: 4,
-    ind: "04",
-    title: "Does this travel agency offer custom travel packages?",
-    desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-  },
-];
+// export const faqsData = [
+//   {
+//     id: 1,
+//     ind: "01",
+//     title: "Does this travel agency offer custom travel packages?",
+//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
+//   },
+//   {
+//     id: 2,
+//     ind: "02",
+//     title: "Does this travel agency offer custom travel packages?",
+//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
+//   },
+//   {
+//     id: 3,
+//     ind: "03",
+//     title: "Does this travel agency offer custom travel packages?",
+//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
+//   },
+//   {
+//     id: 4,
+//     ind: "04",
+//     title: "Does this travel agency offer custom travel packages?",
+//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
+//   },
+// ];
 
 export const travelMenuData = [
   { id: 1, text: "Summary", to: "#summary" },
@@ -148,36 +148,36 @@ export const socialMedias = [
   },
 ];
 
-export const travelStyles = [
-  {
-    id: uuidv4(),
-    type: "self drive tours",
-    def: "Drive famous scenic routes at your own pace.",
-    link: "Learn more",
-    img: img1,
-  },
-  {
-    id: uuidv4(),
-    type: "self drive tours",
-    def: "Drive famous scenic routes at your own pace.",
-    link: "Learn more",
-    img: img2,
-  },
-  {
-    id: uuidv4(),
-    type: "self drive tours",
-    def: "Drive famous scenic routes at your own pace.",
-    link: "Learn more",
-    img: img3,
-  },
-  {
-    id: uuidv4(),
-    type: "self drive tours",
-    def: "Drive famous scenic routes at your own pace.",
-    link: "Learn more",
-    img: img4,
-  },
-];
+// export const travelStyles = [
+//   {
+//     id: uuidv4(),
+//     type: "self drive tours",
+//     def: "Drive famous scenic routes at your own pace.",
+//     link: "Learn more",
+//     img: img1,
+//   },
+//   {
+//     id: uuidv4(),
+//     type: "self drive tours",
+//     def: "Drive famous scenic routes at your own pace.",
+//     link: "Learn more",
+//     img: img2,
+//   },
+//   {
+//     id: uuidv4(),
+//     type: "self drive tours",
+//     def: "Drive famous scenic routes at your own pace.",
+//     link: "Learn more",
+//     img: img3,
+//   },
+//   {
+//     id: uuidv4(),
+//     type: "self drive tours",
+//     def: "Drive famous scenic routes at your own pace.",
+//     link: "Learn more",
+//     img: img4,
+//   },
+// ];
 
 export const summerFeature = [
   {
@@ -257,93 +257,93 @@ export const winterFeature = [
     }
 ]
 
-export const clientOpinions = [
-    {
-        id: uuidv4(),
-        phrase: '“BRIX Templates is the #1”',
-        opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-        img: img11,
-        name: 'Adam',
-        job: 'webflow developer'
-    },
-    {
-        id: uuidv4(),
-        phrase: '“BRIX Templates is the #1”',
-        opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-        img: img11,
-        name: 'Adam',
-        job: 'webflow developer'
-    },
-    {
-        id: uuidv4(),
-        phrase: '“BRIX Templates is the #1”',
-        opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-        img: img11,
-        name: 'Adam',
-        job: 'webflow developer'
-    },
-    {
-      id: uuidv4(),
-      phrase: '“BRIX Templates is the #1”',
-      opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-      img: img11,
-      name: 'Adam',
-      job: 'webflow developer'
-  },
-  {
-    id: uuidv4(),
-    phrase: '“BRIX Templates is the #1”',
-    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-    img: img11,
-    name: 'Adam',
-    job: 'webflow developer'
-  },
-  {
-    id: uuidv4(),
-    phrase: '“BRIX Templates is the #1”',
-    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-    img: img11,
-    name: 'Adam',
-    job: 'webflow developer'
-  },
-  {
-    id: uuidv4(),
-    phrase: '“BRIX Templates is the #1”',
-    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-    img: img11,
-    name: 'Adam',
-    job: 'webflow developer'
-  },
-  {
-    id: uuidv4(),
-    phrase: '“BRIX Templates is the #1”',
-    opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-    img: img11,
-    name: 'Adam',
-    job: 'webflow developer'
-  }
-]
+// export const clientOpinions = [
+//     {
+//         id: uuidv4(),
+//         phrase: '“BRIX Templates is the #1”',
+//         opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//         img: img11,
+//         name: 'Adam',
+//         job: 'webflow developer'
+//     },
+//     {
+//         id: uuidv4(),
+//         phrase: '“BRIX Templates is the #1”',
+//         opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//         img: img11,
+//         name: 'Adam',
+//         job: 'webflow developer'
+//     },
+//     {
+//         id: uuidv4(),
+//         phrase: '“BRIX Templates is the #1”',
+//         opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//         img: img11,
+//         name: 'Adam',
+//         job: 'webflow developer'
+//     },
+//     {
+//       id: uuidv4(),
+//       phrase: '“BRIX Templates is the #1”',
+//       opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//       img: img11,
+//       name: 'Adam',
+//       job: 'webflow developer'
+//   },
+//   {
+//     id: uuidv4(),
+//     phrase: '“BRIX Templates is the #1”',
+//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//     img: img11,
+//     name: 'Adam',
+//     job: 'webflow developer'
+//   },
+//   {
+//     id: uuidv4(),
+//     phrase: '“BRIX Templates is the #1”',
+//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//     img: img11,
+//     name: 'Adam',
+//     job: 'webflow developer'
+//   },
+//   {
+//     id: uuidv4(),
+//     phrase: '“BRIX Templates is the #1”',
+//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//     img: img11,
+//     name: 'Adam',
+//     job: 'webflow developer'
+//   },
+//   {
+//     id: uuidv4(),
+//     phrase: '“BRIX Templates is the #1”',
+//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
+//     img: img11,
+//     name: 'Adam',
+//     job: 'webflow developer'
+//   }
+// ]
 
-export const reasonsArray = [
-    {
-        id: uuidv4(),
-        img: img12,
-        reason: 'Best guide',
-        def: 'Our expert tour guide knows the best about traveling they will guide you all time'
-    },
-    {
-        id: uuidv4(),
-        img: img13,
-        reason: 'Support 24/7',
-        def: 'Our customer experience team is available around clock to answer your questions'
-    },
-    {
-        id: uuidv4(),
-        img: img14,
-        reason: 'Luxury hotels',
-        def: 'We realise ideas from simple to complex, everything becomes easy to use'
-    }
-]
+// export const reasonsArray = [
+//     {
+//         id: uuidv4(),
+//         img: img12,
+//         reason: 'Best guide',
+//         def: 'Our expert tour guide knows the best about traveling they will guide you all time'
+//     },
+//     {
+//         id: uuidv4(),
+//         img: img13,
+//         reason: 'Support 24/7',
+//         def: 'Our customer experience team is available around clock to answer your questions'
+//     },
+//     {
+//         id: uuidv4(),
+//         img: img14,
+//         reason: 'Luxury hotels',
+//         def: 'We realise ideas from simple to complex, everything becomes easy to use'
+//     }
+// ]
 
 export const steps = [
     {
@@ -474,26 +474,26 @@ export const countries = [
     active: false
   }
 ]
-export const services = [
-  {
-    id: uuidv4(),
-    img: img15,
-    service: 'Rent cars',
-    definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
-  },
-  {
-    id: uuidv4(),
-    img: img16,
-    service: 'Tour assistance',
-    definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
-  },
-  {
-    id: uuidv4(),
-    img: img17,
-    service: 'Tours',
-    definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
-  }
-]
+// export const services = [
+//   {
+//     id: uuidv4(),
+//     img: img15,
+//     service: 'Rent cars',
+//     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
+//   },
+//   {
+//     id: uuidv4(),
+//     img: img16,
+//     service: 'Tour assistance',
+//     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
+//   },
+//   {
+//     id: uuidv4(),
+//     img: img17,
+//     service: 'Tours',
+//     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
+//   }
+// ]
 export const cartItems = [
   {
       id: uuidv4(),

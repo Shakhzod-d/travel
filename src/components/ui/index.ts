@@ -8,6 +8,7 @@ export { default as SigninBtn } from './sign-in.button'
 export { default as Modal } from './modal'
 export { default as Map } from './map'
 export { default as ServiceCart } from './serviceCart'
+export { default as Loading } from './loader'
 
 export { Container } from "./container";    
 export * from "./button";

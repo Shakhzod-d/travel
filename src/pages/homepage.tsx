@@ -26,7 +26,7 @@ const Home = () => {
           <Destinations/>
         </Container>
         <div className="bg-gray-100 w-full flex justify-center">
-          <Tour type="summer" />
+          <Tour type="summer"/>
         </div>
         <Travelstyle />
         <div className="bg-gray-100 w-full flex flex-col items-center">

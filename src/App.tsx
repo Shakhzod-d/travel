@@ -3,12 +3,13 @@ import { Preloading, Layout, Menu } from "./components/shared";
 import { Home, Travel, Login, Register, Tours } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { Overlay, Modal } from "./components/ui";
+import { useSelector } from "react-redux";
+import { RootState } from "./store/store";
+import { ToastContainer } from 'react-toastify';
 import "./App.css";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Footer from "./components/ui/footer";
-import { useSelector } from "react-redux";
-import { RootState } from "./store/store";
 
 function App() {
   const state = useSelector((state: RootState) => state.main)
@@ -29,6 +30,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
+      <ToastContainer/>
       <Footer />
     </Suspense>
   );

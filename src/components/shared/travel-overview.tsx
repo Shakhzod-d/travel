@@ -1,11 +1,20 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import type { FC } from "react";
-import { Container } from "../ui";
-import { travelOverviewData } from "../../utils/constants";
+import { FacilitiesType } from "../../types";
+import { Container, Loading } from "../ui";
+// import { travelOverviewData } from "../../utils/constants";
+import { useFetchData} from "../../hooks";
+import { useQuery } from "react-query";
 
 interface TravelOverviewProps {}
 
 const TravelOverview: FC<TravelOverviewProps> = () => {
+  const { fetchdata } = useFetchData('/api/tour/v1/availabilities')
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['facilities'],
+    queryFn: fetchdata
+  })
+
   return (
     <section
       className="bg-white mb-[75px] px-8 py-5 rounded-sm sm:px-0"
@@ -43,12 +52,19 @@ const TravelOverview: FC<TravelOverviewProps> = () => {
           Top facilities
         </h2>
         <ul className="grid grid-cols-2 max-w-[600px] sm:grid-cols-1">
-          {travelOverviewData.map((item) => (
-            <li key={item.id} className="flex mb-3 gap-3">
-              <img src={`/icons/facilits/${item.id}.svg`} alt="" />
-              <p>{item.text}</p>
-            </li>
-          ))}
+          {
+            isLoading ? (
+              <Loading/>
+            ) : error instanceof Error ? (
+              <div>Error: {error.message}</div>
+            ) :
+            data.results.map((item: FacilitiesType) => (
+              <li key={item.id} className="flex mb-3 gap-3">
+                <img src={item.image} alt={item.title} className="w-[22px] h-[22px]"/>
+                <p>{item.title}</p>
+              </li>
+            )
+          )}
         </ul>
       </Container>
     </section>

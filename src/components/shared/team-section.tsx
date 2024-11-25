@@ -5,11 +5,11 @@ import { useQuery } from "react-query";
 import { useFetchData } from "../../hooks";
 
 const TeamSection = () => {
-  const { fetchdata } = useFetchData('/api/main/v1/teams')
+  const { fetchdata } = useFetchData("/api/main/v1/teams");
   const { data, error, isLoading } = useQuery({
     queryKey: ["team"],
-    queryFn: fetchdata
-  })
+    queryFn: fetchdata,
+  });
 
   return (
     <section>
@@ -32,14 +32,13 @@ const TeamSection = () => {
             </div>
           </div>
         </div>
-        {
-          isLoading ? (
-            <Loading/>
-          ) : error instanceof Error ? (
-            <div>Error: {error.message}</div>
-          )
-          :
-            data.results && <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
+        {isLoading ? (
+          <Loading />
+        ) : error instanceof Error ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          data?.results && (
+            <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
               {data.results.map((item: TeamType) => (
                 <div key={item.id} className="card w-[100%] max-w-[100%]">
                   <img
@@ -59,7 +58,8 @@ const TeamSection = () => {
                 </div>
               ))}
             </div>
-        }
+          )
+        )}
       </Container>
     </section>
   );

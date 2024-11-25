@@ -8,21 +8,21 @@ const FAQsSection = () => {
   const [active, setActive] = useState(0);
   const changeActive = (e: React.MouseEvent<HTMLDivElement>) => {
     const targetId = e.currentTarget.id;
-    if(Number(targetId) == active){
-      setActive(0)
-    }else{
-      setActive(Number(targetId))
+    if (Number(targetId) == active) {
+      setActive(0);
+    } else {
+      setActive(Number(targetId));
     }
-  }
-  const { sanitize } = useSanitize()
-  const { fetchdata } = useFetchData('/api/main/v1/faq')
+  };
+  const { sanitize } = useSanitize();
+  const { fetchdata } = useFetchData("/api/main/v1/faq");
   const { data, error, isLoading } = useQuery({
-    queryKey: ['faqs'], 
-    queryFn: fetchdata
+    queryKey: ["faqs"],
+    queryFn: fetchdata,
   });
 
   if (isLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   if (error instanceof Error) {
@@ -36,7 +36,7 @@ const FAQsSection = () => {
           Frequently asked questions
         </h2>
         <div className="h-[370px] flex-col  gap-8 flex md:h-full">
-          {data.results.map((item: FaqType) => (
+          {data?.results?.map((item: FaqType) => (
             <div
               className={`gap-7 flex cursor-pointer`}
               onClick={changeActive}
@@ -44,7 +44,9 @@ const FAQsSection = () => {
               id={item.id.toString()}
             >
               <p className="text-[#0c141d] w-11 text-[32px] font-semibold leading-[48px] sm:text-sm sm:pt-1 pointer-events-none">
-                {data.results.indexOf(item) < 8 ? '0'+(data.results.indexOf(item) + 1) : data.results.indexOf(item)}
+                {data.results.indexOf(item) < 8
+                  ? "0" + (data.results.indexOf(item) + 1)
+                  : data.results.indexOf(item)}
               </p>
               <div
                 className={`gap-3 flex flex-col pt-2 ${

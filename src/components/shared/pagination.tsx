@@ -1,34 +1,57 @@
 import { useState } from "react"
-import { SeasonCart } from "../../types"
-import { summerFeature } from "../../utils"
-import { Cart } from "../ui"
+import { TravelType } from "../../types"
+import { Cart, Loading } from "../ui"
+import { useFetchTravelData } from "../../hooks"
+import { useQuery } from "react-query"
+import { RootState } from "../../store/store"
 import ReactPaginate from 'react-paginate';
+import { useSelector } from "react-redux"
+
 
 const Pagination = () => {
+    const state = useSelector((state: RootState) => state.main)
+    const { activeCountry, district, category } = state
+    const { fetchTraveldata } = useFetchTravelData()
+    const {  data, error, isLoading } = useQuery({
+        queryKey: ['traveldata'],
+        queryFn: fetchTraveldata
+    })
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 1;
-    const currentItems = summerFeature.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+    const itemsPerPage = 4;
+    let filteredItems = data?.results.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
+    const currentItems = filteredItems?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
     const handlePageChange = (selectedPage: { selected: number }) => {
         setCurrentPage(selectedPage.selected);
     };
 
+    if(isLoading){
+        return <Loading/>
+    }
+
+    if(error instanceof Error){
+        return <div>Error: {error.message}</div>
+    }
+
+
     return (
-        <div>
-            <div>
+        <div className="flex flex-col items-center">
+            <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-x-5 gap-y-11">
                 {
-                    currentItems.map((item: SeasonCart) => (
+                    currentItems?.length == 0 ? <h2 className="h2 text-xl text-red-500 font-normal">No tours matching :(</h2> :
+                    currentItems?.map((item: TravelType) => (
                         <Cart
                             key={item.id}
                             id={item.id}
                             price={item.price} 
-                            time={item.time} 
-                            size={item.size} 
-                            location={item.location} 
-                            special={item.special} 
-                            reviews={item.reviews} 
-                            stars={item.stars} 
-                            def={item.def}
-                            img={item.img}
+                            title={item.title}
+                            days={item.days} 
+                            nights={item.nights} 
+                            country={item.country.title} 
+                            def={item.context}
+                            img={item.category.image}
+                            slug={item.slug}
+                            category={item.category.title}
+                            district={item.district.title}
                         />
                     ))
                 }
@@ -38,7 +61,7 @@ const Pagination = () => {
                     previousLabel={"< Back"}
                     nextLabel={"Next >"}
                     breakLabel={"..."}
-                    pageCount={Math.ceil(summerFeature.length / itemsPerPage)}
+                    pageCount={Math.ceil(filteredItems?.length / itemsPerPage)}
                     marginPagesDisplayed={2}
                     pageRangeDisplayed={5}
                     onPageChange={handlePageChange}

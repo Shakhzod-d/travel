@@ -6,9 +6,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 // import img2 from "../assets/images/styles/Rectangle 1.png";
 // import img3 from "../assets/images/styles/Rectangle 2.png";
 // import img4 from "../assets/images/styles/Rectangle 33.png";
-import img5 from "../assets/images/seasons/summer1.png";
-import img6 from "../assets/images/seasons/summer2.png";
-import img7 from "../assets/images/seasons/summer3.png";
+// import img5 from "../assets/images/seasons/summer1.png";
+// import img6 from "../assets/images/seasons/summer2.png";
+// import img7 from "../assets/images/seasons/summer3.png";
 import img8 from "../assets/images/seasons/winter1.png";
 import img9 from "../assets/images/seasons/winter2.png";
 import img10 from "../assets/images/seasons/winter3.png";
@@ -19,8 +19,8 @@ import img10 from "../assets/images/seasons/winter3.png";
 // import img15 from '../assets/icons/service1.svg'
 // import img16 from '../assets/icons/service2.svg'
 // import img17 from '../assets/icons/service3.svg'
-import urg from '../assets/images/urg.svg'
-import sam from '../assets/images/sam.svg'
+// import urg from '../assets/images/urg.svg'
+// import sam from '../assets/images/sam.svg'
 
 
 export const navItems = [
@@ -40,12 +40,6 @@ export const navItems = [
     id: uuidv4(),
     name: "destinations",
     path: "/destinations",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "manage booking",
-    path: "/booking",
     active: false,
   },
   {
@@ -179,44 +173,44 @@ export const socialMedias = [
 //   },
 // ];
 
-export const summerFeature = [
-  {
-    id: uuidv4(),
-    price: 400,
-    time: "7D/6N",
-    size: 14,
-    location: "Uzbekistan",
-    special: "Sunset view of beautiful Urganch lake",
-    reviews: 25,
-    stars: 4,
-    def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
-    img: img5,
-  },
-  {
-    id: uuidv4(),
-    price: 400,
-    time: "7D/6N",
-    size: 14,
-    location: "Uzbekistan",
-    special: "Sunset view of beautiful Urganch lake",
-    reviews: 25,
-    stars: 4,
-    def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
-    img: img6,
-  },
-  {
-    id: uuidv4(),
-    price: 400,
-    time: "7D/6N",
-    size: 14,
-    location: "Uzbekistan",
-    special: "Sunset view of beautiful Urganch lake",
-    reviews: 25,
-    stars: 4,
-    def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
-    img: img7,
-  },
-];
+// export const summerFeature = [
+//   {
+//     id: uuidv4(),
+//     price: 400,
+//     time: "7D/6N",
+//     size: 14,
+//     location: "Uzbekistan",
+//     special: "Sunset view of beautiful Urganch lake",
+//     reviews: 25,
+//     stars: 4,
+//     def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
+//     img: img5,
+//   },
+//   {
+//     id: uuidv4(),
+//     price: 400,
+//     time: "7D/6N",
+//     size: 14,
+//     location: "Uzbekistan",
+//     special: "Sunset view of beautiful Urganch lake",
+//     reviews: 25,
+//     stars: 4,
+//     def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
+//     img: img6,
+//   },
+//   {
+//     id: uuidv4(),
+//     price: 400,
+//     time: "7D/6N",
+//     size: 14,
+//     location: "Uzbekistan",
+//     special: "Sunset view of beautiful Urganch lake",
+//     reviews: 25,
+//     stars: 4,
+//     def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
+//     img: img7,
+//   },
+// ];
 
 export const winterFeature = [
     {
@@ -494,79 +488,79 @@ export const countries = [
 //     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
 //   }
 // ]
-export const cartItems = [
-  {
-      id: uuidv4(),
-      country: "Uzbekistan",
-      city: "Samarkand old city",
-      location: "Samarkand city, Uzbekistan",
-      price: 400,
-      img: sam
-  },
-  {
-      id: uuidv4(),
-      country: "Uzbekistan",
-      city: "Urungach lake",
-      location: "Tashkent, Bostonliq district",
-      price: 400,
-      img: urg
-  },
-  {
-      id: uuidv4(),
-      country: "Uzbekistan",
-      city: "Samarkand old city",
-      location: "Samarkand city, Uzbekistan",
-      price: 400,
-      img: sam
-  },
-  {
-      id: uuidv4(),
-      country: "Uzbekistan",
-      city: "Urungach lake",
-      location: "Tashkent, Bostonliq district",
-      price: 400,
-      img: urg
-  },
-  {
-      id: uuidv4(),
-      country: "Kazakhstan",
-      city: "Kazakhstan",
-      location: "Kazakhstan",
-      price: 400,
-      img: sam
-  },
-  {
-      id: uuidv4(),
-      country: "Kazakhstan",
-      city: "Kazakhstan",
-      location: "Kazakhstan",
-      price: 400,
-      img: urg
-  },
-  {
-      id: uuidv4(),
-      country: "Tadjikistan",
-      city: "Tadjikistan",
-      location: "Tadjikistan",
-      price: 400,
-      img: sam
-  },
-  {
-      id: uuidv4(),
-      country: "Turkmenistan",
-      city: "Turkmenistan",
-      location: "Turkmenistan",
-      price: 400,
-      img: urg
-  },
-  {
-      id: uuidv4(),
-      country: "Kyrgzstan",
-      city: "Kyrgzstan",
-      location: "Kyrgzstan",
-      price: 400,
-      img: sam
-  }
-]
+// export const cartItems = [
+//   {
+//       id: uuidv4(),
+//       country: "Uzbekistan",
+//       city: "Samarkand old city",
+//       location: "Samarkand city, Uzbekistan",
+//       price: 400,
+//       img: sam
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Uzbekistan",
+//       city: "Urungach lake",
+//       location: "Tashkent, Bostonliq district",
+//       price: 400,
+//       img: urg
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Uzbekistan",
+//       city: "Samarkand old city",
+//       location: "Samarkand city, Uzbekistan",
+//       price: 400,
+//       img: sam
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Uzbekistan",
+//       city: "Urungach lake",
+//       location: "Tashkent, Bostonliq district",
+//       price: 400,
+//       img: urg
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Kazakhstan",
+//       city: "Kazakhstan",
+//       location: "Kazakhstan",
+//       price: 400,
+//       img: sam
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Kazakhstan",
+//       city: "Kazakhstan",
+//       location: "Kazakhstan",
+//       price: 400,
+//       img: urg
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Tadjikistan",
+//       city: "Tadjikistan",
+//       location: "Tadjikistan",
+//       price: 400,
+//       img: sam
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Turkmenistan",
+//       city: "Turkmenistan",
+//       location: "Turkmenistan",
+//       price: 400,
+//       img: urg
+//   },
+//   {
+//       id: uuidv4(),
+//       country: "Kyrgzstan",
+//       city: "Kyrgzstan",
+//       location: "Kyrgzstan",
+//       price: 400,
+//       img: sam
+//   }
+// ]
 
 

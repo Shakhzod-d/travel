@@ -33,11 +33,11 @@ const Modal = () => {
         <div className={`w-full animate__animated animate__zoomIn h-screen fixed justify-center items-center z-50 pointer-events-none break-words ${modal ? 'flex' : 'animate__animated animate__zoomOut'}`}>
             <div className="flex justify-center items-center w-full h-screen pointer-events-none">
                 <div className="pointer-events-auto rounded-2xl shadow-lg bg-white h-max p-5 max-w-[400px] w-full">
-                <div className="w-full flex justify-end">
-                    <div onClick={closeHandler}>
-                        <HighlightOffIcon style={{ fontSize: 30 }} className="cursor-pointer"/>
+                    <div className="w-full flex justify-end">
+                        <div onClick={closeHandler}>
+                            <HighlightOffIcon style={{ fontSize: 30 }} className="cursor-pointer"/>
+                        </div>
                     </div>
-                </div>
                     <div className="w-full flex justify-end"></div>
                     <form onSubmit={handleSubmit(onSubmit)} className="max-w-[540px] w-full">
                         <div>

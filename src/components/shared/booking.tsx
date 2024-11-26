@@ -1,6 +1,7 @@
 import { Steps } from "../ui"
 import { StepType } from "../../types"
 import { steps } from "../../utils"
+import { Link } from "react-router-dom"
 
 const Booking = () => {
     return (
@@ -34,7 +35,7 @@ const Booking = () => {
                 </div>
             </div>
             <div className="w-full flex justify-start sm:justify-center lg:mt-4">
-                <button className="py-2 px-9 bg-[#0A142F] btn w-max text-white">Booking now</button>
+                <Link to="/tours" className="py-2 px-9 bg-[#0A142F] btn w-max text-white">Booking now</Link>
             </div>
         </div>
     )

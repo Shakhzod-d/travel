@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { Data } from '../../types'
 import { InputMask } from 'primereact/inputmask'
 import { Container } from "../ui"
+import Swal from "sweetalert2"
 
 
 const Discount = () => {
@@ -17,6 +18,13 @@ const Discount = () => {
     const onSubmit = (data: Data) => {
         console.log(data)
         reset()
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your message has been sent successfully",
+            showConfirmButton: false,
+            showCloseButton: true,
+        });
     }
 
     return (

@@ -6,6 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 #root {
@@ -20,44 +21,49 @@
 }
 
 @media (max-width: 1367px) {
-   .nuka-wrapper{
+  .nuka-wrapper {
     width: 1000px;
   }
 }
 @media (max-width: 1023px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 900px;
   }
 }
 @media (max-width: 920px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 700px;
   }
 }
 @media (max-width: 767px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 600px;
   }
 }
 @media (max-width: 639px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 400px;
   }
 }
 @media (max-width: 430px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 300px;
   }
 }
 @media (max-width: 364px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 100px;
   }
 }
 @media (max-width: 220px) {
-  .nuka-wrapper{
+  .nuka-wrapper {
     width: 80px;
   }
+}
+
+select,
+option {
+  cursor: pointer;
 }
 .navItem {
   font-size: 15px;
@@ -74,8 +80,8 @@
   }
 }
 
-.overlay{
-  background-color: rgba(0,0,0,.4);
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #root {
@@ -94,15 +100,15 @@
 }
 
 @media (min-width: 1256px) {
-  .padding{
+  .padding {
     padding: 0 80px;
   }
 }
 
-.template{
+.template {
   grid-template-rows: auto;
 }
-.btn{
+.btn {
   border-radius: 28px;
 }
 
@@ -114,11 +120,11 @@
 }
 
 @media (max-width: 639px) {
-    .h2{
-        font-size: 32px;
-    }
+  .h2 {
+    font-size: 32px;
+  }
 }
-.h3{
+.h3 {
   font-weight: 700;
   font-size: 24px;
   color: white;
@@ -129,7 +135,7 @@
   color: white;
   font-size: 16px;
 }
-.pagination{
+.pagination {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -140,83 +146,80 @@
   column-gap: 10px;
   margin-top: 50px;
 }
-.active{
-  background-color: #0A142F;
+.active {
+  background-color: #0a142f;
   height: 100%;
   padding: 10px 0;
   border-radius: 10px;
 }
-.page a{
+.page a {
   padding: 10px 15px;
   border-radius: 10px;
   border: 1px solid rgb(194, 188, 188);
   color: #313131;
   cursor: pointer;
-} 
-.next a, .previous a{
+}
+.next a,
+.previous a {
   width: 76px;
   height: 36px;
   padding: 10px 15px;
   border-radius: 10px;
   border: 1px solid rgb(194, 188, 188);
 }
-.active a{
+.active a {
   color: white;
-} 
+}
 .navItem {
   font-size: 15px;
   line-height: 22px;
   font-weight: 600;
 }
 
-.error{
+.error {
   font-size: small;
   padding-left: 12px;
   margin-bottom: 4px;
   color: red;
 }
-.round{
+.round {
   border-radius: 200px;
 }
 
-
-.carousel{
+.carousel {
   overflow: hidden;
-  outline: none
+  outline: none;
 }
 
-.in{
-  transform: translateX(0)
+.in {
+  transform: translateX(0);
 }
-.out{
-  transform: translateX(100%)
+.out {
+  transform: translateX(100%);
 }
-.unscrollable{
-  overflow-y: hidden
+.unscrollable {
+  overflow-y: hidden;
 }
 
-.form-input{
+.form-input {
   width: 400px;
 }
 
 @media (max-width: 639px) {
-  .form-input{
+  .form-input {
     width: 330px;
   }
 }
 
 @media (max-width: 364px) {
-  .form-input{
+  .form-input {
     width: max-content;
   }
 }
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 body {
   overflow-x: hidden;
@@ -273,4 +276,9 @@ html {
   .card-content {
     bottom: 0px;
   }
+}
+
+.Toastify__toast-icon {
+  width: 200px;
+  height: 200px;
 }

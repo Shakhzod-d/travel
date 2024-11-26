@@ -9,7 +9,6 @@ const Services = () => {
         queryKey: ['service'],
         queryFn: fetchdata
     })
-
     return (
         <div className="w-full flex flex-col items-center pt-11 pb-9">
             <h2 className="h2 mb-8">Our services</h2>
@@ -21,7 +20,7 @@ const Services = () => {
                     ) : error instanceof Error ? (
                         <div>Error: {error.message}</div>
                     ) :
-                        data.results.map((item: ServiceCartType) => (
+                        data?.results.map((item: ServiceCartType) => (
                             <ServiceCart 
                                 key={item.id}
                                 image={item.image}

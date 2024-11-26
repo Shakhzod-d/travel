@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 const Overlay = () => {
 
     const state = useSelector((state: RootState) => state.main)
-    const { menu, modal } = state
+    const { menu, modal, bookingModal } = state
     const dispatch = useDispatch()
     const closeHandler: React.MouseEventHandler<HTMLDivElement> = () => {
         dispatch(closeMenu())
@@ -14,7 +14,7 @@ const Overlay = () => {
     }
 
     return (
-        <div onClick={closeHandler} className={`w-full fixed z-40 h-screen bg-black opacity-50 overflow-hidden ${menu || modal ? 'flex' : 'hidden'}`}></div>
+        <div onClick={closeHandler} className={`w-full fixed z-40 h-screen bg-black opacity-50 overflow-hidden ${menu || modal || bookingModal ? 'flex' : 'hidden'}`}></div>
     )
 }
 

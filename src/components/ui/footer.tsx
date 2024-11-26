@@ -5,12 +5,19 @@ import { FooterDataType, FooterIconsType } from "../../types";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   return (
     <footer className="bg-[#09132e] py-24">
       <Container>
         <div className="flex gap-8 flex-wrap *:text-white justify-between mb-14">
-          <Experts fill={"#fff"} />
-
+          <button onClick={scrollToTop}>
+            <Experts fill={"#fff"} />
+          </button>
           <ul>
             <h2 className="mb-4 text-white text-lg font-medium">Learn More </h2>
             {

@@ -39,12 +39,12 @@ const TeamSection = () => {
             <div>Error: {error.message}</div>
           )
           :
-            data.results && <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
-              {data.results.map((item: TeamType) => (
+            data?.results && <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-5">
+              {data?.results.map((item: TeamType) => (
                 <div key={item.id} className="card w-[100%] max-w-[100%]">
                   <img
                     src={item.image}
-                    alt="professionals img"
+                    alt={item.full_name}
                     className="w-full"
                   />
 

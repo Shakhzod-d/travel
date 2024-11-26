@@ -58,7 +58,7 @@ const TravelOverview: FC<TravelOverviewProps> = () => {
             ) : error instanceof Error ? (
               <div>Error: {error.message}</div>
             ) :
-            data.results.map((item: FacilitiesType) => (
+            data?.results.map((item: FacilitiesType) => (
               <li key={item.id} className="flex mb-3 gap-3">
                 <img src={item.image} alt={item.title} className="w-[22px] h-[22px]"/>
                 <p>{item.title}</p>

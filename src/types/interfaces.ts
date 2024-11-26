@@ -1,8 +1,11 @@
 export interface State {
   menu: boolean;
   modal: boolean;
+  bookingModal: boolean;
   userRate: number;
-  activeCountry: string
+  activeCountry: string;
+  district: string;
+  category: string;
 }
 export interface NavItems {
   id: string;
@@ -23,14 +26,14 @@ export interface SocialMedias {
   icon: React.ReactElement;
 }
 
-export interface CartItems {
-  id: string;
-  country: string;
-  city: string;
-  location: string,
-  price: number,
-  img: string;
-}
+// export interface CartItems {
+//   id: string;
+//   country: string;
+//   city: string;
+//   location: string,
+//   price: number,
+//   img: string;
+// }
 
 export interface TravelStyles {
   id: number;
@@ -40,18 +43,18 @@ export interface TravelStyles {
   created_at?: string;
 }
 
-export interface SeasonCart {
-  id: string;
-  price: number;
-  time: string;
-  size: number;
-  location: string;
-  special: string;
-  reviews: number;
-  stars: number;
-  def: string;
-  img: string;
-}
+// export interface SeasonCart {
+//   id: string;
+//   price: number;
+//   time: string;
+//   size: number;
+//   location: string;
+//   special: string;
+//   reviews: number;
+//   stars: number;
+//   def: string;
+//   img: string;
+// }
 
 export interface TourProps {
   type: string;
@@ -121,6 +124,38 @@ export interface CountriesType{
   created_at: string
 }
 
+export interface DistrictType{
+  id: number,
+  title: string,
+  country: CountriesType
+  updated_at: string,
+  created_at: string
+}
+export interface CategoryType{
+  id: number,
+  title: string,
+  image: string,
+  updated_at?: string,
+  created_at?: string,
+}
+export interface TravelType{
+  id: number,
+  slug: string,
+  title: string,
+  image: string,
+  category: CategoryType,
+  country: CountriesType,
+  district: DistrictType,
+  price: number,
+  days: number,
+  nights: number,
+  start_date: string,
+  end_date: string,
+  context: string,
+  updated_at: string,
+  created_at: string
+}
+
 export interface FaqType{
   id: number,
   title: string,
@@ -155,10 +190,4 @@ export interface FacilitiesType{
   created_at?: string,
 }
 
-export interface CategoryType{
-  id: number,
-  title: string,
-  image: string,
-  updated_at?: string,
-  created_at?: string,
-}
+

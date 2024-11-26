@@ -10,7 +10,7 @@ import TravelSummary from "../components/shared/travel-summary";
 import TravelTitle from "../components/shared/travel-title";
 import { Container } from "../components/ui";
 
-const Travel = () => {
+const   Travel = () => {
   return (
     <main className="bg-[#F4F4F4]">
       <Header navBorder="black"/>

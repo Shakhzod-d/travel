@@ -6,8 +6,8 @@ import { Base_URL } from '../../api'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { changeCountry, handleCategory, handleDistrict } from '../../store/main-slice'
-// import yellowstar from '../../assets/icons/yellow-star.png'
-// import star from '../../assets/icons/star.png'
+import yellowstar from '../../assets/icons/yellow-star.png'
+import star from '../../assets/icons/star.png'
 
 interface Props{
     id: number
@@ -77,13 +77,13 @@ const Cart = ({
                     </div>
                     <div className="p-4 pt-6">
                         <h3 className="h3 text-start text-[#444444]">{title}</h3>
-                        {/* <div className="flex">
+                        <div className="flex">
                             <div className="my-3 flex">
-                                <h5 className="text-sm text-[#6C6C6C] mr-4">{`${reviews} reviews`}</h5>
+                                <h5 className="text-sm text-[#6C6C6C] mr-4">{`5 reviews`}</h5>
                                 <img src={yellowstar} alt="star" className="mr-2"/>
                                 <img src={star} alt="star" />
                             </div>
-                        </div> */}
+                        </div>
                         <h4 className="h4 text-[#6C6C6C]">{sanitize(def)}</h4>
                     </div>
                 </div>

@@ -36,7 +36,7 @@ const FAQsSection = () => {
           Frequently asked questions
         </h2>
         <div className="h-[370px] flex-col  gap-8 flex md:h-full">
-          {data?.results.map((item: FaqType) => (
+          {data?.results?.map((item: FaqType) => (
             <div
               className={`gap-7 flex cursor-pointer`}
               onClick={changeActive}

@@ -25,7 +25,7 @@ const Travelstyle = () => {
                             ) : error instanceof Error ? (
                                 <div>Error: {error.message}</div>
                             ) :
-                            data?.results.map((item: TravelStyles) => (
+                            data?.results?.map((item: TravelStyles) => (
                                 <Link key={item.id}  to={'/tours'}>
                                     <button
                                         onClick={() => {

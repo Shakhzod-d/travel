@@ -10,7 +10,7 @@ import "./App.css";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Footer from "./components/ui/footer";
-
+// add comment to run this project with 3300 port
 function App() {
   const state = useSelector((state: RootState) => state.main)
   const {modal} = state

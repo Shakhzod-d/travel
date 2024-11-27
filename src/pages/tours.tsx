@@ -52,13 +52,14 @@ const Tours = () => {
         queryFn: fetchdata2
     });
 
-    let active = null
     useEffect(() => {
         if(data2){
-        active = data2?.results?.find((item: CountriesType) => item.title == district)
-        if(active){
-        dispatch(changeCountry(active?.country.title))}}
-    },[district, data2])
+            let active = data2?.results?.find((item: CountriesType) => item.title == district)
+            if(active){
+                dispatch(changeCountry(active.country.title))
+            }
+        }
+    },[])
 
 
     useEffect(() => {
@@ -72,7 +73,7 @@ const Tours = () => {
         }
     }, [activeCountry, countriesData])
 
-    if(isLoading2 || !data2){
+    if(isLoading2){
         return <Loading/>
     }
 

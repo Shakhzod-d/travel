@@ -1,16 +1,23 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { Data } from '../../types'
 import { InputMask } from "primereact/inputmask";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import { closeBookingModal } from "../../store/main-slice";
+import { Base_URL } from "../../api";
+import { useNotify } from '../../hooks'
+import axios from "axios";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Swal from 'sweetalert2'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const   ContactFormSection = () => {
+    const [isPending, setIspending] = useState(false)
+    const { toastify } = useNotify()
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
-    const { bookingModal } = state
+    const { bookingModal, serviceId } = state
     const {
         register,
         handleSubmit,
@@ -20,17 +27,21 @@ const   ContactFormSection = () => {
         mode: "onBlur"
     })
 
-    const onSubmit = (data: Data) => {
-        console.log(data)
+    const onSubmit = async (data: Data) => {
+        setIspending(true)
+        await axios.post(`${Base_URL}/api/booking/v1/service/${serviceId}`, data)
+        .then(_ => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your message has been sent successfully",
+                showConfirmButton: false,
+                showCloseButton: true,
+            });
+        })
+        .catch(err => toastify(err.message, 'error'))
         reset()
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your message has been sent successfully",
-            showConfirmButton: false,
-            showCloseButton: true,
-        });
-        dispatch(closeBookingModal())
+        setIspending(false)
     }
 
     return (
@@ -95,7 +106,7 @@ const   ContactFormSection = () => {
                         </textarea>
                         <p className="error">{errors.dream?.message}</p>
                         </div>
-                        <button type="submit" className="bg-[#635AFF] cursor-pointer rounded-md p-3 w-full h4 mt-2">Send</button>
+                        <button type="submit" className="bg-[#635AFF] cursor-pointer rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : "Send"}</button>
                     </form>
                 </div>
             </div>

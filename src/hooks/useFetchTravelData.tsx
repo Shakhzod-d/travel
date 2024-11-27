@@ -1,9 +1,9 @@
 import axios from "axios"
 import { Base_URL } from "../api"
-import { useToastify } from "."
+import { useNotify } from "."
 
 const useFetchTravelData = () => {
-    const { toastify } = useToastify()
+    const { toastify } = useNotify()
 
     const fetchTraveldata = async () => {
         try {

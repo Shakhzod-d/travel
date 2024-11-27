@@ -10,7 +10,7 @@ import {
   Services
 } from "../components/shared";
 import { Container } from "../components/ui"
-import video from '../../src/assets/video/sea.mp4'
+import video from '../../src/assets/video/uzb.mp4'
 
 
 const Home = () => {

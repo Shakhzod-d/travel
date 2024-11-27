@@ -2,14 +2,14 @@
 import type { FC } from "react";
 import { Container } from "../ui";
 import { useState } from "react";
-import { useToastify } from "../../hooks";
+import { useNotify } from "../../hooks";
 import CheckIcon from '@mui/icons-material/Check';
 
 interface TravelTitleProps {}
 
 const TravelTitle: FC<TravelTitleProps> = () => {
   const [copied, setCopied] = useState(false);
-  const { toastify } = useToastify()
+  const { toastify } = useNotify()
 
   const copyToClipboard = async () => {
     try {

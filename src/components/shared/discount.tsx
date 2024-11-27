@@ -15,7 +15,7 @@ const Discount = () => {
         mode: "onBlur"
     })
 
-    const onSubmit = (data: Data) => {
+    const onSubmit = async (data: Data) => {
         console.log(data)
         reset()
         Swal.fire({

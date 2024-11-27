@@ -11,6 +11,7 @@ const initialState: State = {
   activeCountry: '',
   district: '',
   category: '',
+  serviceId: ''
 };
 
 let body = document.getElementsByTagName('body')
@@ -55,6 +56,9 @@ export const mainSlice = createSlice({
     handleCategory: ( state, action ) => {
       state.category = action.payload
     },
+    handleServiceId: ( state, action ) => {
+      state.serviceId = action.payload
+    }
   },
 });
 
@@ -68,7 +72,8 @@ export const {
   handleDistrict,
   handleCategory,
   openBookingModal,
-  closeBookingModal
+  closeBookingModal,
+  handleServiceId
 } =
 mainSlice.actions;
 

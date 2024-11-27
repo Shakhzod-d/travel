@@ -6,6 +6,7 @@ export interface State {
   activeCountry: string;
   district: string;
   category: string;
+  serviceId: string;
 }
 export interface NavItems {
   id: string;

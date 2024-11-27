@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { Container } from "../ui";
 import { useForm } from "react-hook-form"
 import { Data } from '../../types'
 import { InputMask } from "primereact/inputmask";
+import { Base_URL } from "../../api";
+import { useNotify } from "../../hooks";
 import Swal from "sweetalert2";
+import axios from "axios";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const   ContactFormSection = () => {
-
+  const [isPending, setIspending] = useState(false)
+  const { toastify } = useNotify()
   const {
     register,
     handleSubmit,
@@ -15,16 +21,21 @@ const   ContactFormSection = () => {
     mode: "onBlur"
   })
 
-  const onSubmit = (data: Data) => {
-    console.log(data)
+  const onSubmit = async (data: Data) => {
+    setIspending(true)
+    await axios.post(`${Base_URL}/api/main/v1/contacts`, data)
+    .then(_ => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your message has been sent successfully",
+          showConfirmButton: false,
+          showCloseButton: true,
+        });
+    })
+    .catch(err => toastify(err.message, 'error'))
+    setIspending(false)
     reset()
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Your message has been sent successfully",
-      showConfirmButton: false,
-      showCloseButton: true,
-    });
   }
 
   return (
@@ -151,7 +162,7 @@ const   ContactFormSection = () => {
                 </textarea>
                 <p className="error">{errors.dream?.message}</p>
               </div>
-              <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">Send</button>
+              <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : "Send"}</button>
           </form>
         </div>
       </Container>

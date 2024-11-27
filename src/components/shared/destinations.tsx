@@ -46,14 +46,14 @@ const Destinations = () => {
             <h2 className="h2 md:text-3xl sm:text-2xl">destinations</h2>
             <h4 className="text-[24px] sm:text-xl font-normal py-5 text-center sm:w-[90%]">Discover all five delightful destinations across Central Asia</h4>
             <CountryList/>
-            <div className={`grid grid-cols-2 md:grid-cols-1 gap-4 xm:gap-1 template md:w-full bg-blue-900 ${filteredTravelData?.length === 0 ? 'w-full flex justify-center' : ''}`}>
+            <div className={`grid grid-cols-2 md:grid-cols-1 gap-4 xm:gap-1 template md:w-full ${filteredTravelData?.length === 0 ? 'w-full flex justify-center' : ''}`}>
                 {
                     isLoading ? (
                         <Loading/>
                     ) : error instanceof Error ? (
                         <p className="text-red-500 text-xl">Error: {error.message}</p>
                     ) : filteredTravelData?.length === 0 ? (
-                        <div className="w-full flex justify-center my-3 bg-red-900">
+                        <div className="w-full flex justify-center my-3">
                             <p className="text-red-500 text-xl break-words">Tours within {activeCountry} are not exist yet :(</p>
                         </div>
                     ) :

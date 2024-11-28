@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import whiteIcon from '../../assets/images/icons/white-icon.png'
-import { Container } from "../ui";
+import { Container, LocaleSelector } from "../ui";
 import Navbar from "./navbar";
 import { cn } from "../../utils/constants";
 import MenuIcon from '@mui/icons-material/Menu';
 import { openMenu } from "../../store/main-slice";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 interface Props {
   route: string;
   title: string;
@@ -13,8 +14,8 @@ interface Props {
   className: string;
 }
 
-const   HeaderAbout = ({ route, title, desc, className }: Props) => {
-
+const HeaderAbout = ({ route, title, desc, className }: Props) => {
+  const { t } = useTranslation()
   let dispatch = useDispatch()
 
   const openHandler: React.MouseEventHandler<HTMLDivElement> = () => {
@@ -32,22 +33,28 @@ const   HeaderAbout = ({ route, title, desc, className }: Props) => {
           </Link>
           <div className="lg:hidden flex">
             <Navbar borderColor='white'/>
+            <LocaleSelector/>
           </div>
-          <div className="hidden lg:block cursor-pointer" onClick={openHandler}>
-            <MenuIcon style={{ fontSize:32, color:'white' }}/>
+          <div className="hidden lg:flex cursor-pointer">
+            <div className='mr-2 flex items-center'>
+              <LocaleSelector/>
+            </div>
+            <div onClick={openHandler}>
+              <MenuIcon style={{ fontSize:32, color:'white' }}/>
+            </div>
           </div>
         </Container>
       </div>
 
       <Container>
-        <div className="text-white text-lg font-semibold leading-[27px] mb-32">
+        <div className="text-white text-lg font-semibold leading-[27px] mb-32 uppercase">
           <Link to={"/"} className="text-white/70">
-            Home
-          </Link>{" "}
+            {t("home")}
+          </Link>
           / {route}
         </div>
 
-        <h2 className="text-white text-[76px] font-extrabold  leading-[88.16px] mb-5 sm:text-3xl">
+        <h2 className="text-white text-[76px] font-extrabold uppercase leading-[88.16px] mb-5 sm:text-3xl">
           {title}
         </h2>
         <p className="text-white/70 text-lg font-semibold leading-[27px]">

@@ -1,5 +1,5 @@
 
-import { navItems } from "../../utils"
+import { NavbarItems } from "../../utils"
 import { Link, useLocation } from "react-router-dom"
 import { NavItems } from "../../types"
 import { closeMenu } from "../../store/main-slice"
@@ -10,18 +10,16 @@ interface Props{
 }
 
 const Navbar = ({ borderColor }: Props) => {
-
+  const { navItems } = NavbarItems()
   const dispatch = useDispatch()
   const closeHandler: React.MouseEventHandler<HTMLLIElement> = () => {
     dispatch(closeMenu())
   }
   let location = useLocation()
-  
-  
+  let width = window.innerWidth
 
   return (
-
-    <ul className="flex pr-5 lg:flex-col lg:pr-0 items-center lg:items-start">
+    <ul className={`flex pr-5 lg:flex-col lg:pr-0 items-center lg:items-start ${width < 1024 ? '*:text-black' : '*:text-white'}`}>
         {
           navItems.map((item:NavItems) => (
             <li className="navItem lg:mb-4 relative w-max" key={item.id} onClick={closeHandler}>

@@ -1,106 +1,165 @@
 import { v4 as uuidv4 } from 'uuid' 
+import { useTranslation } from 'react-i18next';
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-// import img1 from "../assets/images/styles/Rectangle 3.png";
-// import img2 from "../assets/images/styles/Rectangle 1.png";
-// import img3 from "../assets/images/styles/Rectangle 2.png";
-// import img4 from "../assets/images/styles/Rectangle 33.png";
-// import img5 from "../assets/images/seasons/summer1.png";
-// import img6 from "../assets/images/seasons/summer2.png";
-// import img7 from "../assets/images/seasons/summer3.png";
 import img8 from "../assets/images/seasons/winter1.png";
 import img9 from "../assets/images/seasons/winter2.png";
 import img10 from "../assets/images/seasons/winter3.png";
-// import img11 from '../assets/images/clients/client.png'
-// import img12 from '../assets/images/reasons/reason1.png'
-// import img13 from '../assets/images/reasons/reason3.png'
-// import img14 from '../assets/images/reasons/reason3.png'
-// import img15 from '../assets/icons/service1.svg'
-// import img16 from '../assets/icons/service2.svg'
-// import img17 from '../assets/icons/service3.svg'
-// import urg from '../assets/images/urg.svg'
-// import sam from '../assets/images/sam.svg'
 
 
-export const navItems = [
-  {
-    id: uuidv4(),
-    name: "home",
-    path: "/",
-    active: true,
-  },
-  {
-    id: uuidv4(),
-    name: "tours",
-    path: "/tours",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "destinations",
-    path: "/destinations",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "contact us",
-    path: "/contact",
-    active: false,
-  },
-  {
-    id: uuidv4(),
-    name: "about us",
-    path: "/about",
-    active: false,
-  },
-];
+export const NavbarItems = () => {
+  const { t } = useTranslation()
 
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+  const navItems = [
+    {
+      id: uuidv4(),
+      name: t("home"),
+      path: "/",
+      active: true,
+    },
+    {
+      id: uuidv4(),
+      name: t("tours"),
+      path: "/tours",
+      active: false,
+    },
+    {
+      id: uuidv4(),
+      name: t("contact"),
+      path: "/contact",
+      active: false,
+    },
+    {
+      id: uuidv4(),
+      name: t("about"),
+      path: "/about",
+      active: false,
+    },
+  ];
+  return { navItems }
+}
+
+export const StepItems = () => {
+  const { t } = useTranslation()
+
+  const steps = [
+    {
+      id: 1,
+      step: t("find"),
+      def: t("finddef")
+    },
+    {
+      id: 2,
+      step: t("book"),
+      def: t("bookdef")
+    },
+    {
+      id: 3,
+      step: t("pay"),
+      def: t("paydef")
+    }
+] 
+  return { steps }
+}
+
+export const FooterDatas = () => {
+  const { t } = useTranslation()
+
+  const footerData1 = [
+    {
+      id: uuidv4(),
+      data: t("programs"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("press"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("environment"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("jobs"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("privacy"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("contact"),
+      path: '/'
+    }
+  ]
+
+  const footerData2 = [
+    {
+      id: uuidv4(),
+      data: t("tickets"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("season"),
+      path: '/'
+    },
+    {
+      id: uuidv4(),
+      data: t("vacation"),
+      path: '/'
+    }
+  ]
+
+  const footerData3 = [
+  {
+    id: uuidv4(),
+    icon: '/icons/facebook.svg',
+    alt: 'facebook',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/instagram.svg',
+    alt: 'instagram',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/x.svg',
+    alt: 'x',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/youtube.svg',
+    alt: 'youtube',
+    path: '/'
+  },
+  {
+    id: uuidv4(),
+    icon: '/icons/wordpress.png',
+    alt: 'wordpress',
+    path: '/'
+  }
+  ]
+  return { footerData1, footerData2, footerData3 }
+}
+
+
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-// export const teamData = [
-//   { id: 1, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 2, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 3, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 4, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 5, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 6, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 7, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 8, name: "John Marvel", role: "Construction Expert Team" },
-//   { id: 9, name: "John Marvel", role: "Construction Expert Team" },
-// ];
-
-// export const faqsData = [
-//   {
-//     id: 1,
-//     ind: "01",
-//     title: "Does this travel agency offer custom travel packages?",
-//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-//   },
-//   {
-//     id: 2,
-//     ind: "02",
-//     title: "Does this travel agency offer custom travel packages?",
-//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-//   },
-//   {
-//     id: 3,
-//     ind: "03",
-//     title: "Does this travel agency offer custom travel packages?",
-//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-//   },
-//   {
-//     id: 4,
-//     ind: "04",
-//     title: "Does this travel agency offer custom travel packages?",
-//     desc: "Yes, we provide custom travel services that can be tailored to your needs and preferences. Please contact our team to discuss your custom itinerary.",
-//   },
-// ];
 
 export const travelMenuData = [
   { id: 1, text: "Summary", to: "#summary" },
@@ -118,8 +177,6 @@ export const travelOverviewData = [
   { id: 5, text: "Swimming pool" },
   { id: 6, text: "Top rated in area" },
 ];
-
-
 
 export const socialMedias = [
   {
@@ -141,76 +198,6 @@ export const socialMedias = [
     icon: <FacebookIcon />,
   },
 ];
-
-// export const travelStyles = [
-//   {
-//     id: uuidv4(),
-//     type: "self drive tours",
-//     def: "Drive famous scenic routes at your own pace.",
-//     link: "Learn more",
-//     img: img1,
-//   },
-//   {
-//     id: uuidv4(),
-//     type: "self drive tours",
-//     def: "Drive famous scenic routes at your own pace.",
-//     link: "Learn more",
-//     img: img2,
-//   },
-//   {
-//     id: uuidv4(),
-//     type: "self drive tours",
-//     def: "Drive famous scenic routes at your own pace.",
-//     link: "Learn more",
-//     img: img3,
-//   },
-//   {
-//     id: uuidv4(),
-//     type: "self drive tours",
-//     def: "Drive famous scenic routes at your own pace.",
-//     link: "Learn more",
-//     img: img4,
-//   },
-// ];
-
-// export const summerFeature = [
-//   {
-//     id: uuidv4(),
-//     price: 400,
-//     time: "7D/6N",
-//     size: 14,
-//     location: "Uzbekistan",
-//     special: "Sunset view of beautiful Urganch lake",
-//     reviews: 25,
-//     stars: 4,
-//     def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
-//     img: img5,
-//   },
-//   {
-//     id: uuidv4(),
-//     price: 400,
-//     time: "7D/6N",
-//     size: 14,
-//     location: "Uzbekistan",
-//     special: "Sunset view of beautiful Urganch lake",
-//     reviews: 25,
-//     stars: 4,
-//     def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
-//     img: img6,
-//   },
-//   {
-//     id: uuidv4(),
-//     price: 400,
-//     time: "7D/6N",
-//     size: 14,
-//     location: "Uzbekistan",
-//     special: "Sunset view of beautiful Urganch lake",
-//     reviews: 25,
-//     stars: 4,
-//     def: "Experience the delights of summer on the Silk Road with our comprehensive 22-day Central Asia Group Tour covering the ...",
-//     img: img7,
-//   },
-// ];
 
 export const winterFeature = [
     {
@@ -251,196 +238,6 @@ export const winterFeature = [
     }
 ]
 
-// export const clientOpinions = [
-//     {
-//         id: uuidv4(),
-//         phrase: '“BRIX Templates is the #1”',
-//         opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//         img: img11,
-//         name: 'Adam',
-//         job: 'webflow developer'
-//     },
-//     {
-//         id: uuidv4(),
-//         phrase: '“BRIX Templates is the #1”',
-//         opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//         img: img11,
-//         name: 'Adam',
-//         job: 'webflow developer'
-//     },
-//     {
-//         id: uuidv4(),
-//         phrase: '“BRIX Templates is the #1”',
-//         opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//         img: img11,
-//         name: 'Adam',
-//         job: 'webflow developer'
-//     },
-//     {
-//       id: uuidv4(),
-//       phrase: '“BRIX Templates is the #1”',
-//       opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//       img: img11,
-//       name: 'Adam',
-//       job: 'webflow developer'
-//   },
-//   {
-//     id: uuidv4(),
-//     phrase: '“BRIX Templates is the #1”',
-//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//     img: img11,
-//     name: 'Adam',
-//     job: 'webflow developer'
-//   },
-//   {
-//     id: uuidv4(),
-//     phrase: '“BRIX Templates is the #1”',
-//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//     img: img11,
-//     name: 'Adam',
-//     job: 'webflow developer'
-//   },
-//   {
-//     id: uuidv4(),
-//     phrase: '“BRIX Templates is the #1”',
-//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//     img: img11,
-//     name: 'Adam',
-//     job: 'webflow developer'
-//   },
-//   {
-//     id: uuidv4(),
-//     phrase: '“BRIX Templates is the #1”',
-//     opinion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident',
-//     img: img11,
-//     name: 'Adam',
-//     job: 'webflow developer'
-//   }
-// ]
-
-// export const reasonsArray = [
-//     {
-//         id: uuidv4(),
-//         img: img12,
-//         reason: 'Best guide',
-//         def: 'Our expert tour guide knows the best about traveling they will guide you all time'
-//     },
-//     {
-//         id: uuidv4(),
-//         img: img13,
-//         reason: 'Support 24/7',
-//         def: 'Our customer experience team is available around clock to answer your questions'
-//     },
-//     {
-//         id: uuidv4(),
-//         img: img14,
-//         reason: 'Luxury hotels',
-//         def: 'We realise ideas from simple to complex, everything becomes easy to use'
-//     }
-// ]
-
-export const steps = [
-    {
-        id: 1,
-        step: 'Find your destination',
-        def: 'Find your travel destination, because we have covered all regions in the world.'
-    },
-    {
-        id: 2,
-        step: 'Book a ticket',
-        def: 'After you find the trip you want to go to. you can directly order ticket.'
-    },
-    {
-        id: 3,
-        step: 'Pay and go to destination',
-        def: 'After you pay, you can immediatly enjoy the trip to the destination'
-    }
-] 
-
-export const footerData1 = [
-  {
-    id: uuidv4(),
-    data: 'About programs',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Press Relaases',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Environment',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Jobs',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Privacy Policy',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Contact us',
-    path: '/'
-  }
-]
-
-export const footerData2 = [
-  {
-    id: uuidv4(),
-    data: 'Tickets',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Season Passes',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    data: 'Vacation Packages',
-    path: '/'
-  }
-]
-
-export const footerData3 = [
-  {
-    id: uuidv4(),
-    icon: '/icons/facebook.svg',
-    alt: 'facebook',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    icon: '/icons/instagram.svg',
-    alt: 'instagram',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    icon: '/icons/x.svg',
-    alt: 'x',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    icon: '/icons/youtube.svg',
-    alt: 'youtube',
-    path: '/'
-  },
-  {
-    id: uuidv4(),
-    icon: '/icons/wordpress.png',
-    alt: 'wordpress',
-    path: '/'
-  }
-]
-
 export const countries = [
   {
     id: uuidv4(),
@@ -468,99 +265,3 @@ export const countries = [
     active: false
   }
 ]
-// export const services = [
-//   {
-//     id: uuidv4(),
-//     img: img15,
-//     service: 'Rent cars',
-//     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
-//   },
-//   {
-//     id: uuidv4(),
-//     img: img16,
-//     service: 'Tour assistance',
-//     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
-//   },
-//   {
-//     id: uuidv4(),
-//     img: img17,
-//     service: 'Tours',
-//     definition: 'Ease of doing a car rental safely and reliably. Of course at a low price.'
-//   }
-// ]
-// export const cartItems = [
-//   {
-//       id: uuidv4(),
-//       country: "Uzbekistan",
-//       city: "Samarkand old city",
-//       location: "Samarkand city, Uzbekistan",
-//       price: 400,
-//       img: sam
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Uzbekistan",
-//       city: "Urungach lake",
-//       location: "Tashkent, Bostonliq district",
-//       price: 400,
-//       img: urg
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Uzbekistan",
-//       city: "Samarkand old city",
-//       location: "Samarkand city, Uzbekistan",
-//       price: 400,
-//       img: sam
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Uzbekistan",
-//       city: "Urungach lake",
-//       location: "Tashkent, Bostonliq district",
-//       price: 400,
-//       img: urg
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Kazakhstan",
-//       city: "Kazakhstan",
-//       location: "Kazakhstan",
-//       price: 400,
-//       img: sam
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Kazakhstan",
-//       city: "Kazakhstan",
-//       location: "Kazakhstan",
-//       price: 400,
-//       img: urg
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Tadjikistan",
-//       city: "Tadjikistan",
-//       location: "Tadjikistan",
-//       price: 400,
-//       img: sam
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Turkmenistan",
-//       city: "Turkmenistan",
-//       location: "Turkmenistan",
-//       price: 400,
-//       img: urg
-//   },
-//   {
-//       id: uuidv4(),
-//       country: "Kyrgzstan",
-//       city: "Kyrgzstan",
-//       location: "Kyrgzstan",
-//       price: 400,
-//       img: sam
-//   }
-// ]
-
-

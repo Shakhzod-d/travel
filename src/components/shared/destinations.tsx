@@ -8,9 +8,11 @@ import { useQuery } from "react-query"
 import { Loading } from "../ui"
 import { changeCountry, handleCategory, handleDistrict } from "../../store/main-slice"
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 import location from '../../assets/icons/location.png' 
 
 const Destinations = () => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
     const { activeCountry } = state
@@ -43,10 +45,10 @@ const Destinations = () => {
 
     return (
         <div className="py-11 flex flex-col items-center" id="destinations">
-            <h2 className="h2 md:text-3xl sm:text-2xl">destinations</h2>
-            <h4 className="text-[24px] sm:text-xl font-normal py-5 text-center sm:w-[90%]">Discover all five delightful destinations across Central Asia</h4>
+            <h2 className="h2 md:text-3xl sm:text-2xl">{t("destinations")}</h2>
+            <h4 className="text-[24px] sm:text-xl font-normal py-5 text-center sm:w-[90%]">{t("discover")}</h4>
             <CountryList/>
-            <div className={`grid grid-cols-2 md:grid-cols-1 gap-4 xm:gap-1 template md:w-full ${filteredTravelData?.length === 0 ? 'w-full flex justify-center' : ''}`}>
+            <div className={`grid md:grid-cols-1 gap-4 xm:gap-1 template md:w-full ${filteredTravelData?.length === 0 ? 'w-full grid-cols-1' : 'grid-cols-2'}`}>
                 {
                     isLoading ? (
                         <Loading/>
@@ -54,7 +56,7 @@ const Destinations = () => {
                         <p className="text-red-500 text-xl">Error: {error.message}</p>
                     ) : filteredTravelData?.length === 0 ? (
                         <div className="w-full flex justify-center my-3">
-                            <p className="text-red-500 text-xl break-words">Tours within {activeCountry} are not exist yet :(</p>
+                            <p className="text-red-500 text-xl break-words">{t("notexist")}</p>
                         </div>
                     ) :
                     filteredTravelData?.map((item: TravelType) => (

@@ -6,8 +6,10 @@ import { GrFormNextLink } from "react-icons/gr";
 import { GrFormPreviousLink } from "react-icons/gr";
 import { useFetchData } from '../../hooks';
 import { useQuery } from 'react-query';
+import { useTranslation } from "react-i18next"
 
 const Opinions = () => {
+    const { t } = useTranslation()
     const { fetchdata } = useFetchData('api/main/v1/testimonials')
     const { data, isLoading, error } = useQuery({
         queryKey: ['opinions'],
@@ -30,7 +32,7 @@ const Opinions = () => {
     let screenSize = window.innerWidth < 446
     return (
         <div className="flex flex-col items-center w-full">
-            <h2 className="h2 md:text-3xl sm:text-2xl mb-8">What Our Clients Say About Us</h2>
+            <h2 className="h2 md:text-3xl sm:text-2xl mb-8">{t("clients")}</h2>
             <div className='w-full'>
                 {
                     isLoading ? (

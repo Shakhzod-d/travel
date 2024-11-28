@@ -7,12 +7,14 @@ import { RootState } from "../../store/store";
 import { closeBookingModal } from "../../store/main-slice";
 import { Base_URL } from "../../api";
 import { useNotify } from '../../hooks'
+import { useTranslation } from "react-i18next"
 import axios from "axios";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Swal from 'sweetalert2'
 import CircularProgress from '@mui/material/CircularProgress';
 
 const   ContactFormSection = () => {
+    const { t } = useTranslation()
     const [isPending, setIspending] = useState(false)
     const { toastify } = useNotify()
     const dispatch = useDispatch()
@@ -55,58 +57,58 @@ const   ContactFormSection = () => {
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className="p-2 max-w-[540px] xl:max-w-[450px] lg:max-w-[540px] w-full bg-white">
                         <div>
-                        <h3 className="text-[18px] font-semibold mb-2">Name</h3>
-                        <input 
+                            <h3 className="text-[18px] font-semibold mb-2">{t("name")}</h3>
+                            <input 
                             className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
                             {...register("name", {
                                 required: {
-                                value: true,
-                                message: "please, enter your name"
+                                    value: true,
+                                    message: t("namemessage")
                                 }
                             })}
                             id="name" 
                             type="text" 
-                            placeholder="Your name"
-                        />
-                        <p className="error">{errors.name?.message}</p>
+                            placeholder={t("yourname")}
+                            />
+                            <p className="error">{errors.name?.message}</p>
                         </div>
 
                         <div>
-                        <h3 className="text-[18px] font-semibold mb-2">Phone number</h3>
-                        <InputMask
-                            className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
-                            {...register("phone", {
-                                required : {
-                                value: true,
-                                message : "please, enter phone number"
-                                },
-                            })}
-                            type="phone" 
-                            id="phone"
-                            mask='+999(99)999-99-99'
-                            placeholder="+000(00)000-00-00"
-                        />
-                        <p className="error">{errors.phone?.message}</p>
+                            <h3 className="text-[18px] font-semibold mb-2">{t("number")}</h3>
+                            <InputMask
+                                className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                                {...register("phone", {
+                                    required : {
+                                        value: true,
+                                        message : t("numbermessage")
+                                    },
+                                })}
+                                type="phone" 
+                                id="phone"
+                                mask='+999(99)999-99-99'
+                                placeholder="+000(00)000-00-00"
+                            />
+                            <p className="error">{errors.phone?.message}</p>
                         </div>
 
                         <div>
-                        <h3 className="text-[18px] font-semibold mb-2">How can we help?</h3>
-                        <textarea 
+                            <h3 className="text-[18px] font-semibold mb-2">{t("whathelp")}</h3>
+                            <textarea 
                             id="dream"
-                            placeholder="Tell us about your destination dream"
+                            placeholder={t("telldream")}
                             {...register("dream", {
                                 required : {
-                                value: true,
-                                message : "Please, fill the area above"
+                                    value: true,
+                                    message : t("dreammessage")
                                 },
-                            })
+                                })
                             }
                             className="rounded-md p-3 text-md w-full border-[1px] border-solid border-[#D0D5DD] outline-none max-h-[150px]"
                             >
-                        </textarea>
-                        <p className="error">{errors.dream?.message}</p>
+                            </textarea>
+                            <p className="error">{errors.dream?.message}</p>
                         </div>
-                        <button type="submit" className="bg-[#635AFF] cursor-pointer rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : "Send"}</button>
+                        <button type="submit" className="bg-[#635AFF] cursor-pointer rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : t("send")}</button>
                     </form>
                 </div>
             </div>

@@ -1,10 +1,13 @@
 import { Experts } from "../../assets/images/icons";
 import { Container } from "./container";
-import { footerData1, footerData2, footerData3 } from "../../utils";
 import { FooterDataType, FooterIconsType } from "../../types";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"
+import { FooterDatas } from "../../utils";
 
 const Footer = () => {
+  const { t } = useTranslation()
+  const { footerData1, footerData2, footerData3 } = FooterDatas()
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -19,10 +22,10 @@ const Footer = () => {
             <Experts fill={"#fff"} />
           </button>
           <ul>
-            <h2 className="mb-4 text-white text-lg font-medium">Learn More </h2>
+            <h2 className="mb-4 text-white text-lg font-medium capitilize">{t("learn")}</h2>
             {
               footerData1.map((item : FooterDataType) => (
-                <li key={item.id} className="opacity-80 text-white text-sm font-bold leading-[30px]">
+                <li key={item.id} className="opacity-80 text-white text-sm font-bold leading-[30px] capitalize">
                   <Link to={item.path}>{item.data}</Link>
                 </li>
               ))
@@ -31,7 +34,7 @@ const Footer = () => {
 
           <ul>
             <h2 className="mb-4 text-white text-lg font-medium">
-              Tickets & Booking{" "}
+              {t("booking")}
             </h2>
             {
               footerData2.map((item: FooterDataType) => (
@@ -43,17 +46,17 @@ const Footer = () => {
           </ul>
 
           <ul>
-            <h2 className="mb-4 text-white text-lg font-medium">Contact Us</h2>
+            <h2 className="mb-4 text-white text-lg font-medium capitalize">{t("contact")}</h2>
             <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Hotel Reservation: <b>123-456-7890</b>
+              {t("hotel")} <b>123-456-7890</b>
             </li>
             <li className="opacity-80 text-white text-sm font-bold leading-[30px]">
-              Ticket Office: <b>123-456-7890</b>
+              {t("ticket")} <b>123-456-7890</b>
             </li>
           </ul>
 
           <div>
-            <h2 className="mb-4 text-white text-lg font-medium">Social</h2>
+            <h2 className="mb-4 text-white text-lg font-medium">{t("social")}</h2>
             <ul className="gap-7 flex">
               {
                 footerData3.map((item: FooterIconsType) => (

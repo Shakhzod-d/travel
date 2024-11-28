@@ -6,7 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select: none;
+  /* user-select: none; */
 }
 
 #root {
@@ -163,6 +163,7 @@ option {
 .previous a {
   width: 76px;
   height: 36px;
+  font-weight: 700;
   padding: 10px 15px;
   border-radius: 10px;
   border: 1px solid rgb(194, 188, 188);

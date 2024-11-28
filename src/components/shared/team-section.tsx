@@ -3,8 +3,10 @@ import { Container, Loading } from "../ui";
 import { TeamType } from "../../types";
 import { useQuery } from "react-query";
 import { useFetchData } from "../../hooks";
+import { useTranslation } from "react-i18next"
 
 const TeamSection = () => {
+  const { t } = useTranslation()
   const { fetchdata } = useFetchData('/api/main/v1/teams')
   const { data, error, isLoading } = useQuery({
     queryKey: ["team"],
@@ -18,16 +20,15 @@ const TeamSection = () => {
           <div className="flex-col justify-start items-center gap-4 inline-flex">
             <div className="px-5 py-2.5 bg-[#eaecf9] rounded justify-start items-center gap-2.5 inline-flex">
               <p className="text-[#635aff] text-xl font-semibold uppercase leading-normal tracking-widest sm:text-sm">
-                OUR TEAM
+                {t("ourteam")}
               </p>
             </div>
             <div className="flex-col justify-center items-center gap-5 flex max-w-[80%] mx-auto ">
               <h2 className="text-center text-[#0c141d] text-6xl font-semibold leading-[78px] max-w-[696px] sm:text-2xl w-full">
-                Experienced Professionals with Best Service
+                {t("experienced")}
               </h2>
               <p className=" text-center text-[#667084] text-lg font-semibold leading-[27px] sm:text-lg">
-                Our team consists of experienced professionals and is highly
-                committed to providing the best service to our customers.
+                {t("consist")}
               </p>
             </div>
           </div>

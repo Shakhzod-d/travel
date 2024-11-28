@@ -136,6 +136,7 @@ export interface CategoryType{
   id: number,
   title: string,
   image: string,
+  sub_title: string,
   updated_at?: string,
   created_at?: string,
 }
@@ -147,6 +148,9 @@ export interface TravelType{
   category: CategoryType,
   country: CountriesType,
   district: DistrictType,
+  is_popular: boolean,
+  is_summer: boolean,
+  is_winter: boolean,
   price: number,
   days: number,
   nights: number,

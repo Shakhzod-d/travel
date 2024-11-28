@@ -5,11 +5,13 @@ import { Data } from '../../types'
 import { InputMask } from "primereact/inputmask";
 import { Base_URL } from "../../api";
 import { useNotify } from "../../hooks";
+import { useTranslation } from "react-i18next"
 import Swal from "sweetalert2";
 import axios from "axios";
 import CircularProgress from '@mui/material/CircularProgress';
 
-const   ContactFormSection = () => {
+const ContactFormSection = () => {
+  const { t } = useTranslation()
   const [isPending, setIspending] = useState(false)
   const { toastify } = useNotify()
   const {
@@ -25,13 +27,13 @@ const   ContactFormSection = () => {
     setIspending(true)
     await axios.post(`${Base_URL}/api/main/v1/contacts`, data)
     .then(_ => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your message has been sent successfully",
-          showConfirmButton: false,
-          showCloseButton: true,
-        });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your message has been sent successfully",
+        showConfirmButton: false,
+        showCloseButton: true,
+      });
     })
     .catch(err => toastify(err.message, 'error'))
     setIspending(false)
@@ -45,17 +47,16 @@ const   ContactFormSection = () => {
           <div className="flex-1 flex-col gap-11 inline-flex max-w-[527px] w-full xl:mr-4 lg:mr-0 lg:mb-5">
             <div className="flex-col gap-5 flex">
               <h2 className="text-[#0c141d] text-6xl font-semibold leading-[78px] sm:text-3xl">
-                Let's connect and talk about your travel dreams
+                {t("lets")}
               </h2>
               <p className="max-w-[497px] text-[#98a1b2] text-lg font-semibold  leading-[27px]">
-                Talk about and plan what your travel dreams are this year, and we
-                will help you to make your dreams come true
+                {t("talk")}
               </p>
             </div>
             <div className="gap-8 inline-flex sm:flex-col">
               <div className="flex-col gap-6 inline-flex">
                 <h2 className="text-[#0c141d] text-lg font-semibold  leading-[27px]">
-                  Main branch
+                  {t("main")}
                 </h2>
                 <div className="h-max flex-col gap-4 flex">
                   <div className="gap-3.5 inline-flex">
@@ -82,7 +83,7 @@ const   ContactFormSection = () => {
               </div>
               <div className="flex-col gap-6 inline-flex">
                 <div className="text-[#0c141d] text-lg font-semibold leading-[27px]">
-                  Second branch
+                  {t("second")}
                 </div>
                 <div className="flex-col gap-4 flex">
                   <div className="gap-3.5 inline-flex">
@@ -111,30 +112,30 @@ const   ContactFormSection = () => {
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-[540px] xl:max-w-[450px] lg:max-w-[540px] w-full">
               <div>
-                <h3 className="text-[18px] font-semibold mb-2">Name</h3>
+                <h3 className="text-[18px] font-semibold mb-2">{t("name")}</h3>
                 <input 
                   className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
                   {...register("name", {
                       required: {
                         value: true,
-                        message: "please, enter your name"
+                        message: t("namemessage")
                       }
                   })}
                   id="name" 
                   type="text" 
-                  placeholder="Your name"
+                  placeholder={t("yourname")}
                 />
                 <p className="error">{errors.name?.message}</p>
               </div>
 
               <div>
-                <h3 className="text-[18px] font-semibold mb-2">Phone number</h3>
+                <h3 className="text-[18px] font-semibold mb-2">{t("number")}</h3>
                 <InputMask
                   className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
                   {...register("phone", {
                       required : {
                         value: true,
-                        message : "please, enter phone number"
+                        message : t("numbermessage")
                       },
                   })}
                   type="phone" 
@@ -146,14 +147,14 @@ const   ContactFormSection = () => {
               </div>
 
               <div>
-                <h3 className="text-[18px] font-semibold mb-2">How can we help?</h3>
+                <h3 className="text-[18px] font-semibold mb-2">{t("whathelp")}</h3>
                 <textarea 
                   id="dream"
-                  placeholder="Tell us about your destination dream"
+                  placeholder={t("telldream")}
                   {...register("dream", {
                       required : {
                         value: true,
-                        message : "Please, fill the area above"
+                        message : t("dreammessage")
                       },
                     })
                   }
@@ -162,7 +163,7 @@ const   ContactFormSection = () => {
                 </textarea>
                 <p className="error">{errors.dream?.message}</p>
               </div>
-              <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : "Send"}</button>
+              <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : t("send")}</button>
           </form>
         </div>
       </Container>

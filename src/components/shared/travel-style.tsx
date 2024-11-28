@@ -5,8 +5,10 @@ import { useQuery } from "react-query"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { handleCategory } from "../../store/main-slice"
+import { useTranslation } from "react-i18next"
 
 const Travelstyle = () => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const { fetchdata } = useFetchData('/api/tour/v1/categories')
     const { data, isLoading, error } = useQuery({
@@ -16,7 +18,7 @@ const Travelstyle = () => {
     return (
         <div className="w-full flex justify-center">
             <Container className="flex flex-col items-center py-3 box">
-                <h2 className="h2 md:text-3xl sm:text-2xl mb-8">STYLES TO TRAVEL IN CENTRAL  ASIA</h2>
+                <h2 className="h2 md:text-3xl sm:text-2xl mb-8">{t("styles")}</h2>
                 <div className="w-full flex justify-center">
                     <div className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-5 sm:w-full">
                         {

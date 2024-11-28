@@ -5,13 +5,15 @@ import { CountryList, Pagination } from "../components/shared";
 import { useFetchData } from "../hooks";
 import { useQuery } from "react-query";
 import { CategoryType, CountriesType, DistrictType } from "../types";
-import HeaderAbout from "../components/shared/header-about"
-import ContactSection from "../components/shared/contact-section";
 import { RootState } from "../store/store";
 import { changeCountry, handleDistrict, handleCategory } from "../store/main-slice";
+import { useTranslation } from "react-i18next"
+import HeaderAbout from "../components/shared/header-about"
+import ContactSection from "../components/shared/contact-section";
 
 
 const Tours = () => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
     const { activeCountry, category, district } = state
@@ -33,11 +35,11 @@ const Tours = () => {
         queryFn: fetchdata
     });
 
-    useEffect(() => {
-        if(countriesData?.results?.length > 0){
-            dispatch(changeCountry(countriesData?.results[0].title))
-        }
-    }, [countriesData])
+    const { fetchdata: fetchdata2 } = useFetchData('/api/main/v1/distiricts')
+    const { data:data2, isLoading: isLoading2 } = useQuery({
+        queryKey: ['distiricts'], 
+        queryFn: fetchdata2
+    });
 
     let uniqueCategory = [...new Set(categoriesData?.results.map((item: CategoryType) => item.title ))];
 
@@ -46,11 +48,15 @@ const Tours = () => {
     let availableDistrict = []
     availableDistrict = districtsData?.results.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)
     
-    const { fetchdata: fetchdata2 } = useFetchData('/api/main/v1/distiricts')
-    const { data:data2, isLoading: isLoading2 } = useQuery({
-        queryKey: ['distiricts'], 
-        queryFn: fetchdata2
-    });
+    useEffect(() => {
+        dispatch(handleCategory(uniqueCategory[0]))
+    },[categoriesData])
+    
+    useEffect(() => {
+        if(countriesData?.results?.length > 0){
+            dispatch(changeCountry(countriesData?.results[0].title))
+        }
+    }, [countriesData])
 
     useEffect(() => {
         if(data2){
@@ -59,17 +65,16 @@ const Tours = () => {
                 dispatch(changeCountry(active.country.title))
             }
         }
-    },[])
+    },[data2])
 
 
     useEffect(() => {
         if(countriesData?.results?.length > 0){
             const selectTag = document.getElementById('district') as HTMLSelectElement
             if(selectTag){
-                selectTag.value = districtsData?.results.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]
+                selectTag.value = districtsData?.results?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]
                 dispatch(handleDistrict(selectTag.value))
             }
-
         }
     }, [activeCountry, countriesData])
 
@@ -82,18 +87,20 @@ const Tours = () => {
             <HeaderAbout
                 className="bg-[url('/Tour.png')] pb-[100px] bg-center bg-cover bg-no-repeat mb-20"
                 route={"tours"}
-                title={"Tours"}
-                desc={"Provide the best travel experience for you!"}
+                title={t("tours")}
+                desc={t("provide")}
             />
             <Container>
                 <div className="flex flex-col items-center">
-                    <div className="px-5 py-2.5 bg-[#eaecf9] rounded justify-start items-center gap-2.5 inline-flex mb-4 max-w-[183px] w-[max-content]">
-                        <p className="text-[#635aff] text-xl font-semibold uppercase leading-normal tracking-widest sm:text-sm">
-                            best tours
+                    <div className="px-5 py-2.5 bg-[#eaecf9] rounded justify-start items-center gap-2.5 inline-flex mb-4 w-max">
+                        <p className="text-[#635aff] text-xl font-semibold uppercase leading-normal sm:text-sm">
+                            {t("besttours")}
                         </p>
                     </div>
-                    <h2 className="h2">Provide the best travel experience for you</h2>
-                    <h3 className="h3 font-normal text-center mt-5 px-7 sm:px-0 text-[#666666]">Discover the heart of Asia as you explore the historical, cultural, and scenic highlights of Uzbekistan, Kyrgyzstan, Kazakhstan, Tajikistan, and Turkmenistan in the company of other travellers from all over the world</h3>
+                    <h2 className="h2">{t("provide")}</h2>
+                    <h3 className="h3 font-normal text-center mt-5 px-7 sm:px-0 text-[#666666]">
+                        {t("summerdef")}
+                    </h3>
                 </div>
                     <div className="w-full flex sm:flex-col justify-between">
                         {

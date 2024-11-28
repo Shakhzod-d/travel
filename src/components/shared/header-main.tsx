@@ -7,39 +7,44 @@ import { socialMedias } from '../../utils';
 import { Link } from 'react-router-dom';
 import { openMenu } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
-import { Container } from "../ui";
+import { Container, LocaleSelector } from "../ui";
 import { Link as ScrollLink } from 'react-scroll';
+import { useTranslation } from 'react-i18next';
 
 const HeaderMain = () => {
     let dispatch = useDispatch()
-
+    const { t } = useTranslation()
     const openHandler: React.MouseEventHandler<HTMLDivElement> = () => {
         dispatch(openMenu())
     }
 
     return (
-        <div className="overlay min-h-[800px] md:min-h-[500px] flex flex-col absolute top-0 left-0 items-center w-full justify-between pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
+        <div className="overlay h-full flex flex-col absolute top-0 left-0 items-center w-full pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
             <div className="w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
                 <Container className="box w-full flex justify-between items-center py-4">
                 <Link to={'/'}>
                     <img src={whiteIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[180px]'/>
                 </Link>
-                    <div className="flex *:text-white lg:hidden">
+                    <div className="flex  lg:hidden">
                         <Navbar borderColor='white'/>
+                        <LocaleSelector/>
                     </div>
-                    <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>
-                        <MenuIcon style={{ fontSize:32, color:'white' }}/>
+                    <div className='hidden lg:flex ml-3 cursor-pointer'>
+                        <div className='mr-2 flex items-center'>
+                            <LocaleSelector/>
+                        </div>
+                        <div onClick={openHandler}>
+                            <MenuIcon style={{ fontSize:32, color:'white' }}/>
+                        </div>
                     </div>
                 </Container>
             </div>    
-            <div className="max-w-[1256px] w-full px-5 mt-[150px] lg:mt-[80px] sm:mt-[30px]">
-                <div className='w-full flex flex-col items-center mb-[80px] md:mb-[50px] sm:mb-[30px]'>
-                    <h2 className='font-bold text-[64px] md:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-3'>
-                        CAN <br /> 
-                        FOLLOW YOUR <br />  
-                        CENTRAL ASIAN NAVIGATOR
+            <div className="max-w-[1256px] w-full px-5 mt-[50px] lg:mt-[80px] sm:mt-[30px]">
+                <div className='w-full flex flex-col 3xl:h-[400px] 4xl:h-[450px] xl:h-max items-center justify-center mb-[80px] md:mb-[50px] sm:mb-[30px]'>
+                    <h2 className='font-bold max-w-[800px] md:max-w-[400px] leading-[79px] uppercase text-[64px] md:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-3 break-words'>
+                        {t("navigator")}
                     </h2>
-                    <Link to={'/tours'} className='text-white  bg-white bg-opacity-15 text-[20px] md:text-[12px] round px-11 md:px-7 sm:px-4 sm:py-1 py-2 border-[2px] border-white'>FIND YOUR TOUR</Link>
+                    <Link to={'/tours'} className='text-white  bg-white bg-opacity-15 text-[20px] md:text-[12px] round px-11 md:px-7 sm:px-4 sm:py-1 py-2 border-[2px] border-white uppercase'>{t("findTour")}</Link>
                 </div>
                 <div className='w-full flex items-end '>
                     <div className='flex w-full h-[80px] sm:h-[130px] sm:flex-col sm:justify-center  justify-between items-center relative'>

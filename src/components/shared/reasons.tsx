@@ -3,8 +3,10 @@ import { ReasonCart } from '../ui'
 import { useQuery } from 'react-query'
 import { Loading } from '../ui'
 import { useFetchData } from '../../hooks'
+import { useTranslation } from "react-i18next"
 
 const Reasons = () => {
+    const { t } = useTranslation()
     const { fetchdata } = useFetchData('/api/main/v1/why-choose-us')
     const { data, error, isLoading } = useQuery({
         queryKey: ['reasons'],
@@ -14,9 +16,9 @@ const Reasons = () => {
     return (
         <div className='flex flex-col w-full items-center text-center'>
             <h2 className='h2 md:text-3xl sm:text-2xl uppercase'>
-                why choose us
+                {t("why")}
             </h2>
-            <h3 className='h3 text-[#666666] my-8'>Our beliefs aren't just words; they are the foundation of every adventure we offer. With high commitment to sustainability, authenticity, and customer-centricity, we ensure that every trip you take with us is valuable.</h3>
+            <h3 className='h3 text-[#666666] my-8'>{t("reasondef")}</h3>
             <ul className='grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-3'>
                 {
                     isLoading ? (

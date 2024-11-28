@@ -4,11 +4,13 @@ import { Cart, Loading } from "../ui"
 import { useFetchTravelData } from "../../hooks"
 import { useQuery } from "react-query"
 import { RootState } from "../../store/store"
-import ReactPaginate from 'react-paginate';
 import { useSelector } from "react-redux"
+import { useTranslation } from "react-i18next"
+import ReactPaginate from 'react-paginate';
 
 
 const Pagination = () => {
+    const { t } = useTranslation()
     const state = useSelector((state: RootState) => state.main)
     const { activeCountry, district, category } = state
     const { fetchTraveldata } = useFetchTravelData()
@@ -18,12 +20,11 @@ const Pagination = () => {
     })
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 4;
-    let filteredItems = data?.results.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
+    let filteredItems = data?.results?.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
     const currentItems = filteredItems?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
     const handlePageChange = (selectedPage: { selected: number }) => {
         setCurrentPage(selectedPage.selected);
     };
-
     if(isLoading){
         return <Loading/>
     }
@@ -32,12 +33,14 @@ const Pagination = () => {
         return <div>Error: {error.message}</div>
     }
 
+    // console.log(activeCountry, district, category)
+
 
     return (
         <div className="flex flex-col items-center">
-            <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-x-5 gap-y-11">
+            <div className={`grid lg:grid-cols-2 md:grid-cols-1 gap-x-5 gap-y-11 ${currentItems?.length == 0 ? "grid-cols-1" : "grid-cols-3"}`}>
                 {
-                    currentItems?.length == 0 ? <h2 className="h2 text-xl text-red-500 font-normal">No tours matching :(</h2> :
+                    currentItems?.length == 0 ? <h2 className="h2 text-xl text-red-500 font-normal lowercase">{t("nomatching")}</h2> :
                     currentItems?.map((item: TravelType) => (
                         <Cart
                             key={item.id}
@@ -48,7 +51,7 @@ const Pagination = () => {
                             nights={item.nights} 
                             country={item.country.title} 
                             def={item.context}
-                            img={item.category.image}
+                            img={item.image}
                             slug={item.slug}
                             category={item.category.title}
                             district={item.district.title}
@@ -58,8 +61,8 @@ const Pagination = () => {
             </div>
             <div className="w-full flex justify-end">
                 <ReactPaginate
-                    previousLabel={"< Back"}
-                    nextLabel={"Next >"}
+                    previousLabel={"<"}
+                    nextLabel={">"}
                     breakLabel={"..."}
                     pageCount={Math.ceil(filteredItems?.length / itemsPerPage)}
                     marginPagesDisplayed={2}

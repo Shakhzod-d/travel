@@ -14,7 +14,7 @@ const TeamSection = () => {
   })
 
   return (
-    <section>
+    <section className="mb-11">
       <Container>
         <div className="flex justify-center mb-8 max-w-screen">
           <div className="flex-col justify-start items-center gap-4 inline-flex">

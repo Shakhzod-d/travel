@@ -15,8 +15,8 @@ const Tour = ({ type }: TourProps) => {
         queryFn: fetchTraveldata
     })
     
-    let filteredSummerData = data?.results?.filter((item: TravelType) => item.is_summer == true)
-    let filteredWinterData = data?.results?.filter((item: TravelType) => item.is_winter == true)
+    let filteredSummerData = data?.results?.filter((item: TravelType) => item.is_summer == true && item.is_popular == true)
+    let filteredWinterData = data?.results?.filter((item: TravelType) => item.is_winter == true && item.is_popular == true)
     
     return (
         <Container className="flex flex-col box items-center py-11">

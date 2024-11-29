@@ -20,7 +20,7 @@ const Pagination = () => {
     })
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 4;
-    let filteredItems = data?.results?.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
+    let filteredItems = activeCountry == 'all' ? data?.results : data?.results?.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
     const currentItems = filteredItems?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
     const handlePageChange = (selectedPage: { selected: number }) => {
         setCurrentPage(selectedPage.selected);
@@ -32,9 +32,6 @@ const Pagination = () => {
     if(error instanceof Error){
         return <div>Error: {error.message}</div>
     }
-
-    // console.log(activeCountry, district, category)
-
 
     return (
         <div className="flex flex-col items-center">

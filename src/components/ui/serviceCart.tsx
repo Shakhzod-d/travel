@@ -2,8 +2,10 @@ import { ServiceCartType } from "../../types"
 import { useSanitize } from "../../hooks"
 import { useDispatch } from "react-redux"
 import { openBookingModal, handleServiceId } from "../../store/main-slice"
+import { useTranslation } from "react-i18next"
 
 const ServiceCart = ({ image, title, content, id }: ServiceCartType) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const { sanitize } = useSanitize()
     const handleBooking = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +22,7 @@ const ServiceCart = ({ image, title, content, id }: ServiceCartType) => {
                 onClick={handleBooking}
                 className="btn text-[#F56960] border-[1px] border-[#F56960] hover:bg-[#F56960] hover:text-white text-[16px] font-semibold px-[80px] xm:px-[50px] py-2"
             >
-                Book now
+                {t("book2")}
             </button>
         </div> 
     )

@@ -26,12 +26,12 @@ const Discount = () => {
 
     const onSubmit = async (data: Data) => {
         setIspending(true)
-        await axios.post(`${Base_URL}/api/main/v1/contacts`, data)
+        await axios.post(`${Base_URL}/api/main/v1/contacts/`, data)
         .then(_ => {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Your message has been sent successfully",
+                title: t("successful"),
                 showConfirmButton: false,
                 showCloseButton: true,
             });
@@ -60,7 +60,7 @@ const Discount = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                         <input 
                             className="round p-3 text-md w-full mb-2"
-                            {...register("name", {
+                            {...register("full_name", {
                                 required: {
                                     value: true,
                                     message: t("namemessage")
@@ -70,7 +70,7 @@ const Discount = () => {
                             type="text" 
                             placeholder={t("name")}
                         />
-                        <p className="error">{errors.name?.message}</p>
+                        <p className="error">{errors.full_name?.message}</p>
                         <InputMask
                             className="round p-3 text-md w-full mb-2"
                             {...register("phone", {

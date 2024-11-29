@@ -1,7 +1,7 @@
 import clock from '../../assets/icons/clock.png'
 import people from '../../assets/icons/people.png'
 import locationicon from '../../assets/icons/location.png'
-import { useSanitize } from '../../hooks'
+import { useSanitize, useScrollToTop } from '../../hooks'
 import { Base_URL } from '../../api'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -42,13 +42,15 @@ const Cart = ({
         dispatch(changeCountry(country))
         dispatch(handleCategory(category))
         dispatch(handleDistrict(district))
+        scrollToTop()
     }
+    const { scrollToTop } = useScrollToTop()
     return (
         <Link to={`/tours/${slug}`}>
             <button 
                 onClick={redirectToTour} 
                 key={id} 
-                className="flex flex-col items-start justify-between w-[350px] xl:w-[300px] md:w-full rounded-3xl shadow-2xl">
+                className="flex flex-col items-start max-h-[550px] overflow-y-hidden h-full justify-between w-[350px] xl:w-[300px] md:w-full rounded-3xl shadow-2xl">
                 <div className="relative">
                     <div className="relative min-h-[272px] flex flex-col items-center">
                         <img src={img.includes('media') ? img : `${Base_URL}/media/${img}`} alt={title} className="w-full h-[272px] rounded-3xl"></img>
@@ -75,7 +77,7 @@ const Cart = ({
                             </div>
                         </div>
                     </div>
-                    <div className="p-4 pt-6">
+                    <div className="p-4 pt-6 text-start">   
                         <h3 className="h3 text-start text-[#444444]">{title}</h3>
                         <div className="flex">
                             <div className="my-3 flex">
@@ -84,7 +86,7 @@ const Cart = ({
                                 <img src={star} alt="star" />
                             </div>
                         </div>
-                        <h4 className="h4 text-[#6C6C6C]">{sanitize(def)}</h4>
+                        <h4 className="h4 text-[#6C6C6C] max-h-[100px] h-full overflow-hidden">{sanitize(def)}</h4>
                     </div>
                 </div>
             </button>

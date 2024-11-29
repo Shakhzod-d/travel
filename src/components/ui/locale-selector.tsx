@@ -18,9 +18,15 @@ const LocaleSelector = () => {
             onChange={handleLocale}
             className="outline-none bg-transparent text-white"
         >
-            <option value="eng" className="text-black">eng</option>
-            <option value="uz" className="text-black">uz</option>
-            <option value="ru" className="text-black">ru</option>
+            <option value="eng" className="text-black">
+                Eng
+            </option>
+            <option value="uz" className="text-black">
+                Uz
+            </option>
+            <option value="ru" className="text-black flex">
+                Ru
+            </option>
         </select>
     )
 }

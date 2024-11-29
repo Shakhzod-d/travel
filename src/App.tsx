@@ -2,7 +2,7 @@ import { Suspense, useEffect } from "react";
 import { Preloading, Layout, Menu } from "./components/shared";
 import { Home, Tours } from "./pages";
 import { Route, Routes } from "react-router-dom";
-import { Overlay, Modal, BookingModal } from "./components/ui";
+import { Overlay, Modal, BookingModal, ScrollButton } from "./components/ui";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { ToastContainer } from 'react-toastify';
@@ -41,7 +41,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Route>
         </Routes>
-        <Footer />
+        <ScrollButton/>
+        <Footer/>
       </Suspense>
     </>
   );

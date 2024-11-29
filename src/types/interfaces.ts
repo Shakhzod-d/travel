@@ -27,42 +27,22 @@ export interface SocialMedias {
   icon: React.ReactElement;
 }
 
-// export interface CartItems {
-//   id: string;
-//   country: string;
-//   city: string;
-//   location: string,
-//   price: number,
-//   img: string;
-// }
-
 export interface TravelStyles {
   id: number;
   title: string;
+  sub_title: string;
   image: string;
   updated_at?: string;
   created_at?: string;
 }
 
-// export interface SeasonCart {
-//   id: string;
-//   price: number;
-//   time: string;
-//   size: number;
-//   location: string;
-//   special: string;
-//   reviews: number;
-//   stars: number;
-//   def: string;
-//   img: string;
-// }
 
 export interface TourProps {
   type: string;
 }
 
 export interface Data{
-  name: string,
+  full_name: string,
   phone: string,
   dream?: string
 }
@@ -113,11 +93,6 @@ export interface ModalDataType{
   image: string
 }
 
-// export interface CountriesType{
-//   id: string,
-//   country: string,
-//   active: boolean
-// }
 export interface CountriesType{
   id: number,
   title: string,

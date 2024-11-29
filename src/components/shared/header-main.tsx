@@ -19,7 +19,7 @@ const HeaderMain = () => {
     }
 
     return (
-        <div className="overlay h-full flex flex-col absolute top-0 left-0 items-center w-full pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
+        <div className="overlay h-full flex flex-col absolute top-0 left-0 items-center justify-between w-full pb-9 sm:pb-5 bg-cover bg-center bg-no-repeat">
             <div className="w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
                 <Container className="box w-full flex justify-between items-center py-4">
                 <Link to={'/'}>
@@ -39,15 +39,15 @@ const HeaderMain = () => {
                     </div>
                 </Container>
             </div>    
-            <div className="max-w-[1256px] w-full px-5 mt-[50px] lg:mt-[80px] sm:mt-[30px]">
-                <div className='w-full flex flex-col 3xl:h-[400px] 4xl:h-[450px] xl:h-max items-center justify-center mb-[80px] md:mb-[50px] sm:mb-[30px]'>
-                    <h2 className='font-bold max-w-[800px] md:max-w-[400px] leading-[79px] uppercase text-[64px] md:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-3 break-words'>
+            <div className="max-w-[1256px] w-full px-5  lg:mt-[80px] sm:mt-[30px]">
+                <div className='w-full flex flex-col 3xl:h-[480px] 4xl:h-[450px] xl:h-[400px] lg:h-max items-center justify-center mb-[80px] md:mb-[50px] sm:mb-[30px]'>
+                    <h2 className='font-bold max-w-[800px] md:max-w-[400px] leading-[79px] uppercase text-[64px] md:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 break-words'>
                         {t("navigator")}
                     </h2>
                     <Link to={'/tours'} className='text-white  bg-white bg-opacity-15 text-[20px] md:text-[12px] round px-11 md:px-7 sm:px-4 sm:py-1 py-2 border-[2px] border-white uppercase'>{t("findTour")}</Link>
                 </div>
-                <div className='w-full flex items-end '>
-                    <div className='flex w-full h-[80px] sm:h-[130px] sm:flex-col sm:justify-center  justify-between items-center relative'>
+                <div className='w-full flex items-end'>
+                    <div className='flex w-full h-[80px] sm:h-[130px] sm:flex-col sm:justify-center justify-between items-end relative'>
                         <ScrollLink 
                             to="destinations" 
                             spy={true}

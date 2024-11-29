@@ -5,8 +5,10 @@ import { Loading } from "../ui";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import { changeCountry } from "../../store/main-slice";
+import { useTranslation } from "react-i18next";
 
 const CountryList = () => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
     const { activeCountry } = state
@@ -26,7 +28,12 @@ const CountryList = () => {
     }
 
     return (
-        <div className='w-full flex flex-wrap gap-x-11 gap-y-5 justify-center lg:justify-start mb-5'>
+        <div className='w-full flex flex-wrap gap-x-11 font-semibold gap-y-5 justify-center lg:justify-start mb-5'>
+            <button 
+                onClick={_ => dispatch(changeCountry('all'))}
+                className={`btn px-[24px] py-[12px] ${ activeCountry == 'all' ? 'bg-[#F56960] text-white' : 'text-black bg-[#F5F5F5]' }`}>
+                    {t("all")}
+            </button>
             {
                 data?.results?.map((item: CountriesType) => (
                     <button 

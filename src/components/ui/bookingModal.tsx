@@ -31,17 +31,20 @@ const   ContactFormSection = () => {
 
     const onSubmit = async (data: Data) => {
         setIspending(true)
-        await axios.post(`${Base_URL}/api/booking/v1/service/${serviceId}`, data)
+        await axios.post(`${Base_URL}/api/booking/v1/service/${serviceId}/`, data)
         .then(_ => {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Your message has been sent successfully",
+                title: t("successful"),
                 showConfirmButton: false,
                 showCloseButton: true,
             });
+            dispatch(closeBookingModal())
         })
-        .catch(err => toastify(err.message, 'error'))
+        .catch(err => {
+            toastify(err.message, 'error')
+        })
         reset()
         setIspending(false)
     }
@@ -60,7 +63,7 @@ const   ContactFormSection = () => {
                             <h3 className="text-[18px] font-semibold mb-2">{t("name")}</h3>
                             <input 
                             className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
-                            {...register("name", {
+                            {...register("full_name", {
                                 required: {
                                     value: true,
                                     message: t("namemessage")
@@ -70,7 +73,7 @@ const   ContactFormSection = () => {
                             type="text" 
                             placeholder={t("yourname")}
                             />
-                            <p className="error">{errors.name?.message}</p>
+                            <p className="error">{errors.full_name?.message}</p>
                         </div>
 
                         <div>

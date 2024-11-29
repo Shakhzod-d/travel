@@ -11,6 +11,8 @@ export { default as Map } from './map'
 export { default as ServiceCart } from './serviceCart'
 export { default as Loading } from './loader'
 export { default as LocaleSelector } from './locale-selector'
+export { default as ScrollButton } from './scrollButton'
+
 
 export { Container } from "./container";    
 export * from "./button";

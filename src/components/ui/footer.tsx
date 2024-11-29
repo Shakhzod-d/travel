@@ -4,16 +4,12 @@ import { FooterDataType, FooterIconsType } from "../../types";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"
 import { FooterDatas } from "../../utils";
+import { useScrollToTop } from "../../hooks";
 
 const Footer = () => {
   const { t } = useTranslation()
   const { footerData1, footerData2, footerData3 } = FooterDatas()
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const {scrollToTop} = useScrollToTop()
   return (
     <footer className="bg-[#09132e] py-24">
       <Container>

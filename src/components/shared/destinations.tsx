@@ -29,15 +29,18 @@ const Destinations = () => {
 
     useEffect(() => {
         if(countriesData?.results?.length > 0){
-            dispatch(changeCountry(countriesData?.results[0].title))
+            dispatch(changeCountry("all"))
         }
     }, [countriesData])
 
     let filteredTravelData = [];
-    if (activeCountry) {
-        filteredTravelData = travelData?.results.filter(
+    if (activeCountry && activeCountry !== 'all') {
+        filteredTravelData = travelData?.results?.filter(
             (item: TravelType) => item.country.title === activeCountry
     )}
+    if(activeCountry === 'all'){
+        filteredTravelData = travelData?.results
+    }
 
     if(isLoading2){
         return <Loading/>
@@ -56,7 +59,7 @@ const Destinations = () => {
                         <p className="text-red-500 text-xl">Error: {error.message}</p>
                     ) : filteredTravelData?.length === 0 ? (
                         <div className="w-full flex justify-center my-3">
-                            <p className="text-red-500 text-xl break-words">{t("notexist")}</p>
+                            <p className="text-red-500 text-xl break-words">{travelData?.results?.length === 0 ? t("notexistall") : t("notexist")}</p>
                         </div>
                     ) :
                     filteredTravelData?.map((item: TravelType) => (

@@ -73,5 +73,8 @@
     "tickets": "Chiptalar",
     "season": "Mavsum abonementlari",
     "vacation": "Ta'til paketlari",
-    "notours": "Hozircha sayohatlar yo'q"
+    "notours": "Hozircha sayohatlar yo'q",
+    "all": "Barchasi",
+    "notexistall": "Turlar hozircha mavjud emas :(",
+    "successful": "Sizning xabaringiz muvaffaqiyatli yuborildi"
 }

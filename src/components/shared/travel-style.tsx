@@ -1,6 +1,6 @@
 import { TravelStyles } from "../../types"
 import { Container, Loading } from "../ui"
-import { useFetchData } from "../../hooks"
+import { useFetchData, useScrollToTop } from "../../hooks"
 import { useQuery } from "react-query"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
@@ -8,6 +8,7 @@ import { handleCategory } from "../../store/main-slice"
 import { useTranslation } from "react-i18next"
 
 const Travelstyle = () => {
+    const { scrollToTop } = useScrollToTop()
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const { fetchdata } = useFetchData('/api/tour/v1/categories')
@@ -28,18 +29,18 @@ const Travelstyle = () => {
                                 <div>Error: {error.message}</div>
                             ) :
                             data?.results?.map((item: TravelStyles) => (
-                                <Link key={item.id}  to={'/tours'}>
+                                <Link key={item.id} to={'/tours'} onClick={scrollToTop}>
                                     <button
                                         onClick={() => {
                                             dispatch(handleCategory(item.title))
                                         }}
                                         style={{ backgroundImage: `url(${item.image})` }} 
                                         className="bg-cover bg-center bg-no-repeat flex flex-col mr-5 mb-5 lg:mr-0 xl:even:mr-0 justify-between p-4 rounded-3xl h-[280px] w-[450px] lg:w-[350px] md:w-[250px] sm:w-full">
-                                        <div>
+                                        <div className="flex flex-col items-start text-start">
                                             <h3 className="h3 uppercase">{item.title}</h3>
-                                            {/* <h4 className="h4">{'item.definition'}</h4> */}
+                                            <h4 className="h4">{item.sub_title}</h4>
                                         </div>
-                                        {/* <Link to='#' target='_blank' className="h4 text-yellow-400 w-max">{'item.link'}</Link> */}
+                                        <h4 className="h4 text-yellow-400 w-max capitalize">{t("learn")}</h4>
                                     </button>
                                 </Link>
                             ))

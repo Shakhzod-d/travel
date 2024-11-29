@@ -73,5 +73,8 @@
     "tickets": "Tickets",
     "season": "Season Passes",
     "vacation": "Vacation Packages",
-    "notours": "No tours yet"
+    "notours": "No tours yet",
+    "all": "All",
+    "notexistall": "No tours exist yet:(",
+    "successful": "Your message has been sent successfully"
 }

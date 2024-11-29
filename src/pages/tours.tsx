@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Loading } from "../components/ui";
 import { CountryList, Pagination } from "../components/shared";
@@ -45,19 +45,26 @@ const Tours = () => {
 
     let uniqueDistricts = [...new Set(districtsData?.results.map((item: DistrictType) => item.title ))];
     
+
     let availableDistrict = []
     availableDistrict = districtsData?.results.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)
     
+
+    //default category
     useEffect(() => {
         dispatch(handleCategory(uniqueCategory[0]))
     },[categoriesData])
     
+
+    //default country
     useEffect(() => {
         if(countriesData?.results?.length > 0){
-            dispatch(changeCountry(countriesData?.results[0].title))
+            dispatch(changeCountry("all"))
         }
     }, [countriesData])
 
+
+    //changing country
     useEffect(() => {
         if(data2){
             let active = data2?.results?.find((item: CountriesType) => item.title == district)
@@ -67,16 +74,24 @@ const Tours = () => {
         }
     },[data2])
 
-
+    //changing district selection due to country
     useEffect(() => {
         if(countriesData?.results?.length > 0){
             const selectTag = document.getElementById('district') as HTMLSelectElement
             if(selectTag){
                 selectTag.value = districtsData?.results?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]
-                dispatch(handleDistrict(selectTag.value))
+                dispatch(handleDistrict(districtsData?.results?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]))
             }
         }
     }, [activeCountry, countriesData])
+
+    const handleChangeDistrict = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        dispatch(handleDistrict(e.currentTarget.value))
+        let active = districtsData?.results?.filter((item: DistrictType) => item.title == e.currentTarget.value)[0]
+        if(active){
+            dispatch(changeCountry(active.country.title)) 
+        }
+    }
 
     if(isLoading2){
         return <Loading/>
@@ -102,7 +117,7 @@ const Tours = () => {
                         {t("summerdef")}
                     </h3>
                 </div>
-                    <div className="w-full flex sm:flex-col justify-between">
+                    <div className="w-full flex sm:flex-col justify-between sm:mt-4">
                         {
                             categoriesLoading ? (
                                 <Loading/>
@@ -115,14 +130,10 @@ const Tours = () => {
                                     value={category} 
                                     onChange={(e) => dispatch(handleCategory(e.target.value))}
                                     className="max-w-[600px] w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mr-0 sm:mb-5 mr-2">
-                                    {
-                                        uniqueCategory.map((item:any) => (
-                                            <option 
-                                                key={item}
-                                                value={item}
-                                            >
-                                                {item}
-                                            </option>
+                                    {uniqueCategory.map((item: any) => (
+                                        <option key={item} value={item}>
+                                            {item}
+                                        </option>
                                         ))
                                     }
                                 </select>
@@ -138,18 +149,30 @@ const Tours = () => {
                                     name="districtOptions" 
                                     id="district" 
                                     value={district}
-                                    onChange={(e) => dispatch(handleDistrict(e.target.value))}
+                                    onChange={handleChangeDistrict}
                                     className="max-w-[600px] w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold">
                                     {
-                                        uniqueDistricts.map((item:any) => (
-                                            <option 
-                                                key={item}
-                                                value={item}
-                                                disabled={!availableDistrict.includes(item)}
-                                            >
-                                                {item}
-                                            </option>
-                                        ))
+                                        activeCountry == 'all' ? (
+                                            uniqueDistricts.map((item:any) => (
+                                                <option 
+                                                    key={item}
+                                                    value={item}
+                                                    disabled={activeCountry == 'all' ? false : !availableDistrict.includes(item)}
+                                                >
+                                                    {item}
+                                                </option>
+                                            ))
+                                        ) : (
+                                            uniqueDistricts.filter((item: any) => availableDistrict.includes(item)).map((item:any) => (
+                                                <option 
+                                                    key={item}
+                                                    value={item}
+                                                    disabled={activeCountry == 'all' ? false : !availableDistrict.includes(item)}
+                                                >
+                                                    {item}
+                                                </option>
+                                            ))
+                                        )
                                     }
                                 </select>
                             )

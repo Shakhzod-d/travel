@@ -3,10 +3,13 @@ import { StepType } from "../../types"
 import { StepItems } from "../../utils"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { useScrollToTop } from "../../hooks"
 
 const Booking = () => {
     const { steps } = StepItems()
     const { t } = useTranslation()
+    const {scrollToTop} = useScrollToTop()
+
     return (
         <div className="w-full flex flex-col items-center pb-[80px] sm:pb-[50px]">
             <div className="w-full pt-8 flex justify-between">
@@ -38,7 +41,7 @@ const Booking = () => {
                 </div>
             </div>
             <div className="w-full flex justify-start sm:justify-center lg:mt-4">
-                <Link to="/tours" className="py-2 px-9 bg-[#0A142F] btn w-max text-white">
+                <Link to="/tours" onClick={scrollToTop} className="py-2 px-9 bg-[#0A142F] btn w-max text-white">
                     {t("bookingnow")}
                 </Link>
             </div>

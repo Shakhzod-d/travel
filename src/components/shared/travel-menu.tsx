@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import { useState, type FC } from "react";
 import { Container } from "../ui";
-import { travelMenuData } from "../../utils/constants";
+import { TravelMenuDatas } from "../../utils/constants";
 
 interface TravelMenuProps {}
 
 const TravelMenu: FC<TravelMenuProps> = () => {
+  const { travelMenuData } = TravelMenuDatas()
   const [active, setActive] = useState(1);
   return (
-    <section className="bg-white pb-10">
+    <section className="bg-white pb-10 capitalize">
       <Container className="sm:w-full">
         <div className="justify-start items-start flex flex-wrap">
           {travelMenuData.map((item) => (

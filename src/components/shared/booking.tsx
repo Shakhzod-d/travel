@@ -16,10 +16,10 @@ const Booking = () => {
                 <div className="w-full flex justify-between 3xl:justify-evenly items-start lg:flex-col lg:items-center">
                     <div className="flex flex-col justify-between pr-5 lg:pr-0 w-[48%] lg:w-full lg:mb-4">
                         <div className="bg-[#EBEDFA] py-2 px-4 rounded-sm w-max">
-                            <h3 className="uppercase text-[20px] text-[#635AFF]">{t("howwork")}</h3>
+                            <h3 className="uppercase font-[600] tracking-[2px] text-[20px] text-[#635AFF]">{t("howwork")}</h3>
                         </div>
                         <div className="my-5">
-                            <h2 className="text-[48px] font-semibold leading-[65.57px] lg:leading-[50px]">
+                            <h2 className="text-[48px] font-[800] uppercase leading-[65.57px] lg:leading-[50px]">
                                 {t("steps")} 
                             </h2>
                         </div>
@@ -41,7 +41,7 @@ const Booking = () => {
                 </div>
             </div>
             <div className="w-full flex justify-start sm:justify-center lg:mt-4">
-                <Link to="/tours" onClick={scrollToTop} className="py-2 px-9 bg-[#0A142F] btn w-max text-white">
+                <Link to="/tours" onClick={scrollToTop} className="py-2 px-9 bg-[#0A142F] font-[600] btn w-max text-white">
                     {t("bookingnow")}
                 </Link>
             </div>

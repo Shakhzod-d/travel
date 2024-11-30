@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import { useState, type FC } from "react";
-import Rating  from "../ui/rating";
 import { openModal } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from "react-i18next";
+import { ReviewsType } from "../../types";
+import Rating  from "../ui/rating";
 
-interface TravelRatingProps {}
+interface TravelRatingProps {
+  overall: number,
+  reviews: ReviewsType[] 
+}
 
-const TravelRating: FC<TravelRatingProps> = () => {
+const TravelRating: FC<TravelRatingProps> = ({
+  overall,
+  reviews
+}) => {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const [isNew, setIsNew] = useState(true);
   
@@ -33,21 +42,20 @@ const TravelRating: FC<TravelRatingProps> = () => {
         <button onClick={modalHandler} className="px-9 py-2 bg-[#0D0C22] text-white rounded-3xl">Write a Review</button>
       </div>
       <div className="bg-white mb-4 py-4 px-10 sm:px-2">
-        {/* <div className=" bg-white rounded-lg " /> */}
-
         <div className="flex w-full justify-between items-center sm:flex-col sm:gap-5">
           <div className=" flex-col justify-start items-start gap-4 flex  sm:items-center">
-            <h3 className="text-[#0d0c22] text-sm font-medium">
-              Employee Reviews
+            <h3 className="text-[#0d0c22] text-sm font-medium capitalize">
+              {t("employeereviews")}
             </h3>
             <h2 className="text-center text-black text-[40px] font-bold leading-tight">
-              4.7
+              {overall}
             </h2>
             <div className="">
-              <Rating rating={2.3} />
+              <Rating rating={overall} />
             </div>
-            <div className="text-[#858585] text-xs font-medium">
-              (578 Reviews)
+            <div className="text-[#858585] text-xs font-medium flex">
+              <p className="mr-1">{`(${reviews.length}`}</p>
+              <p>{`${reviews.length > 1 ? t("reviews") : t("review")})`}</p>
             </div>
           </div>
 

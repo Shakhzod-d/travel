@@ -1,20 +1,31 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import type { FC } from "react";
 import { Container } from "../ui";
+import { Base_URL } from "../../api";
 
-interface TravelPicturesProps {}
+interface TravelPicturesProps {
+  images: string[],
+  title: string
+}
 
-const TravelPictures: FC<TravelPicturesProps> = () => {
+const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
   return (
     <section className="pb-10 bg-white">
-      <Container className="flex xl:flex-col justify-between xl:items-center w-full">
-          <img src="/travel/1.jpg" alt="" />
-        <div className="grid grid-cols-2 md:grid-cols-1 gap-3 xl:mt-3">
-          <img src="/travel/2.jpg" alt="" />
-          <img src="/travel/4.jpg" alt="" />
-          <img src="/travel/3.jpg" alt="" />
-          <img src="/travel/5.jpg" alt="" />
-        </div>
+      <Container className="w-full">
+          <div className="w-full flex justify-center">
+            <div className="grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-5">
+              {
+                images?.map((item: string) => (
+                  <img 
+                    key={item}
+                    src={item.includes('media') ? item : `${Base_URL}/media/${item}`} 
+                    alt={title} 
+                    className="w-[394px] h-[261px]"
+                  />
+                ))
+              }
+            </div>
+          </div>
       </Container>
     </section>
   );

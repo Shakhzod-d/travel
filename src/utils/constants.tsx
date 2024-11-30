@@ -154,6 +154,18 @@ export const FooterDatas = () => {
   return { footerData1, footerData2, footerData3 }
 }
 
+export const TravelMenuDatas = () => {
+  const { t } = useTranslation()
+  const travelMenuData = [
+    { id: 1, text: t("summary"), to: "#summary" },
+    { id: 2, text: t("reviews"), to: "#review" },
+    { id: 3, text: t("package"), to: "#package" },
+    { id: 4, text: t("location"), to: "#location" },
+    { id: 5, text: t("other"), to: "#other" },
+  ]
+  return {  travelMenuData }
+}
+
 
 
 

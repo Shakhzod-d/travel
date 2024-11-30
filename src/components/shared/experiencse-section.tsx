@@ -8,14 +8,14 @@ const ExperienceSection = () => {
       <Container>
         <div className="flex items-center flex-col gap-5 mb-12">
           <div className="h-11 px-5 py-2.5 bg-[#eaecf9] rounded  items-center gap-2.5 inline-flex">
-            <p className="text-[#635aff] text-xl font-semibold uppercase leading-normal tracking-widest md:text-sm">
+            <p className="text-[#635aff] text-[20px] font-[600] uppercase leading-normal tracking-[2px] md:text-sm">
               {t("thisis")}
             </p>
           </div>
-          <h2 className="max-w-[736px] text-center text-black text-5xl font-bold leading-[56px] uppercase md:text-3xl">
+          <h2 className="max-w-[736px] text-center text-black text-[48px] font-[800] leading-[56px] uppercase md:text-3xl">
             {t("provide")}
           </h2>
-          <p className="max-w-[998px] text-center text-[#666666] text-2xl font-normal md:text-lg ">
+          <p className="max-w-[998px] text-center text-[#666666] text-[24px] font-[500] md:text-lg ">
             {t("team")}
           </p>
         </div>

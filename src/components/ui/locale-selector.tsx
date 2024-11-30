@@ -1,33 +1,46 @@
-import { ChangeEvent, useState } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import i18n from "../i18n/i18next"
+import { twMerge } from "tailwind-merge"
 
-const LocaleSelector = () => {
+type Prop = {
+    className?: string
+}
+
+const LocaleSelector = ({ className }: Prop) => {
     let lastLn = localStorage.getItem('lng') 
     const [ln, setLn] = useState(lastLn ? lastLn : 'eng')
-    const handleLocale = (e: ChangeEvent<HTMLSelectElement>) => {
-        i18n.changeLanguage(e.target.value)
+    const [show, setShow] = useState(false)
+     const selectorRef = useRef<HTMLDivElement | null>(null);
+    const handleLocale = (e: React.MouseEvent<HTMLButtonElement>) => {
+        i18n.changeLanguage(e.currentTarget.value)
         localStorage.setItem('lng', i18n.language)
-        setLn(e.target.value)
+        setLn(e.currentTarget.value)
+        setShow(false)
         window.location.reload()
     }
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (selectorRef.current && !selectorRef.current.contains(e.target as Node)) {
+                setShow(false);  
+            }
+        };
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
     return (
-        <select 
-            name="locale" 
-            id="localeswitch"
-            value={ln}
-            onChange={handleLocale}
-            className="outline-none bg-transparent text-white"
-        >
-            <option value="eng" className="text-black">
-                Eng
-            </option>
-            <option value="uz" className="text-black">
-                Uz
-            </option>
-            <option value="ru" className="text-black flex">
-                Ru
-            </option>
-        </select>
+        <div className={twMerge('outline-none bg-transparent text-white relative',  className)} ref={selectorRef}>
+            <div onClick={() => setShow(true)} className="w-[50px] h-[30px] border-[1px] border-gray-500 rounded-md flex justify-center items-center cursor-pointer">
+                {ln}
+            </div>
+            <div className={`${show ? 'flex flex-col' : 'hidden'} border-[1px] border-gray-500 rounded-md absolute w-[50px] top-8`}>
+                <button onClick={handleLocale} value={'eng'} className="hover:bg-black hover:bg-opacity-50">eng</button>
+                <button onClick={handleLocale} value={'ru'} className="hover:bg-black hover:bg-opacity-50">ru</button>
+                <button onClick={handleLocale} value={'uz'} className="hover:bg-black hover:bg-opacity-50">uz</button>
+            </div>
+        </div>
     )
 }
 

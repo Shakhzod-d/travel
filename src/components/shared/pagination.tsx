@@ -7,6 +7,8 @@ import { RootState } from "../../store/store"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 import ReactPaginate from 'react-paginate';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 
 const Pagination = () => {
@@ -20,7 +22,8 @@ const Pagination = () => {
     })
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 4;
-    let filteredItems = activeCountry == 'all' ? data?.results : data?.results?.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
+    let filteredItems = activeCountry == t("all") ? data?.results : data?.results?.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
+    if(district == t("all") && category == t("all") && activeCountry == t("all")) filteredItems = data?.results
     const currentItems = filteredItems?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
     const handlePageChange = (selectedPage: { selected: number }) => {
         setCurrentPage(selectedPage.selected);
@@ -50,16 +53,14 @@ const Pagination = () => {
                             def={item.context}
                             img={item.image}
                             slug={item.slug}
-                            category={item.category.title}
-                            district={item.district.title}
                         />
                     ))
                 }
             </div>
             <div className="w-full flex justify-end">
                 <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
+                    previousLabel={<ChevronLeftIcon/>}
+                    nextLabel={<ChevronRightIcon/>}
                     breakLabel={"..."}
                     pageCount={Math.ceil(filteredItems?.length / itemsPerPage)}
                     marginPagesDisplayed={2}

@@ -4,12 +4,14 @@ import { Link, useLocation } from "react-router-dom"
 import { NavItems } from "../../types"
 import { closeMenu } from "../../store/main-slice"
 import { useDispatch } from "react-redux"
+import { twMerge } from 'tailwind-merge'
 
 interface Props{
-  borderColor: string
+  borderColor: string,
+  className?: string
 }
 
-const Navbar = ({ borderColor }: Props) => {
+const Navbar = ({ borderColor, className }: Props) => {
   const { navItems } = NavbarItems()
   const dispatch = useDispatch()
   const closeHandler: React.MouseEventHandler<HTMLLIElement> = () => {
@@ -19,7 +21,7 @@ const Navbar = ({ borderColor }: Props) => {
   let width = window.innerWidth
 
   return (
-    <ul className={`flex pr-5 lg:flex-col lg:pr-0 items-center lg:items-start ${width < 1024 ? '*:text-black' : '*:text-white'}`}>
+    <ul className={twMerge(`flex pr-5 lg:flex-col lg:pr-0 items-center lg:items-start ${width < 1024 ? '*:text-black' : '*:text-white'}`, className)}>
         {
           navItems.map((item:NavItems) => (
             <li className="navItem lg:mb-4 relative w-max" key={item.id} onClick={closeHandler}>

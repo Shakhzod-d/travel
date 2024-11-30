@@ -76,5 +76,18 @@
     "notours": "No tours yet",
     "all": "All",
     "notexistall": "No tours exist yet:(",
-    "successful": "Your message has been sent successfully"
+    "successful": "Your message has been sent successfully",
+    "booknow": "book now",
+    "populartours": "popular tours",
+    "copied": "copied",
+    "share": "share",
+    "summary": "Summary",
+    "reviews": "reviews",
+    "review": "review",
+    "package": "Package",
+    "location": "Location",
+    "other": "Other",
+    "facilities": "top facilities",
+    "overview": "overview",
+    "employeereviews": "Employee Reviews"
 }

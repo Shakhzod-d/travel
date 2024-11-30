@@ -32,7 +32,7 @@ const Opinions = () => {
     let screenSize = window.innerWidth < 446
     return (
         <div className="flex flex-col items-center w-full">
-            <h2 className="h2 md:text-3xl sm:text-2xl mb-8">{t("clients")}</h2>
+            <h2 className="chaptertitle md:text-3xl sm:text-2xl mb-8">{t("clients")}</h2>
             <div className='w-full'>
                 {
                     isLoading ? (

@@ -9,6 +9,7 @@ import { Loading } from "../ui"
 import { changeCountry, handleCategory, handleDistrict } from "../../store/main-slice"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { Carousel } from 'nuka-carousel';
 import location from '../../assets/icons/location.png' 
 
 const Destinations = () => {
@@ -29,16 +30,16 @@ const Destinations = () => {
 
     useEffect(() => {
         if(countriesData?.results?.length > 0){
-            dispatch(changeCountry("all"))
+            dispatch(changeCountry(t("all")))
         }
     }, [countriesData])
 
     let filteredTravelData = [];
-    if (activeCountry && activeCountry !== 'all') {
+    if (activeCountry && activeCountry !== t("all")) {
         filteredTravelData = travelData?.results?.filter(
             (item: TravelType) => item.country.title === activeCountry
     )}
-    if(activeCountry === 'all'){
+    if(activeCountry == t("all")){
         filteredTravelData = travelData?.results
     }
 
@@ -48,10 +49,11 @@ const Destinations = () => {
 
     return (
         <div className="py-11 flex flex-col items-center" id="destinations">
-            <h2 className="h2 md:text-3xl sm:text-2xl">{t("destinations")}</h2>
-            <h4 className="text-[24px] sm:text-xl font-normal py-5 text-center sm:w-[90%]">{t("discover")}</h4>
+            <h2 className="md:text-3xl sm:text-2xl chaptertitle">{t("destinations")}</h2>
+            <h4 className="text-[24px] sm:text-xl font-[600px] text-[#444444] py-5 text-center sm:w-[90%]">{t("discover")}</h4>
             <CountryList/>
-            <div className={`grid md:grid-cols-1 gap-4 xm:gap-1 template md:w-full ${filteredTravelData?.length === 0 ? 'w-full grid-cols-1' : 'grid-cols-2'}`}>
+            
+            <div className="w-full">
                 {
                     isLoading ? (
                         <Loading/>
@@ -62,29 +64,38 @@ const Destinations = () => {
                             <p className="text-red-500 text-xl break-words">{travelData?.results?.length === 0 ? t("notexistall") : t("notexist")}</p>
                         </div>
                     ) :
-                    filteredTravelData?.map((item: TravelType) => (
-                        <Link to={"/tours"} key={item.id}>
-                            <button 
-                                onClick={() => {
-                                    dispatch(changeCountry(item.country.title))
-                                    dispatch(handleCategory(item.category.title))
-                                    dispatch(handleDistrict(item.district.title))
-                                }} 
-                                style={{ backgroundImage: `url(${item.category.image})`}}
-                                className="flex justify-start items-end p-4 rounded-xl w-[519px] xl:w-[450px] lg:w-[350px] md:w-full h-[314px] bg-center bg-cover bg-no-repeat">
-                                    <div className='w-full flex xm:flex-col justify-between'>
-                                        <div >
-                                            <h3 className="h3">{item.district.title}</h3>
-                                            <div className='flex'>
-                                                <img src={location} alt="location" className='w-[20px] h-[20px] mr-1'/>
-                                                <h4 className="h4">{item.country.title}</h4>
-                                            </div>
-                                        </div>
-                                        <h3 className='text-white text-[40px] font-semibold'>${item.price}</h3>
-                                    </div>
-                            </button>
-                        </Link>
-                    ))
+                        <Carousel 
+                            scrollDistance="slide" 
+                            wrapMode="wrap" 
+                            swiping={true}
+                            showArrows={filteredTravelData?.length > 2 ? true : false}
+                        >
+                            {
+                                filteredTravelData?.map((item: TravelType) => (
+                                    <Link to={"/tours"} key={item.id} className="mr-4">
+                                        <button 
+                                            onClick={() => {
+                                                dispatch(changeCountry(item.country.title))
+                                                dispatch(handleCategory(item.category.title))
+                                                dispatch(handleDistrict(item.district.title))
+                                            }} 
+                                            style={{ backgroundImage: `url(${item.category.image})`}}
+                                            className="flex justify-start items-end p-4 rounded-xl w-[519px] xl:w-[450px] sm:w-[350px] h-[314px] bg-center bg-cover bg-no-repeat">
+                                                <div className='w-full flex xm:flex-col xm:items-start justify-between'>
+                                                    <div >
+                                                        <h3 className="h3">{item.district.title}</h3>
+                                                        <div className='flex'>
+                                                            <img src={location} alt="location" className='w-[20px] h-[20px] mr-1'/>
+                                                            <h4 className="h4">{item.country.title}</h4>
+                                                        </div>
+                                                    </div>
+                                                    <h3 className='text-white text-[40px] font-semibold'>${Math.round(item.price)}</h3>
+                                                </div>
+                                        </button>
+                                    </Link>
+                                ))
+                            }
+                        </Carousel>
                 }
             </div>
         </div>

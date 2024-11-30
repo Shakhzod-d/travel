@@ -170,4 +170,15 @@ export interface FacilitiesType{
   created_at?: string,
 }
 
+export interface ReviewsType{
+  id: number,
+  title: string,
+  image: string | null,
+  content: string,
+  full_name: string,
+  position: string,
+  rank: number,
+  updated_at?: string,
+  created_at?: string,
+}
 

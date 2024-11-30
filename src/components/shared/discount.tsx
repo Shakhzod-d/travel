@@ -44,12 +44,12 @@ const Discount = () => {
 
     return (
         <Container className="w-full pt-8 pb-[100px] flex justify-center items-center">
-            <div className="w-[80%] lg:w-full md:w-full flex items-end md:flex-col md:items-center">
-                <div className="flex flex-col w-[60%] md:w-[90%] md:mb-4 sm:w-full">
+            <div className="w-[80%] lg:w-full md:w-full flex justify-between items-end md:flex-col md:items-center">
+                <div className="flex flex-col w-[50%] md:w-[90%] md:mb-4 sm:w-full">
                     <div className="bg-gray-700 rounded-sm p-1 w-max">
                         <h3 className="text-[18px] text-white font-[600] px-5 xm:px-1">{`#1 ${t("travelagent")}`}</h3>
                     </div>
-                    <div className="my-5">
+                    <div className="my-3">
                         <h2 className="text-4xl font-semibold leading-[65.57px] lg:leading-10 text-white break-words">
                             {`${t("discount")} - 20%`}
                         </h2>
@@ -59,7 +59,7 @@ const Discount = () => {
                 <div className="w-[35%] md:w-[90%] sm:w-full">
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                         <input 
-                            className="round p-3 text-md w-full mb-2"
+                            className="round p-3 text-[14px] text-black placeholder:text-[14px] placeholder:text-black w-full mb-2"
                             {...register("full_name", {
                                 required: {
                                     value: true,
@@ -72,11 +72,11 @@ const Discount = () => {
                         />
                         <p className="error">{errors.full_name?.message}</p>
                         <InputMask
-                            className="round p-3 text-md w-full mb-2"
+                            className="round p-3 text-md w-full mb-2 placeholder:text-[14px] placeholder:text-black"
                             {...register("phone", {
                                 required : {
                                     value: true,
-                                    message : t("phonemessage")
+                                    message : t("numbermessage")
                                 },
                             })}
                             type="phone" 
@@ -85,7 +85,7 @@ const Discount = () => {
                             placeholder="+999(99)999-99-99"
                         />
                         <p className="error">{errors.phone?.message}</p>
-                        <button type="submit" className="bg-[#F56960] round p-3 w-full h4">{isPending ? <CircularProgress color="inherit"/> : t("book2")}</button>
+                        <button type="submit" className="bg-[#F56960] round p-3 w-full text-[14px] font-[500] text-white">{isPending ? <CircularProgress color="inherit"/> : t("book2")}</button>
                     </form>
                 </div>
             </div>

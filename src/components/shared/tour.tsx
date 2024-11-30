@@ -20,8 +20,8 @@ const Tour = ({ type }: TourProps) => {
     
     return (
         <Container className="flex flex-col box items-center py-11">
-            <h2 className="h2">{`${type == 'summer' ? t("summertours") : t("wintertours")}`}</h2>
-            <h3 className="h3 text-center font-semibold text-[#666666] mb-9">{`${type == 'summer' ? t("summerdef") : t("winterdef")}`}</h3>
+            <h2 className="chaptertitle">{`${type == 'summer' ? t("summertours") : t("wintertours")}`}</h2>
+            <h3 className="h3 font-[500px] text-center text-[#666666] mb-9">{`${type == 'summer' ? t("summerdef") : t("winterdef")}`}</h3>
             {
                 <div className="grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-5">
                 {
@@ -46,8 +46,6 @@ const Tour = ({ type }: TourProps) => {
                                     def={item.context}
                                     img={item.image}
                                     slug={item.slug}
-                                    category={item.category.title}
-                                    district={item.district.title}
                                 />
                             ))
                         :
@@ -63,8 +61,6 @@ const Tour = ({ type }: TourProps) => {
                                     def={item.context}
                                     img={item.image}
                                     slug={item.slug}
-                                    category={item.category.title}
-                                    district={item.district.title}
                                 />
                             ))
                     )

@@ -11,14 +11,13 @@ const OpinionCart = ({
     const { sanitize } = useSanitize()
 
     return (
-        <div className="w-[350px] h-max  rounded-3xl p-5 flex flex-col bg-white items-start shadow-lg">
-            <h3 className="text-lg font-semibold">The best Webflow Templates</h3>
-            <h4 className="text-md font-normal text-[#3F3F3F] my-3">{sanitize(content)}</h4>
+        <div className="h-max rounded-3xl w-[380px] sm:w-[350px] xm:w-[280px] p-8 flex flex-col bg-white items-start shadow-lg">
+            <h4 className="text-[18px] font-[400] opinion opinioncartdefinition text-[#3F3F3F] my-3 leading-[30px]">{sanitize(content)}</h4>
             <div className='flex items-center'>
                 <img src={image} alt={'The best Webflow Templates'} className='w-[62px] h-[62px] rounded-full'/>
                 <div className='ml-3'>
-                    <h4 className='font-semibold text-md mb-2'>{full_name}</h4>
-                    <h4 className='font-semibold text-md text-[#3F3F3F] capitalize'>{position}</h4>
+                    <h4 className='font-[700] text-[18px] mb-2 text-black opinion'>{full_name}</h4>
+                    <h4 className='font-[400] text-[18px] text-[#3F3F3F] opinion capitalize opinioncartposition'>{position}</h4>
                 </div>
             </div>
         </div>

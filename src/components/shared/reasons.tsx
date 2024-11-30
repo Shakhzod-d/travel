@@ -15,10 +15,10 @@ const Reasons = () => {
 
     return (
         <div className='flex flex-col w-full items-center text-center'>
-            <h2 className='h2 md:text-3xl sm:text-2xl uppercase'>
+            <h2 className='chaptertitle md:text-3xl sm:text-2xl uppercase break-words'>
                 {t("why")}
             </h2>
-            <h3 className='h3 text-[#666666] my-8'>{t("reasondef")}</h3>
+            <h3 className='h3 font-[500] break-words text-[#666666] my-8'>{t("reasondef")}</h3>
             <ul className='grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-3'>
                 {
                     isLoading ? (

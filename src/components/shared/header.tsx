@@ -3,7 +3,7 @@ import { Navbar } from './index'
 import { openMenu } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Container } from '../ui';
+import { Container, LocaleSelector } from '../ui';
 import MenuIcon from '@mui/icons-material/Menu';
 import travelIcon from '../../assets/images/experts.svg'
 
@@ -28,9 +28,9 @@ const Header = ({ navBorder }: Prop) => {
                     <div className='flex items-center'>
                         <div className='flex lg:hidden'>
                             <div className='flex items-center'>
-                                <Navbar borderColor={navBorder}/>
+                                <Navbar borderColor={navBorder} className='*:text-black'/>
                             </div>
-                            {/* <SigninBtn/> */}
+                            <LocaleSelector className='text-black'/>
                         </div>
                         <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>
                             <MenuIcon style={{ fontSize:32 }}/>

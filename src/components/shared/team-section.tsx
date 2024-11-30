@@ -19,7 +19,7 @@ const TeamSection = () => {
         <div className="flex justify-center mb-8 max-w-screen">
           <div className="flex-col justify-start items-center gap-4 inline-flex">
             <div className="px-5 py-2.5 bg-[#eaecf9] rounded justify-start items-center gap-2.5 inline-flex">
-              <p className="text-[#635aff] text-xl font-semibold uppercase leading-normal tracking-widest sm:text-sm">
+              <p className="text-[#635aff] text-[18px] font-semibold uppercase leading-normal tracking-widest sm:text-sm">
                 {t("ourteam")}
               </p>
             </div>

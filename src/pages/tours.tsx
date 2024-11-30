@@ -41,9 +41,9 @@ const Tours = () => {
         queryFn: fetchdata2
     });
 
-    let uniqueCategory = [...new Set(categoriesData?.results.map((item: CategoryType) => item.title ))];
+    let uniqueCategory = [t("all"),...new Set(categoriesData?.results.map((item: CategoryType) => item.title ))];
 
-    let uniqueDistricts = [...new Set(districtsData?.results.map((item: DistrictType) => item.title ))];
+    let uniqueDistricts = [t("all"),...new Set(districtsData?.results.map((item: DistrictType) => item.title ))];
     
 
     let availableDistrict = []
@@ -54,12 +54,17 @@ const Tours = () => {
     useEffect(() => {
         dispatch(handleCategory(uniqueCategory[0]))
     },[categoriesData])
+
+    //default district
+    useEffect(() => {
+        dispatch(handleDistrict(uniqueDistricts[0]))
+    },[districtsData])
     
 
     //default country
     useEffect(() => {
         if(countriesData?.results?.length > 0){
-            dispatch(changeCountry("all"))
+            dispatch(changeCountry(t("all")))
         }
     }, [countriesData])
 
@@ -100,24 +105,24 @@ const Tours = () => {
     return ( 
         <div>
             <HeaderAbout
-                className="bg-[url('/Tour.png')] pb-[100px] bg-center bg-cover bg-no-repeat mb-20"
+                className="bg-[url('/Tour.png')] relative pb-[100px] bg-center bg-cover bg-no-repeat mb-20"
                 route={"tours"}
-                title={t("tours")}
+                title={t("populartours")}
                 desc={t("provide")}
             />
             <Container>
                 <div className="flex flex-col items-center">
                     <div className="px-5 py-2.5 bg-[#eaecf9] rounded justify-start items-center gap-2.5 inline-flex mb-4 w-max">
-                        <p className="text-[#635aff] text-xl font-semibold uppercase leading-normal sm:text-sm">
+                        <p className="text-[#635aff] text-[20px] font-[600] uppercase leading-[18px] tracking-[2px] sm:text-sm">
                             {t("besttours")}
                         </p>
                     </div>
-                    <h2 className="h2">{t("provide")}</h2>
-                    <h3 className="h3 font-normal text-center mt-5 px-7 sm:px-0 text-[#666666]">
+                    <h2 className="chaptertitle">{t("provide")}</h2>
+                    <h3 className="h3 font-[500] text-[24px] leading-[32.78px] text-center mt-5 px-7 sm:px-0 text-[#666666]">
                         {t("summerdef")}
                     </h3>
                 </div>
-                    <div className="w-full flex sm:flex-col justify-between sm:mt-4">
+                    <div className="w-full flex sm:flex-col justify-between sm:mt-4 text-[#202430]">
                         {
                             categoriesLoading ? (
                                 <Loading/>
@@ -157,17 +162,17 @@ const Tours = () => {
                                                 <option 
                                                     key={item}
                                                     value={item}
-                                                    disabled={activeCountry == 'all' ? false : !availableDistrict.includes(item)}
+                                                    disabled={activeCountry == t("all") ? false : !availableDistrict.includes(item)}
                                                 >
                                                     {item}
                                                 </option>
                                             ))
                                         ) : (
-                                            uniqueDistricts.filter((item: any) => availableDistrict.includes(item)).map((item:any) => (
+                                            [t("all"), ...uniqueDistricts.filter((item: any) => availableDistrict.includes(item))].map((item:any) => (
                                                 <option 
                                                     key={item}
                                                     value={item}
-                                                    disabled={activeCountry == 'all' ? false : !availableDistrict.includes(item)}
+                                                    disabled={activeCountry == t("all") || item == t("all") ? false : !availableDistrict.includes(item)}
                                                 >
                                                     {item}
                                                 </option>

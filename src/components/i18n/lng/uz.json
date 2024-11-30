@@ -76,5 +76,18 @@
     "notours": "Hozircha sayohatlar yo'q",
     "all": "Barchasi",
     "notexistall": "Turlar hozircha mavjud emas :(",
-    "successful": "Sizning xabaringiz muvaffaqiyatli yuborildi"
+    "successful": "Sizning xabaringiz muvaffaqiyatli yuborildi",
+    "booknow": "buyurtma qilish",
+    "populartours": "mashhur sayohatlar",
+    "copied": "nusxa olindi",
+    "share": "ulashish",
+    "summary": "Rezyume",
+    "reviews": "sharhlar",
+    "review": "sharh",
+    "package": "to'plam",
+    "location": "joylashuv",
+    "other": "boshqa",
+    "facilities": "qulayliklar",
+    "overview": "qisqacha",
+    "employeereviews": "xodimlar sharhlari"
 }

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { Loading } from "../ui";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
-import { changeCountry } from "../../store/main-slice";
+import { changeCountry, handleDistrict } from "../../store/main-slice";
 import { useTranslation } from "react-i18next";
 
 const CountryList = () => {
@@ -28,10 +28,13 @@ const CountryList = () => {
     }
 
     return (
-        <div className='w-full flex flex-wrap gap-x-11 font-semibold gap-y-5 justify-center lg:justify-start mb-5'>
+        <div className='w-full text-[24px] flex flex-wrap gap-x-11 font-[500px] gap-y-5 justify-center lg:justify-start mb-5'>
             <button 
-                onClick={_ => dispatch(changeCountry('all'))}
-                className={`btn px-[24px] py-[12px] ${ activeCountry == 'all' ? 'bg-[#F56960] text-white' : 'text-black bg-[#F5F5F5]' }`}>
+                onClick={_ => {
+                    dispatch(changeCountry(t("all")))
+                    dispatch(handleDistrict(t("all")))
+                }}
+                className={`btn px-[24px] py-[12px] ${ activeCountry == t("all")? 'bg-[#F56960] text-white' : 'text-black bg-[#F5F5F5]' }`}>
                     {t("all")}
             </button>
             {

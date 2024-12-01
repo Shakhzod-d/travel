@@ -55,7 +55,7 @@ const TravelTitle: FC<TravelTitleProps> = ({
               <img src="/icons/star.svg" />
               <div className="flex">
                 <p className="text-[#98a1b2] text-lg font-semibold leading-[27px]">
-                  {reviews.length}
+                  {reviews?.length}
                 </p>
                 <p className="text-[#98a1b2] text-lg font-semibold lowercase ml-1 leading-[27px]">
                   {`(${t("review")})`}

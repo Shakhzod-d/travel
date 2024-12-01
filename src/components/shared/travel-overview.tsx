@@ -19,7 +19,7 @@ const TravelOverview: FC<TravelOverviewProps> = ({
 
   return (
     <section
-      className="bg-white mb-[75px] px-8 py-5 rounded-sm sm:px-0"
+      className="bg-white mb-[75px] px-8 py-5 rounded-sm sm:px-0 min-w-[700px] max-w-[740px] xl:min-w-[500px] md:min-w-[400px] sm:min-w-[250px] sm:w-full w-full"
       id="overview"
     >
       <Container className="border-b w-full max-w-full mb-7 pb-7 rounded-md">
@@ -39,7 +39,7 @@ const TravelOverview: FC<TravelOverviewProps> = ({
         <h2 className="text-[#112211] text-xl font-bold mb-5 capitalize">
           {t("facilities")}
         </h2>
-        <ul className={`grid max-w-[600px] sm:grid-cols-1 ${facilities.length > 3 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+        <ul className={`grid max-w-[600px] sm:grid-cols-1 ${facilities?.length > 3 ? 'grid-cols-2' : 'grid-cols-1'}`}>
           {
             facilities?.map((item: FacilitiesType) => (
               <li key={item.id} className="flex mb-3 gap-3">

@@ -30,8 +30,8 @@ const Header = ({ navBorder }: Prop) => {
                             <div className='flex items-center'>
                                 <Navbar borderColor={navBorder} className='*:text-black'/>
                             </div>
-                            <LocaleSelector className='text-black'/>
                         </div>
+                            <LocaleSelector className='text-black'/>
                         <div onClick={openHandler} className='hidden lg:block ml-3 cursor-pointer'>
                             <MenuIcon style={{ fontSize:32 }}/>
                         </div>

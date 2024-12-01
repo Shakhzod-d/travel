@@ -147,15 +147,14 @@ const ContactFormSection = () => {
                 />
                 <p className="error">{errors.phone?.message}</p>
               </div>
-
               <div>
                 <h3 className="text-[18px] font-semibold mb-2">{t("whathelp")}</h3>
                 <textarea 
                   id="dream"
                   placeholder={t("telldream")}
-                  {...register("dream", {
+                  {...register("content", {
                       required : {
-                        value: true,
+                        value: false,
                         message : t("dreammessage")
                       },
                     })
@@ -163,7 +162,7 @@ const ContactFormSection = () => {
                   className="rounded-md p-3 text-md w-full border-[1px] border-solid border-[#D0D5DD] outline-none max-h-[150px]"
                   >
                 </textarea>
-                <p className="error">{errors.dream?.message}</p>
+                <p className="error">{errors.content?.message}</p>
               </div>
               <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : t("send")}</button>
           </form>

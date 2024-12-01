@@ -32,13 +32,13 @@ const LocaleSelector = ({ className }: Prop) => {
     }, []);
     return (
         <div className={twMerge('outline-none bg-transparent text-white relative',  className)} ref={selectorRef}>
-            <div onClick={() => setShow(true)} className="w-[50px] h-[30px] border-[1px] border-gray-500 rounded-md flex justify-center items-center cursor-pointer">
+            <div onClick={() => setShow(true)} className="w-[50px] h-[30px] border-[1px] bg-white bg-opacity-25 border-gray-500 rounded-md flex justify-center items-center cursor-pointer">
                 {ln}
             </div>
             <div className={`${show ? 'flex flex-col' : 'hidden'} border-[1px] border-gray-500 rounded-md absolute w-[50px] top-8`}>
-                <button onClick={handleLocale} value={'eng'} className="hover:bg-black hover:bg-opacity-50">eng</button>
-                <button onClick={handleLocale} value={'ru'} className="hover:bg-black hover:bg-opacity-50">ru</button>
-                <button onClick={handleLocale} value={'uz'} className="hover:bg-black hover:bg-opacity-50">uz</button>
+                <button onClick={handleLocale} value={'eng'} className="hover:bg-black hover:bg-opacity-50 bg-white bg-opacity-25">eng</button>
+                <button onClick={handleLocale} value={'ru'} className="hover:bg-black hover:bg-opacity-50 bg-white bg-opacity-25">ru</button>
+                <button onClick={handleLocale} value={'uz'} className="hover:bg-black hover:bg-opacity-50 bg-white bg-opacity-25">uz</button>
             </div>
         </div>
     )

@@ -17,7 +17,6 @@ const Tour = ({ type }: TourProps) => {
     
     let filteredSummerData = data?.results?.filter((item: TravelType) => item.is_summer == true && item.is_popular == true)
     let filteredWinterData = data?.results?.filter((item: TravelType) => item.is_winter == true && item.is_popular == true)
-    
     return (
         <Container className="flex flex-col box items-center py-11">
             <h2 className="chaptertitle">{`${type == 'summer' ? t("summertours") : t("wintertours")}`}</h2>
@@ -46,6 +45,7 @@ const Tour = ({ type }: TourProps) => {
                                     def={item.context}
                                     img={item.image}
                                     slug={item.slug}
+                                    overall_rank={item.overall_rank}
                                 />
                             ))
                         :
@@ -61,6 +61,7 @@ const Tour = ({ type }: TourProps) => {
                                     def={item.context}
                                     img={item.image}
                                     slug={item.slug}
+                                    overall_rank={item.overall_rank}
                                 />
                             ))
                     )

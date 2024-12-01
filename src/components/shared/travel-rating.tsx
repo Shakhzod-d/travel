@@ -1,31 +1,46 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import { openModal } from '../../store/main-slice';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from "react-i18next";
-import { ReviewsType } from "../../types";
+import { ReviewsType, RanksType, DetailType } from "../../types";
 import Rating  from "../ui/rating";
 
 interface TravelRatingProps {
   overall: number,
-  reviews: ReviewsType[] 
+  reviews: ReviewsType[],
+  sortReviews: () => void,
+  ranks: RanksType
 }
 
 const TravelRating: FC<TravelRatingProps> = ({
   overall,
-  reviews
+  reviews,
+  sortReviews,
+  ranks
 }) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const [isNew, setIsNew] = useState(true);
-  
-  const sortReviews = () => {
-    setIsNew(!isNew)
-  }
 
   const modalHandler = () => {
     dispatch(openModal())
   }
+
+  let five = ranks.detail?.filter((item: DetailType) => item.rank == 5).length
+  let four = ranks.detail?.filter((item: DetailType) => item.rank == 4).length
+  let three = ranks.detail?.filter((item: DetailType) => item.rank == 3).length
+  let two = ranks.detail?.filter((item: DetailType) => item.rank == 2).length
+  let one = ranks.detail?.filter((item: DetailType) => item.rank == 1).length
+
+  let arr = [five, four, three, two, one]
+  let sum = arr.reduce((a,b) => a + b, 0) 
+
+  let fivePercent = sum !== 0 ? Math.round((five / sum) * 100) : 0
+  let fourPercent = sum !== 0 ? Math.round((four / sum) * 100) : 0
+  let threePercent = sum !== 0 ? Math.round((three / sum) * 100) : 0
+  let twoPercent = sum !== 0 ? Math.round((two / sum) * 100) : 0
+  let onePercent = sum !== 0 ? Math.round((one / sum) * 100) : 0
+  
 
   return (
     <div className="w-full">
@@ -36,10 +51,10 @@ const TravelRating: FC<TravelRatingProps> = ({
           className="outline-none px-5 py-1 font-normal sm:mb-3 rounded-sm"
           onChange={sortReviews}
         >
-          <option value="Sort by newest review">Sort by newest review</option>
-          <option value="Sort by oldest review">Sort by oldest review</option>
+          <option value="Sort by newest review">{t("newest")}</option>
+          <option value="Sort by oldest review">{t("oldest")}</option>
         </select>
-        <button onClick={modalHandler} className="px-9 py-2 bg-[#0D0C22] text-white rounded-3xl">Write a Review</button>
+        <button onClick={modalHandler} className="px-9 py-2 bg-[#0D0C22] text-white rounded-3xl">{t("writereview")}</button>
       </div>
       <div className="bg-white mb-4 py-4 px-10 sm:px-2">
         <div className="flex w-full justify-between items-center sm:flex-col sm:gap-5">
@@ -54,8 +69,8 @@ const TravelRating: FC<TravelRatingProps> = ({
               <Rating rating={overall} />
             </div>
             <div className="text-[#858585] text-xs font-medium flex">
-              <p className="mr-1">{`(${reviews.length}`}</p>
-              <p>{`${reviews.length > 1 ? t("reviews") : t("review")})`}</p>
+              <p className="mr-1">{`(${reviews?.length}`}</p>
+              <p>{`${reviews?.length > 1 ? t("reviews") : t("review")})`}</p>
             </div>
           </div>
 
@@ -63,63 +78,49 @@ const TravelRating: FC<TravelRatingProps> = ({
             <div className="flex justify-between items-center w-full gap-[9px] ">
               <p className="text-black text-[10px] font-medium">5 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className="h-[6px] rounded-full bg-[#E7B66B] w-[90%]"></div>
+                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${fivePercent}%]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                488
+                {five}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
-              <p className="text-black text-[10px] font-medium">5 stars</p>
+              <p className="text-black text-[10px] font-medium">4 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className="h-[6px] rounded-full bg-[#E7B66B] w-[70%]"></div>
+                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${fourPercent}%]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                488
+                {four}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
-              <p className="text-black text-[10px] font-medium">5 stars</p>
+              <p className="text-black text-[10px] font-medium">3 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className="h-[6px] rounded-full bg-[#E7B66B] w-[50%]"></div>
+                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${threePercent}%]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                488
+                {three}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
-              <p className="text-black text-[10px] font-medium">5 stars</p>
+              <p className="text-black text-[10px] font-medium">2 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className="h-[6px] rounded-full bg-[#E7B66B] w-[20%]"></div>
+                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${twoPercent}%]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                488
+                {two}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
-              <p className="text-black text-[10px] font-medium">5 stars</p>
+              <p className="text-black text-[10px] w-[31.672px] font-medium text-end">1 star</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className="h-[6px] rounded-full bg-[#E7B66B] w-[90%]"></div>
+                <div className={`${onePercent == 0 ? 'w-0' : `w-[${onePercent}%]`} h-[6px] rounded-full bg-[#E7B66B]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                488
+                {one}
               </p>
             </div>
           </div>
-          {/* <div className="flex-col justify-center items-start gap-1 inline-flex">
-            <div className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-              74
-            </div>
-            <div className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-              14
-            </div>
-            <div className="text-center text-[#858585] text-[10px] font-medium leading-[18px]">
-              0
-            </div>
-            <div className="text-center text-[#858585] text-[10px] font-medium leading-[18px]">
-              0
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

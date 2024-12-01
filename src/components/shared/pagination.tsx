@@ -22,12 +22,29 @@ const Pagination = () => {
     })
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 4;
-    let filteredItems = activeCountry == t("all") ? data?.results : data?.results?.filter((item: TravelType) => item.country.title == activeCountry && item.category.title == category && item.district.title == district);
-    if(district == t("all") && category == t("all") && activeCountry == t("all")) filteredItems = data?.results
+    
+    let filteredItems = data?.results
+    
+    if (category !== t("all")) {
+        filteredItems = filteredItems?.filter((item: TravelType) => item.category.title === category);
+    }
+
+    if (activeCountry !== t("all")) {
+        filteredItems = filteredItems?.filter((item: TravelType) => item.country.title === activeCountry);
+    }
+
+    if (district !== t("all")) {
+        filteredItems = filteredItems?.filter((item: TravelType) => item.district.title === district);
+    }
+    
+    if(activeCountry == t("all")) filteredItems = data?.results
+    
     const currentItems = filteredItems?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+    
     const handlePageChange = (selectedPage: { selected: number }) => {
         setCurrentPage(selectedPage.selected);
     };
+    
     if(isLoading){
         return <Loading/>
     }
@@ -53,6 +70,7 @@ const Pagination = () => {
                             def={item.context}
                             img={item.image}
                             slug={item.slug}
+                            overall_rank={item.overall_rank}
                         />
                     ))
                 }

@@ -1,11 +1,10 @@
-import clock from '../../assets/icons/clock.png'
-import people from '../../assets/icons/people.png'
-import locationicon from '../../assets/icons/location.png'
 import { useSanitize, useScrollToTop } from '../../hooks'
 import { Base_URL } from '../../api'
 import { Link } from 'react-router-dom'
-import yellowstar from '../../assets/icons/yellow-star.png'
-import star from '../../assets/icons/star.png'
+import Rating from './rating'
+import clock from '../../assets/icons/clock.png'
+import people from '../../assets/icons/people.png'
+import locationicon from '../../assets/icons/location.png'
 
 interface Props{
     id: number
@@ -16,7 +15,8 @@ interface Props{
     country: string  
     def: string
     img: string
-    slug: string
+    slug: string,
+    overall_rank: number
 }
 
 const Cart = ({ 
@@ -28,7 +28,8 @@ const Cart = ({
     country,
     def,
     img,
-    slug
+    slug,
+    overall_rank
  }: Props) => {
     const { sanitize } = useSanitize()
     const { scrollToTop } = useScrollToTop()
@@ -71,9 +72,8 @@ const Cart = ({
                         <h3 className="h3 text-[24px] text-start cartdefinition text-[#444444] font-[700]">{title}</h3>
                         <div className="flex">
                             <div className="my-3 flex">
-                                <h5 className="text-[14px] text-[#6C6C6C] mr-4">{`5 reviews`}</h5>
-                                <img src={yellowstar} alt="star" className="mr-2"/>
-                                <img src={star} alt="star"/>
+                                <h5 className="text-[14px] text-[#6C6C6C] mr-4">{`${overall_rank} reviews`}</h5>
+                                <Rating rating={overall_rank}/>
                             </div>
                         </div>
                         <h4 className="cartdefinition text-[#3F3F3F] font-[400px]">{sanitize(def)}</h4>

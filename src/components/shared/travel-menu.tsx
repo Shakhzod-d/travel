@@ -12,7 +12,7 @@ const TravelMenu: FC<TravelMenuProps> = () => {
     <section className="bg-white pb-10 capitalize">
       <Container className="sm:w-full">
         <div className="justify-start items-start flex flex-wrap">
-          {travelMenuData.map((item) => (
+          {travelMenuData?.map((item) => (
             <div
               className={`px-5 py-2 bg-white rounded-tl-sm rounded-tr-sm border-b ${
                 active == item.id

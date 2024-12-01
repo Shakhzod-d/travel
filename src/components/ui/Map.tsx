@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L, { LatLngTuple } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -16,8 +15,14 @@ const defaultIcon = L.icon({
 
 // Set the default icon to be used
 L.Marker.prototype.options.icon = defaultIcon;
-
-const MapComponent = () => {
+interface TravelMapProps {
+  lot: string | null;
+  lang: string | null;
+}
+const MapComponent: FC<TravelMapProps> = ({
+  lot,
+  lang
+}) => {
   const [position, setPosition] = useState<LatLngTuple | null>(null); // Use LatLngTuple
   
   useEffect(() => {
@@ -29,19 +34,16 @@ const MapComponent = () => {
         },
         (error) => {
           console.error("Error obtaining location: ", error);
-          // Fallback to default position (London) if location can't be retrieved
-          setPosition([41.2995, 69.2401]); // London coordinates
+          setPosition([Number(lang), Number(lot)]);
         }
       );
     } else {
-      console.log("Geolocation is not supported by this browser.");
-      // Fallback to default position (London) if geolocation is not supported
-      setPosition([41.2995, 69.2401]); // London coordinates
+      setPosition([Number(lang), Number(lot)]);
     }
   }, []);
 
   return (
-    <MapContainer center={position || [41.2995, 69.2401]} zoom={13} style={{ height: "400px", width: "100%" }}>
+    <MapContainer center={position || [Number(lang), Number(lot)]} zoom={13} style={{ height: "400px", width: "100%" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

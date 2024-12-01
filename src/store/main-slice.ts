@@ -11,7 +11,12 @@ const initialState: State = {
   activeCountry: '',
   district: '',
   category: '',
-  serviceId: ''
+  serviceId: '',
+  start: '',
+  end: '',
+  persons: 1,
+  tourModal: false,
+  id1: 0
 };
 
 let body = document.getElementsByTagName('body')
@@ -44,6 +49,12 @@ export const mainSlice = createSlice({
       state.bookingModal = false;
       body[0].classList.remove('unscrollable')
     },
+    openTourModal: (state) => {
+      state.tourModal = true;
+    },
+    closeTourModal: (state) => {
+      state.tourModal = false;
+    },
     rate: ( state, action ) => {
       state.userRate = action.payload
     },
@@ -58,6 +69,18 @@ export const mainSlice = createSlice({
     },
     handleServiceId: ( state, action ) => {
       state.serviceId = action.payload
+    },
+    handleStart: ( state, action ) => {
+      state.start = action.payload
+    },
+    handleEnd: ( state, action ) => {
+      state.end = action.payload
+    },
+    handlePersons: ( state, action ) => {
+      state.persons = action.payload
+    },
+    handleId: ( state, action ) => {
+      state.id1 = action.payload
     }
   },
 });
@@ -73,7 +96,13 @@ export const {
   handleCategory,
   openBookingModal,
   closeBookingModal,
-  handleServiceId
+  handleServiceId,
+  handleStart,
+  handleEnd,
+  handlePersons,
+  openTourModal,
+  closeTourModal,
+  handleId
 } =
 mainSlice.actions;
 

@@ -24,7 +24,6 @@ const ContactSection = () => {
         <img src="/icons/arrow.svg" alt="" className="lg:hidden" />
         <div className="flex items-center relative ">
           <div className="w-[125px] h-[125px] left-[13px] top-[43.92px] absolute bg-[#0c141d]/20 rounded-[100px] blur-[60px]" />
-
           <div className="w-[152px] h-[152px] p-2.5  bg-[#0a142f] rounded-[100px] justify-center items-center gap-2.5 flex">
             <p className="text-white text-2xl font-semibold leading-9 capitalize">
               {t("contact")}

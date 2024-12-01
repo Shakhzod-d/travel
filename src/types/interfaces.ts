@@ -7,6 +7,11 @@ export interface State {
   district: string;
   category: string;
   serviceId: string;
+  start: string,
+  end: string,
+  persons: number,
+  tourModal: boolean,
+  id1: number
 }
 export interface NavItems {
   id: string;
@@ -44,7 +49,17 @@ export interface TourProps {
 export interface Data{
   full_name: string,
   phone: string,
-  dream?: string
+  content?: string
+}
+
+export interface BookingTourData{
+  full_name: string,
+  phone: string,
+  start_date: string | null,
+  end_date: string | null,
+  persons: number,
+  content?: string,
+  id?: number
 }
 
 export interface OpinionType{
@@ -86,10 +101,10 @@ export interface FooterIconsType{
 }
 
 export interface ModalDataType{
-  name: string,
-  job: string,
+  full_name: string,
+  position: string,
   rank: number,
-  review: string,
+  content: string,
   image: string
 }
 
@@ -119,21 +134,75 @@ export interface TravelType{
   id: number,
   slug: string,
   title: string,
-  image: string,
   category: CategoryType,
+  image: string,
   country: CountriesType,
   district: DistrictType,
+  price: number,
+  days: number,
+  nights: number,
+  start_date: string,
+  end_date: string,
+  reviews_count: number,
+  overall_rank: number,
+  context: string,
   is_popular: boolean,
   is_summer: boolean,
   is_winter: boolean,
+  updated_at: string,
+  created_at: string
+}
+
+export interface TravelDetailType{
+  id: number,
+  slug: string,
+  title: string,
+  category: CategoryType,
+  images: ImagesType[],
+  country: CountriesType,
+  district: DistrictType,
   price: number,
   days: number,
   nights: number,
   start_date: string,
   end_date: string,
   context: string,
+  availabilities: AvailabilitiesType[],
+  lot: null | string,
+  lang: null | string,
+  is_popular: boolean,
+  is_summer: boolean,
+  is_winter: boolean,
+  ranks: RanksType,
+  reviews: ReviewsType[],
+  others: OthersType[],
   updated_at: string,
   created_at: string
+}
+
+export interface ImagesType{
+  id: number,
+  image: string,
+  updated_at: string,
+  created_at: string
+}
+
+export interface AvailabilitiesType{
+  id: number,
+  title: string,
+  image: string,
+  updated_at: string,
+  created_at: string
+}
+
+export interface RanksType{
+  overall: string,
+  detail: DetailType[]
+}
+
+export interface DetailType{
+  rank: number,
+  count: number
 }
 
 export interface FaqType{
@@ -172,13 +241,20 @@ export interface FacilitiesType{
 
 export interface ReviewsType{
   id: number,
-  title: string,
   image: string | null,
-  content: string,
   full_name: string,
   position: string,
   rank: number,
+  content: string,
   updated_at?: string,
   created_at?: string,
+}
+
+export interface OthersType{
+  id: number,
+  title: string,
+  context: string,
+  updated_at: string,
+  created_at: string,
 }
 

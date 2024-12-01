@@ -1,10 +1,13 @@
+import { useEffect, useState } from "react";
 import { Header } from "../components/shared";
 import { Container } from "../components/ui";
 import { useParams } from 'react-router-dom'
 import { useFetchData } from "../hooks";
 import { useQuery } from "react-query";
 import { Loading } from "../components/ui";
-import { TravelType } from "../types";
+import { ImagesType } from "../types";
+import { handleId } from "../store/main-slice";
+import { useDispatch } from "react-redux";
 import TravelLocation from "../components/shared/travel-location";
 import TravelMenu from "../components/shared/travel-menu";
 import TravelOthers from "../components/shared/travel-others";
@@ -17,30 +20,52 @@ import TravelTitle from "../components/shared/travel-title";
 
 
 const   Travel = () => {
-  const { id } = useParams()
+  const dispatch = useDispatch()
+  const { id: slug } = useParams()
+  const [isNew, setIsNew] = useState(false);
+  const sortReviews = () => {
+    setIsNew(!isNew)
+  }
 
-  const { fetchdata } = useFetchData(`/api/tour/v1/detail/${id}`)
+  const { fetchdata } = useFetchData(`/api/tour/v1/detail/${slug}`)
   const { data, isLoading, error } = useQuery({
     queryKey: ['details'],
     queryFn: fetchdata
   })
-  console.log(data)
 
 
   const {
+    id = 0,
     title = '',
-    context = ''
+    context = '',
+    ranks = [],
+    price = '',
+    start_date = '',
+    end_date = '',
+    days = 0,
+    nights = 0,
+    lot = null,
+    lang = null,
+    others = []
   } = data || {}
   
-  let country, city, reviews_count, images, facilities, overall
+  let country, city, reviews, images, facilities, overall
   if(data){
     country = data?.district?.country.title
     city = data?.district?.title
-    reviews_count = data?.reviews
+    reviews = data?.reviews
     facilities = data?.availabilities
     overall = data?.ranks?.overall
-    images = data?.images?.map((item: TravelType) => item.image)
+    images = data?.images?.map((item: ImagesType) => item.image)
   }
+
+  useEffect(() => {
+    if(id !== 0){
+      dispatch(handleId(id))
+    }
+  }, [id])
+
+  
 
 
   
@@ -58,7 +83,7 @@ const   Travel = () => {
               title={title}
               country={country}
               city={city}
-              reviews={reviews_count}
+              reviews={reviews}
             />
             <TravelPictures images={images} title={title}/>
             <TravelMenu />
@@ -71,15 +96,34 @@ const   Travel = () => {
                   />
                   <TravelRating 
                     overall={overall}
-                    reviews={reviews_count}
+                    reviews={reviews}
+                    sortReviews={sortReviews}
+                    ranks={ranks}
                   />
-                  <TravelReviews />
-                  <TravelLocation />
+                  <TravelReviews 
+                    reviews={reviews}
+                    isNew={isNew}
+                  />
+                  <TravelLocation 
+                    country={country}
+                    city={city}
+                    lot={lot}
+                    lang={lang}
+                  />
                 </div>
-                <TravelSummary />
+                <TravelSummary 
+                  price={price}
+                  start_date={start_date}
+                  end_date={end_date}
+                  days={days}
+                  nights={nights}
+                  overall={overall}
+                />
               </div>
             </Container>
-            <TravelOthers />
+            <TravelOthers 
+              others={others}
+            />
           </>
         )
         

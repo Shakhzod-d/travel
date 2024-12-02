@@ -55,7 +55,7 @@ const Pagination = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className={`grid lg:grid-cols-2 md:grid-cols-1 gap-x-5 gap-y-11 ${currentItems?.length == 0 ? "grid-cols-1" : "grid-cols-3"}`}>
+            <div className={`grid xl:grid-cols-2 md:flex md:flex-col md:w-full md:items-center gap-x-5 gap-y-11 ${currentItems?.length == 0 ? "grid-cols-1" : "grid-cols-3"}`}>
                 {
                     currentItems?.length == 0 ? <h2 className="h2 text-xl text-red-500 font-normal lowercase">{t("nomatching")}</h2> :
                     currentItems?.map((item: TravelType) => (

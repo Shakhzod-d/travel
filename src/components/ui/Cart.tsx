@@ -37,11 +37,15 @@ const Cart = ({
         scrollToTop()
     }
     return (
-        <Link to={`/tours/${slug}`}>
-            <button 
+        <Link 
+            to={`/tours/${slug}`}
+            className='flex flex-col items-start h-[547px] pb-3 overflow-y-hidden justify-between w-[411px] 2xl:w-[350px] md:w-[80%] sm:w-full rounded-3xl shadow-2xl'
+        >
+            <div 
                 onClick={redirectToTour} 
                 key={id} 
-                className="flex flex-col items-start h-[547px] pb-3 overflow-y-hidden justify-between w-[390px] xl:w-[300px] md:w-full rounded-3xl shadow-2xl">
+                className="w-full"
+                >
                 <div className="relative">
                     <div className="relative min-h-[272px] flex flex-col items-center">
                         {img && <img src={img.includes('media') ? img : `${Base_URL}/media/${img}`} alt={title} className="w-full h-[272px] rounded-3xl"></img>}
@@ -79,7 +83,7 @@ const Cart = ({
                         <h4 className="cartdefinition text-[#3F3F3F] font-[400px]">{sanitize(def)}</h4>
                     </div>
                 </div>
-            </button>
+            </div>
         </Link>
     )
 }

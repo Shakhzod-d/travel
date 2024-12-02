@@ -13,21 +13,22 @@ const TravelOthers: FC<TravelOthersProps> = ({
   others
 }) => {
   const { sanitize } = useSanitize()
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(true);
+  const [active2, setActive2] = useState(true);
   const { t } = useTranslation()
-  const changeActive = (num: number) => {
-    if(active !== num){
-      setActive(num)
-    }else{
-      setActive(0)
-    }
+  const changeActive = () => {
+    setActive(!active);
+  }
+
+  const changeActive2 = () => {
+    setActive2(!active2);
   }
 
   return (
     <section className="bg-white py-20 sm:px-2 sm:py-2" id="other">
       <Container>
         <div className="flex-col gap-1 flex">
-          <h2 className="text-[#112211] text-xl font-bold mb-1">Other</h2>
+          <h2 className="text-[#112211] text-xl font-bold mb-1 capitalize">{t("other")}</h2>
           <p className="text-[#98a1b2] text-base font-semibold leading-normal mb-6">
             {t("regarding")}
           </p>
@@ -35,20 +36,21 @@ const TravelOthers: FC<TravelOthersProps> = ({
         {others.length > 0 && 
           others?.map((item: OthersType) => (
             <div
+              key={item.id}
               className={`flex-col gap-3 flex mb-9 transition-all ease-in-out duration-500 ${
-                active == 1 ? "max-h-[1000px]" : "max-h-[70px] overflow-hidden"
+                active == true ? "max-h-[1000px]" : "max-h-[70px] overflow-hidden"
               }`}
             >
               <div
                 className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between mb-3 cursor-pointer"
-                onClick={() => changeActive(1)}
+                onClick={() => changeActive()}
               >
                 <p className=" text-[#0f1728] text-2xl font-semibold leading-9 sm:text-xl">
                   {item?.title}
                 </p>
                 <img
                   src="/icons/arrow-chevron.svg"
-                  className={`transition-all ease-in-out duration-500 delay-75 ${active == 1 ? "rotate-180" : ""}`}
+                  className={`transition-all ease-in-out duration-500 delay-75 ${active ? "rotate-180" : ""}`}
                 />
               </div>
               <ul className="text-[#98a1b2] text-2xl font-extralight leading-9 pl-3">
@@ -61,21 +63,21 @@ const TravelOthers: FC<TravelOthersProps> = ({
         }
         <div
           className={`flex-col gap-3 flex transition-all ease-in-out duration-500 ${
-            active == 2
+            active2 == true
               ? "max-h-[1000px] overflow-y-hidden xm:overflow-y-scroll"
               : "max-h-16 overflow-hidden"
           }`}
         >
           <div
             className="px-5 py-2.5 bg-[#f2f3f6] rounded items-center gap-2.5 flex justify-between cursor-pointer"
-            onClick={() => changeActive(2)}
+            onClick={() => changeActive2()}
           >
             <p className=" text-[#0f1728] text-2xl font-semibold leading-9  sm:text-xl ">
               {t("terms")}
             </p>
             <img
               src="/icons/arrow-chevron.svg"
-              className={`transition-all ease-in-out duration-500 delay-75 ${active == 2 ? "rotate-180" : ""}`}
+              className={`transition-all ease-in-out duration-500 delay-75 ${active2 ? "rotate-180" : ""}`}
             />
           </div>
           <div className="flex-col gap-3 flex">

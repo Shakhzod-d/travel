@@ -36,7 +36,7 @@ const Modal = () => {
     const onSubmit = async (data: ModalDataType) => {
         data.rank = userRate
         setIspending(true)
-        await axios.post(`${Base_URL}/api/tour/v1/review/create`, data)
+        await axios.post(`${Base_URL}/api/tour/v1/review/create/`, data)
         .then(_ => {
             Swal.fire({
                 position: "center",
@@ -120,7 +120,7 @@ const Modal = () => {
                             placeholder={t("tellevery")}
                             {...register("content", {
                                 required : {
-                                    value: true,
+                                    value: false,
                                     message : "Please, fill the area above"
                                 },
                                 })

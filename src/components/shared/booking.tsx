@@ -11,7 +11,7 @@ const Booking = () => {
     const {scrollToTop} = useScrollToTop()
 
     return (
-        <div className="w-full flex flex-col items-center pb-[80px] sm:pb-[50px]">
+        <div className="w-full flex flex-col items-center pt-[50px] pb-[80px] sm:pb-[50px]">
             <div className="w-full pt-8 flex justify-between">
                 <div className="w-full flex justify-between 3xl:justify-evenly items-start lg:flex-col lg:items-center">
                     <div className="flex flex-col justify-between pr-5 lg:pr-0 w-[48%] lg:w-full lg:mb-4">

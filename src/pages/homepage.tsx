@@ -22,29 +22,31 @@ const Home = () => {
         <HeaderMain/>
       </div>
       <div>
-        <Container>
+        <Container className="sectionpadding">
           <Destinations/>
         </Container>
-        <div className="bg-gray-100 w-full flex justify-center">
+        <div className="bg-gray-100 w-full flex justify-center sectionpadding">
           <Tour type="summer"/>
         </div>
-        <Travelstyle />
-        <div className="bg-gray-100 w-full flex flex-col items-center">
+        <div className="py-11">
+          <Travelstyle />
+        </div>
+        <div className="bg-gray-100 sectionpadding w-full flex flex-col items-center">
           <Container>
             <Services/>
           </Container>
         </div>
-        <Container>
+        <Container className="sectionpadding">
           <Tour type="winter" />
         </Container>
         <div className="w-full flex justify-center bg-[#030626]">
           <Discount />
         </div>
-        <div className="pt-11 flex flex-col items-center pb-[80px] sm:pb-[50px] bg-gray-100 w-full">
-          <Container className="mb-9">
+        <div className="flex flex-col items-center pb-[80px] sm:pb-[50px] bg-gray-100 w-full">
+          <Container className="sectionpadding">
             <Opinions />
           </Container>
-          <Container>
+          <Container className="">
             <Reasons />
           </Container>
         </div>

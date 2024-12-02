@@ -40,21 +40,22 @@ const TravelRating: FC<TravelRatingProps> = ({
   let threePercent = sum !== 0 ? Math.round((three / sum) * 100) : 0
   let twoPercent = sum !== 0 ? Math.round((two / sum) * 100) : 0
   let onePercent = sum !== 0 ? Math.round((one / sum) * 100) : 0
+
   
 
   return (
     <div className="w-full">
-      <div className="flex justify-between sm:flex-col mb-5">
+      <div className="flex justify-between sm:flex-col-reverse mb-5">
         <select 
           name="review" 
           id="review"
           className="outline-none px-5 py-1 font-normal sm:mb-3 rounded-sm"
           onChange={sortReviews}
         >
-          <option value="Sort by newest review">{t("newest")}</option>
-          <option value="Sort by oldest review">{t("oldest")}</option>
+          <option value="true">{t("newest")}</option>
+          <option value="false">{t("oldest")}</option>
         </select>
-        <button onClick={modalHandler} className="px-9 py-2 bg-[#0D0C22] text-white rounded-3xl">{t("writereview")}</button>
+        <button onClick={modalHandler} className="px-9 py-2 sm:mb-8 bg-[#0D0C22] text-white rounded-3xl">{t("writereview")}</button>
       </div>
       <div className="bg-white mb-4 py-4 px-10 sm:px-2">
         <div className="flex w-full justify-between items-center sm:flex-col sm:gap-5">
@@ -78,7 +79,7 @@ const TravelRating: FC<TravelRatingProps> = ({
             <div className="flex justify-between items-center w-full gap-[9px] ">
               <p className="text-black text-[10px] font-medium">5 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${fivePercent}%]`}></div>
+                <div className={`${fivePercent == 0 ? 'w-0' : `w-[${fivePercent}%]`} h-[6px] rounded-full bg-[#E7B66B]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
                 {five}
@@ -87,7 +88,7 @@ const TravelRating: FC<TravelRatingProps> = ({
             <div className="flex justify-between items-center w-full gap-[9px] ">
               <p className="text-black text-[10px] font-medium">4 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${fourPercent}%]`}></div>
+                <div className={`${fourPercent == 0 ? 'w-0' : `w-[${fourPercent}%]`} h-[6px] rounded-full bg-[#E7B66B]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
                 {four}
@@ -96,7 +97,7 @@ const TravelRating: FC<TravelRatingProps> = ({
             <div className="flex justify-between items-center w-full gap-[9px] ">
               <p className="text-black text-[10px] font-medium">3 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${threePercent}%]`}></div>
+                <div className={`${threePercent == 0 ? 'w-0' : `w-[${threePercent}%]`} h-[6px] rounded-full bg-[#E7B66B]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
                 {three}
@@ -105,7 +106,7 @@ const TravelRating: FC<TravelRatingProps> = ({
             <div className="flex justify-between items-center w-full gap-[9px] ">
               <p className="text-black text-[10px] font-medium">2 stars</p>
               <div className="flex-1 h-[6px] rounded-full bg-[#F2F6FB] overflow-hidden">
-                <div className={`h-[6px] rounded-full bg-[#E7B66B] w-[${twoPercent}%]`}></div>
+                <div className={`${twoPercent == 0 ? 'w-0' : `w-[${twoPercent}%]`} h-[6px] rounded-full bg-[#E7B66B]`}></div>
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
                 {two}

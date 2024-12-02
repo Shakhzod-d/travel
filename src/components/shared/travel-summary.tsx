@@ -72,7 +72,7 @@ const TravelSummary: FC<TravelSummaryProps> = ({
   }
   
   return (
-    <div className="max-w-[443px] w-full h-max px-4 pt-4 pb-5 bg-white rounded border flex-col justify-start items-start gap-[38px] inline-flex lg:max-w-full sm:max-h-full">
+    <div className="max-w-[443px] w-full h-max px-4 pt-4 pb-5 bg-white sticky top-10 rounded border flex-col justify-start items-start gap-[38px] inline-flex lg:max-w-full sm:max-h-full">
       <div className=" border border-[#eaeaea] w-full px-5 py-7 xm:text-center">
         <h2 className=" text-[#112211] text-xl font-bold mb-2">
           {t("totalsummary")}

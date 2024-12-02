@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import { useEffect,useState,type FC } from "react";
-import { Container } from "../ui";
+import { Container, Loading } from "../ui";
 import { useTranslation } from "react-i18next";
 import { ReviewsType } from "../../types";
 import ReviewCard from "../ui/review-card";
@@ -15,20 +15,29 @@ const TravelReviews: FC<TravelReviewsProps> = ({
   isNew
 }) => {
   const { t } = useTranslation();
-  // const [currentPage, setCurrentPage] = useState(0);
-  // const itemsPerPage = 1;
+  const [loading, setLoading] = useState(true);
   const [currentItems, setCurrentItems] = useState<ReviewsType[]>(reviews);
-  // const handlePageChange = (selectedPage: { selected: number }) => {
-  //   setCurrentPage(selectedPage.selected);
-  // };
-  
+  // const [currentItems, setCurrentItems] = useState<ReviewsType[]>(reviews);
+
+
+ 
   useEffect(() => {
     setCurrentItems(prev => [...prev].reverse());
-  }, [isNew, ])
+  }, [isNew])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if(loading) {
+    return <Loading/>
+  }
 
   return (
     <section
-      className=" bg-white rounded-lg py-6 px-7 sm:px-2 sm:py-2"
+      className="bg-white rounded-lg py-6 px-7 sm:px-2 sm:py-2"
       id="review"
     >
       <Container className="p-0">
@@ -46,22 +55,6 @@ const TravelReviews: FC<TravelReviewsProps> = ({
             ))
           }
         </div>
-        {/* <div className="w-full flex justify-end">
-          <ReactPaginate
-              previousLabel={<ChevronLeftIcon/>}
-              nextLabel={<ChevronRightIcon/>}
-              breakLabel={"..."}
-              pageCount={Math.ceil(reviews?.length / itemsPerPage)}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={handlePageChange}
-              containerClassName={"pagination xm:flex-col xm:gap-y-7"}
-              activeClassName={"active"}
-              previousClassName={"previous"}
-              nextClassName={"next"}
-              pageClassName={"page"}
-          />
-        </div> */}
       </Container>
     </section>
   );

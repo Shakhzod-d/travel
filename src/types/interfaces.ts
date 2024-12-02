@@ -103,9 +103,9 @@ export interface FooterIconsType{
 export interface ModalDataType{
   full_name: string,
   position: string,
-  rank: number,
-  content: string,
-  image: string
+  rank?: number,
+  content?: string,
+  image?: string
 }
 
 export interface CountriesType{

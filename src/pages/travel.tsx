@@ -26,7 +26,6 @@ const   Travel = () => {
   const sortReviews = () => {
     setIsNew(!isNew)
   }
-
   const { fetchdata } = useFetchData(`/api/tour/v1/detail/${slug}`)
   const { data, isLoading, error } = useQuery({
     queryKey: ['details'],
@@ -97,8 +96,8 @@ const   Travel = () => {
                   <TravelRating 
                     overall={overall}
                     reviews={reviews}
-                    sortReviews={sortReviews}
                     ranks={ranks}
+                    sortReviews={sortReviews}
                   />
                   <TravelReviews 
                     reviews={reviews}

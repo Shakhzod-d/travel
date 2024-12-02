@@ -45,7 +45,7 @@ const FAQsSection = () => {
               key={item.id}
               id={item.id.toString()}
             >
-              <p className="text-[#0c141d] w-11 text-[32px] font-semibold leading-[48px] sm:text-sm sm:pt-1 pointer-events-none">
+              <p className="text-[#0c141d] flex items-center w-11 text-[32px] font-semibold leading-[48px] sm:text-sm sm:pt-1 pointer-events-none">
                 {data.results.indexOf(item) < 8 ? '0'+(data.results.indexOf(item) + 1) : data.results.indexOf(item)}
               </p>
               <div

@@ -48,12 +48,11 @@ const Destinations = () => {
     }
 
     return (
-        <div className="py-11 flex flex-col items-center" id="destinations">
+        <div className="flex flex-col items-center" id="destinations">
             <h2 className="md:text-3xl sm:text-2xl chaptertitle">{t("destinations")}</h2>
             <h4 className="text-[24px] sm:text-xl font-[600px] text-[#444444] py-5 text-center sm:w-[90%]">{t("discover")}</h4>
             <CountryList/>
-            
-            <div className="w-full">
+            <div className="w-full mt-5">
                 {
                     isLoading ? (
                         <Loading/>
@@ -66,7 +65,6 @@ const Destinations = () => {
                     ) :
                         <Carousel 
                             scrollDistance="slide" 
-                            wrapMode="wrap" 
                             swiping={true}
                             showArrows={filteredTravelData?.length > 2 ? true : false}
                         >

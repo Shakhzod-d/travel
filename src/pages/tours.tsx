@@ -52,7 +52,9 @@ const Tours = () => {
 
     //default category
     useEffect(() => {
-        dispatch(handleCategory(uniqueCategory[0]))
+        if(category == ''){
+            dispatch(handleCategory(uniqueCategory[0]))
+        }
     },[categoriesData])
 
     //default district
@@ -122,7 +124,7 @@ const Tours = () => {
                         {t("summerdef")}
                     </h3>
                 </div>
-                    <div className="w-full flex sm:flex-col justify-between sm:mt-4 text-[#202430]">
+                    <div className="w-full flex sm:flex-col justify-between mt-7 sm:mt-4 text-[#202430]">
                         {
                             categoriesLoading ? (
                                 <Loading/>

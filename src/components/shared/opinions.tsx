@@ -48,8 +48,8 @@ const Opinions = () => {
                         showDots
                     >
                         {
-                            data?.results?.map((item: OpinionType) => (
-                                <div key={item.id} className='mr-2'>
+                            data?.results?.map((item: OpinionType, index: number) => (
+                                <div key={item.id}  className={`rounded-3xl ${index !== data?.results?.length - 1 ? 'mr-6' : 'mr-0'}`}>
                                     <OpinionCart
                                         id={item.id}
                                         content={item.content}

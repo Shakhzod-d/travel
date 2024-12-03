@@ -47,14 +47,14 @@ const Discount = () => {
             <div className="w-[80%] lg:w-full md:w-full flex justify-between items-end md:flex-col md:items-center">
                 <div className="flex flex-col w-[50%] md:w-[90%] md:mb-4 sm:w-full">
                     <div className="bg-gray-700 rounded-sm p-1 w-max">
-                        <h3 className="text-[18px] text-white font-[600] px-5 xm:px-1">{`#1 ${t("travelagent")}`}</h3>
+                        <h3 className="text-[18px] text-white font-[600] px-5 xm:px-1 break-words">{`#1 ${t("travelagent")}`}</h3>
                     </div>
                     <div className="my-3">
                         <h2 className="text-4xl font-semibold leading-[65.57px] lg:leading-10 text-white break-words">
                             {`${t("discount")} - 20%`}
                         </h2>
                     </div>
-                    <h4 className="h4">{t("valid")}</h4>
+                    <h4 className="h4 sm:my-3">{t("valid")}</h4>
                 </div>
                 <div className="w-[35%] md:w-[90%] sm:w-full">
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full">

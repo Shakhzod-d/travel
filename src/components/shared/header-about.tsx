@@ -28,12 +28,12 @@ const HeaderAbout = ({ route, title, desc, className }: Props) => {
     >
       <div className="absolute z-0 pointer-events-none inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 border-b-[1px] border-[#E6E6E6] *:text-white *:border-white mb-10 opacity-100">
-        <Container className="padding flex justify-between items-center py-4 ">
+        <Container className="padding flex justify-between items-center py-4">
           <Link to={"/"}>
             <img src={whiteIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[180px]'/>
           </Link>
           <div className="lg:hidden flex">
-            <Navbar borderColor='white'/>
+            <Navbar className="*:border-white"/>
             <LocaleSelector/>
           </div>
           <div className="hidden lg:flex cursor-pointer">

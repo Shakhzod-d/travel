@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#09132e] py-24">
       <Container className="flex flex-col items-center">
-        <div className="flex gap-8 flex-wrap w-[90%] items-start sm:justify-start *:text-white justify-between mb-14">
+        <div className="flex gap-8 flex-wrap w-full items-start sm:justify-start *:text-white justify-between mb-14">
           <button onClick={scrollToTop}>
             <img src="/welcome.png" alt="welcometoUzb" className="w-[187px] h-[44px]"/>
           </button>

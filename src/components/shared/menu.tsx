@@ -19,7 +19,7 @@ const Menu = () => {
                 <CloseIcon style={{ fontSize:32 }}/>
             </div>
             <div className="p-5">
-                <Navbar borderColor='black'/>
+                <Navbar className="*:text-black"/>
             </div>
             <div className="p-5 border-t-[1px] border-[#666666]">
             </div>

@@ -11,7 +11,7 @@ const OpinionCart = ({
     const { sanitize } = useSanitize()
 
     return (
-        <div className="h-max rounded-3xl w-[380px] sm:w-[350px] xm:w-[280px] p-8 flex flex-col bg-white items-start">
+        <div className="h-max shadow rounded-3xl w-[380px] sm:w-[350px] xm:w-[280px] p-8 flex flex-col bg-white items-start">
             <h4 className="text-[18px] font-[400] opinion opinioncartdefinition text-[#3F3F3F] my-3 leading-[30px]">{sanitize(content)}</h4>
             <div className='flex items-center'>
                 <img src={image} alt={'The best Webflow Templates'} className='w-[62px] h-[62px] rounded-full'/>

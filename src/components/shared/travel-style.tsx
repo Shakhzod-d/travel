@@ -18,11 +18,11 @@ const Travelstyle = () => {
         queryFn: fetchdata
     })
     return (
-        <div className="w-full flex justify-center">
-            <Container className="flex flex-col items-center py-3 ">
-                <h2 className="chaptertitle md:text-3xl sm:text-2xl mb-8">{t("styles")}</h2>
-                <div className="w-full flex justify-center">
-                    <div className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-5 w-full">
+        <div className="w-full flex justify-start">
+            <Container className="w-full flex flex-col items-start">
+                <h2 className="chaptertitle w-full text-center md:text-3xl sm:text-2xl mb-8">{t("styles")}</h2>
+                <div className="w-full flex justify-start">
+                    <div className={`flex flex-wrap gap-x-3 gap-y-8 w-full md:justify-center ${data?.results?.length > 1 ? 'justify-between' : 'justify-start'}`}>
                         {
                             isLoading ? (
                                 <Loading/>
@@ -30,13 +30,13 @@ const Travelstyle = () => {
                                 <div>Error: {error.message}</div>
                             ) :
                             data?.results?.map((item: TravelStyles) => (
-                                <Link key={item.id} to={'/tours'} onClick={scrollToTop}>
+                                <Link key={item.id} to={'/tours'} onClick={scrollToTop} className="md:w-full">
                                     <button
                                         onClick={() => {
                                             dispatch(handleCategory(item.title))
                                         }}
                                         style={{ backgroundImage: `url(${item.image})` }} 
-                                        className="bg-cover bg-center bg-no-repeat flex flex-col mr-5 mb-5 lg:mr-0 xl:even:mr-0 justify-between p-4 rounded-3xl h-[280px] w-[600px] xl:w-[500px] lg:w-[350px] md:w-[290px] sm:w-full">
+                                        className="bg-cover bg-center bg-no-repeat flex flex-col justify-between p-4 rounded-3xl h-[280px] w-[600px] xl:w-[500px] lg:w-[350px] md:w-full">
                                         <div className="flex flex-col items-start text-start">
                                             <h3 className="h3 styleTitle text-[32px] lg:text-[20px] md:text-[24px] font-[700] uppercase mb-2">{item.title}</h3>
                                             <h4 className="h4 text-gray-300">{item.sub_title}</h4>

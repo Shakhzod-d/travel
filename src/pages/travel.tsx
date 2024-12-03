@@ -70,7 +70,7 @@ const   Travel = () => {
   
   return (
     <main className="bg-[#F4F4F4]">
-      <Header navBorder="black"/>
+      <Header/>
       {
         isLoading ? (
           <Loading />

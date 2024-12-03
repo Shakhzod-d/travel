@@ -13,7 +13,7 @@ const ServiceCart = ({ image, title, content, id }: ServiceCartType) => {
         dispatch(handleServiceId(Number(e.currentTarget.id)))
     }
     return (
-        <div className="bg-white rounded-[16px] min-h-[368px] flex flex-col items-center justify-between px-5 py-11 shadow-lg">
+        <div className="bg-white rounded-[16px] min-h-[368px] flex flex-col items-center justify-between px-[45px] py-11 shadow-lg">
             <img src={image} alt="icon" className="w-[80px] h-[80px]"/>
             <h3 className="h3 text-black font-[800]">{title}</h3>
             <h4 className="h4 text-[#818181] font-[500] max-w-[318px] w-full text-center">{sanitize(content)}</h4>

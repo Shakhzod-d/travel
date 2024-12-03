@@ -19,7 +19,7 @@ const Reasons = () => {
                 {t("why")}
             </h2>
             <h3 className='h3 font-[500] break-words text-[#666666] my-8'>{t("reasondef")}</h3>
-            <ul className='grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-y-3 gap-x-5'>
+            <ul className='grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-y-6 gap-x-5'>
                 {
                     isLoading ? (
                         <Loading/>

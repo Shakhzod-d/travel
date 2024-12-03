@@ -7,11 +7,7 @@ import { Container, LocaleSelector } from '../ui';
 import MenuIcon from '@mui/icons-material/Menu';
 import travelIcon from '../../assets/images/experts.svg'
 
-interface Prop{
-    navBorder: string 
-}
-
-const Header = ({ navBorder }: Prop) => {
+const Header = () => {
 
     const dispatch = useDispatch()
     const openHandler: React.MouseEventHandler<HTMLDivElement> = () => {
@@ -28,7 +24,7 @@ const Header = ({ navBorder }: Prop) => {
                     <div className='flex items-center'>
                         <div className='flex lg:hidden'>
                             <div className='flex items-center'>
-                                <Navbar borderColor={navBorder} className='*:text-black'/>
+                                <Navbar className='*:text-black'/>
                             </div>
                         </div>
                             <LocaleSelector className='text-black'/>

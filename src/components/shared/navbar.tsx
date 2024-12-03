@@ -7,25 +7,24 @@ import { useDispatch } from "react-redux"
 import { twMerge } from 'tailwind-merge'
 
 interface Props{
-  borderColor: string,
   className?: string
 }
 
-const Navbar = ({ borderColor, className }: Props) => {
+const Navbar = ({ className }: Props) => {
   const { navItems } = NavbarItems()
   const dispatch = useDispatch()
   const closeHandler: React.MouseEventHandler<HTMLLIElement> = () => {
     dispatch(closeMenu())
   }
   let location = useLocation()
-  let width = window.innerWidth
+  let width = window.innerWidth > 1023
 
   return (
-    <ul className={twMerge(`flex pr-5 lg:flex-col lg:pr-0 items-center lg:items-start ${width < 1024 ? '*:text-black' : '*:text-white'}`, className)}>
+    <ul className={twMerge('flex pr-5 lg:flex-col lg:pr-0 items-center lg:items-start *:text-white ', className)}> 
         {
           navItems.map((item:NavItems) => (
             <li className="navItem lg:mb-4 relative w-max" key={item.id} onClick={closeHandler}>
-              <Link to={item.path} className={`capitalize mr-4 lg:text-2xl md:text-xl cursor-pointer ${location.pathname === item.path ? `border-b-[1px] border-${borderColor}` : 'border-transparent'}`}>{item.name}</Link>
+              <Link to={item.path} className={`capitalize mr-4 lg:text-2xl md:text-xl cursor-pointer ${width ? 'border-white' : 'border-black'}  ${location.pathname === item.path ? `border-b-[1px]` : 'border-none'}`}>{item.name}</Link>
             </li>
           ))
         }

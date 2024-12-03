@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { TravelType } from "../../types"
 import { useSelector, useDispatch } from "react-redux"
 import { CountryList } from "./"
@@ -9,10 +9,15 @@ import { Loading } from "../ui"
 import { changeCountry, handleCategory, handleDistrict } from "../../store/main-slice"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { Carousel } from 'nuka-carousel';
-import location from '../../assets/icons/location.png' 
+import { GrFormNextLink } from "react-icons/gr";
+import { GrFormPreviousLink } from "react-icons/gr";
+import { Carousel, SlideHandle } from 'nuka-carousel';
+import location from '../../assets/icons/location.png'
+
 
 const Destinations = () => {
+
+
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
@@ -34,6 +39,21 @@ const Destinations = () => {
         }
     }, [countriesData])
 
+    const ref = useRef<SlideHandle>(null);
+
+    const goBack = () => {
+        if (ref.current) {
+            ref.current.goBack();
+        }
+    };
+
+    const goForward = () => {
+        if (ref.current) {
+            ref.current.goForward();
+        }
+    };
+
+
     let filteredTravelData = [];
     if (activeCountry && activeCountry !== t("all")) {
         filteredTravelData = travelData?.results?.filter(
@@ -46,6 +66,8 @@ const Destinations = () => {
     if(isLoading2){
         return <Loading/>
     }
+
+    let slidedistance = document.querySelector('.styleLink')?.clientWidth
 
     return (
         <div className="flex flex-col items-center" id="destinations">
@@ -63,14 +85,23 @@ const Destinations = () => {
                             <p className="text-red-500 text-xl break-words">{travelData?.results?.length === 0 ? t("notexistall") : t("notexist")}</p>
                         </div>
                     ) :
+                    <div>
                         <Carousel 
-                            scrollDistance="slide" 
+                            ref={ref} 
                             swiping={true}
-                            showArrows={filteredTravelData?.length > 2 ? true : false}
+                            className="relative"
+                            scrollDistance={slidedistance}
+                            wrapMode="wrap"
                         >
+                            <button onClick={goBack} className='w-[30px] h-[30px] border-[2px] border-gray-500 flex justify-center items-center text-xl text-white text-semibold bg-white rounded-full absolute left-3 top-[45%]'>
+                                {<GrFormPreviousLink style={{ fontSize: 22, fontWeight: 600 }} className="text-gray-500 pointer-events-none"/>}
+                            </button>
+                            <button onClick={goForward} className='w-[30px] h-[30px] border-[2px] border-gray-500 flex justify-center items-center text-xl  text-white text-semibold bg-white rounded-full absolute right-5 top-[45%]'>
+                                {<GrFormNextLink style={{ fontSize: 22, fontWeight: 600}} className="text-gray-500"/>}
+                            </button>
                             {
                                 filteredTravelData?.map((item: TravelType) => (
-                                    <Link to={"/tours"} key={item.id} className="mr-4">
+                                    <Link to={"/tours"} key={item.id} className="mr-4 styleLink">
                                         <button 
                                             onClick={() => {
                                                 dispatch(changeCountry(item.country.title))
@@ -78,7 +109,7 @@ const Destinations = () => {
                                                 dispatch(handleDistrict(item.district.title))
                                             }} 
                                             style={{ backgroundImage: `url(${item.category.image})`}}
-                                            className="flex justify-start items-end p-4 rounded-xl w-[519px] xl:w-[450px] sm:w-[350px] h-[314px] bg-center bg-cover bg-no-repeat">
+                                            className="flex justify-start items-end p-4 rounded-xl w-[519px] xl:w-[450px] lg:w-[350px] h-[314px] bg-center bg-cover bg-no-repeat">
                                                 <div className='w-full flex xm:flex-col xm:items-start justify-between'>
                                                     <div >
                                                         <h3 className="h3">{item.district.title}</h3>
@@ -94,6 +125,7 @@ const Destinations = () => {
                                 ))
                             }
                         </Carousel>
+                    </div>
                 }
             </div>
         </div>

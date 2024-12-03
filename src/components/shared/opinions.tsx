@@ -30,6 +30,7 @@ const Opinions = () => {
         }
     };
     let screenSize = window.innerWidth < 446
+    let opiniondistance = document.querySelector('.opinioncart')?.clientWidth
     return (
         <div className="flex flex-col items-center w-full">
             <h2 className="chaptertitle md:text-3xl sm:text-2xl mb-8">{t("clients")}</h2>
@@ -42,14 +43,14 @@ const Opinions = () => {
                     ) :
                     <Carousel 
                         ref={ref} 
-                        scrollDistance="slide" 
+                        scrollDistance={opiniondistance} 
                         wrapMode="wrap" 
                         swiping={true}
                         showDots
                     >
                         {
-                            data?.results?.map((item: OpinionType, index: number) => (
-                                <div key={item.id}  className={`rounded-3xl ${index !== data?.results?.length - 1 ? 'mr-6' : 'mr-0'}`}>
+                            data?.results?.map((item: OpinionType) => (
+                                <div key={item.id}  className="rounded-3xl m-4 opinioncart">
                                     <OpinionCart
                                         id={item.id}
                                         content={item.content}

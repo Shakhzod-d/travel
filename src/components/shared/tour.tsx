@@ -23,7 +23,7 @@ const Tour = ({ type }: TourProps) => {
             <h3 className="h3 font-[500px] text-center text-[#666666] mb-11">{`${type == 'summer' ? t("summerdef") : t("winterdef")}`}</h3>
             <div className='w-full flex justify-center'>
                 {
-                    <div className="grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-5 2x:gap-5 w-full md:flex md:flex-col md:items-center">
+                    <div className="grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-6 w-full md:flex md:flex-col md:items-center">
                     {
                         isLoading ? (
                             <Loading/>

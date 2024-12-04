@@ -45,7 +45,7 @@ const Home = () => {
           <Container className="sectionpadding sm:py-9 w-full">
             <Opinions />
           </Container>
-          <Container>
+          <Container className="sectionpadding pb-0">
             <Reasons />
           </Container>
         </div>

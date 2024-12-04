@@ -117,5 +117,7 @@
     "tax": "Prices include tax.",
     "tickets2": "Tickets that have been purchased are non-refundable.",
     "reschedule": "Tickets that have been purchased cannot be rescheduled.",
-    "personal": "Buyers are required to fill in personal data when ordering."
+    "personal": "Buyers are required to fill in personal data when ordering.",
+    "showphotos": "Show all photos",
+    "less": "Show less"
 }

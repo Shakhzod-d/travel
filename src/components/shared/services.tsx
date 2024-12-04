@@ -15,7 +15,7 @@ const Services = () => {
         <div className="w-full flex flex-col items-center">
             <h2 className="chaptertitle mb-8">{t("services")}</h2>
             <div className="w-full flex justify-center">
-                <div className="grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-x-[80px] 2xl:gap-7">
+                <div className="grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1  gap-7">
                     {
                         isLoading ? (
                         <Loading/>

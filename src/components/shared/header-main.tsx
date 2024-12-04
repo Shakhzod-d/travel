@@ -18,10 +18,12 @@ const HeaderMain = () => {
         dispatch(openMenu())
     }
 
+    let ln = localStorage.getItem('lng')
+
     return (
         <div className="overlay h-screen flex flex-col absolute top-0 left-0 items-center justify-between w-full bg-cover bg-center bg-no-repeat">
-            <div className="w-full flex justify-center border-b-[1px] border-[#E6E6E6]">
-                <Container className="box w-full flex justify-between items-center py-4">
+            <div className="w-full  flex justify-center border-b-[1px] border-[#E6E6E6]">
+                <Container className="w-full flex justify-between items-center py-4">
                     <Link to={'/'}>
                         <img src={whiteIcon} alt="we can travel experts" className='w-[270px] h-[44px] xm:w-[180px]'/>
                     </Link>
@@ -39,11 +41,17 @@ const HeaderMain = () => {
                     </div>
                 </Container>
             </div>    
-            <div className="max-w-[1256px] relative w-full flex flex-col justify-between px-5 pt-2 pb-9 2xl:pb-3 h-full">
-                <div className='w-full flex flex-col  items-center justify-center pt-[100px] 2xl:pt-[50px] xl:pt-[20px]'>
-                    <h2 className='font-[400px] headline max-w-[720px] lg:max-w-[600px] md:max-w-[400px] leading-[79px] 2xl:leading-[60px] uppercase text-[64px] 2xl:text-[42px] xl:[36px] lg:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 xl:mb-3 break-words'>
-                        {t("navigator")}
-                    </h2>
+            <Container className="max-w-[1256px] relative w-full flex flex-col justify-between px-5 pt-2 pb-9 2xl:pb-3 h-full">
+                <div className='w-full flex flex-col items-center justify-center pt-[180px] 2xl:pt-[100px] xl:pt-[50px]'>
+                    {ln == 'eng' ? 
+                            <h2 className='font-[400px] headline max-w-[1000px] lg:max-w-[800px] md:max-w-[600px] leading-[79px] 2xl:leading-[60px] uppercase text-[64px] 2xl:text-[42px] xl:[36px] lg:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 xl:mb-3 break-words'>
+                                can <br />
+                                follow your <br />
+                                central asian navigator
+                            </h2> :
+                        <h2 className='font-[400px] headline max-w-[1000px] 2xl:max-w-[800px] lg:max-w-[600px] md:max-w-[400px] leading-[79px] 2xl:leading-[60px] uppercase text-[64px] 2xl:text-[42px] xl:[36px] lg:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 xl:mb-3 break-words'>
+                            {t("navigator")}
+                        </h2>}
                     <Link to={'/tours'} className='text-white  bg-white bg-opacity-15 text-[20px] xl:text-[16px] md:text-[12px] round px-11 md:px-7 sm:px-4 sm:py-1 py-2 border-[2px] border-white uppercase'>
                         {t("findTour")}
                     </Link>
@@ -68,7 +76,7 @@ const HeaderMain = () => {
                         </ul>
                     </div>
                 </div>
-            </div>   
+            </Container>   
         </div>
     )
 }

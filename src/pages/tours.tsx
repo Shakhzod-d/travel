@@ -124,7 +124,7 @@ const Tours = () => {
                         {t("summerdef")}
                     </h3>
                 </div>
-                    <div className="w-full flex sm:flex-col justify-between mt-7 sm:mt-4 text-[#202430]">
+                    <div className="w-full grid grid-cols-2 sm:grid-cols-1 gap-5 mt-7 sm:mt-4 text-[#202430]">
                         {
                             categoriesLoading ? (
                                 <Loading/>
@@ -136,7 +136,7 @@ const Tours = () => {
                                     id="category"
                                     value={category} 
                                     onChange={(e) => dispatch(handleCategory(e.target.value))}
-                                    className="max-w-[600px] w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mr-0 sm:mb-5 mr-2">
+                                    className="w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mr-0 sm:mb-5 mr-2">
                                     {uniqueCategory.map((item: any) => (
                                         <option key={item} value={item}>
                                             {item}
@@ -157,7 +157,7 @@ const Tours = () => {
                                     id="district" 
                                     value={district}
                                     onChange={handleChangeDistrict}
-                                    className="max-w-[600px] w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold">
+                                    className=" w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold">
                                     {
                                         activeCountry == 'all' ? (
                                             uniqueDistricts.map((item:any) => (

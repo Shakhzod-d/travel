@@ -20,8 +20,8 @@ const ExperienceSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap md:flex-col md:items-center ">
-          <div className="max-w-[574px] h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 sm:p-0">
+        <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
+          <div className="w-full h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 sm:p-0">
             <div className="gap-7 flex items-start sm:flex-col sm:items-center sm:text-center sm:mb-5">
               <img
                 src="/icons/vision.svg"
@@ -38,7 +38,7 @@ const ExperienceSection = () => {
             </div>
           </div>
 
-          <div className="max-w-[574px] h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 sm:p-0">
+          <div className="w-full h-[191px] pl-6 pr-5 pt-5 pb-6 bg-white rounded flex-col  gap-2.5 inline-flex flex-1 sm:p-0">
             <div className=" gap-7 flex items-start sm:flex-col sm:items-center sm:text-center">
               <img
                 src="/icons/mission.svg"

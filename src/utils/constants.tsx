@@ -22,6 +22,12 @@ export const NavbarItems = () => {
     },
     {
       id: uuidv4(),
+      name: t("about"),
+      path: "/about",
+      active: false,
+    },
+    {
+      id: uuidv4(),
       name: t("tours"),
       path: "/tours",
       active: false,
@@ -31,13 +37,8 @@ export const NavbarItems = () => {
       name: t("contact"),
       path: "/contact",
       active: false,
-    },
-    {
-      id: uuidv4(),
-      name: t("about"),
-      path: "/about",
-      active: false,
-    },
+    }
+    
   ];
   return { navItems }
 }

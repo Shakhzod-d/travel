@@ -1,7 +1,10 @@
 import { Container } from "../ui";
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom";
+import useScrollTop from "../../hooks/useScrollToTop";
 
 const ContactSection = () => {
+  const { scrollToTop } = useScrollTop()
   const { t } = useTranslation()
   return (
     <section className="bg-[#f5f9fa] pt-20 pb-24">
@@ -22,14 +25,14 @@ const ContactSection = () => {
           </div>
         </div>
         <img src="/icons/arrow.svg" alt="" className="lg:hidden" />
-        <div className="flex items-center relative ">
+        <Link to={'/contact'} onClick={scrollToTop} className="flex items-center relative cursor-pointer">
           <div className="w-[125px] h-[125px] left-[13px] top-[43.92px] absolute bg-[#0c141d]/20 rounded-[100px] blur-[60px]" />
-          <div className="w-[152px] h-[152px] p-2.5  bg-[#0a142f] rounded-[100px] justify-center items-center gap-2.5 flex">
+          <div   className="w-[152px] h-[152px] p-2.5 bg-[#0a142f] rounded-[100px] justify-center items-center gap-2.5 flex">
             <p className="text-white text-2xl font-semibold leading-9 capitalize">
               {t("contact")}
             </p>
           </div>
-        </div>
+        </Link>
       </Container>
     </section>
   );

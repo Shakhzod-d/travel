@@ -124,7 +124,7 @@ const Tours = () => {
                         {t("summerdef")}
                     </h3>
                 </div>
-                    <div className="w-full grid grid-cols-2 sm:grid-cols-1 gap-5 mt-7 sm:mt-4 text-[#202430]">
+                    <div className="w-full grid grid-cols-2 sm:grid-cols-1 gap-5 sm:gap-1 mt-7 sm:mt-4 text-[#202430]">
                         {
                             categoriesLoading ? (
                                 <Loading/>
@@ -188,7 +188,7 @@ const Tours = () => {
                 <div className="my-11 sm:my-5">
                     <CountryList/>
                 </div>
-                <div className="pb-[50px] sm:pb-5">
+                <div className="pb-[50px] sm:pb-5 mt-6">
                     <Pagination/>
                 </div>
             </Container>

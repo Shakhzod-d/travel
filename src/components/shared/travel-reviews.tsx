@@ -17,9 +17,6 @@ const TravelReviews: FC<TravelReviewsProps> = ({
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [currentItems, setCurrentItems] = useState<ReviewsType[]>(reviews);
-  // const [currentItems, setCurrentItems] = useState<ReviewsType[]>(reviews);
-
-
  
   useEffect(() => {
     setCurrentItems(prev => [...prev].reverse());
@@ -34,7 +31,6 @@ const TravelReviews: FC<TravelReviewsProps> = ({
   if(loading) {
     return <Loading/>
   }
-
   return (
     <section
       className="bg-white rounded-lg py-6 px-7 sm:px-2 sm:py-2"

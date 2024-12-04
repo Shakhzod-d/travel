@@ -79,7 +79,6 @@ const TravelSummary: FC<TravelSummaryProps> = ({
         </h2>
         <div className="flex xm:flex-col sm:items-center mb-5">
           <div className="flex-1 flex flex-wrap gap-4 xm:w-full xm:justify-center xm:mb-3">
-            <p className=" text-neutral-700 text-sm font-bold ">Urungach lake</p>
             <p className=" text-neutral-700 text-sm font-bold flex items-center g-1">
               <span className="w-1 h-1 bg-neutral-700 rounded-full inline-block" />
               <span className="  inline-block pl-2">
@@ -99,37 +98,39 @@ const TravelSummary: FC<TravelSummaryProps> = ({
             <p className="text-black text-sm font-medium">{overall}</p>
           </div>
         </div>
-        <div className="flex gap-9 pb-5 border-b border-[#D9D9D9] mb-5 flex-wrap sm:justify-center">
-          <div className="">
-            <div className=" text-[#949494] text-xs font-bold mb-2">
-              CHECK IN
-            </div>
-            <div className="text-[#222222] text-xs font-bold">{start_date ? start_date : '-'}</div>
-          </div>
-          <div className="">
-            <div className=" text-[#949494] text-xs font-bold mb-2">
-              CHECK-OUT
-            </div>
-            <div className="text-[#222222] text-xs font-bold">{end_date ? end_date : '-'}</div>
-          </div>
-          <div className="">
-            <div className=" text-[#949494] text-xs font-bold mb-2">
-              {t("length")}
-            </div>
-            <div className="text-[#222222] text-xs font-bold">
-              {days} {t("days")}, {nights} {t("nights")}
-            </div>
-          </div>
-          {start_date !== null ?
+        <div className="pb-5 border-b border-[#D9D9D9] mb-5">
+          <div className="flex gap-9  flex-wrap sm:justify-center">
             <div>
               <div className=" text-[#949494] text-xs font-bold mb-2">
+                CHECK IN
+              </div>
+              <div className="text-[#222222] text-xs font-bold">{start_date ? start_date : '-'}</div>
+            </div>
+            <div>
+              <div className=" text-[#949494] text-xs font-bold mb-2">
+                CHECK-OUT
+              </div>
+              <div className="text-[#222222] text-xs font-bold">{end_date ? end_date : '-'}</div>
+            </div>
+            <div>
+              <div className=" text-[#949494] text-xs font-bold mb-2">
+                {t("length")}
+              </div>
+              <div className="text-[#222222] text-xs font-bold">
+                {days} {t("days")}, {nights} {t("nights")}
+              </div>
+            </div>
+          </div>
+          <div className="flex mt-5 gap-5 sm:gap-[20px] md:flex-col sm:items-center">
+            <div className="sm:mb-2">
+              <div className=" text-[#949494] text-xs font-bold mb-2 sm:mb-0">
                 {t("persons")}
               </div>
               <div className="text-[#222222] text-xs font-bold">
                 <select 
                   name="persons" 
                   id="persons" 
-                  className="w-[100px] outline-none border-[1px] border-[#aaa6a6] rounded-sm"
+                  className="w-[100px] h-[28px] outline-none border-[1px] border-[#aaa6a6] rounded-sm"
                   onChange={changePersons}
                   value={persons}
                 >
@@ -146,29 +147,21 @@ const TravelSummary: FC<TravelSummaryProps> = ({
                 </select>
               </div>
             </div>
-            : <div>
-              <div className=" text-[#949494] text-xs font-bold mb-2">
-                {t("start")}
+            {start_date == null && <div className="sm:text-center">
+                <div className=" text-[#949494] text-xs font-bold mb-2">
+                  {t("start")}
+                </div>
+                <div className="text-[#222222] text-xs font-bold">
+                  <input type="date" onChange={changeDate} className="w-[200px] outline-none px-5 py-1 border-[1px] border-[#aaa6a6] rounded-sm"/>
+                </div>
               </div>
-              <div className="text-[#222222] text-xs font-bold">
-                <input type="date" onChange={changeDate} className="w-[200px] outline-none px-5 py-2 border-[1px] border-[#aaa6a6] rounded-sm"/>
-              </div>
-            </div>
-          }
+            }
+          </div>
         </div>
 
         <div className="mb-[30px]">
           <div>
             <span className="text-black text-[28px] font-bold">${Math.round(Number(price))}</span>
-            {/* <span className="text-[#949494] text-base font-medium">
-              /insted of $1100
-            </span> */}
-          </div>
-          <div className="">
-            <span className="text-[#949494] text-xs font-bold">
-              Trip Code:{" "}
-            </span>
-            <span className="text-[#3c3c3c] text-xs font-bold">GS314F</span>
           </div>
         </div>
         <div className="max-w-[423px] w-[100%] h-10 ]">

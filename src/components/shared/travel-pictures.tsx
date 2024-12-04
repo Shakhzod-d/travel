@@ -29,12 +29,11 @@ const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
                 {
                   images?.slice(1,5).map((item: string) => (
                     images?.indexOf(item) == 4 && images?.length > 5 ? (
-                    <div className="hoveringImage" onClick={() => setShow(!show)}>
+                    <div key={item} className="hoveringImage" onClick={() => setShow(!show)}>
                       <img 
-                        key={item}
                         src={item.includes('media') ? item : `${Base_URL}/media/${item}`} 
                         alt={title} 
-                        className={`w-full h-[191px] ${images?.indexOf(item) == 4 && images?.length > 5 ? 'cursor-pointer' : ''}`}
+                        className={`w-full h-[191px] sm:h-[400px] ${images?.indexOf(item) == 4 && images?.length > 5 ? 'cursor-pointer' : ''}`}
                       />
                       <div className="hoveringContent">
                         <div className="px-7 py-5 hoveringText">
@@ -46,7 +45,7 @@ const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
                         key={item}
                         src={item.includes('media') ? item : `${Base_URL}/media/${item}`} 
                         alt={title} 
-                        className={`w-full h-[191px] ${images?.indexOf(item) == 4 && images?.length > 5 ? 'cursor-pointer' : ''}`}
+                        className={`w-full h-[191px] sm:h-[400px] ${images?.indexOf(item) == 4 && images?.length > 5 ? 'cursor-pointer' : ''}`}
                       />
                     )))
                   }
@@ -54,17 +53,19 @@ const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
             </div>
             {
               show && (
-                <div className="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                  {
-                    images?.slice(5).map((item: string) => (
-                      <img 
-                        key={item}
-                        src={item.includes('media') ? item : `${Base_URL}/media/${item}`} 
-                        alt={title} 
-                        className="w-full h-[191px]"
-                      />
-                    ))
-                  }
+                <div className="w-full flex justify-start">
+                  <div className="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-5">
+                    {
+                      images?.slice(5).map((item: string) => (
+                        <img 
+                          key={item}
+                          src={item.includes('media') ? item : `${Base_URL}/media/${item}`} 
+                          alt={title} 
+                          className="w-full h-[191px]"
+                        />
+                      ))
+                    }
+                  </div>
                 </div>
               )
             }

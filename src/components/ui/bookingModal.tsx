@@ -58,7 +58,7 @@ const   ContactFormSection = () => {
             id: id1
         }
         setIspending(true)
-        await axios.post(`${Base_URL}/api/booking/v1/tour/${id1}/`, data)
+        await axios.post(`${Base_URL}/api/booking/v1/tour/${id1}/`, bookingTourData)
         .then(_ => {
             Swal.fire({
                 position: "center",
@@ -72,7 +72,6 @@ const   ContactFormSection = () => {
         .catch(err => {
             toastify(err.message, 'error')
         })
-        console.log(bookingTourData)
         reset()
         setIspending(false)
     }

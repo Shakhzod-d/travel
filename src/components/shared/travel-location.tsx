@@ -37,13 +37,6 @@ const TravelLocation: FC<TravelLocationProps> = ({
         lot={lot}
         lang={lang}
       />
-      {/* <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3071.770861737593!2d66.97304127505188!3d39.65487110165763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4d18b7c2e59337%3A0x532c8e039ecc92af!2z0J_Qu9C-0YnQsNC00YwgItCg0LXQs9C40YHRgtC-0L0nJw!5e0!3m2!1sru!2s!4v1727949269534!5m2!1sru!2s"
-        allowFullScreen={false}
-        referrerPolicy="no-referrer-when-downgrade"
-        className="max-w-[750px] w-full h-[350px]"
-        loading="lazy"
-      ></iframe> */}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const LocaleSelector = ({ className }: Prop) => {
     let lastLn = localStorage.getItem('lng') 
     const [ln, setLn] = useState(lastLn ? lastLn : 'eng')
     const [show, setShow] = useState(false)
-     const selectorRef = useRef<HTMLDivElement | null>(null);
+    const selectorRef = useRef<HTMLDivElement | null>(null);
     const handleLocale = (e: React.MouseEvent<HTMLButtonElement>) => {
         i18n.changeLanguage(e.currentTarget.value)
         localStorage.setItem('lng', i18n.language)

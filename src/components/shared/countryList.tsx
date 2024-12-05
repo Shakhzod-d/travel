@@ -8,6 +8,7 @@ import { changeCountry, handleDistrict } from "../../store/main-slice";
 import { useTranslation } from "react-i18next";
 import { Carousel } from 'nuka-carousel';
 import useEmblaCarousel from 'embla-carousel-react'
+import { useEffect } from "react";
 
 const CountryList = () => {
     const [emblaRef] = useEmblaCarousel()
@@ -20,6 +21,12 @@ const CountryList = () => {
         queryKey: ['countries'], 
         queryFn: fetchdata
     });
+
+    useEffect(() => {
+        if(activeCountry == ''){
+            dispatch(changeCountry(t("all")))
+        }
+    }, [])
     
 
     if (isLoading) {
@@ -46,7 +53,7 @@ const CountryList = () => {
                         {t("all")}
                 </button>
                 {
-                    data?.results?.map((item: CountriesType) => (
+                    data?.map((item: CountriesType) => (
                         <button 
                             onClick={(e) => dispatch(changeCountry(e.currentTarget.id))}
                             key={item.id} 
@@ -68,7 +75,7 @@ const CountryList = () => {
                             {t("all")}
                     </button>
                     {
-                        data?.results?.map((item: CountriesType) => (
+                        data?.map((item: CountriesType) => (
                             <button 
                                 onClick={(e) => dispatch(changeCountry(e.currentTarget.id))}
                                 key={item.id} 

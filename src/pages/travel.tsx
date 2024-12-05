@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import { useFetchData } from "../hooks";
 import { useQuery } from "react-query";
 import { Loading } from "../components/ui";
-import { ImagesType } from "../types";
 import { handleId } from "../store/main-slice";
 import { useDispatch } from "react-redux";
 import TravelLocation from "../components/shared/travel-location";
@@ -55,7 +54,7 @@ const   Travel = () => {
     reviews = data?.reviews
     facilities = data?.availabilities
     overall = data?.ranks?.overall
-    images = data?.images?.map((item: ImagesType) => item.image)
+    images = data?.images
   }
 
   useEffect(() => {

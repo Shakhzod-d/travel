@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import { Preloading, Layout, Menu } from "./components/shared";
+import { Preloading, Layout, Menu, PicturesModal, PicturesGallery } from "./components/shared";
 import { Home, Tours, Travel } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { Overlay, Modal, BookingModal, ScrollButton } from "./components/ui";
@@ -15,7 +15,7 @@ import Footer from "./components/ui/footer";
 
 function App() {
   const state = useSelector((state: RootState) => state.main)
-  const { modal, bookingModal } = state
+  const { modal, bookingModal, picturesModal, picturesGallery } = state
   useEffect(() => {
     let lastLn = localStorage.getItem('lng') 
     if(lastLn){
@@ -24,9 +24,20 @@ function App() {
       i18n.changeLanguage('eng')
     }
   }, [])
+
+  useEffect(() => {
+    if(picturesModal || picturesGallery){
+      document.body.classList.add('unscrollable')
+    }else{
+      document.body.classList.remove('unscrollable')
+    }
+  }, [picturesModal, picturesGallery])
+
   return (
     <>
       <ToastContainer/>
+      {picturesModal && <PicturesModal/>}
+      {picturesGallery && <PicturesGallery/>}
       <Suspense fallback={<Preloading />}>
         {modal && <Modal/>}
         {bookingModal && <BookingModal/>}

@@ -11,7 +11,10 @@ export interface State {
   end: string,
   persons: number,
   tourModal: boolean,
-  id1: number
+  id1: number,
+  picturesModal: boolean,
+  picturesGallery: boolean,
+  activeThumb: number
 }
 export interface NavItems {
   id: string;
@@ -88,17 +91,14 @@ export interface StepType{
 }
 
 export interface FooterDataType{
-  id: string,
-  data: string,
-  path: string
+  id: number,
+  type: number,
+  image: string,
+  content: string,
+  updated_at: string,
+  created_at: string
 }
 
-export interface FooterIconsType{
-  id: string,
-  icon: string,
-  alt: string,
-  path: string
-}
 
 export interface ModalDataType{
   full_name: string,

@@ -49,7 +49,7 @@ const Opinions = () => {
                         showDots
                     >
                         {
-                            data?.results?.map((item: OpinionType) => (
+                            data?.map((item: OpinionType) => (
                                 <div key={item.id}  className="rounded-3xl m-4 opinioncart">
                                     <OpinionCart
                                         id={item.id}

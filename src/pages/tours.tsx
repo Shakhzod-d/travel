@@ -41,13 +41,13 @@ const Tours = () => {
         queryFn: fetchdata2
     });
 
-    let uniqueCategory = [t("all"),...new Set(categoriesData?.results.map((item: CategoryType) => item.title ))];
+    let uniqueCategory = [t("all"),...new Set(categoriesData?.map((item: CategoryType) => item.title ))];
 
-    let uniqueDistricts = [t("all"),...new Set(districtsData?.results.map((item: DistrictType) => item.title ))];
+    let uniqueDistricts = [t("all"),...new Set(districtsData?.map((item: DistrictType) => item.title ))];
     
 
     let availableDistrict = []
-    availableDistrict = districtsData?.results.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)
+    availableDistrict = districtsData?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)
     
 
     //default category
@@ -65,7 +65,7 @@ const Tours = () => {
 
     //default country
     useEffect(() => {
-        if(countriesData?.results?.length > 0){
+        if(countriesData?.length > 0){
             dispatch(changeCountry(t("all")))
         }
     }, [countriesData])
@@ -74,7 +74,7 @@ const Tours = () => {
     //changing country
     useEffect(() => {
         if(data2){
-            let active = data2?.results?.find((item: CountriesType) => item.title == district)
+            let active = data2?.find((item: CountriesType) => item.title == district)
             if(active){
                 dispatch(changeCountry(active.country.title))
             }
@@ -83,18 +83,18 @@ const Tours = () => {
 
     //changing district selection due to country
     useEffect(() => {
-        if(countriesData?.results?.length > 0){
+        if(countriesData?.length > 0){
             const selectTag = document.getElementById('district') as HTMLSelectElement
             if(selectTag){
-                selectTag.value = districtsData?.results?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]
-                dispatch(handleDistrict(districtsData?.results?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]))
+                selectTag.value = districtsData?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]
+                dispatch(handleDistrict(districtsData?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]))
             }
         }
     }, [activeCountry, countriesData])
 
     const handleChangeDistrict = (e: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(handleDistrict(e.currentTarget.value))
-        let active = districtsData?.results?.filter((item: DistrictType) => item.title == e.currentTarget.value)[0]
+        let active = districtsData?.filter((item: DistrictType) => item.title == e.currentTarget.value)[0]
         if(active){
             dispatch(changeCountry(active.country.title)) 
         }
@@ -130,14 +130,14 @@ const Tours = () => {
                                 <Loading/>
                             ) : categoriesError instanceof Error ? (
                                 <p className="text-red-500 text-xl">Error: {categoriesError.message}</p>
-                            ) : categoriesData?.results && (
+                            ) : categoriesData && (
                                 <select 
                                     name="categoryOptions" 
                                     id="category"
                                     value={category} 
                                     onChange={(e) => dispatch(handleCategory(e.target.value))}
                                     className="w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mr-0 sm:mb-5 mr-2">
-                                    {uniqueCategory.map((item: any) => (
+                                    {uniqueCategory?.map((item: any) => (
                                         <option key={item} value={item}>
                                             {item}
                                         </option>
@@ -151,7 +151,7 @@ const Tours = () => {
                                 <Loading/>
                             ) : districtsError instanceof Error ? (
                                 <div>Error: {districtsError.message}</div>
-                            ) : districtsData?.results && (
+                            ) : districtsData && (
                                 <select 
                                     name="districtOptions" 
                                     id="district" 
@@ -160,7 +160,7 @@ const Tours = () => {
                                     className=" w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold">
                                     {
                                         activeCountry == 'all' ? (
-                                            uniqueDistricts.map((item:any) => (
+                                            uniqueDistricts?.map((item:any) => (
                                                 <option 
                                                     key={item}
                                                     value={item}
@@ -170,7 +170,7 @@ const Tours = () => {
                                                 </option>
                                             ))
                                         ) : (
-                                            [t("all"), ...uniqueDistricts.filter((item: any) => availableDistrict.includes(item))].map((item:any) => (
+                                            [t("all"), ...uniqueDistricts?.filter((item: any) => availableDistrict.includes(item))].map((item:any) => (
                                                 <option 
                                                     key={item}
                                                     value={item}

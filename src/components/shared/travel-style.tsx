@@ -22,14 +22,14 @@ const Travelstyle = () => {
             <Container className="w-full flex flex-col items-start">
                 <h2 className="chaptertitle w-full text-center md:text-3xl sm:text-2xl mb-8">{t("styles")}</h2>
                 <div className="w-full flex justify-center">
-                    <div className={`grid grid-cols-2 md:grid-cols-1 gap-5 w-full  ${data?.results?.length == 1 ? 'flex justify-start' : ''}`}>
+                    <div className={`grid grid-cols-2 md:grid-cols-1 gap-5 w-full  ${data?.length == 1 ? 'flex justify-start' : ''}`}>
                         {
                             isLoading ? (
                                 <Loading/>
                             ) : error instanceof Error ? (
                                 <div>Error: {error.message}</div>
                             ) :
-                            data?.results?.map((item: TravelStyles) => (
+                            data?.map((item: TravelStyles) => (
                                 <Link key={item.id} to={'/tours'} onClick={scrollToTop} className="md:w-full ">
                                     <button
                                         onClick={() => {

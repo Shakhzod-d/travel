@@ -16,7 +16,10 @@ const initialState: State = {
   end: '',
   persons: 1,
   tourModal: false,
-  id1: 0
+  id1: 0,
+  picturesModal: false,
+  picturesGallery: false,
+  activeThumb: 0
 };
 
 let body = document.getElementsByTagName('body')
@@ -81,6 +84,15 @@ export const mainSlice = createSlice({
     },
     handleId: ( state, action ) => {
       state.id1 = action.payload
+    },
+    changePicturesModal: ( state ) => {
+      state.picturesModal = !state.picturesModal
+    },
+    handleGallery: ( state ) => {
+      state.picturesGallery = !state.picturesGallery
+    },
+    changeActiveThumb: ( state, action ) => {
+      state.activeThumb = action.payload
     }
   },
 });
@@ -102,7 +114,10 @@ export const {
   handlePersons,
   openTourModal,
   closeTourModal,
-  handleId
+  handleId,
+  changePicturesModal,
+  handleGallery,
+  changeActiveThumb
 } =
 mainSlice.actions;
 

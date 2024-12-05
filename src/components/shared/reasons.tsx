@@ -26,7 +26,7 @@ const Reasons = () => {
                     ) : error instanceof Error ? (
                         <div>Error: {error.message}</div>
                     ) : data && (
-                        data?.results.map((item: ReasonType) => (
+                        data.map((item: ReasonType) => (
                             <li key={item.id}>
                                 <ReasonCart
                                     id={item.id}

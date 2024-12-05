@@ -22,7 +22,7 @@ const Services = () => {
                     ) : error instanceof Error ? (
                         <div>Error: {error.message}</div>
                     ) :
-                        data?.results?.map((item: ServiceCartType) => (
+                        data?.map((item: ServiceCartType) => (
                             <ServiceCart 
                                 key={item.id}
                                 image={item.image}

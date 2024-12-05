@@ -15,6 +15,8 @@ export { default as Menu } from './menu'
 export { default as Services } from './services'
 export { default as CountryList } from './countryList'
 export { default as Pagination } from './pagination'
+export { default as PicturesModal } from './picturesModal'
+export { default as PicturesGallery } from './picturesGallery'
 
 export * from "./experiencse-section";
 export * from "./team-section";

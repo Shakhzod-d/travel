@@ -19,7 +19,8 @@ const initialState: State = {
   id1: 0,
   picturesModal: false,
   picturesGallery: false,
-  activeThumb: 0
+  activeThumb: 0,
+  tourSlug: ''
 };
 
 let body = document.getElementsByTagName('body')
@@ -93,6 +94,9 @@ export const mainSlice = createSlice({
     },
     changeActiveThumb: ( state, action ) => {
       state.activeThumb = action.payload
+    },
+    handleTourSlug: ( state, action ) => {
+      state.tourSlug = action.payload
     }
   },
 });
@@ -117,7 +121,8 @@ export const {
   handleId,
   changePicturesModal,
   handleGallery,
-  changeActiveThumb
+  changeActiveThumb,
+  handleTourSlug
 } =
 mainSlice.actions;
 

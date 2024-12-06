@@ -16,7 +16,7 @@ const OpinionCart = ({
             <div className='flex items-center'>
                 <img src={image} alt={'The best Webflow Templates'} className='w-[62px] h-[62px] rounded-full'/>
                 <div className='ml-3'>
-                    <h4 className='font-[700] text-[18px] mb-0 text-black opinion'>{full_name}</h4>
+                    <h4 className='font-[700] text-[18px] mb-0 text-black opinion opinioncartposition'>{full_name}</h4>
                     <h4 className='font-[400] text-[18px] text-[#6F6C90] opinion capitalize opinioncartposition'>{position}</h4>
                 </div>
             </div>

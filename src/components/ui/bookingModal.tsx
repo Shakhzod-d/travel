@@ -54,8 +54,7 @@ const   ContactFormSection = () => {
             ...data,
             start_date: start,
             end_date: end,
-            persons: persons,
-            id: id1
+            persons: persons
         }
         setIspending(true)
         await axios.post(`${Base_URL}/api/booking/v1/tour/${id1}/`, bookingTourData)

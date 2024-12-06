@@ -18,10 +18,8 @@ const PicturesGallery = () => {
     const [loading, setLoading] = useState(false)   
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
-    const { picturesGallery, activeThumb } = state
-
-    let slug = location.pathname.split('/')[location.pathname.split('/').length - 1]
-    const { fetchdata } = useFetchData(`/api/tour/v1/detail/${slug}`)
+    const { picturesGallery, activeThumb, tourSlug } = state
+    const { fetchdata } = useFetchData(`/api/tour/v1/detail/${tourSlug}`)
     const { data, isLoading, error } = useQuery({
         queryKey: ['pictures'],
         queryFn: fetchdata

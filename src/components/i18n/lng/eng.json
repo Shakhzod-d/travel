@@ -119,5 +119,6 @@
     "reschedule": "Tickets that have been purchased cannot be rescheduled.",
     "personal": "Buyers are required to fill in personal data when ordering.",
     "showphotos": "Show all photos",
-    "less": "Show less"
+    "less": "Show less",
+    "notfound": "404 - Page not found"
 }

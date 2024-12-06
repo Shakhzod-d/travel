@@ -21,7 +21,7 @@ const Pagination = () => {
         queryFn: fetchTraveldata
     })
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 4;
+    const itemsPerPage = 12;
     
     let filteredItems = data?.results
     
@@ -36,8 +36,10 @@ const Pagination = () => {
     if (district !== t("all")) {
         filteredItems = filteredItems?.filter((item: TravelType) => item.district.title === district);
     }
-    
-    if(activeCountry == t("all")) filteredItems = data?.results
+
+    if(category == t("all") && activeCountry == t("all") && district == t("all")) {
+        filteredItems = data?.results
+    }
     
     const currentItems = filteredItems?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
     
@@ -55,7 +57,7 @@ const Pagination = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className="w-full grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-x-7 gap-y-11">
+            <div className="w-full grid grid-cols-3 xl:grid-cols-2 md:flex md:flex-col md:items-center gap-x-7 gap-y-11">
                 {
                     currentItems?.length == 0 ? <h2 className="h2 text-xl text-red-500 font-normal lowercase">{t("nomatching")}</h2> :
                     currentItems?.map((item: TravelType) => (

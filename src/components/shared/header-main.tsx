@@ -42,7 +42,7 @@ const HeaderMain = () => {
                 </Container>
             </div>    
             <Container className="max-w-[1256px] relative w-full flex flex-col justify-between px-5 pt-2 pb-9 2xl:pb-3 h-full">
-                <div className='w-full flex flex-col items-center justify-center pt-[180px] 2xl:pt-[100px] xl:pt-[50px]'>
+                <div className='w-full flex flex-col items-center justify-center pt-[180px] 2xl:pt-[100px]  lg:pt-[50px] '>
                     {ln == 'eng' ? 
                             <h2 className='font-[400px] headline max-w-[1000px] lg:max-w-[800px] md:max-w-[600px] leading-[79px] 2xl:leading-[60px] uppercase text-[64px] 2xl:text-[42px] xl:[36px] lg:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 xl:mb-3 break-words'>
                                 can <br />

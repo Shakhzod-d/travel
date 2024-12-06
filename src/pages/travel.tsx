@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { Loading } from "../components/ui";
 import { handleId } from "../store/main-slice";
 import { useDispatch } from "react-redux";
+import { handleTourSlug } from "../store/main-slice";
 import TravelLocation from "../components/shared/travel-location";
 import TravelMenu from "../components/shared/travel-menu";
 import TravelOthers from "../components/shared/travel-others";
@@ -63,8 +64,9 @@ const   Travel = () => {
     }
   }, [id])
 
-  
-
+  useEffect(() => {
+    dispatch(handleTourSlug(slug))
+  }, [slug])
 
   
   return (

@@ -14,7 +14,8 @@ export interface State {
   id1: number,
   picturesModal: boolean,
   picturesGallery: boolean,
-  activeThumb: number
+  activeThumb: number,
+  tourSlug: string
 }
 export interface NavItems {
   id: string;
@@ -94,6 +95,7 @@ export interface FooterDataType{
   id: number,
   type: number,
   image: string,
+  link: string,
   content: string,
   updated_at: string,
   created_at: string

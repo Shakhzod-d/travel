@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from "react";
 import { Preloading, Layout, Menu, PicturesModal, PicturesGallery } from "./components/shared";
-import { Home, Tours, Travel } from "./pages";
+import { Home, Tours, Travel, NotFound, ProtectedRoute } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { Overlay, Modal, BookingModal, ScrollButton } from "./components/ui";
 import { useSelector } from "react-redux";
@@ -47,9 +47,12 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />}></Route>
             <Route path="/tours" element={<Tours />} />
-            <Route path="/tours/:id" element={<Travel />} />
+            <Route element={<ProtectedRoute/>}>
+              <Route path="/tours/:id" element={<Travel />} />
+            </Route>
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
         <ScrollButton/>

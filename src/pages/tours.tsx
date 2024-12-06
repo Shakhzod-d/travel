@@ -53,7 +53,7 @@ const Tours = () => {
     //default category
     useEffect(() => {
         if(category == ''){
-            dispatch(handleCategory(uniqueCategory[0]))
+            dispatch(handleCategory(t("all")))
         }
     },[categoriesData])
 
@@ -86,18 +86,14 @@ const Tours = () => {
         if(countriesData?.length > 0){
             const selectTag = document.getElementById('district') as HTMLSelectElement
             if(selectTag){
-                selectTag.value = districtsData?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]
-                dispatch(handleDistrict(districtsData?.filter((item: DistrictType) => item.country.title == activeCountry).map((item: { title: any; }) => item.title)[0]))
+                selectTag.value = t("all")
+                dispatch(handleDistrict(t("all")))
             }
         }
     }, [activeCountry, countriesData])
 
     const handleChangeDistrict = (e: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(handleDistrict(e.currentTarget.value))
-        let active = districtsData?.filter((item: DistrictType) => item.title == e.currentTarget.value)[0]
-        if(active){
-            dispatch(changeCountry(active.country.title)) 
-        }
     }
 
     if(isLoading2){

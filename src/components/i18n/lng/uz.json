@@ -118,6 +118,7 @@
     "tickets2": "Sotib olingan chiptalar qaytarilmaydi.",
     "reschedule": "Sotib olingan chiptalarni qayta rejalashtirish mumkin emas.",
     "personal": "Buyurtma berishda xaridorlar shaxsiy ma'lumotlarni to'ldirishlari kerak.",
-    "showphotos": "Barch rasmlarni ko'rish",
-    "less": "Kamroq ko'rsatish"
+    "showphotos": "Barcha rasmlarni ko'rish",
+    "less": "Kamroq ko'rsatish",
+    "notfound": "404 - sahifa topilmadi"
 }

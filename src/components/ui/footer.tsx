@@ -6,6 +6,7 @@ import { useFetchData, useSanitize } from "../../hooks";
 import { useQuery } from "react-query";
 import { Base_URL } from "../../api";
 import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -31,7 +32,7 @@ const Footer = () => {
           ) : error instanceof Error ? (
             <div>Error: {error.message}</div>
           ) : (
-            <div>
+            <div className="w-full">
               <div className="flex gap-8 flex-wrap w-full items-start sm:justify-start *:text-white justify-between mb-14">
                 <button onClick={scrollToTop}>
                   <img src="/welcome.png" alt="welcometoUzb" className="w-[187px] h-[44px]"/>
@@ -43,7 +44,7 @@ const Footer = () => {
                       {
                         learnSection?.map((item : FooterDataType) => (
                           <li key={item.id} className="opacity-80 text-white text-sm font-bold leading-[30px] capitalize">
-                            <div>{sanitize(item.content)}</div>
+                            <Link to={item.link} target="_blank">{sanitize(item.content)}</Link>
                           </li>
                         ))
                       }
@@ -58,7 +59,7 @@ const Footer = () => {
                       {
                         bookingSection?.map((item: FooterDataType) => (
                           <li key={item.id} className="opacity-80 text-white text-sm font-bold leading-[30px]">
-                            <div>{sanitize(item.content)}</div>
+                            <Link to={item.link} target="_blank">{sanitize(item.content)}</Link>
                           </li>
                         ))
                       }
@@ -85,7 +86,9 @@ const Footer = () => {
                     {
                       mediaSection?.map((item: FooterDataType) => (
                         <li key={item.id}>
-                          <img src={item?.image.includes('media') ? item.image : `${Base_URL}/media/${item.image}`} alt={item.content}/>
+                          <Link to={item.link} target="_blank">
+                            <img src={item?.image.includes('media') ? item.image : `${Base_URL}/media/${item.image}`} alt={item.content}/>
+                          </Link>
                         </li>
                       ))
                     }

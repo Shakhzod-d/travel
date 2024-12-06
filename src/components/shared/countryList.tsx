@@ -8,7 +8,7 @@ import { changeCountry, handleDistrict } from "../../store/main-slice";
 import { useTranslation } from "react-i18next";
 import { Carousel } from 'nuka-carousel';
 import useEmblaCarousel from 'embla-carousel-react'
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const CountryList = () => {
     const [emblaRef] = useEmblaCarousel()
@@ -27,6 +27,11 @@ const CountryList = () => {
             dispatch(changeCountry(t("all")))
         }
     }, [])
+
+    const changeEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
+        dispatch(handleDistrict(t("all")))
+        dispatch(changeCountry(e.currentTarget.id))
+    }
     
 
     if (isLoading) {
@@ -55,7 +60,7 @@ const CountryList = () => {
                 {
                     data?.map((item: CountriesType) => (
                         <button 
-                            onClick={(e) => dispatch(changeCountry(e.currentTarget.id))}
+                            onClick={changeEvent}
                             key={item.id} 
                             id={item.title} 
                             className={`btn px-[24px] py-[12px] mr-3 ${ item.title == activeCountry ? 'bg-[#F56960] text-white' : 'text-black bg-[#F5F5F5]' }`}>
@@ -77,7 +82,7 @@ const CountryList = () => {
                     {
                         data?.map((item: CountriesType) => (
                             <button 
-                                onClick={(e) => dispatch(changeCountry(e.currentTarget.id))}
+                                onClick={changeEvent}
                                 key={item.id} 
                                 id={item.title} 
                                 className={`btn px-[24px] py-[12px] mr-3 ${ item.title == activeCountry ? 'bg-[#F56960] text-white' : 'text-black bg-[#F5F5F5]' }`}>

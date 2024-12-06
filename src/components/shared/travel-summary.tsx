@@ -43,6 +43,7 @@ const TravelSummary: FC<TravelSummaryProps> = ({
 
   const changePersons = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(handlePersons(Number(e.currentTarget.value)))
+    // realPrice = Math.round(price) * Number(e.currentTarget.value)
   }
 
   const changeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -161,7 +162,7 @@ const TravelSummary: FC<TravelSummaryProps> = ({
 
         <div className="mb-[30px]">
           <div>
-            <span className="text-black text-[28px] font-bold">${Math.round(Number(price))}</span>
+            <span className="text-black text-[28px] font-bold">{`$${(Number(price) * persons).toFixed(2)}`}</span>
           </div>
         </div>
         <div className="max-w-[423px] w-[100%] h-10 ]">

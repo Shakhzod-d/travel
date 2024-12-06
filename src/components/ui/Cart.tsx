@@ -39,7 +39,7 @@ const Cart = ({
     return (
         <Link 
             to={`/tours/${slug}`}
-            className='flex flex-col items-start h-[547px] pb-3 overflow-y-hidden justify-between w-full rounded-3xl shadow-2xl'
+            className='w-full md:w-[70%] sm:w-full flex flex-col items-start h-[547px] pb-3 overflow-y-hidden justify-between rounded-3xl shadow-2xl'
         >
             <div 
                 onClick={redirectToTour} 

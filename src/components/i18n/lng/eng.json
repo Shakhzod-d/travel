@@ -77,7 +77,7 @@
     "all": "All",
     "notexistall": "No tours exist yet:(",
     "successful": "Your message has been sent successfully",
-    "booknow": "book now",
+    "booknow": "Book now",
     "populartours": "popular tours",
     "copied": "copied",
     "share": "share",
@@ -120,5 +120,6 @@
     "personal": "Buyers are required to fill in personal data when ordering.",
     "showphotos": "Show all photos",
     "less": "Show less",
-    "notfound": "404 - Page not found"
+    "notfound": "404 - Page not found",
+    "details": "tour details"
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Loading } from "../components/ui";
 import { CountryList, Pagination } from "../components/shared";
-import { useFetchData } from "../hooks";
+import { useFetchData, Tabtitle } from "../hooks";
 import { useQuery } from "react-query";
 import { CategoryType, CountriesType, DistrictType } from "../types";
 import { RootState } from "../store/store";
@@ -14,6 +14,7 @@ import ContactSection from "../components/shared/contact-section";
 
 const Tours = () => {
     const { t } = useTranslation()
+    Tabtitle(t("tours"))
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
     const { activeCountry, category, district } = state

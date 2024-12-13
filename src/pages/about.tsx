@@ -3,9 +3,12 @@ import ExperienceSection from "../components/shared/experiencse-section";
 import HeaderAbout from "../components/shared/header-about";
 import TeamSection from "../components/shared/team-section";
 import { useTranslation } from "react-i18next"
+import { Tabtitle } from "../hooks";
+
 
 const About = () => {
   const { t } = useTranslation()
+  Tabtitle(t("about"))
   return (
     <main>
       <HeaderAbout

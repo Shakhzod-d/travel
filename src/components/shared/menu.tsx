@@ -14,7 +14,7 @@ const Menu = () => {
     const { menu } = state
 
     return (
-        <div className={`lg:w-1/2 sm:w-[80%] min-h-screen overflow-hidden transition-all ease-in-out duration-500 bg-gray-50 fixed right-0 ${menu ? 'in z-50' : 'out'}`}>
+        <div className={`lg:w-1/2 sm:w-[80%] min-h-screen transition-all ease-in-out duration-500 bg-gray-50 fixed right-0 z-50 ${menu ? 'translate-x-0' : 'translate-x-[100%]'}`}>
             <div onClick={closeHandler} className="w-full pt-5 pr-5 flex justify-end">
                 <CloseIcon style={{ fontSize:32 }}/>
             </div>

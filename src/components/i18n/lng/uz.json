@@ -77,7 +77,7 @@
     "all": "Barchasi",
     "notexistall": "Turlar hozircha mavjud emas :(",
     "successful": "Sizning xabaringiz muvaffaqiyatli yuborildi",
-    "booknow": "buyurtma qilish",
+    "booknow": "Buyurtma qilish",
     "populartours": "mashhur sayohatlar",
     "copied": "nusxa olindi",
     "share": "ulashish",
@@ -120,5 +120,6 @@
     "personal": "Buyurtma berishda xaridorlar shaxsiy ma'lumotlarni to'ldirishlari kerak.",
     "showphotos": "Barcha rasmlarni ko'rish",
     "less": "Kamroq ko'rsatish",
-    "notfound": "404 - sahifa topilmadi"
+    "notfound": "404 - sahifa topilmadi",
+    "details": "Tur haqida"
 }

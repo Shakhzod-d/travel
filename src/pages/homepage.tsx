@@ -10,10 +10,11 @@ import {
   Services
 } from "../components/shared";
 import { Container } from "../components/ui"
+import { Tabtitle } from "../hooks";
 import video from '../../src/assets/video/uzb.mp4'
 
 const Home = () => {
-  
+  Tabtitle("travel")
   return (
     <div>
       <div className="w-full h-screen overflow-hidden relative bg-cover bg-no-repeat bg-center">

@@ -20,7 +20,7 @@ const ServiceCart = ({ image, title, content, id }: ServiceCartType) => {
             <button
                 id={id.toString()}
                 onClick={handleBooking}
-                className="btn text-[#F56960] capitalize border-[1px] border-[#F56960] hover:bg-[#F56960] hover:text-white text-[16px] font-[500] px-[80px] xl:px-[50px] md:px-[20px] py-2"
+                className="btn text-[#F56960] border-[1px] border-[#F56960] hover:bg-[#F56960] hover:text-white text-[16px] font-[500] px-[80px] xl:px-[50px] md:px-[20px] py-2"
             >
                 {t("booknow")}
             </button>

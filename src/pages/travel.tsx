@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { Header } from "../components/shared";
 import { Container } from "../components/ui";
 import { useParams } from 'react-router-dom'
-import { useFetchData } from "../hooks";
+import { useFetchData, Tabtitle } from "../hooks";
 import { useQuery } from "react-query";
 import { Loading } from "../components/ui";
 import { handleId } from "../store/main-slice";
 import { useDispatch } from "react-redux";
 import { handleTourSlug } from "../store/main-slice";
+import { useTranslation } from "react-i18next";
 import TravelLocation from "../components/shared/travel-location";
 import TravelMenu from "../components/shared/travel-menu";
 import TravelOthers from "../components/shared/travel-others";
@@ -20,6 +21,8 @@ import TravelTitle from "../components/shared/travel-title";
 
 
 const   Travel = () => {
+  const { t } = useTranslation()
+  Tabtitle(t('details'))
   const dispatch = useDispatch()
   const { id: slug } = useParams()
   const [isNew, setIsNew] = useState(false);

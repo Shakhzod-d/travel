@@ -16,7 +16,7 @@ const Overlay = () => {
     return (
         <div 
             onClick={closeHandler} 
-            className={`w-full fixed z-40 h-screen bg-black opacity-50 overflow-hidden ${menu || modal || bookingModal || picturesModal || picturesGallery ? 'flex' : 'hidden'}`}>
+            className={`w-full fixed z-40 h-screen bg-black opacity-80 overflow-hidden ${menu || modal || bookingModal || picturesModal || picturesGallery ? 'flex' : 'hidden'}`}>
         </div>
     )
 }

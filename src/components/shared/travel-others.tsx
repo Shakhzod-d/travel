@@ -33,7 +33,7 @@ const TravelOthers: FC<TravelOthersProps> = ({
             {t("regarding")}
           </p>
         </div>
-        {others.length > 0 && 
+        {others?.length > 0 && 
           others?.map((item: OthersType) => (
             <div
               key={item.id}

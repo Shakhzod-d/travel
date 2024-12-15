@@ -13,14 +13,16 @@ const initialState: State = {
   category: '',
   serviceId: '',
   start: '',
-  end: '',
-  persons: 1,
   tourModal: false,
   id1: 0,
   picturesModal: false,
   picturesGallery: false,
   activeThumb: 0,
-  tourSlug: ''
+  tourSlug: '',
+  modalType: '',
+  galleryType: '',
+  includedActive: '',
+  days1: 0
 };
 
 let body = document.getElementsByTagName('body')
@@ -55,9 +57,11 @@ export const mainSlice = createSlice({
     },
     openTourModal: (state) => {
       state.tourModal = true;
+      body[0].classList.add('unscrollable')
     },
     closeTourModal: (state) => {
       state.tourModal = false;
+      body[0].classList.remove('unscrollable')
     },
     rate: ( state, action ) => {
       state.userRate = action.payload
@@ -77,12 +81,6 @@ export const mainSlice = createSlice({
     handleStart: ( state, action ) => {
       state.start = action.payload
     },
-    handleEnd: ( state, action ) => {
-      state.end = action.payload
-    },
-    handlePersons: ( state, action ) => {
-      state.persons = action.payload
-    },
     handleId: ( state, action ) => {
       state.id1 = action.payload
     },
@@ -97,7 +95,19 @@ export const mainSlice = createSlice({
     },
     handleTourSlug: ( state, action ) => {
       state.tourSlug = action.payload
-    }
+    },
+    handleModalType: ( state, action ) => {
+      state.modalType = action.payload
+    },
+    handleGalleryType: ( state, action ) => {
+      state.galleryType = action.payload
+    },
+    handleIncludedActive: ( state, action ) => {
+      state.includedActive = action.payload
+    },
+    handleDays: ( state, action ) => {
+      state.days1 = action.payload
+    },
   },
 });
 
@@ -114,15 +124,17 @@ export const {
   closeBookingModal,
   handleServiceId,
   handleStart,
-  handleEnd,
-  handlePersons,
   openTourModal,
   closeTourModal,
   handleId,
   changePicturesModal,
   handleGallery,
   changeActiveThumb,
-  handleTourSlug
+  handleTourSlug,
+  handleModalType,
+  handleGalleryType,
+  handleIncludedActive,
+  handleDays
 } =
 mainSlice.actions;
 

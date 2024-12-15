@@ -6,23 +6,20 @@ import { useTranslation } from "react-i18next";
 import { useSanitize } from "../../hooks";
 
 interface TravelOverviewProps {
-  facilities: FacilitiesType[]
-  context: string
+  facilities: FacilitiesType[];
+  context: string;
 }
 
-const TravelOverview: FC<TravelOverviewProps> = ({
-  facilities,
-  context
-}) => {
-  const { t } = useTranslation()
-  const { sanitize } = useSanitize()
+const TravelOverview: FC<TravelOverviewProps> = ({ facilities, context }) => {
+  const { t } = useTranslation();
+  const { sanitize } = useSanitize();
 
   return (
     <section
-      className="bg-white mb-[75px] px-8 py-5 rounded-sm sm:px-0 min-w-[700px] max-w-[740px] xl:min-w-[500px] md:min-w-[400px] sm:min-w-[250px] sm:w-full w-full"
+      className="bg-white mb-7 rounded-sm sm:px-0 xl:min-w-[500px] md:min-w-[400px] sm:min-w-[250px] sm:w-full w-full"
       id="overview"
     >
-      <Container className="border-b w-full max-w-full mb-7 pb-7 rounded-md">
+      <Container className="border-b w-full max-w-full mb-7 pb-7 px-0 rounded-md p-6 sm:p-2">
         <div>
           <div className="text-[#112211] text-xl font-bold capitalize">
             {t("overview")}
@@ -35,19 +32,25 @@ const TravelOverview: FC<TravelOverviewProps> = ({
           {sanitize(context)}
         </div>
       </Container>
-      <Container>
+      <Container className="p-6 sm:p-2">
         <h2 className="text-[#112211] text-xl font-bold mb-5 capitalize">
           {t("facilities")}
         </h2>
-        <ul className={`grid max-w-[600px] sm:grid-cols-1 ${facilities?.length > 3 ? 'grid-cols-2' : 'grid-cols-1'}`}>
-          {
-            facilities?.map((item: FacilitiesType) => (
-              <li key={item.id} className="flex mb-3 gap-3">
-                <img src={item.image} alt={item.title} className="w-[22px] h-[22px]"/>
-                <p>{item.title}</p>
-              </li>
-            )
-          )}
+        <ul
+          className={`grid max-w-[600px] sm:grid-cols-1 ${
+            facilities?.length > 3 ? "grid-cols-2" : "grid-cols-1"
+          }`}
+        >
+          {facilities?.map((item: FacilitiesType) => (
+            <li key={item.id} className="flex mb-3 gap-3">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-[22px] h-[22px]"
+              />
+              <p>{item.title}</p>
+            </li>
+          ))}
         </ul>
       </Container>
     </section>

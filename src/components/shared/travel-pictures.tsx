@@ -5,7 +5,13 @@ import { Base_URL } from "../../api";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { ImagesType } from "../../types";
-import { changePicturesModal, handleGallery, changeActiveThumb } from "../../store/main-slice";
+import { 
+  changePicturesModal, 
+  handleGallery, 
+  changeActiveThumb,
+  handleGalleryType,
+  handleModalType
+} from "../../store/main-slice";
 
 interface TravelPicturesProps {
   images: ImagesType[],
@@ -16,10 +22,12 @@ const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
   const dispatch = useDispatch()
   const handlePictures = () => {
     dispatch(changePicturesModal())
+    dispatch(handleModalType(''))
   }
   const handlePicturesGallery = (e: React.MouseEvent<HTMLImageElement>) => {
     dispatch(changeActiveThumb(Number(e.currentTarget.id)))
     dispatch(handleGallery())
+    dispatch(handleGalleryType(""));
   }
   const { t } = useTranslation()
   return (
@@ -37,7 +45,7 @@ const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
               />
               <div className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-5">
                 {
-                  images?.slice(1,5).map((item: ImagesType, index: number) => (
+                  images?.slice(1,5)?.map((item: ImagesType, index: number) => (
                     images?.indexOf(item) == 4 && images?.length > 5 ? (
                     <div 
                       key={item.id} 

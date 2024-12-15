@@ -43,6 +43,7 @@ const Destinations = () => {
         filteredTravelData = travelData?.results?.filter(
             (item: TravelType) => item.country.title === activeCountry
     )}
+    
     if(activeCountry == t("all")){
         filteredTravelData = travelData?.results
     }
@@ -93,7 +94,7 @@ const Destinations = () => {
                                                             <h4 className="h4">{item.country.title}</h4>
                                                         </div>
                                                     </div>
-                                                    <h3 className='text-white text-[40px] font-semibold'>${Math.round(item.price)}</h3>
+                                                    <h3 className='text-white text-[40px] font-semibold'>${Math.round(Number(item.price))}</h3>
                                                 </div>
                                         </button>
                                     </Link>
@@ -121,7 +122,7 @@ const Destinations = () => {
                                                             <h4 className="h4">{item.country.title}</h4>
                                                         </div>
                                                     </div>
-                                                    <h3 className='text-white text-[40px] font-semibold'>${Math.round(item.price)}</h3>
+                                                    <h3 className='text-white text-[40px] font-semibold'>${Math.round(Number(item.price))}</h3>
                                                 </div>
                                         </button>
                                     </Link>

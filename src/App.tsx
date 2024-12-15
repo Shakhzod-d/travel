@@ -1,8 +1,8 @@
 import { Suspense, useEffect } from "react";
-import { Preloading, Layout, Menu, PicturesModal, PicturesGallery } from "./components/shared";
+import { Layout, Menu, PicturesModal, PicturesGallery } from "./components/shared";
 import { Home, Tours, Travel, NotFound, ProtectedRoute } from "./pages";
 import { Route, Routes } from "react-router-dom";
-import { Overlay, Modal, BookingModal, ScrollButton } from "./components/ui";
+import { Overlay, Modal, BookingModal, ScrollButton, TourBooking, Loading } from "./components/ui";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { ToastContainer } from 'react-toastify';
@@ -15,7 +15,7 @@ import Footer from "./components/ui/footer";
 
 function App() {
   const state = useSelector((state: RootState) => state.main)
-  const { modal, bookingModal, picturesModal, picturesGallery } = state
+  const { modal, bookingModal, picturesModal, picturesGallery, tourModal } = state
   useEffect(() => {
     let lastLn = localStorage.getItem('lng') 
     if(lastLn){
@@ -35,19 +35,20 @@ function App() {
 
   return (
     <>
-      <ToastContainer/>
-      {picturesModal && <PicturesModal/>}
-      {picturesGallery && <PicturesGallery/>}
-      <Suspense fallback={<Preloading />}>
-        {modal && <Modal/>}
-        {bookingModal && <BookingModal/>}
+      <ToastContainer />
+      {picturesModal && <PicturesModal />}
+      {picturesGallery && <PicturesGallery />}
+      <Suspense fallback={<Loading />}>
+        {modal && <Modal />}
+        {bookingModal && <BookingModal />}
+        {tourModal && <TourBooking />}
         <Overlay />
-        <Menu/>
+        <Menu />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />}></Route>
             <Route path="/tours" element={<Tours />} />
-            <Route element={<ProtectedRoute/>}>
+            <Route element={<ProtectedRoute />}>
               <Route path="/tours/:id" element={<Travel />} />
             </Route>
             <Route path="/about" element={<About />} />
@@ -55,8 +56,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-        <ScrollButton/>
-        <Footer/>
+        <ScrollButton />
+        <Footer />
       </Suspense>
     </>
   );

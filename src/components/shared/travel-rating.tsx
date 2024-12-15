@@ -26,11 +26,11 @@ const TravelRating: FC<TravelRatingProps> = ({
     dispatch(openModal())
   }
 
-  let five = ranks.detail?.filter((item: DetailType) => item.rank == 5).length
-  let four = ranks.detail?.filter((item: DetailType) => item.rank == 4).length
-  let three = ranks.detail?.filter((item: DetailType) => item.rank == 3).length
-  let two = ranks.detail?.filter((item: DetailType) => item.rank == 2).length
-  let one = ranks.detail?.filter((item: DetailType) => item.rank == 1).length
+  let five = ranks.detail?.filter((item: DetailType) => item.rank == 5)?.length
+  let four = ranks.detail?.filter((item: DetailType) => item.rank == 4)?.length
+  let three = ranks.detail?.filter((item: DetailType) => item.rank == 3)?.length
+  let two = ranks.detail?.filter((item: DetailType) => item.rank == 2)?.length
+  let one = ranks.detail?.filter((item: DetailType) => item.rank == 1)?.length
 
   let arr = [five, four, three, two, one]
   let sum = arr.reduce((a,b) => a + b, 0) 

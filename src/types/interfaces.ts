@@ -8,14 +8,16 @@ export interface State {
   category: string;
   serviceId: string;
   start: string,
-  end: string,
-  persons: number,
   tourModal: boolean,
   id1: number,
   picturesModal: boolean,
   picturesGallery: boolean,
   activeThumb: number,
-  tourSlug: string
+  tourSlug: string,
+  modalType: string,
+  galleryType: string,
+  includedActive: string,
+  days1: number
 }
 export interface NavItems {
   id: string;
@@ -56,14 +58,25 @@ export interface Data{
   content?: string
 }
 
+export interface PreferredTimeType{
+  id: number,
+  title: any
+}
+
 export interface BookingTourData{
+  residence_country: string,
+  preferred_time?: any,
   full_name: string,
-  phone: string,
   start_date: string | null,
   end_date: string | null,
-  persons: number,
+  email?: string,
+  arrival?: string,
+  adults: number,
+  youth?: number,
+  children?: number,
+  infants?: number,
+  phone: string
   content?: string,
-  id?: number
 }
 
 export interface OpinionType{
@@ -97,7 +110,7 @@ export interface FooterDataType{
   image: string,
   link: string,
   content: string,
-  updated_at: string,
+  updated_at?: string,
   created_at: string
 }
 
@@ -113,7 +126,7 @@ export interface ModalDataType{
 export interface CountriesType{
   id: number,
   title: string,
-  updated_at: string,
+  updated_at?: string,
   created_at: string
 }
 
@@ -121,38 +134,51 @@ export interface DistrictType{
   id: number,
   title: string,
   country: CountriesType
-  updated_at: string,
+  updated_at?: string,
   created_at: string
 }
 export interface CategoryType{
   id: number,
   title: string,
-  image: string,
   sub_title: string,
+  image: string,
   updated_at?: string,
   created_at?: string,
+}
+export interface IncludeType{
+  id: number,
+  title: string,
+  context: string,
+  images: ImagesType[]
+}
+export interface IncludesType{
+  id: number,
+  include: IncludeType
 }
 export interface TravelType{
   id: number,
   slug: string,
   title: string,
   category: CategoryType,
+  tour_class: number,
+  tour_type: number,
   image: string,
   country: CountriesType,
   district: DistrictType,
-  price: number,
-  days: number,
-  nights: number,
+  price: string,
+  days: number | null,
+  nights: number | null,
   start_date: string,
   end_date: string,
+  duration: string,
   reviews_count: number,
   overall_rank: number,
   context: string,
   is_popular: boolean,
   is_summer: boolean,
   is_winter: boolean,
-  updated_at: string,
-  created_at: string
+  updated_at?: string,
+  created_at?: string
 }
 
 export interface TravelDetailType{
@@ -176,24 +202,25 @@ export interface TravelDetailType{
   is_summer: boolean,
   is_winter: boolean,
   ranks: RanksType,
-  reviews: ReviewsType[],
-  others: OthersType[],
-  updated_at: string,
+  reviews: ReviewsType[] | [],
+  others: OthersType[] | [],
+  includes: IncludesType[] | [],
+  updated_at?: string,
   created_at: string
 }
 
 export interface ImagesType{
   id: number,
   image: string,
-  updated_at: string,
-  created_at: string
+  updated_at?: string,
+  created_at?: string
 }
 
 export interface AvailabilitiesType{
   id: number,
   title: string,
   image: string,
-  updated_at: string,
+  updated_at?: string,
   created_at: string
 }
 
@@ -211,7 +238,7 @@ export interface FaqType{
   id: number,
   title: string,
   content: string,
-  updated_at: string,
+  updated_at?: string,
   created_at: string,
 }
 
@@ -220,7 +247,7 @@ export interface TeamType{
   full_name: string,
   image: string,
   position: string,
-  updated_at: string,
+  updated_at?: string,
   created_at: string,
 }
 
@@ -256,7 +283,7 @@ export interface OthersType{
   id: number,
   title: string,
   context: string,
-  updated_at: string,
+  updated_at?: string,
   created_at: string,
 }
 

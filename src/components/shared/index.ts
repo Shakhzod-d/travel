@@ -1,6 +1,5 @@
 
 export { default as Layout } from './layout' 
-export { default as Preloading } from './preloading' 
 export { default as Header } from './header' 
 export { default as HeaderMain } from './header-main' 
 export { default as Navbar } from './navbar' 
@@ -25,6 +24,7 @@ export * from "./contact-form-section";
 export * from "./faqs-section";
 export * from "./travel-title";
 export * from "./travel-pictures";
+export * from "./travel-hotels";
 export * from "./travel-menu";
 export * from "./travel-overview";
 export * from "./travel-reviews";
@@ -33,6 +33,5 @@ export * from "./travel-summary";
 export * from "./travel-rating";
 export * from "./travel-others";
 export * from "./layout";
-export * from "./preloading";
 export * from "./header";
 export * from "./navbar";

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import type { FC } from "react";
-import { Map } from '../ui'
+import { Map } from "../ui";
 import { useTranslation } from "react-i18next";
 
 interface TravelLocationProps {
@@ -14,16 +14,15 @@ const TravelLocation: FC<TravelLocationProps> = ({
   country,
   city,
   lot,
-  lang
+  lang,
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
-    <div
-      className=" bg-white rounded-md mt-10 py-6 px-8 sm:px-2 sm:py-2"
-      id="location"
-    >
+    <div className=" bg-white rounded-md mt-7 p-6 sm:p-2" id="location">
       <div className=" bg-white rounded-md" />
-      <h2 className=" text-[#112211] text-xl font-bold mb-4 capitalize">{t("location")}</h2>
+      <h2 className=" text-[#112211] text-xl font-bold mb-4 capitalize">
+        {t("location")}
+      </h2>
       <div className=" items-center gap-3 flex mb-5">
         <img
           src="/icons/location.svg"
@@ -33,10 +32,7 @@ const TravelLocation: FC<TravelLocationProps> = ({
           {country}, {city}
         </p>
       </div>
-      <Map 
-        lot={lot}
-        lang={lang}
-      />
+      <Map lot={lot} lang={lang} />
     </div>
   );
 };

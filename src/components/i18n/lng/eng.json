@@ -151,5 +151,9 @@
     "restaurant": "Restaurant",
     "hotel2": "Hotel",
     "choosedate": "Please, choose departure date",
-    "successfullyBooked": "Thanks for your request! We will contact you soon"
+    "successfullyBooked": "Thanks for your request! We will contact you soon",
+    "alltours": "See all tours",
+    "ratemessage": "Please, rate us",
+    "contentmessage": "Please, fill the area above",
+    "successreview": "Thanks for your review!"
 }

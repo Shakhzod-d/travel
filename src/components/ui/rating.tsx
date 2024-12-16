@@ -4,19 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 interface Props {
   rating: number;
+  setRateErr?: (err: boolean) => void;
 }
 
-const Rating = ({ rating }: Props) => {
-  const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.main)
-  const { userRate } = state
+const Rating = ({ rating, setRateErr }: Props) => {
+  const dispatch = useDispatch();
+  const state = useSelector((state: RootState) => state.main);
+  const { userRate } = state;
   const handleRate = (e: React.MouseEvent<HTMLSpanElement>) => {
-    if(userRate == Number(e.currentTarget.id)){
-      dispatch(rate(Number(e.currentTarget.id) - 1))
-    }else{
-      dispatch(rate(Number(e.currentTarget.id)))
+    if (userRate == Number(e.currentTarget.id)) {
+      dispatch(rate(Number(e.currentTarget.id) - 1));
+    } else {
+      if(setRateErr) setRateErr(false);
+      dispatch(rate(Number(e.currentTarget.id)));
     }
-  }
+  };
 
   const stars = Array.from({ length: 5 }, (_, index) => {
     const filledStars = index + 1;
@@ -25,7 +27,7 @@ const Rating = ({ rating }: Props) => {
       <span
         onClick={handleRate}
         key={index}
-        id={(index+1).toString()}
+        id={(index + 1).toString()}
         style={{
           position: "relative",
           display: "inline-block",
@@ -62,7 +64,6 @@ const Rating = ({ rating }: Props) => {
       </span>
     );
   });
-  
 
   return <div>{stars}</div>;
 };

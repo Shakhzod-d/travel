@@ -40,15 +40,15 @@ const LocaleSelector = ({ className }: Prop) => {
                 <img src={ln === 'uz' ? uzb : ln === 'eng' ? eng : ru} alt="flag" className="w-[20px] h-[20px] rounded-md"/>
             </div>
             <div className={`${show ? 'flex flex-col' : 'hidden'} border-[1px] border-gray-500 rounded-md absolute z-50 w-[65px] top-8`}>
-                <button onClick={handleLocale} value={'eng'} className="hover:bg-black hover:bg-opacity-50 bg-white bg-opacity-25 w-full flex items-center pl-2">
+                <button onClick={handleLocale} value={'eng'} className="hover:bg-black hover:bg-opacity-10 bg-white bg-opacity-25 w-full flex items-center pl-2">
                     <span className="mr-3 text-center text-sm">En</span>
                     <img src={eng} alt="eng" className="w-[15px] h-[15px] rounded-md"/>
                 </button>
-                <button onClick={handleLocale} value={'ru'} className="hover:bg-black hover:bg-opacity-50 bg-white bg-opacity-25 w-full flex items-center pl-2">
+                <button onClick={handleLocale} value={'ru'} className="hover:bg-black hover:bg-opacity-10 bg-white bg-opacity-25 w-full flex items-center pl-2">
                     <span className="text-center mr-[12px] text-sm">Ru</span>
                     <img src={ru} alt="ru" className="w-[15px] h-[15px] rounded-md"/>
                 </button>
-                <button onClick={handleLocale} value={'uz'} className="hover:bg-black hover:bg-opacity-50 bg-white bg-opacity-25 w-full flex items-center pl-2">
+                <button onClick={handleLocale} value={'uz'} className="hover:bg-black hover:bg-opacity-10 bg-white bg-opacity-25 w-full flex items-center pl-2">
                     <span className="mr-3 text-center text-sm">Uz</span>
                     <img src={uzb} alt="uz" className="w-[15px] h-[15px] pointer-events-none rounded-md"/>
                 </button>

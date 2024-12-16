@@ -34,16 +34,16 @@ const TravelPictures: FC<TravelPicturesProps> = ({ images, title }) => {
     <section className="pb-10 bg-white">
       <Container className="w-full">
           <div className="w-full flex flex-col items-center">
-            <div className="grid grid-cols-2 xl:flex xl:flex-col xl:items-center gap-4">
+            <div className="w-full grid grid-cols-2 xl:flex xl:flex-col xl:items-center gap-4">
               <img 
                 id='0'
                 key={images[0].id}
                 src={images[0]?.image.includes('media') ? images[0].image : `${Base_URL}/media/${images[0].image}`} 
                 alt={title} 
-                className="w-full h-[400px] xl:h-[400px] xl:w-[50%] md:w-[80%] sm:w-full cursor-pointer"
+                className="w-full h-[400px] xl:h-[400px] xl:w-1/2 lg:w-full cursor-pointer"
                 onClick={handlePicturesGallery}
               />
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-5">
+              <div className="w-full grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-5">
                 {
                   images?.slice(1,5)?.map((item: ImagesType, index: number) => (
                     images?.indexOf(item) == 4 && images?.length > 5 ? (

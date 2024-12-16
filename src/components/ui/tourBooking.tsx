@@ -13,7 +13,6 @@ import axios from "axios";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Swal from "sweetalert2";
 import CircularProgress from "@mui/material/CircularProgress";
-import useCountryList from "react-select-country-list";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Loading from "./loader";
@@ -30,11 +29,22 @@ const TourBooking = () => {
     queryKey: ["tour-booking"],
     queryFn: fetchdata,
   });
-
   const { fetchdata: fetchdata1 } = useFetchData(`/api/booking/v1/preferred-time/`);
   const { data: data1, isLoading: isLoading1, error: error1 } = useQuery({
     queryKey: ["preferred-time"],
     queryFn: fetchdata1,
+  });
+
+  const { fetchdata: fetchdata2 } = useFetchData(
+    `/api/booking/v1/residence-country/`
+  );
+  const {
+    data: data2,
+    isLoading: isLoading2,
+    error: error2,
+  } = useQuery({
+    queryKey: ["country-list"],
+    queryFn: fetchdata2,
   });
 
   const { title, start_date, end_date, days } = data || {};
@@ -48,20 +58,20 @@ const TourBooking = () => {
     mode: "onBlur",
   });
   const [start, setStart] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
-  const countryOptions = useCountryList();
+  const [selectedCountry, setSelectedCountry] = useState(0);
+  const [countryErr, setCountryErr] = useState(false);
+  const [selectedTime, setSelectedTime] = useState(0);
 
   const handleChangeStart = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStart(event.target.value);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(event.target.value);
+    setSelectedCountry(Number(event.target.value));
   };
 
   const handleChangeTime = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedTime(event.target.value);
+    setSelectedTime(Number(event.target.value));
   };
 
   const [phone, setPhone] = useState("");
@@ -80,6 +90,10 @@ const TourBooking = () => {
     return newDate;
   }
   const onSubmit = async (data: BookingTourData) => {
+    if(selectedCountry == 0){
+      setCountryErr(true)
+      return
+    }
     if (start_date) {
       data.start_date = start_date;
     }
@@ -96,7 +110,7 @@ const TourBooking = () => {
     if (!start_date && !days) {
       data.end_date = null;
     }
-
+    if(selectedTime !== 0) data.preferred_time = selectedTime;
     setIspending(true);
     try {
       await axios
@@ -116,13 +130,13 @@ const TourBooking = () => {
         });
     } finally {
       setPhone("");
-      setSelectedCountry("");
-      setSelectedTime("");
+      setSelectedCountry(0);
+      setSelectedTime(0);
       setIspending(false);
     }
+    setCountryErr(false)
     reset();
   };
-
 
   const closeHandler = () => {
     dispatch(closeBookingModal());
@@ -156,18 +170,16 @@ const TourBooking = () => {
   return (
     <div
       ref={selectorRef}
-      className={`w-full animate__animated animate__zoomIn  fixed justify-center items-center z-50 pointer-events-none break-words ${
+      className={`w-full animate__animated animate__zoomIn fixed justify-center items-center z-50 pointer-events-none break-words ${
         tourModal ? "flex" : "animate__animated animate__zoomOut"
       }`}
     >
-      <div className="flex justify-center items-center 2xl:items-start w-full h-screen overflow-scroll pointer-events-none">
+      <div className="flex justify-center items-center 3xl:items-start w-full h-screen overflow-scroll pointer-events-none">
         <div className="bg-white w-full">
           <Container className="pointer-events-auto h-max w-full py-11 2xl:py-7 sm:py-3">
             <div className="w-full flex sm:flex-col-reverse sm:items-end justify-between items-center gap-x-9 border-b-[1px] border-[#E5E5E5]">
               <div className="text-[32px] md:text-[24px] mb-3 font-[600] text-[#98A2B3] inline">
-                <h3 className="inline">
-                  {title}
-                </h3>
+                <h3 className="inline">{title}</h3>
                 <h3 className="text-black inline">/{t("request")}</h3>
               </div>
               <div
@@ -212,33 +224,38 @@ const TourBooking = () => {
                     </h3>
                     <span className="text-red-500 ml-1">*</span>
                   </div>
-                  <select
-                    className="rounded-md p-3 text-[18px] text-[#98A2B3] w-full my-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
-                    {...register("residence_country", {
-                      required: {
-                        value: true,
-                        message: t("residencemessage"),
-                      },
-                    })}
-                    id="residence"
-                    value={selectedCountry}
-                    onChange={handleChange}
-                  >
-                    <option value="" disabled>
-                      {t("selectcountry")}
-                    </option>
-                    {countryOptions?.data.map(
-                      (
-                        item: { value: string; label: string },
-                        index: number
-                      ) => (
-                        <option key={index} value={item.label}>
-                          {item.label}
-                        </option>
-                      )
-                    )}
-                  </select>
-                  <p className="error">{errors.residence_country?.message}</p>
+                  {isLoading2 ? (
+                    <Loading className="h-max" />
+                  ) : error2 instanceof Error ? (
+                    <p className="error">{error2.message}</p>
+                  ) : (
+                    <select
+                      className="rounded-md p-3 text-[18px] text-[#98A2B3] w-full my-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                      {...register("residence_country", {
+                        required: {
+                          value: true,
+                          message: t("residencemessage"),
+                        },
+                      })}
+                      id="residence"
+                      value={Number(selectedCountry)}
+                      onChange={handleChange}
+                    >
+                      <option value={0} disabled>
+                        {t("selectcountry")}
+                      </option>
+                      {data2?.results?.map(
+                        (item: { id: number; title: string }) => (
+                          <option key={item.id} value={item.id}>
+                            {item.title}
+                          </option>
+                        )
+                      )}
+                    </select>
+                  )}
+                  {countryErr && (
+                    <p className="error">{t("residencemessage")}</p>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-y-3 gap-x-5 mb-3">
@@ -285,10 +302,11 @@ const TourBooking = () => {
                           },
                         })}
                         onChange={handleChangeTime}
+                        defaultValue=''
                       >
-                        <option value=""></option>
+                        <option value=''></option>
                         {data1?.results?.map((item: PreferredTimeType) => (
-                          <option value={item.title} key={item.id}>
+                          <option value={item.id} key={item.id}>
                             {item.title}
                           </option>
                         ))}
@@ -421,6 +439,7 @@ const TourBooking = () => {
                       })}
                       id="youth"
                       type="number"
+                      defaultValue={0}
                       placeholder={t("enternumber")}
                     />
                   </div>
@@ -440,6 +459,7 @@ const TourBooking = () => {
                       })}
                       id="children"
                       type="number"
+                      defaultValue={0}
                       placeholder={t("enternumber")}
                     />
                   </div>
@@ -459,6 +479,7 @@ const TourBooking = () => {
                       })}
                       id="infants"
                       type="number"
+                      defaultValue={0}
                       placeholder={t("enternumber")}
                     />
                   </div>

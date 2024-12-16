@@ -1,10 +1,8 @@
-import { useSelector } from "react-redux"
 import { RootState } from "../../store/store"
 import { closeMenu, closeModal } from '../../store/main-slice';
-import { useDispatch } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 
 const Overlay = () => {
-
     const state = useSelector((state: RootState) => state.main)
     const { menu, modal, bookingModal, tourModal, picturesModal, picturesGallery } = state
     const dispatch = useDispatch()

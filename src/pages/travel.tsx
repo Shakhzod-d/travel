@@ -96,7 +96,7 @@ const Travel = () => {
                   ranks={ranks}
                   sortReviews={sortReviews}
                 />
-                <TravelReviews reviews={reviews} isNew={isNew} />
+                <TravelReviews isNew={isNew} />
                 <TravelLocation
                   country={country}
                   city={city}

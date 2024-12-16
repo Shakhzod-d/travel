@@ -151,5 +151,9 @@
     "restaurant": "Restoran",
     "hotel2": "Mehmonxona",
     "choosedate": "Iltimos, sayohatning boshlanish sanasini tanlang",
-    "successfullyBooked": "So'rovingiz uchun rahmat! Tez orada siz bilan bog'lanamiz"
+    "successfullyBooked": "So'rovingiz uchun rahmat! Tez orada siz bilan bog'lanamiz",
+    "alltours": "Barcha sayohatlar",
+    "ratemessage": "Iltimos, baholang",
+    "contentmessage": "Iltimos, yuqoridagi maydonni to'ldiring",
+    "successreview": "Sharh qoldirganingiz uchun tashakkur!"
 }

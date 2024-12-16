@@ -39,52 +39,52 @@ const PicturesGallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null) 
 
     const handleThumbnailClick = (index: number) => {
-        galleryType == ""
-          ? dispatch(changeActiveThumb(index))
-          : dispatch(handleIncludedActive(index));
+      galleryType == ""
+        ? dispatch(changeActiveThumb(index))
+        : dispatch(handleIncludedActive(index));
     }
 
     const handleSlideChange = (swiper: any) => {
-        galleryType == ""
-          ? dispatch(changeActiveThumb(swiper.activeIndex))
-          : dispatch(handleIncludedActive(swiper.activeIndex));
+      galleryType == ""
+        ? dispatch(changeActiveThumb(swiper.activeIndex))
+        : dispatch(handleIncludedActive(swiper.activeIndex));
     }
 
     useEffect(() => {
-        changeActiveThumb(
-          galleryType == "" ? activeThumb : includedActiveThumb
-        );
-        setTimeout(() => {
-            setLoading(true)
-        }, 400);
+      changeActiveThumb(
+        galleryType == "" ? activeThumb : includedActiveThumb
+      );
+      setTimeout(() => {
+          setLoading(true)
+      }, 400);
     }, [])
 
     useEffect(() => {
-        changeActiveThumb(
-          galleryType == "" ? activeThumb : includedActiveThumb
-        );
+      changeActiveThumb(
+        galleryType == "" ? activeThumb : includedActiveThumb
+      );
     }, [activeThumb, includedActiveThumb])
 
     useEffect(() => {
-        if (thumbsSwiper) {
-            thumbsSwiper.slideTo(galleryType == "" ? activeThumb : includedActiveThumb)
-        }
+      if (thumbsSwiper) {
+          thumbsSwiper.slideTo(galleryType == "" ? activeThumb : includedActiveThumb)
+      }
     }, [activeThumb, thumbsSwiper]) 
 
     const stopPropagation = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation()
+      e.stopPropagation()
     }
 
     const hideGallery = () => {
-        dispatch(handleModalType(''))
-        dispatch(handleGalleryType(''))
-        dispatch(handleGallery())
+      dispatch(handleModalType(''))
+      dispatch(handleGalleryType(''))
+      dispatch(handleGallery())
     }
     
     if (!picturesGallery) return null
 
     if(!loading) {
-        return <Loading/>
+      return <Loading/>
     }
     return (
       <div
@@ -92,9 +92,9 @@ const PicturesGallery = () => {
           picturesGallery ? "animate__zoomIn" : "hidden"
         }`}
       >
-        <div className="flex justify-center items-center w-full h-full 2xl:p-3 p-9">
+        <div className="flex justify-center  items-center w-full h-full 2xl:p-3 p-9">
           <div
-            className="relative w-full h-full bg-transparent flex flex-col items-center"
+            className="relative w-full  h-full bg-transparent flex flex-col items-center"
             onClick={hideGallery}
           >
             <div
@@ -111,7 +111,7 @@ const PicturesGallery = () => {
             </div>
             <div
               onClick={stopPropagation}
-              className="relative flex flex-col h-full max-w-[1096px] w-[50%] lg:w-[70%] md:w-[80%] sm:w-[90%] pointer-events-auto px-11 sm:p-5"
+              className="relative flex flex-col h-full justify-center max-w-[1096px] w-[50%] lg:w-[70%] md:w-[80%] sm:w-[90%] pointer-events-auto px-11 sm:p-5"
             >
               {isLoading ? (
                 <Loading />

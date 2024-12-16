@@ -4,30 +4,43 @@ import { Container, Loading } from "../ui";
 import { useTranslation } from "react-i18next";
 import { ReviewsType } from "../../types";
 import ReviewCard from "../ui/review-card";
+import { useFetchData } from "../../hooks";
+import { useQuery } from "react-query";
+import { useParams } from "react-router";
 
 interface TravelReviewsProps {
-  reviews: ReviewsType[];
   isNew?: boolean;
 }
 
-const TravelReviews: FC<TravelReviewsProps> = ({ reviews, isNew }) => {
+const TravelReviews: FC<TravelReviewsProps> = ({ isNew }) => {
   const { t } = useTranslation();
-  const [loading, setLoading] = useState(true);
+  const { id: slug } = useParams();
+
+  const { fetchdata } = useFetchData(`/api/tour/v1/detail/${slug}`);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["details"],
+    queryFn: fetchdata,
+  });
+
+  let { reviews } = data || {};
   const [currentItems, setCurrentItems] = useState<ReviewsType[]>(reviews);
+
+  useEffect(() => {
+    setCurrentItems(reviews)
+  }, [reviews, data])
 
   useEffect(() => {
     setCurrentItems((prev) => [...prev].reverse());
   }, [isNew]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
-
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
+
+  if(error instanceof Error){
+    return <p className="error">Error: {error.message}</p>
+  }
+
   return (
     <section className="bg-white rounded-lg p-6 sm:p-2" id="review">
       <Container className="p-0">

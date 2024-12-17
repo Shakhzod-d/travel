@@ -21,7 +21,7 @@ const ScrollButton = () => {
     return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
     return (
-        <button onClick={scrollToTop} className={`p-4 rounded-full bg-white bottom-5 right-5 shadow-lg ${isVisible ? 'fixed' : 'hidden'}`}>
+        <button onClick={scrollToTop} className={`p-4 rounded-full bg-white bottom-5 z-50 right-5 shadow-lg ${isVisible ? 'fixed' : 'hidden'}`}>
             <KeyboardArrowUpIcon className='text-black w-10 h-10'/>
         </button>
     )

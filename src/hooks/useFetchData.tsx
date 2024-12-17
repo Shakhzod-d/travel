@@ -10,11 +10,11 @@ const useFetchData = (url: string) => {
 
     const fetchdata = async () => {
         try {
-            const req = await axios.get(`${Base_URL}${test ? '/' : ''}${url}`, {
-                headers: {
-                    'Accept-Language': lng ? lng : 'eng'
-                }
-            })
+            const req = await axios.get(`${Base_URL}${test ? "/" : ""}${url}`, {
+              headers: {
+                "Accept-Language": lng ? lng : "eng",
+              }
+            });
             return req.data
         } 
         catch (error) {

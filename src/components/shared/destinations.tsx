@@ -3,7 +3,7 @@ import { TravelType } from "../../types"
 import { useSelector, useDispatch } from "react-redux"
 import { CountryList } from "./"
 import { RootState } from "../../store/store"
-import { useFetchData, useFetchTravelData } from "../../hooks"
+import { useFetchData, useFetchTravelData, useScrollToTop } from "../../hooks"
 import { useQuery } from "react-query"
 import { Loading } from "../ui"
 import { changeCountry, handleCategory, handleDistrict } from "../../store/main-slice"
@@ -16,6 +16,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 const Destinations = () => {
     const [emblaRef] = useEmblaCarousel()
+    const { scrollToTop } = useScrollToTop()
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state.main)
@@ -80,9 +81,10 @@ const Destinations = () => {
                                     <Link to={"/tours"} key={item.id} className="mr-4 styleLink">
                                         <button 
                                             onClick={() => {
-                                                dispatch(changeCountry(item.country.title))
-                                                dispatch(handleCategory(item.category.title))
-                                                dispatch(handleDistrict(item.district.title))
+                                                dispatch(changeCountry(item.country.title));
+                                                dispatch(handleCategory(item.category.title));
+                                                dispatch(handleDistrict(item.district.title));
+                                                scrollToTop();
                                             }} 
                                             style={{ backgroundImage: `url(${item.category.image})`}}
                                             className="flex justify-start items-end p-4 rounded-xl w-[519px] xl:w-[450px] lg:w-[350px] h-[314px] bg-center bg-cover bg-no-repeat">
@@ -111,6 +113,7 @@ const Destinations = () => {
                                                 dispatch(changeCountry(item.country.title))
                                                 dispatch(handleCategory(item.category.title))
                                                 dispatch(handleDistrict(item.district.title))
+                                                scrollToTop();
                                             }} 
                                             style={{ backgroundImage: `url(${item.category.image})`}}
                                             className="flex justify-start items-end p-4 rounded-xl w-[519px] xl:w-[450px] lg:w-[350px] h-[314px] bg-center bg-cover bg-no-repeat">

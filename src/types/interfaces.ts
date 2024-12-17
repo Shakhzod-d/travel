@@ -4,6 +4,8 @@ export interface State {
   bookingModal: boolean;
   userRate: number;
   activeCountry: string;
+  clas: string;
+  type: string;
   district: string;
   category: string;
   serviceId: string;

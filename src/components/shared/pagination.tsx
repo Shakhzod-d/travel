@@ -10,15 +10,12 @@ import ReactPaginate from "react-paginate";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-type Props = {
-  clas: string;
-  type: string;
-};
 
-const Pagination = ({ clas, type }: Props) => {
+
+const Pagination = () => {
   const { t } = useTranslation();
   const state = useSelector((state: RootState) => state.main);
-  const { activeCountry, category } = state;
+  const { activeCountry, category, clas, type } = state;
   const { fetchTraveldata } = useFetchTravelData();
   const { data, error, isLoading } = useQuery({
     queryKey: ["traveldata"],
@@ -43,17 +40,17 @@ const Pagination = ({ clas, type }: Props) => {
 
   if (clas !== t("all")) {
     switch (clas) {
-      case "budget":
+      case t("budget"):
         filteredItems = filteredItems?.filter(
           (item: TravelType) => item.tour_class === 1
         );
         break;
-      case "standard":
+      case t("standard"):
         filteredItems = filteredItems?.filter(
           (item: TravelType) => item.tour_class === 2
         );
         break;
-      case "luxury":
+      case t("luxury"):
         filteredItems = filteredItems?.filter(
           (item: TravelType) => item.tour_class === 3
         );
@@ -63,17 +60,17 @@ const Pagination = ({ clas, type }: Props) => {
 
   if (type !== t("all")) {
     switch (type) {
-      case "individual":
+      case t("individual"):
         filteredItems = filteredItems?.filter(
           (item: TravelType) => item.tour_type === 1
         );
         break;
-      case "group":
+      case t("group2"):
         filteredItems = filteredItems?.filter(
           (item: TravelType) => item.tour_type === 2
         );
         break;
-      case "daily":
+      case t("daily"):
         filteredItems = filteredItems?.filter(
           (item: TravelType) => item.tour_type === 3
         );

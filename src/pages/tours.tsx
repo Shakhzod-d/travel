@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Loading } from "../components/ui";
 import { CountryList, Pagination } from "../components/shared";
@@ -9,6 +9,8 @@ import { RootState } from "../store/store";
 import {
   changeCountry,
   handleCategory,
+  handleType,
+  handleClas
 } from "../store/main-slice";
 import { useTranslation } from "react-i18next";
 import HeaderAbout from "../components/shared/header-about";
@@ -16,12 +18,10 @@ import ContactSection from "../components/shared/contact-section";
 
 const Tours = () => {
   const { t } = useTranslation();
-  const [clas, setClas] = useState<string>("all");
-  const [type, setType] = useState<string>("all");
   Tabtitle(t("tours"));
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.main);
-  const { category, district } = state;
+  const { category, district, clas, type } = state;
   const { fetchdata: fetchCategories } = useFetchData("api/tour/v1/categories");
   const {
     data: categoriesData,
@@ -29,19 +29,19 @@ const Tours = () => {
     isLoading: categoriesLoading,
   } = useQuery({
     queryKey: ["getCategories"],
-    queryFn: fetchCategories,
+    queryFn: fetchCategories
   });
 
   const { fetchdata } = useFetchData("/api/main/v1/countries");
   const { data: countriesData } = useQuery({
     queryKey: ["countries"],
-    queryFn: fetchdata,
+    queryFn: fetchdata
   });
 
   const { fetchdata: fetchdata2 } = useFetchData("/api/main/v1/distiricts");
   const { data: data2, isLoading: isLoading2 } = useQuery({
     queryKey: ["distiricts"],
-    queryFn: fetchdata2,
+    queryFn: fetchdata2
   });
 
   let uniqueCategory = [
@@ -55,6 +55,20 @@ const Tours = () => {
       dispatch(handleCategory(t("all")));
     }
   }, [categoriesData]);
+
+  //default type
+  useEffect(() => {
+    if (type == "") {
+      dispatch(handleType(t("all")));
+    }
+  }, [type]);
+
+  //default clas
+  useEffect(() => {
+    if (clas == "") {
+      dispatch(handleClas(t("all")));
+    }
+  }, [clas]);
 
 
   //default country
@@ -73,7 +87,6 @@ const Tours = () => {
       }
     }
   }, [data2]);
-
 
   if (isLoading2) {
     return <Loading />;
@@ -104,29 +117,29 @@ const Tours = () => {
             name="clas"
             id="clas"
             value={clas}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setClas(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              dispatch(handleClas(e.target.value));
+            }}
             className="capitalize w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mb-5"
           >
-            <option value="all">{t("all")}</option>
-            <option value="budget">{t("budget")}</option>
-            <option value="standard">{t("standard")}</option>
-            <option value="luxury">{t("luxury")}</option>
+            <option value={t("all")}>{t("all")}</option>
+            <option value={t("budget")}>{t("budget")}</option>
+            <option value={t("standard")}>{t("standard")}</option>
+            <option value={t("luxury")}>{t("luxury")}</option>
           </select>
           <select
             name="type"
             id="type"
             value={type}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setType(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>{
+              dispatch(handleType(e.target.value));
+            }}
             className="capitalize w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mb-5"
           >
-            <option value="all">{t("all")}</option>
-            <option value="individual">{t("individual")}</option>
-            <option value="group">{t("group2")}</option>
-            <option value="daily">{t("daily")}</option>
+            <option value={t("all")}>{t("all")}</option>
+            <option value={t("individual")}>{t("individual")}</option>
+            <option value={t("group2")}>{t("group2")}</option>
+            <option value={t("daily")}>{t("daily")}</option>
           </select>
           {categoriesLoading ? (
             <Loading />
@@ -156,7 +169,7 @@ const Tours = () => {
           <CountryList />
         </div>
         <div className="pb-[50px] sm:pb-5 mt-6">
-          <Pagination clas={clas} type={type} />
+          <Pagination/>
         </div>
       </Container>
       <ContactSection />

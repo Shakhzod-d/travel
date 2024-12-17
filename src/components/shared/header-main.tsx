@@ -1,7 +1,4 @@
-import whiteIcon from '../../assets/images/icons/white-icon.png'
-import Navbar from "./navbar";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MenuIcon from '@mui/icons-material/Menu';
+import { useState, useEffect } from 'react';
 import { SocialMedias } from '../../types';
 import { socialMedias } from '../../utils';
 import { Link } from 'react-router-dom';
@@ -10,6 +7,10 @@ import { useDispatch } from 'react-redux';
 import { Container, LocaleSelector } from "../ui";
 import { Link as ScrollLink } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
+import whiteIcon from '../../assets/images/icons/white-icon.png'
+import Navbar from "./navbar";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const HeaderMain = () => {
     let dispatch = useDispatch()
@@ -18,7 +19,13 @@ const HeaderMain = () => {
         dispatch(openMenu())
     }
 
-    let ln = localStorage.getItem('lng')
+    const [ln, setLn] = useState(localStorage?.getItem('lng'));
+
+    useEffect(() => {
+      if (ln === null) {
+        setLn("eng");
+      }
+    }, [ln]);
 
     return (
         <div className="overlay h-screen flex flex-col absolute top-0 left-0 items-center justify-between w-full bg-cover bg-center bg-no-repeat">
@@ -42,16 +49,17 @@ const HeaderMain = () => {
                 </Container>
             </div>    
             <Container className="max-w-[1256px] relative w-full flex flex-col justify-between px-5 pt-2 pb-9 2xl:pb-3 h-full">
-                <div className='w-full flex flex-col items-center justify-center pt-[180px] 2xl:pt-[100px]  lg:pt-[50px] '>
-                    {ln == 'eng' ? 
+                <div className='w-full flex flex-col items-center justify-center pt-[180px] 2xl:pt-[100px] lg:pt-[50px] '>
+                    {ln === 'eng' ? (
                             <h2 className='font-[400px] headline max-w-[1000px] lg:max-w-[800px] md:max-w-[600px] leading-[79px] 2xl:leading-[60px] uppercase text-[64px] 2xl:text-[42px] xl:[36px] lg:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 xl:mb-3 break-words'>
                                 can <br />
                                 follow your <br />
                                 central asian navigator
-                            </h2> :
+                            </h2>) : (
                         <h2 className='font-[400px] headline max-w-[1000px] 2xl:max-w-[800px] lg:max-w-[600px] md:max-w-[400px] leading-[79px] 2xl:leading-[60px] uppercase text-[64px] 2xl:text-[42px] xl:[36px] lg:text-4xl sm:text-3xl sm:font-semibold text-white text-center w-full mb-8 xl:mb-3 break-words'>
                             {t("navigator")}
-                        </h2>}
+                        </h2>)
+                    }
                     <Link to={'/tours'} className='text-white  bg-white bg-opacity-15 text-[20px] xl:text-[16px] md:text-[12px] round px-11 md:px-7 sm:px-4 sm:py-1 py-2 border-[2px] border-white uppercase'>
                         {t("findTour")}
                     </Link>

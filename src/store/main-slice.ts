@@ -9,6 +9,8 @@ const initialState: State = {
   bookingModal: false,
   userRate: 0,
   activeCountry: '',
+  clas: '',
+  type: '',
   district: '',
   category: '',
   serviceId: '',
@@ -68,6 +70,12 @@ export const mainSlice = createSlice({
     },
     changeCountry: ( state, action ) => {
       state.activeCountry = action.payload
+    },
+    handleClas: ( state, action ) => {
+      state.clas = action.payload
+    },
+    handleType: ( state, action ) => {
+      state.type = action.payload
     },
     handleDistrict: ( state, action ) => {
       state.district = action.payload
@@ -134,7 +142,9 @@ export const {
   handleModalType,
   handleGalleryType,
   handleIncludedActive,
-  handleDays
+  handleDays,
+  handleClas,
+  handleType
 } =
 mainSlice.actions;
 

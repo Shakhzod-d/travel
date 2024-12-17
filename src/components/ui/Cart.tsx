@@ -1,6 +1,7 @@
 import { useSanitize, useScrollToTop } from "../../hooks";
 import { Base_URL } from "../../api";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Rating from "./rating";
 import clock from "../../assets/icons/clock.png";
 import people from "../../assets/icons/people.png";
@@ -38,8 +39,7 @@ const Cart = ({
   const redirectToTour = () => {
     scrollToTop();
   };
-
-
+  const { t } = useTranslation()
 
   return (
     <Link
@@ -59,8 +59,10 @@ const Cart = ({
             <div className="w-full flex justify-end">
               <div className="absolute top-8 rounded-tl-[200px] rounded-bl-[200px] bg-[#F56960] z-20 pl-1 py-[1px]">
                 <div className="flex items-center p-1">
-                  <h3 className="h3 text-xl">{`$${Math.round(Number(price))}`}</h3>
-                  <h4 className="h4">/per person</h4>
+                  <h3 className="h3 text-xl">{`$${Math.round(
+                    Number(price)
+                  )}`}</h3>
+                  <h4 className="h4">/{t("perperson")}</h4>
                 </div>
               </div>
             </div>
@@ -71,7 +73,9 @@ const Cart = ({
                   alt="clock-icon"
                   className="w-[19.5px] h-[19.5px] sm:w-[13px] sm:h-[13px] mr-2 sm:mr-[5px]"
                 />
-                <h4 className="h4 sm:text-[13px] text-[#3F3F3F]">{days && nights ? `${days}D/${nights}N` : duration}</h4>
+                <h4 className="h4 sm:text-[13px] text-[#3F3F3F]">
+                  {days && nights ? `${days}D/${nights}N` : duration}
+                </h4>
               </div>
               <div className="mr-1 border-r-[1px] border-[#3F3F3F] flex justify-between items-center pr-1">
                 <img

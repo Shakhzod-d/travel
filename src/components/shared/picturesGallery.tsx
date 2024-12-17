@@ -88,8 +88,8 @@ const PicturesGallery = () => {
     }
     return (
       <div
-        className={`w-full animate__animated animate__zoomIn h-screen fixed justify-center items-center z-50 break-words ${
-          picturesGallery ? "animate__zoomIn" : "hidden"
+        className={`w-full h-screen fixed justify-center items-center z-50 break-words ${
+          picturesGallery ? "block" : "hidden"
         }`}
       >
         <div className="flex justify-center  items-center w-full h-full 2xl:p-3 p-9">
@@ -111,7 +111,7 @@ const PicturesGallery = () => {
             </div>
             <div
               onClick={stopPropagation}
-              className="relative flex flex-col h-full justify-center max-w-[1096px] w-[50%] lg:w-[70%] md:w-[80%] sm:w-[90%] pointer-events-auto px-11 sm:p-5"
+              className="relative animate__animated animate__zoomIn flex flex-col h-full justify-center max-w-[1096px] w-[50%] lg:w-[70%] md:w-[80%] sm:w-[90%] pointer-events-auto px-11 sm:p-5"
             >
               {isLoading ? (
                 <Loading />

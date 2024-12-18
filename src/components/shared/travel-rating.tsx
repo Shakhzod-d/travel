@@ -32,7 +32,6 @@ const TravelRating: FC<TravelRatingProps> = ({
   let two = ranks.detail?.filter((item: DetailType) => item.rank == 2)[0]?.count;
   let one = ranks.detail?.filter((item: DetailType) => item.rank == 1)[0]?.count;
 
-
   let arr = [five, four, three, two, one].filter((item) => item !== undefined)
   let sum = arr.reduce((a,b) => a + b, 0) 
 
@@ -51,8 +50,8 @@ const TravelRating: FC<TravelRatingProps> = ({
           className="outline-none px-5 py-1 font-normal sm:mb-3 rounded-sm"
           onChange={sortReviews}
         >
-          <option value="false">{t("oldest")}</option>
-          <option value="true">{t("newest")}</option>
+          <option value="false">{t("newest")}</option>
+          <option value="true">{t("oldest")}</option>
         </select>
         <button
           onClick={modalHandler}
@@ -91,7 +90,7 @@ const TravelRating: FC<TravelRatingProps> = ({
                 )}
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                {five}
+                {five ? five : 0}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
@@ -105,7 +104,7 @@ const TravelRating: FC<TravelRatingProps> = ({
                 )}
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                {four}
+                {four ? four : 0}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
@@ -119,7 +118,7 @@ const TravelRating: FC<TravelRatingProps> = ({
                 )}
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                {three}
+                {three ? three : 0}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
@@ -133,7 +132,7 @@ const TravelRating: FC<TravelRatingProps> = ({
                 )}
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                {two}
+                {two ? two : 0}
               </p>
             </div>
             <div className="flex justify-between items-center w-full gap-[9px] ">
@@ -149,7 +148,7 @@ const TravelRating: FC<TravelRatingProps> = ({
                 )}
               </div>
               <p className="text-center text-[#0d0c22] text-[10px] font-medium leading-[18px]">
-                {one}
+                {one ? one : 0}
               </p>
             </div>
           </div>

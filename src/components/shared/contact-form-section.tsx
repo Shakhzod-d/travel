@@ -45,8 +45,8 @@ const ContactFormSection = () => {
   return (
     <section className="mb-[90px] sm:mb-10">
       <Container className="flex gap-[127px] items-center flex-wrap lg:flex-col ">
-        <div className="flex lg:flex-col justify-between lg:items-center w-full">
-          <div className="flex-1 flex-col gap-11 inline-flex max-w-[527px] w-full xl:mr-4 lg:mr-0 lg:mb-5">
+        <div className="flex lg:flex-col justify-between lg:items-start w-full">
+          <div className="flex-1 flex-col gap-11 inline-flex max-w-[527px] lg:max-w-full w-full xl:mr-4 lg:mr-0 lg:mb-11">
             <div className="flex-col gap-5 flex">
               <h2 className="text-[#0c141d] text-[60px] font-[600] leading-[78px] sm:text-3xl">
                 {t("lets")}
@@ -112,7 +112,7 @@ const ContactFormSection = () => {
               </div>
             </div>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="max-w-[540px] xl:max-w-[450px] lg:max-w-[540px] w-full">
+          <form onSubmit={handleSubmit(onSubmit)} className="max-w-[540px] xl:max-w-[450px] lg:max-w-[540px] md:max-w-full w-full">
               <div>
                 <h3 className="text-[18px] font-semibold mb-2">{t("name")}</h3>
                 <input 

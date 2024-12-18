@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Loading } from "../components/ui";
-import { CountryList, Pagination } from "../components/shared";
-import { useFetchData, Tabtitle } from "../hooks";
+import { CountryList, TourCarts } from "../components/shared";
+import { useFetchData, Tabtitle, useFetchTravelData } from "../hooks";
 import { useQuery } from "react-query";
-import { CategoryType, CountriesType } from "../types";
+import { CategoryType, CountriesType, TravelType } from "../types";
 import { RootState } from "../store/store";
 import {
   changeCountry,
@@ -21,7 +21,16 @@ const Tours = () => {
   Tabtitle(t("tours"));
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.main);
-  const { category, district, clas, type } = state;
+  const { category, district, clas, type, activeCountry } = state;
+
+  const { fetchTraveldata } = useFetchTravelData();
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["traveldata"],
+    queryFn: fetchTraveldata,
+  });
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 12;
+
   const { fetchdata: fetchCategories } = useFetchData("api/tour/v1/categories");
   const {
     data: categoriesData,
@@ -48,6 +57,56 @@ const Tours = () => {
     t("all"),
     ...new Set(categoriesData?.map((item: CategoryType) => item.title)),
   ];
+
+  //filter data
+  let filteredItems = useMemo(() => {
+    if (!data?.results) return [];
+
+    let filtered = data?.results;
+    if (category !== t("all")) {
+      filtered = filtered.filter(
+        (item: TravelType) => item.category.title === category
+      );
+    }
+
+    if (activeCountry !== t("all")) {
+      filtered = filtered.filter(
+        (item: TravelType) => item.country.title === activeCountry
+      );
+    }
+
+    if (clas !== t("all")) {
+      const classMap = {
+        [t("budget")]: 1,
+        [t("standard")]: 2,
+        [t("luxury")]: 3,
+      };
+      filtered = filtered.filter(
+        (item: TravelType) => item.tour_class === classMap[clas]
+      );
+    }
+
+    if (type !== t("all")) {
+      const typeMap = {
+        [t("individual")]: 1,
+        [t("group2")]: 2,
+        [t("daily")]: 3,
+      };
+      filtered = filtered.filter(
+        (item: TravelType) => item.tour_type === typeMap[type]
+      );
+    }
+    return filtered;
+  }, [[data, category, activeCountry, clas, type, t]]);
+
+
+  const currentItems = useMemo(() => {
+    const startIndex = currentPage * itemsPerPage;
+    if (filteredItems?.length > 0) {
+      return filteredItems?.slice(startIndex, startIndex + itemsPerPage);
+    }
+    return [];
+  }, [filteredItems, currentPage]);
 
   //default category
   useEffect(() => {
@@ -88,7 +147,7 @@ const Tours = () => {
     }
   }, [data2]);
 
-  if (isLoading2) {
+  if (isLoading2 || isLoading) {
     return <Loading />;
   }
 
@@ -96,7 +155,7 @@ const Tours = () => {
     <div>
       <HeaderAbout
         className="bg-[url('/Tour.png')] relative pb-[100px] bg-center bg-cover bg-no-repeat mb-20"
-        route={"tours"}
+        route={t("tours")}
         title={t("populartours")}
         desc={t("provide")}
       />
@@ -131,7 +190,7 @@ const Tours = () => {
             name="type"
             id="type"
             value={type}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>{
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
               dispatch(handleType(e.target.value));
             }}
             className="capitalize w-full rounded-lg px-2 py-4 outline-none bg-[#F5F5F5] font-semibold sm:mb-5"
@@ -169,7 +228,16 @@ const Tours = () => {
           <CountryList />
         </div>
         <div className="pb-[50px] sm:pb-5 mt-6">
-          <Pagination/>
+          {error instanceof Error ? (
+            <p className="text-red-500 text-xl">Error: {error.message}</p>
+          ) : (
+            <TourCarts
+              currentItems={currentItems}
+              filteredItems={filteredItems}
+              itemsPerPage={itemsPerPage}
+              setCurrentPage={setCurrentPage}
+            />
+          )}
         </div>
       </Container>
       <ContactSection />

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { BookingTourData, PreferredTimeType } from "../../types";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,13 +9,14 @@ import { Container } from "./container";
 import { useNotify, useFetchData } from "../../hooks";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
+import { InputMask } from "primereact/inputmask";
 import axios from "axios";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Swal from "sweetalert2";
 import CircularProgress from "@mui/material/CircularProgress";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Loading from "./loader";
+
 
 const TourBooking = () => {
   const dispatch = useDispatch();
@@ -75,7 +76,6 @@ const TourBooking = () => {
   };
 
   const [phone, setPhone] = useState("");
-  const [phoneFocus, setPhoneFocus] = useState(false);
 
   function addDaysToDate(dateStr: string, numDays: number) {
     // Convert the string date to a Date object
@@ -132,8 +132,8 @@ const TourBooking = () => {
       setPhone("");
       setSelectedCountry(0);
       setSelectedTime(0);
-      setIspending(false);
     }
+    setIspending(false);
     setCountryErr(false)
     reset();
   };
@@ -142,23 +142,6 @@ const TourBooking = () => {
     dispatch(closeBookingModal());
     dispatch(closeTourModal());
   };
-
-  const selectorRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        selectorRef.current &&
-        !selectorRef.current.contains(e.target as Node)
-      ) {
-        setPhoneFocus(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -169,12 +152,11 @@ const TourBooking = () => {
   }
   return (
     <div
-      ref={selectorRef}
       className={`w-full animate__animated animate__zoomIn fixed justify-center items-center z-50 pointer-events-none break-words ${
         tourModal ? "flex" : "animate__animated animate__zoomOut"
       }`}
     >
-      <div className="flex justify-center items-center 3xl:items-start w-full h-screen overflow-scroll pointer-events-none">
+      <div className="flex justify-center items-center 3xl:items-start w-full h-screen overflow-y-scroll pointer-events-none">
         <div className="bg-white w-full">
           <Container className="pointer-events-auto h-max w-full py-11 2xl:py-7 sm:py-3">
             <div className="w-full flex sm:flex-col-reverse sm:items-end justify-between items-center gap-x-9 border-b-[1px] border-[#E5E5E5]">
@@ -323,7 +305,7 @@ const TourBooking = () => {
                     </h3>
                     <span className="text-red-500 ml-1">*</span>
                   </div>
-                  <div ref={selectorRef} className="relative">
+                  <div className="relative">
                     <Controller
                       name="phone"
                       control={control}
@@ -334,34 +316,22 @@ const TourBooking = () => {
                           message: t("numbermessage"),
                         },
                       }}
-                      render={({ field }) => {
-                        const handleChangePhone = (
-                          phoneNumber: string | undefined
-                        ) => {
-                          setPhone(phoneNumber || "");
-                        };
+                      render={() => {
                         return (
                           <>
-                            <PhoneInput
-                              {...field}
+                            <InputMask
+                              className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                              {...register("phone", {
+                                required: {
+                                  value: true,
+                                  message: t("numbermessage"),
+                                },
+                              })}
+                              type="phone"
                               id="phone"
-                              value={field.value}
-                              onChange={(phoneNumber) => {
-                                handleChangePhone(phoneNumber);
-                                field.onChange(phoneNumber);
-                              }}
-                              defaultCountry="US"
-                              onFocus={() => setPhoneFocus(true)}
-                              onBlur={() => setPhoneFocus(false)}
-                              className="relative text-[#98A2B3] rounded-md p-3 text-md w-full my-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                              mask="+999(99)999-99-99"
+                              placeholder="+000(00)000-00-00"
                             />
-                            <span
-                              className={`absolute top-3 left-[60px] pl-3 border-l-[1px]  border-[#98A2B3] text-[#98A2B3] pointer-events-none ${
-                                phoneFocus || phone !== "" ? "hidden" : "block"
-                              }`}
-                            >
-                              {t("number")}
-                            </span>
                           </>
                         );
                       }}

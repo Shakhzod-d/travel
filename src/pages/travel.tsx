@@ -87,9 +87,7 @@ const Travel = () => {
             <div className="flex justify-between gap-7 py-10 lg:flex-col">
               <div className="max-w-[740px] w-full">
                 <TravelOverview facilities={facilities} context={context} />
-                <TravelHotels
-                  includes={includes} 
-                />
+                <TravelHotels includes={includes} />
                 <TravelRating
                   overall={overall}
                   reviews={reviews}

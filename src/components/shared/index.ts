@@ -16,6 +16,7 @@ export { default as CountryList } from './countryList'
 export { default as Pagination } from './pagination'
 export { default as PicturesModal } from './picturesModal'
 export { default as PicturesGallery } from './picturesGallery'
+export { default as TourCarts } from './tour-carts'
 
 export * from "./experiencse-section";
 export * from "./team-section";

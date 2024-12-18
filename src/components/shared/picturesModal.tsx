@@ -74,7 +74,7 @@ const PicturesModal = () => {
                   Error: {error.message}
                 </p>
               ) : (
-                <div className="w-full mt-9 sm:mt-5 grid grid-cols-2 sm:grid-cols-1 overflow-y-scroll gap-5 cursor-pointer">
+                <div className="w-full mt-9 sm:mt-5 grid grid-cols-2 sm:grid-cols-1 gap-5 cursor-pointer">
                   {imgs?.map((item: ImagesType, index: number) => (
                     <img
                       key={item.id}

@@ -1,46 +1,47 @@
 import { useState } from "react";
 import { Container } from "../ui";
-import { useForm } from "react-hook-form"
-import { Data } from '../../types'
+import { useForm } from "react-hook-form";
+import { Data } from "../../types";
 import { InputMask } from "primereact/inputmask";
 import { Base_URL } from "../../api";
 import { useNotify } from "../../hooks";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
 import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 
 const ContactFormSection = () => {
-  const { t } = useTranslation()
-  const [isPending, setIspending] = useState(false)
-  const { toastify } = useNotify()
+  const { t } = useTranslation();
+  const [isPending, setIspending] = useState(false);
+  const { toastify } = useNotify();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<Data>({
-    mode: "onBlur"
-  })
+    mode: "onBlur",
+  });
 
   const onSubmit = async (data: Data) => {
-    setIspending(true)
-    await axios.post(`${Base_URL}/api/main/v1/contacts/`, data)
-    .then(_ => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: t("successful"),
-        showConfirmButton: false,
-        showCloseButton: true,
+    setIspending(true);
+    await axios
+      .post(`${Base_URL}/api/main/v1/contacts/`, data)
+      .then((_) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: t("successful"),
+          showConfirmButton: false,
+          showCloseButton: true,
+        });
+      })
+      .catch((err) => {
+        toastify(err.message, "error");
       });
-    })
-    .catch(err => {
-      toastify(err.message, 'error')
-    })
-    setIspending(false)
-    reset()
-  }
+    setIspending(false);
+    reset();
+  };
 
   return (
     <section className="mb-[90px] sm:mb-10">
@@ -112,59 +113,71 @@ const ContactFormSection = () => {
               </div>
             </div>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="max-w-[540px] xl:max-w-[450px] lg:max-w-[540px] md:max-w-full w-full">
-              <div>
-                <h3 className="text-[18px] font-semibold mb-2">{t("name")}</h3>
-                <input 
-                  className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
-                  {...register("full_name", {
-                      required: {
-                        value: true,
-                        message: t("namemessage")
-                      }
-                  })}
-                  id="name" 
-                  type="text" 
-                  placeholder={t("yourname")}
-                />
-                <p className="error">{errors.full_name?.message}</p>
-              </div>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="max-w-[540px] xl:max-w-[450px] lg:max-w-[540px] md:max-w-full w-full"
+          >
+            <div>
+              <h3 className="text-[18px] font-semibold mb-2">{t("name")}</h3>
+              <input
+                className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                {...register("full_name", {
+                  required: {
+                    value: true,
+                    message: t("namemessage"),
+                  },
+                })}
+                id="name"
+                type="text"
+                placeholder={t("yourname")}
+              />
+              <p className="error">{errors.full_name?.message}</p>
+            </div>
 
-              <div>
-                <h3 className="text-[18px] font-semibold mb-2">{t("number")}</h3>
-                <InputMask
-                  className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
-                  {...register("phone", {
-                      required : {
-                        value: true,
-                        message : t("numbermessage")
-                      },
-                  })}
-                  type="phone" 
-                  id="phone"
-                  mask='+999(99)999-99-99'
-                  placeholder="+000(00)000-00-00"
-                />
-                <p className="error">{errors.phone?.message}</p>
-              </div>
-              <div>
-                <h3 className="text-[18px] font-semibold mb-2">{t("whathelp")}</h3>
-                <textarea 
-                  id="dream"
-                  placeholder={t("telldream")}
-                  {...register("content", {
-                      required : {
-                        value: false,
-                        message : t("dreammessage")
-                      },
-                    })
-                  }
-                  className="rounded-md p-3 text-md w-full border-[1px] border-solid border-[#D0D5DD] outline-none max-h-[150px]"
-                  >
-                </textarea>
-                <p className="error">{errors.content?.message}</p>
-              </div>
-              <button type="submit" className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2">{isPending ? <CircularProgress size={24} color="inherit"/> : t("send")}</button>
+            <div>
+              <h3 className="text-[18px] font-semibold mb-2">{t("number")}</h3>
+              <InputMask
+                className="rounded-md p-3 text-md w-full mb-2 border-[1px] border-solid border-[#D0D5DD] outline-none"
+                {...register("phone", {
+                  required: {
+                    value: true,
+                    message: t("numbermessage"),
+                  },
+                })}
+                type="phone"
+                id="phone"
+                mask="+999(99)999-99-99"
+                placeholder="+000(00)000-00-00"
+              />
+              <p className="error">{errors.phone?.message}</p>
+            </div>
+            <div>
+              <h3 className="text-[18px] font-semibold mb-2">
+                {t("whathelp")}
+              </h3>
+              <textarea
+                id="dream"
+                placeholder={t("telldream")}
+                {...register("content", {
+                  required: {
+                    value: false,
+                    message: t("dreammessage"),
+                  },
+                })}
+                className="rounded-md p-3 text-md w-full border-[1px] border-solid border-[#D0D5DD] outline-none max-h-[150px]"
+              ></textarea>
+              <p className="error">{errors.content?.message}</p>
+            </div>
+            <button
+              type="submit"
+              className="bg-[#635AFF] rounded-md p-3 w-full h4 mt-2"
+            >
+              {isPending ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                t("send")
+              )}
+            </button>
           </form>
         </div>
       </Container>

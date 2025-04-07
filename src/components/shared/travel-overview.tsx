@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { FacilitiesType } from "../../types";
 import { Container } from "../ui";
 import { useTranslation } from "react-i18next";
-import { useSanitize } from "../../hooks";
+// import { useSanitize } from "../../hooks";
 
 interface TravelOverviewProps {
   facilities: FacilitiesType[];
@@ -12,7 +12,7 @@ interface TravelOverviewProps {
 
 const TravelOverview: FC<TravelOverviewProps> = ({ facilities, context }) => {
   const { t } = useTranslation();
-  const { sanitize } = useSanitize();
+  // const { sanitize } = useSanitize();
 
   return (
     <section
@@ -28,8 +28,11 @@ const TravelOverview: FC<TravelOverviewProps> = ({ facilities, context }) => {
         <div className="px-[1.83px] py-0.5 justify-center items-center inline-flex">
           <div className="w-[18.34px] h-[17.99px]"></div>
         </div>
-        <div className="text-[#4e4e4e] text-base font-normal leading-snug tracking-tight">
-          {sanitize(context)}
+        <div
+          dangerouslySetInnerHTML={{ __html: context }}
+          className="text-[#4e4e4e] text-base font-normal leading-snug tracking-tight"
+        >
+          {/* {sanitize(context)} */}
         </div>
       </Container>
       <Container className="p-6 sm:p-2">

@@ -46,6 +46,8 @@ const Travel = () => {
     includes = [],
   } = data || {};
 
+  // console.log(data);
+
   let country, city, reviews, images, facilities, overall;
   if (data) {
     country = data?.district?.country.title;
@@ -95,14 +97,16 @@ const Travel = () => {
                   sortReviews={sortReviews}
                 />
                 <TravelReviews isNew={isNew} />
-                <TravelLocation
-                  country={country}
-                  city={city}
-                  lot={lot}
-                  lang={lang}
-                />
+                {lot !== null && lang !== null && (
+                  <TravelLocation
+                    country={country}
+                    city={city}
+                    lot={lot}
+                    lang={lang}
+                  />
+                )}
               </div>
-              <TravelSummary/>
+              <TravelSummary />
             </div>
           </Container>
           <TravelOthers others={others} />

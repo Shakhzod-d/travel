@@ -32,7 +32,7 @@ function App() {
       document.body.classList.remove('unscrollable')
     }
   }, [picturesModal, picturesGallery])
-
+// added redirects file
   return (
     <>
       <ToastContainer />
